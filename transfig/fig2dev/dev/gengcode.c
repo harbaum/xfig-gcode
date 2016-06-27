@@ -39,12 +39,12 @@
 
 #define NYI(a)  put_msg("Not yet implemented: %s", a)
 
-#define ZMUL   10.0  // Z axis layer -> 1/10 mm
+#define ZMUL   100.0  // Z axis layer -> 1/10 mm
 #define XMUL   25.4
 #define YMUL   25.4
 #define PREC  "%.4f"  // 1/10000 inch
 
-#define FREE_HEIGHT  (1.0) // 1cm
+#define FREE_HEIGHT  (10.0) // 1cm
 // #define FEED_RATE    "1000"       // 25.4 m/min !!!!
 
 // 500-700 mm/min = 20-28 in/min
