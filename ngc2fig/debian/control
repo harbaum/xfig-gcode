@@ -1,0 +1,19 @@
+Source: ngc2fig
+Section: unknown
+Priority: optional
+Maintainer: Till Harbaum <till@harbaum.org>
+Build-Depends: debhelper (>= 5)
+Standards-Version: 3.7.2
+
+Package: ngc2fig
+Architecture: any
+Depends: ${shlibs:Depends}, ${misc:Depends}
+Description: gcode (xfig generated) to xfig converter
+  This tool converts gcode (ngc files) into xfig. It only
+  supports a limited subset of gcode which is exactly what
+  the gcode output of xfig/transfig is made of. Together 
+  with that xfig version, xfig images can be turned into 
+  gcode and the gcode can for verification and optimization
+  be re-converted for use with xfig. The resulting xfig
+  file will unlike the orioginal xfig file only consist
+  of lines and polylines.

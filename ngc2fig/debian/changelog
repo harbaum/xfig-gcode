@@ -1,0 +1,17 @@
+ngc2fig (0.2ubuntu1) feisty; urgency=low
+
+  * Small patches
+
+ -- Till Harbaum <harbaum@metis>  Thu, 28 Jun 2007 18:41:19 +0200
+
+ngc2fig (0.2) unstable; urgency=low
+
+  * Various extensions incl. support for pcb-gcode converted eagle files
+
+ -- Till Harbaum <till@harbaum.org>  Wed, 27 Jun 2007 13:22:12 +0200
+
+ngc2fig (0.1) unstable; urgency=low
+
+  * Initial Release.
+
+ -- Till Harbaum <till@harbaum.org>  Thu, 21 Jun 2007 12:06:34 +0200
