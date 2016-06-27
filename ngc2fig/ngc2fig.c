@@ -379,9 +379,11 @@ int main(int argc, char **argv) {
   /* write fig file header */
   printf("#FIG 3.2  Produced by ngc2fig v0.2%s\n", 
 	 eagle_mode?" (eagle pcb-gcode mode)":"");
+
   printf("Landscape\n");
   printf("Center\n");
-  printf("Inches\n");
+  // printf("Inches\n");
+  printf("Metric\n");
   printf("Letter\n");
   printf("100.00\n");
   printf("Single\n");
