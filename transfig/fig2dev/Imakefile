@@ -189,9 +189,9 @@ INCLUDES = -I..
 
 LOCAL_LIBRARIES = $(LIBTRANSFIG)
 #if defined(NetBSDArchitecture) || defined(FreeBSDArchitecture)
-SYS_LIBRARIES = $(PNGLIBS) $(XPMLIBS) -lm -lcompat
+SYS_LIBRARIES = $(PNGLIBS) $(XPMLIBS) $(shell freetype-config --libs) -lm -lcompat
 #else
-SYS_LIBRARIES = $(PNGLIBS) $(XPMLIBS) -lm
+SYS_LIBRARIES = $(PNGLIBS) $(XPMLIBS) $(shell freetype-config --libs) -lm
 #endif
 DEPLIBS = $(LIBTRANSFIG)
 
