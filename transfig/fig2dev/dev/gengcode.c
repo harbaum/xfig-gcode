@@ -39,12 +39,12 @@
 
 #define NYI(a)  put_msg("Not yet implemented: %s", a)
 
-#define ZMUL   25.4
+#define ZMUL   10.0  // Z axis layer -> 1/10 mm
 #define XMUL   25.4
 #define YMUL   25.4
 #define PREC  "%.4f"  // 1/10000 inch
 
-#define FREE_HEIGHT  (ZMUL/2.5)   // ~1cm
+#define FREE_HEIGHT  (1.0) // 1cm
 // #define FEED_RATE    "1000"       // 25.4 m/min !!!!
 
 // 500-700 mm/min = 20-28 in/min
@@ -65,7 +65,6 @@ static const char *gcode_start[] = {
 
 /* the following is placed at the end of the file to return to idle mode */
 static const char *gcode_end[] = {
-  "G00 Z1",
   "G00 X0 Y0",
   //  "G0 Z0.25 (rapid to .25\" above the part, change as required)", 
   "M05 M09 (spindle and coolant off)",
@@ -882,7 +881,7 @@ void gengcode_text(F_text *t) {
       return;
     }
 
-#if 1
+#if 0
     {
       FT_ULong  charcode;
       FT_UInt   gindex;

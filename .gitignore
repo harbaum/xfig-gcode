@@ -45,3 +45,4 @@ transfig/*/*/Makefile
 transfig/doc/manual/trans.tex
 transfig/fig2dev/fig2ps2tex.man
 transfig/fig2dev/pic2tpic.man
+ngc2fig/ngc2fig
