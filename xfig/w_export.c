@@ -54,6 +54,10 @@ Widget	exp_selfile,	/* output (selected) file widget */
 
 Boolean	export_up = False;
 
+Widget  ngc_form_label, ngc_form;
+Widget  ngc_depth_lbl, ngc_depth, ngc_depth_unit;
+Widget  ngc_step_lbl, ngc_step, ngc_step_unit;
+
 Widget	top_section, bottom_section, postscript_form, bitmap_form;
 Widget  ps_form_label;
 Widget	export_orient_panel;
@@ -725,6 +729,7 @@ void manage_optional(void)
 
 	    XtManageChild(postscript_form);
 	    XtUnmanageChild(bitmap_form);
+	    XtUnmanageChild(ngc_form);
 	    below = postscript_form;
 	} else if (cur_exp_lang == LANG_IBMGL) {
 	    /* Use all of the Postscript form except the multiple page options
@@ -750,14 +755,22 @@ void manage_optional(void)
 
 	    XtManageChild(postscript_form);
 	    XtUnmanageChild(bitmap_form);
+	    XtUnmanageChild(ngc_form);
 	    below = postscript_form;
+	} else if (cur_exp_lang == LANG_GCODE) {
+	    XtManageChild(ngc_form);
+	    XtUnmanageChild(postscript_form);
+	    XtUnmanageChild(bitmap_form);
+	    below = ngc_form;
 	} else if (cur_exp_lang >= FIRST_BITMAP_LANG) {
 	    XtManageChild(bitmap_form);
 	    XtUnmanageChild(postscript_form);
+	    XtUnmanageChild(ngc_form);
 	    below = bitmap_form;
 	} else {
 	    XtUnmanageChild(postscript_form);
 	    XtUnmanageChild(bitmap_form);
+	    XtUnmanageChild(ngc_form);
 	    below = top_section;
 	}
 
@@ -986,6 +999,23 @@ exp_xoff_unit_select(Widget w, XtPointer client_data, XtPointer call_data)
     FirstArg(XtNlabel, XtName(w));
     SetValues(exp_xoff_unit_panel);
     xoff_unit_setting = (intptr_t) client_data;
+}
+static void
+ngc_step_unit_select(w, client_data, call_data)
+    Widget          w;
+    XtPointer       client_data, call_data;
+{
+    FirstArg(XtNlabel, XtName(w));
+    SetValues(ngc_step_unit);
+}
+
+static void
+ngc_depth_unit_select(w, client_data, call_data)
+    Widget          w;
+    XtPointer       client_data, call_data;
+{
+    FirstArg(XtNlabel, XtName(w));
+    SetValues(ngc_depth_unit);
 }
 
 static void
@@ -1338,6 +1368,111 @@ void create_export_panel(Widget w)
 	/***** End of Bitmap Option form *****/
 
 	/**************************************************************/
+	/* Put the gcode options in their own frame (form). */
+	/* Don't manage it unless the export language is NGC/GCODE type */
+	/**************************************************************/
+
+	FirstArg(XtNborderWidth, 1);
+	NextArg(XtNfromVert, top_section);
+	NextArg(XtNtop, XtChainTop);
+	NextArg(XtNbottom, XtChainTop);
+	NextArg(XtNleft, XtChainLeft);
+	NextArg(XtNright, XtChainLeft);
+	ngc_form = XtCreateWidget("ngc_form", formWidgetClass,
+				  export_panel, Args, ArgCount);
+
+	/* now a label */
+	FirstArg(XtNlabel, "Gcode Options");
+	NextArg(XtNborderWidth, 0);
+	NextArg(XtNtop, XtChainTop);
+	NextArg(XtNbottom, XtChainTop);
+	NextArg(XtNleft, XtChainLeft);
+	NextArg(XtNright, XtChainLeft);
+	below = ngc_form_label = XtCreateManagedWidget("ngc_label", labelWidgetClass,
+						       ngc_form, Args, ArgCount);
+
+	FirstArg(XtNlabel, "Layer 50 Depth");
+	NextArg(XtNfromVert, below);
+	NextArg(XtNhorizDistance, 5);
+	NextArg(XtNborderWidth, 0);
+	NextArg(XtNtop, XtChainTop);
+	NextArg(XtNbottom, XtChainTop);
+	NextArg(XtNleft, XtChainLeft);
+	NextArg(XtNright, XtChainLeft);
+	ngc_depth_lbl = XtCreateManagedWidget("ngc_depth_lbl", labelWidgetClass,
+					      ngc_form, Args, ArgCount);
+
+	FirstArg(XtNwidth, 50);
+	NextArg(XtNleftMargin, 4);
+	NextArg(XtNeditType, XawtextEdit);
+	NextArg(XtNstring, "0.0");
+	NextArg(XtNinsertPosition, 0);
+	NextArg(XtNfromHoriz, ngc_depth_lbl);
+	NextArg(XtNfromVert, below);
+	NextArg(XtNborderWidth, INTERNAL_BW);
+	NextArg(XtNscrollHorizontal, XawtextScrollWhenNeeded);
+	NextArg(XtNtop, XtChainTop);
+	NextArg(XtNbottom, XtChainTop);
+	NextArg(XtNleft, XtChainLeft);
+	NextArg(XtNright, XtChainLeft);
+	ngc_depth = XtCreateManagedWidget("ngc_depth", asciiTextWidgetClass,
+					  ngc_form, Args, ArgCount);
+
+	FirstArg(XtNfromHoriz, ngc_depth);
+	NextArg(XtNfromVert, below);
+	NextArg(XtNtop, XtChainTop);
+	NextArg(XtNbottom, XtChainTop);
+	NextArg(XtNleft, XtChainLeft);
+	NextArg(XtNright, XtChainLeft);
+	NextArg(XtNleftBitmap, menu_arrow);	/* use menu arrow for pull-down */
+	ngc_depth_unit = XtCreateManagedWidget(offset_unit_items[0],
+				menuButtonWidgetClass, ngc_form, Args, ArgCount);
+	make_pulldown_menu(offset_unit_items, XtNumber(offset_unit_items), 
+				-1, "", ngc_depth_unit, ngc_depth_unit_select);
+
+	FirstArg(XtNlabel, "step");
+	NextArg(XtNfromVert, below);
+	NextArg(XtNfromHoriz, ngc_depth_unit);
+	NextArg(XtNhorizDistance, 5);
+	NextArg(XtNborderWidth, 0);
+	NextArg(XtNtop, XtChainTop);
+	NextArg(XtNbottom, XtChainTop);
+	NextArg(XtNleft, XtChainLeft);
+	NextArg(XtNright, XtChainLeft);
+	ngc_step_lbl = XtCreateManagedWidget("ngc_step_lbl", labelWidgetClass,
+					     ngc_form, Args, ArgCount);
+
+	FirstArg(XtNwidth, 50);
+	NextArg(XtNleftMargin, 4);
+	NextArg(XtNeditType, XawtextEdit);
+	NextArg(XtNstring, "0.01");
+	NextArg(XtNinsertPosition, 0);
+	NextArg(XtNfromHoriz, ngc_step_lbl);
+	NextArg(XtNfromVert, below);
+	NextArg(XtNborderWidth, INTERNAL_BW);
+	NextArg(XtNscrollHorizontal, XawtextScrollWhenNeeded);
+	NextArg(XtNtop, XtChainTop);
+	NextArg(XtNbottom, XtChainTop);
+	NextArg(XtNleft, XtChainLeft);
+	NextArg(XtNright, XtChainLeft);
+	ngc_step = XtCreateManagedWidget("ngc_step", asciiTextWidgetClass,
+					  ngc_form, Args, ArgCount);
+
+	FirstArg(XtNfromHoriz, ngc_step);
+	NextArg(XtNfromVert, below);
+	NextArg(XtNtop, XtChainTop);
+	NextArg(XtNbottom, XtChainTop);
+	NextArg(XtNleft, XtChainLeft);
+	NextArg(XtNright, XtChainLeft);
+	NextArg(XtNleftBitmap, menu_arrow);	/* use menu arrow for pull-down */
+	ngc_step_unit = XtCreateManagedWidget(offset_unit_items[0],
+				menuButtonWidgetClass, ngc_form, Args, ArgCount);
+	make_pulldown_menu(offset_unit_items, XtNumber(offset_unit_items), 
+				-1, "", ngc_step_unit, ngc_step_unit_select);
+
+	/***** End of gcode Option form *****/
+	
+	/**************************************************************/
 	/* Put the PostScript/HPGL options in their own frame (form). */
 	/* Don't manage it unless the export language is PS/HPGL type */
 	/**************************************************************/
@@ -1671,6 +1806,9 @@ void create_export_panel(Widget w)
 	if (cur_exp_lang == LANG_PS) {
 		XtManageChild(postscript_form);
 		below = postscript_form;
+	} else if (cur_exp_lang == LANG_GCODE) {
+		XtManageChild(ngc_form);
+		below = ngc_form;
 	} else if (cur_exp_lang >= FIRST_BITMAP_LANG) {
 		XtManageChild(bitmap_form);
 		below = bitmap_form;

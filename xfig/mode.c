@@ -99,6 +99,7 @@ char	       *lang_items[] = {
 	"pstex", "pdftex","pspdftex", "pictex", "hpl", "textyl",
 	"tpic",  "pic",   "map",    "mf",
 	"mp",    "mmp",   "cgm",    "bcgm", "emf",   "tk", "shape", "svg",
+	"ngc",
 /* bitmap formats start here */
 	"gif",  
 	"jpeg",
@@ -139,6 +140,7 @@ char	       *lang_texts[] = {
 	"Tk  (Tcl/Tk toolkit)                ",
 	"SHAPE (ShapePar definition )        ", 
 	"SVG (Scalable Vector Graphics; beta)",
+        "GCODE (CNC machine control; alpha)  ",
 
 	/*** bitmap formats follow ***/
 	/* if you move GIF, change FIRST_BITMAP_LANG in mode.h */

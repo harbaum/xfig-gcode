@@ -224,6 +224,7 @@ enum {
 	LANG_TK,
 	LANG_SHAPE,	/* ShapePar definition */
 	LANG_SVG,
+	LANG_GCODE,     /* CNC machining code */
 /* bitmap formats should follow here, starting with GIF */
 	LANG_GIF,
 	LANG_JPEG,
