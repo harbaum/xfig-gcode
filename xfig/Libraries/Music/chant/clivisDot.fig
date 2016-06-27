@@ -1,0 +1,20 @@
+#FIG 3.2
+Portrait
+Center
+Metric
+Letter  
+100.00
+Single
+-2
+# A Clivis with 2 beats
+# (best used with metric ruler units)
+# by W. Chimiak A.D. 2005
+1200 2
+6 225 225 405 540
+2 1 0 1 0 0 50 -1 20 0.000 0 0 -1 0 0 2
+	 225 270 225 540
+2 2 0 1 0 0 50 -1 20 0.000 0 0 -1 0 0 5
+	 225 270 315 270 315 360 225 360 225 270
+2 1 0 2 0 0 50 -1 20 0.000 0 0 -1 0 0 1
+	 360 270
+-6

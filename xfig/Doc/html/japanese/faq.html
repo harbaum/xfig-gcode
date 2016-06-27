@@ -1,0 +1,774 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<html>
+<head>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=EUC-JP">
+<title>FAQ</title>
+<link rev="made" href="mailto:VEF00200@nifty.ne.jp">
+</head>
+
+<body>
+<a href="contents.html"><img src="../images/xfig-title.png"
+  alt="XFIG Users Manual" border=0></a>
+
+<h1>FAQ</h1>
+
+<h2><a name="faq-general">一般的な質問</a></h2>
+
+<ol>
+<li><a href="#get_xfig"><b>xfig/transfig</b> はどこから入手することができるのか？</a>
+
+<p>
+<li><a href="#convert">古い Fig ファイルを
+新しいバージョンに変換する必要があるのか？<br>
+(<b>xfig</b> や <b>fig2dev</b> は古い Fig ファイルを読めるのか？)</a>
+
+<p>
+<li><a href="#edit_eps"><b>xfig</b> で PostScript ファイルを編集することはできるのか？</a>
+
+<p>
+<li><a href="#depth">オブジェクトの描画の順序を指定することはできるのか？</a>
+
+<p>
+<li><a href="#splines">スプライン曲線が <b>xfig 3.1</b> のものと
+少し違っているが？</a>
+
+<p>
+<li><a href="#install_pers"><b>xfig</b> を自分のディレクトリにインストールする方法は？</a>
+
+<p>
+<li><a href="#mailing_list"><b>xfig</b> 専用の
+メーリング・リストやニューズグループはあるのか？</a>
+</ol>
+
+<h2><a name="faq-running"><b>xfig</b> の実行に際しての問題</a></h2>
+
+<ol>
+<li><a href="#nocolor"><b>xfig</b> のボタンに色が付かない</a>
+
+<p>
+<li><a href="#icons">横や下のパネルにあるアイコンが一度表示された後で見えなくなる</a>
+
+<p>
+<li><a href="#action">``Warning: Actions not found: ModeOpenCompound''
+などの警告が出力される</a>
+
+<p>
+<li><a href="#xclip">リクエスト <tt>X_SetClipRectangles</tt> に対する 
+X のエラーが報告される、
+あるいは特定の向きの矢印の近くに太い線が表示される</a>
+
+<p>
+<li><a href="#latexfonts"><b>xfig</b> 上で LaTeX フォントを指定しても、
+Computer Modern フォントではなく PostScript フォントで出力される</a>
+
+<p>
+<li><a href="#arc-boxes">エクスポートした PostScript ファイルを 
+Ghostscript で表示させた際に、Arc-box が正しく表示されない</a>
+
+<p>
+<li><a href="#openw_icon">OpenWindows が <b>xfig</b> のアイコンを見失うことがある</a>
+
+<p>
+<li><a href="#hp_cap">HP のマシンにおいて、
+テキスト・オブジェクトに対する Edit ポップアップ・パネル上で
+いくつかの文字の大文字と小文字が誤って処理される</a>
+
+<p>
+<li><a href="#sol_opt">PostScript でエクスポートしたファイルに
+  誤った %%BoundingBox が書かれる</a>
+
+<p>
+<li><a href="#gs550_pattern_bug">エクスポートした PostScript ファイルを 
+  Ghostscript 5.50 で表示すると、パターンが全て黒くなる</a>
+
+<p>
+<li><a href="#grafbase">METAFONT フォーマットでエクスポートしたファイルが、
+  私が持っていない <tt>grafbase.mf</tt> ファイルを参照している</a>
+
+<p>
+<li><a href="#pulldown">CDE 上でプルダウン・メニューが機能しない</a>
+
+<p>
+<li><a href="#mntext">LaTeX テキストで ``mn'' と出力される</a>
+
+<p>
+<li><a href="#gs700_pattern_bug">EPS や GIF などでエクスポートした際に、
+パターンでの塗りつぶしが多角形の境界を超えてしまう</a>
+
+<p>
+<li><a href="#superclass">xfig が、
+``Warning: Representation size 4 must match superclass's to override underline''
+と報告する</a>
+
+<p>
+<li><a href="#en_US">fig2dev が、
+``can't open file: /usr/X11R6/lib/X11/fig2dev/en_US.ps'' などと報告する</a>
+
+<p>
+<li><a href="#XUSERFILESEARCHPATH">XAPPLRESDIR 環境変数を設定しても、
+xfig が個人のディレクトリにある app-defaults ファイルを見付けない</a>
+
+<p>
+<li><a href="#multi-key">TEXT オブジェクトのためのポップアップ・パネルで
+a-umlaute などの特殊な文字を入力できない</a>
+</ol>
+
+<h2><a name="faq-compile"><b>xfig</b> のコンパイルに際しての問題</a></h2>
+
+<ol>
+<li><a href="#alpha">DEC Alpha において、コンパイラが 
+<tt>u_bound.c</tt> に対して 
+``.mask must have pcreg from .frame set if any bits are set in .mask or .fmask'' 
+などと文句を言う</a>
+
+<p>
+<li><a href="#xpointer">コンパイルに際して <tt>XPointer</tt> が未定義であると報告される</a>
+
+<p>
+<li><a href="#get_appl">Sun のマシンで、リンカが 
+<tt>_get_applicationShellWidgetClass</tt> や <tt>_get_wmShellWidgetClass</tt> 
+が未定義であるという誤ったエラー・メッセージを出力する</a>
+
+<p>
+<li><a href="#hp_bus">HP のマシンで、
+コンパイラが <tt>u_undo.c</tt> で bus error を起こすことがある</a>
+
+<p>
+<li><a href="#hp_opt">HP のマシンで標準の <tt>cc</tt> コンパイラを使うと、
+<tt>+O3</tt> の最適化で問題を起こすことがある</a>
+
+<p>
+<li><a href="#jpeg_prob">コンパイルに際して、
+``Unresolved: jpeg_std_error / jpeg_create_decompress /
+jpeg_destroy_decompress / jpeg_stdio_src'' などのエラーが出る</a>
+
+<p>
+<li><a href="#fontset">コンパイルに際して、
+``w_menuentry.c: In function `Redisplay': /
+w_menuentry.c:129: structure has no member named `fontset' / 
+w_menuentry.c:143: structure has no member named `international' ''
+などのエラーが出る</a>
+</ol>
+
+<hr>
+
+<h3><a name="get_xfig"><b>xfig/transfig</b> はどこから入手することができるのか？</a></h3>
+
+<b>xfig</b>/<b>transfig</b> は <a href="authors.html#xfig">フリーウェア</a>であり、
+いくつかの場所から入手することができます。
+これについては、
+<a href="installation.html#install-xfig">xfig のインストール</a> を参照して下さい。
+
+<hr>
+
+<h3><a name="convert">古い Fig ファイルを新しいバージョンに変換する必要があるのか？</a></h3>
+
+いいえ。
+どのバージョンの <b>xfig</b> や <b>transfig (fig2dev)</b> も、
+それ以前のバージョンの Fig ファイルを読み込むことができます。
+<b>xfig</b> はそのようなファイルを読み込むと
+その <b>xfig</b> が対応している最新のバージョンに変換し、
+セーブに際してはそのバージョンでのセーブを行ないます。
+
+<hr>
+
+<h3><a name="edit_eps"><b>xfig</b> で PostScript ファイルを編集することはできるのか？</a></h3>
+
+いいえ。
+ですが、その上に他の Fig オブジェクトを描画することはできますので、
+図に説明を書き加えたりすることなどは可能です。
+また、<a href="installation.html#pstoedit"><b>pstoedit</b></a> などを用いて
+図を Fig ファイルに変換すれば、
+通常の方法で <b>xfig</b> 上での編集を行なえるようになります。
+
+<hr>
+
+<h3><a name="depth">オブジェクトの描画の順序を制御することはできるのか？</a></h3>
+
+複数のオブジェクトが重なり合っており、描画の順序が重要である場合には、
+描画の順序に応じてそれぞれのオブジェクトの
+<a href="attributes.html#depth"><i>depth</i></a>
+を設定する必要があります。
+
+<hr>
+
+<h3><a name="splines">スプライン曲線が <b>xfig 3.1</b> のものと
+少し違っているが？</a></h3>
+
+<b>xfig</b> 3.2 では、<a href="authors.html#xspline">X-Spline</a> と呼ばれる
+新しいスプラインを使用しています。
+X-spline では１つの曲線の中で補間や近似を混在させることが可能であり、
+それぞれの点の近傍での曲線の挙動は 
+shape factor と呼ばれる１つのパラメータによって制御されます。
+
+<p>
+<b>注意:</b> 以前のスプラインのモデル 
+(quadratic B-splines、及び Bezier with hidden points) 
+はもはやサポートされていないため、
+<b>xfig</b> version 3.1 以前のファイルに含まれているスプライン曲線は
+自動的に X-spline に変換されます。
+この変換は近似に過ぎませんので、
+変換された曲線は元のものと完全に同一ではありません。
+通常はそれらは充分に似ているものとなりますが、
+微妙なケースにおいては手での調整が必要となるかも知れません。
+
+<hr>
+
+<h3><a name="install_pers"><b>xfig</b> を自分のディレクトリにインストールする方法は？</a></h3>
+
+<b>xfig</b> が必要とするいくつかのファイルがありますので、
+それらのファイルを見つけられるように適切な設定を行なうことが必要となります。
+<p>
+<dl>
+<dt><tt>xfig</tt>, <tt>fig2dev</tt>
+<dd>これらはコマンド検索パスに含まれているディレクトリに置く必要があります
+
+<dt><tt>CompKeyDB</tt>
+<dd><tt>Imakefile</tt> の <tt>XFIGLIBDIR</tt> を
+このファイルを置きたいディレクトリに設定して <b>xfig</b> をコンパイルするか、
+もしくはリソース ``<tt>Fig*keyFile: <i>your_lib_area</i>/CompKeyDB</tt>'' 
+によってそのファイルの場所を指定して下さい
+
+<dt><tt>Fig</tt>、及び <tt>Fig-color</tt>
+<dd><tt>xfig</tt> コマンドの実行に先立って、
+環境変数 <tt>XAPPLRESDIR</tt> をこれらのファイルを置いたディレクトリに設定します
+
+<dt><tt>Doc/html</tt>
+<dd>このディレクトリ (そしてそのサブ・ディレクトリ) 全体を
+Imakefile の <tt>XFIGLIBDIR</tt> が指すディレクトリにコピー
+(<tt>cp -r</tt> を使う) すべきです。
+
+<dt><tt>Doc/xfig-howto.pdf</tt>、及び <tt>Doc/xfig.pdf</tt>
+<dd>これらのファイルは
+Imakefile の <tt>XFIGLIBDIR</tt> が指すディレクトリにコピーすべきです。
+</dl>
+
+<hr>
+
+<h3><a name="mailing_list"><b>xfig</b> 専用の
+メーリング・リストやニューズグループはあるのか？</a></h3>
+
+<b>xfig</b> のためのメーリング・リストはありませんが、
+メールを <a href="mailto:bvsmith@lbl.gov">bvsmith@lbl.gov</a> 
+へ送る、あるいはそれに関する質問を
+<a href="news:comp.windows.x">comp.windows.x</a>、
+<a href="news:comp.windows.x.apps">comp.windows.x.apps</a>、
+<a href="news:comp.os.linux.x">comp.os.linux.x</a>、
+<a href="news:comp.os.linux">comp.os.linux</a>、
+あるいは
+<a href="news:comp.os.linux.misc">comp.os.linux.misc</a>
+へポストすることができます。
+<b>fig2dev</b> に関する質問は、
+<a href="news:comp.text.tex">comp.text.tex</a> 
+へポストすることもできます。
+<p>
+(日本のユーザーは、バグ・レポートは
+<a href="mailto:VEF00200@nifty.ne.jp">VEF00200@nifty.ne.jp (T.Sato)</a>
+へ送られても結構です。
+また、質問は <a href="news:fj.comp.x11">fj.comp.x11</a> などへ
+ポストしても良いでしょう。)
+
+<hr>
+
+<h3><a name="nocolor"><b>xfig</b> のボタンに色が付かない</a></h3>
+
+<dl>
+<dt>POSSIBLE CAUSE:
+<dd>app-defaults ファイルを正しくインストールしていないか、
+もしくは <tt>customization</tt> リソースを設定していないのでしょう。
+
+<p>
+<dt>SOLUTION:
+<dd>リソース・ファイル <tt>Fig</tt>、及び  <tt>Fig-color</tt> 
+(<b>xfig</b> のソース配布においては、それぞれ 
+<tt>Fig.ad</tt>、及び <tt>Fig-color.ad</tt> という名前となっている) 
+を所定のディレクトリにインストールして下さい。
+また、X サーバーにロードされる共通リソース・ファイル (<tt>.Xdefaults</tt>) に 
+``<tt>*customization: -color</tt>'' を追加して、
+X サーバーを再起動して下さい。
+<p>
+<b>解説:</b> X11R5 以降では、
+汎用のリソース <tt>*customization</tt> を <tt>-color</tt> に設定することによって、
+サフィックス <tt>-color</tt> を付けた app-defaults ファイル (例えば <tt>Fig-color</tt>) を
+通常のもの (例えば <tt>Fig</tt>) の代わりに読み込むように指定することが可能となっています。
+<tt>Fig-color</tt> の中には、色に関係しない設定を行なうために、
+通常の app-defaults ファイルを読み込むための 
+<tt>#include</tt> ステートメントが含まれています。
+</dl>
+
+<hr>
+
+<h3><a name="icons">横や下のパネルにあるアイコンが一度表示された後で見えなくなる</a></h3>
+
+<dl>
+<dt>POSSIBLE CAUSE:
+<dd>一部の Linux システム (少なくとも 2.0.29) において、
+Athena ウィジェット・セット (libXaw) の変種である 
+libNextaw がこの問題を引き起こすようです。
+
+<p>
+<dt>SOLUTION:
+<dd>通常の libXaw か libXaw3d を使ってリンクし直して下さい。
+</dl>
+
+<hr>
+
+<h3><a name="action">``Warning: Actions not found: ModeOpenCompound''
+などの警告が出力される</a></h3>
+
+<dl>
+<dt>POSSIBLE CAUSE:
+<dd><b>xfig</b> のバージョンに対応した app-defaults ファイルを
+インストールしていないものと思われます。
+
+<p>
+<dt>POSSIBLE CAUSE:
+<dd><b>xfig</b> と共に配布されている app-defaults ファイル 
+(<tt>Fig.ad</tt>、及び <tt>Fig-color.ad</tt>) を
+所定のディレクトリにインストールして下さい。
+この最も容易な方法は、``<tt>make install</tt>'' を用いることです。
+</dl>
+
+<hr>
+
+<h3><a name="xclip">リクエスト <tt>X_SetClipRectangles</tt> に対する 
+X のエラーが報告される、
+あるいは特定の向きの矢印の近くに太い線が表示される</a></h3>
+
+<dl>
+<dt>POSSIBLE CAUSE:
+<dd>X11R5 の Xlib のクリッピング・アルゴリズムに関するバグによるものです。
+
+<p>
+<dt>SOLUTION:
+<dd>X11R6 に切り替えるか、
+もしくは X11R5 のライブラリの <tt>mit/lib/X/XPolyReg.c</tt> に
+次のパッチを適用して下さい。
+
+<pre>
+*** XPolyReg.c.orig     Tue Dec 15 12:01:22 1992
+--- XPolyReg.c  Wed Nov 15 09:41:13 1995
+***************
+*** 402,408 ****
+            if (numRects &amp;&amp; pts-&gt;x == rects-&gt;x1 &amp;&amp; pts-&gt;y == rects-&gt;y2 &amp;&amp;
+                pts[1].x == rects-&gt;x2 &amp;&amp;
+                (numRects == 1 || rects[-1].y1 != rects-&gt;y1) &amp;&amp;
+!               (!i || pts[2].y &gt; pts[1].y)) {
+                rects-&gt;y2 = pts[1].y + 1;
+                continue;
+            }
+--- 402,409 ----
+            if (numRects &amp;&amp; pts-&gt;x == rects-&gt;x1 &amp;&amp; pts-&gt;y == rects-&gt;y2 &amp;&amp;
+                pts[1].x == rects-&gt;x2 &amp;&amp;
+                (numRects == 1 || rects[-1].y1 != rects-&gt;y1) &amp;&amp;
+!               /* Fixed version from X11 R6 */
+!               (i &amp;&amp; pts[2].y &gt; pts[1].y)) {
+                rects-&gt;y2 = pts[1].y + 1;
+                continue;
+            }
+</pre>
+</dl>
+
+<hr>
+
+<h3><a name="latexfonts"><b>xfig</b> 上で LaTeX フォントを指定しても、
+Computer Modern フォントではなく PostScript フォントで出力される</a></h3>
+
+<dl>
+<dt>POSSIBLE CAUSE AND SOLUTION:
+<dd>PostScript での出力を行なう際にフォントを LaTeX の制御下に置くためには、
+そのテキスト・オブジェクトを 
+``<a href="attributes.html#text-flags">special</a>'' に設定し、
+また出力フォーマットとして 
+<a href="printing.html#export">Combined PostScript/LaTeX</a> (pstex) 
+を指定する必要があります。
+このモードは、special に設定されたテキスト・オブジェクトを LaTeX に渡し、
+ユーザーが LaTeX の数式モード、Computer Modern フォント、その他の機能を
+使用することを可能とします。
+</dl>
+
+<hr>
+
+<h3><a name="arc-boxes">エクスポートした PostScript ファイルを 
+Ghostscript で表示させた際に、Arc-box が正しく表示されない</a></h3>
+
+<dl>
+<dt>POSSIBLE CAUSE:
+<dd>Ghostscript version 4.01 には、
+<tt>arcto</tt> オペレータに関するバグがあります。
+
+<p>
+<dt>SOLUTION:
+<dd><a href="installation.html#ghostscript">Ghostscript 4.03</a> 以降を
+入手して下さい。
+</dl>
+
+<hr>
+
+<h3><a name="openw_icon">OpenWindows が <b>xfig</b> のアイコンを見失うことがある</a></h3>
+
+<dl>
+<dt>POSSIBLE CAUSE:
+<dd>原因は不明です。
+
+<p>
+<dt>SOLUTION:
+<dd><tt>.Xdefaults</tt> ファイルに
+<p>
+<pre>
+    Fig*iconPixmap:  <i>your_lib_area</i>/fig.icon.X
+</pre>
+<p>
+のような行を追加し、ファイル <tt>fig.icon.X</tt> を
+ディレクトリ <tt><i>your_lib_area</i></tt> にコピーすることによって
+回避できるでしょう。
+</dl>
+
+<hr>
+
+<h3><a name="hp_cap">HP のマシンにおいて、
+テキスト・オブジェクトに対する Edit ポップアップ・パネル上で
+いくつかの文字の大文字と小文字が誤って処理される</a></h3>
+
+<dl>
+<dt>POSSIBLE CAUSE AND SOLUTION:
+<dd><tt>CompKeyDB</tt> ファイルの中で、
+小文字の定義が大文字の定義の前に置くようにして下さい。
+この問題は、<b>xfig</b> 2.1.5 以降に含まれている 
+<tt>CompKeyDB</tt> ファイルで発生することがあります。
+</dl>
+
+<hr>
+
+<h3><a name="sol_opt">PostScript でエクスポートしたファイルに
+  誤った %%BoundingBox が書かれる</a></h3>
+
+<dl>
+<dt>POSSIBLE CAUSE AND SOLUTION:
+<dd>Solaris の cc コンパイラ version 4.2 は、
+オプティマイザにバグがあるようです。
+<b>fig2dev</b> を、<tt>-O2</tt>、あるいは <tt>-O1</tt> の最適化レベルで
+再コンパイルして下さい。
+</dl>
+
+<hr>
+
+<h3><a name="gs550_pattern_bug">エクスポートした PostScript ファイルを 
+  Ghostscript 5.50 で表示すると、パターンが全て黒くなる</a></h3>
+
+<dl>
+<dt>POSSIBLE CAUSE AND SOLUTION:
+<dd>Ghostscript Version 5.10〜5.50 には、これを引き起こすバグがあります。
+新しいバージョンの Ghostscript を入手して下さい。
+</dl>
+
+<hr>
+
+<h3><a name="grafbase">METAFONT フォーマットでエクスポートしたファイルが、
+  私が持っていない <tt>grafbase.mf</tt> ファイルを参照している</a></h3>
+
+<dl>
+<dt>POSSIBLE CAUSE AND SOLUTION:
+<dd><tt>grafbase.mf</tt> ファイルがないならば、
+<a href="ftp://ctan.tug.org/tex-archive/graphics/fig2mf/">
+ftp://ctan.tug.org/tex-archive/graphics/fig2mf/</a>
+から入手することがっできます。
+</dl>
+
+<hr>
+
+<h3><a name="pulldown">CDE 上でプルダウン・メニューが機能しない</a></h3>
+
+<dl>
+<dt>POSSIBLE CAUSE AND SOLUTION:
+<dd>CDE や、その他の一部のシステムにおいては、
+プルダウン・メニューを機能させるためには、
+<b>Num Lock</b>、及び <b>Caps Lock</b> キーを解除する必要があります。
+</dl>
+
+<hr>
+
+<h3><a name="mntext">LaTeX テキストで ``mn'' と出力される</a></h3>
+
+<dl>
+<dt>POSSIBLE CAUSE AND SOLUTION:
+<dd>この問題は、LaTeX パートに出力される <tt>\smash</tt> における問題です。
+もしあなたのシステムで <tt>\mddefault</tt> と <tt>\updefault</tt> が
+正しくセットアップされていないならば、
+それらを何もしないように定義する必要があります。
+</dl>
+
+<hr>
+
+<h3><a name="gs700_pattern_bug">EPS や GIF などでエクスポートした際に、
+パターンでの塗りつぶしが多角形の境界を超えてしまう</a></h3>
+
+<dl>
+<dt>POSSIBLE CAUSE AND SOLUTION:
+<dd>Ghostscript versions 7.00 には、
+これを引き起こすバグ (#418928) があります。
+新しいバージョンの Ghostscript を入手して下さい。
+</dl>
+
+<hr>
+
+<h3><a name="superclass">xfig が、
+``Warning: Representation size 4 must match superclass's to override underline''
+と報告する</a></h3>
+
+<dl>
+<dt>POSSIBLE CAUSE AND SOLUTION:
+<dd>3D Menu ウィジェット (SmeBSBObject) が 2D バージョンの代わりに使われ、
+あるいはその逆となっています
+(Imakefile/Makefile の <tt>-DXAW3D</tt> を確認して下さい)。
+2D と 3D のウジェット・ライブラリ (Xaw と Xaw3d)、
+そしてヘッダ・ファイルを混ぜないで下さい。
+</dl>
+
+<hr>
+
+<h3><a name="en_US">fig2dev が、
+``can't open file: /usr/X11R6/lib/X11/fig2dev/en_US.ps'' などと報告する</a></h3>
+<dl>
+<dt>POSSIBLE CAUSE AND SOLUTION:
+<dd>これは、RedHat システムのみにおける問題のようです。
+私は、国際化機能を有効とすべきでない時にそれが有効とされており、
+存在していないファイルを探しているものと考えています。
+RedHat から新しいバージョンの xfig と transfig をダウンロードして下さい。
+</dl>
+
+<hr>
+
+<h3><a name="XUSERFILESEARCHPATH">XAPPLRESDIR 環境変数を設定しても、
+xfig が個人のディレクトリにある app-defaults ファイルを見付けない</a></h3>
+
+<dl>
+<dt>POSSIBLE CAUSE AND SOLUTION:
+<dd>
+もし Sun の OpenWindows X サーバーを使っているならば、
+個人用の app-defaults ディレクトリを示すために、
+そのパスに ``%N'' を付けたものを、別の環境変数、
+<tt>XUSERFILESEARCHPATH</tt> に設定する必要があります。
+例えば：
+<blockquote>
+<tt>setenv XUSERFILESEARCHPATH $HOME/app-defaults/%N</tt>
+</blockquote>
+</dl>
+
+<hr>
+
+<h3><a name="multi-key">TEXT オブジェクトのためのポップアップ・パネルで
+a-umlaute などの特殊な文字を入力できない</a></h3>
+
+<dl>
+<dt>POSSIBLE CAUSES AND SOLUTIONS:
+<dd>
+<dl>
+<dt><b>CompKeyDB</b> ファイルがインストールされていない。
+<dd>
+これは、<b>xfig</b> に
+a-umlaute、c-cedilla などの Latin-1 キャラクタを生成するために
+マルチ・キー・シーケンスをどのように扱うかを告げるファイルです。
+<b>xfig</b> とそれに関連するファイルを完全にインストールするために、
+<tt>make install</tt> を実行すべきです。
+
+<p>
+<dt>キーボードに <i>Multi_key</i> キーがない。
+<dd>
+ある種のシステム (例えば、SPARCstation) は、
+このシーケンスのための <i>Compose</i> キー、
+あるいは <i>Multi_key</i> を持っています。
+もしあなたのキーボードにそのようなキーがないならば、
+他のキーを <i>Multi_key</i> に割り当て直して下さい。
+例えば、X サーバーに <i>Super_L</i>、及び <i>Super_R</i> として認識されている
+「Windows」キーを <i>Multi_key</i> に割り当て直すためには、
+<b>xmodmap</b> プログラムを用いて次のようにします：
+<p>
+<tt>xmodmap -e "keysym Super_L = Multi_key"</tt><br>
+<tt>xmodmap -e "keysym Super_R = Multi_key"</tt>
+</dl>
+</dl>
+  
+<hr>
+
+<h3><a name="alpha">DEC Alpha において、コンパイラが 
+<tt>u_bound.c</tt> に対して 
+``.mask must have pcreg from .frame set if any bits are set in .mask or .fmask'' 
+などと文句を言う</a></h3>
+
+<dl>
+<dt>POSSIBLE CAUSE AND SOLUTION:
+<dd>そのファイルについてだけでも、最適化レベルを <tt>-O1</tt> に設定して下さい。
+</dl>
+
+<hr>
+
+<h3><a name="xpointer">コンパイルに際して <tt>XPointer</tt> が未定義であると報告される</a></h3>
+
+<dl>
+<dt>POSSIBLE CAUSE:
+<dd>おそらく、<tt>XPointer</tt> の定義を含まない
+古い OpenWindows システム上で <b>xfig</b> をコンパイルしようとしているものと思われます。
+
+<p>
+<dt>SOLUTION:
+<dd>新しいバージョンの OpenWindows にアップグレードするか、
+もしくは X11R5 や X11R6 
+(ソースは <a href="http://www.camb.opengroup.org/x/">Open Group</a> から入手可能) 
+に切り替えるべきです。
+</dl>
+
+<hr>
+
+<h3><a name="get_appl">Sun のマシンで、リンカが 
+<tt>_get_applicationShellWidgetClass</tt> や <tt>_get_wmShellWidgetClass</tt> 
+が未定義であるという誤ったエラー・メッセージを出力する</a></h3>
+
+<dl>
+<dt>POSSIBLE CAUSE:
+<dd>これは Sun の共有ライブラリと X11 の Xmu 共有ライブラリの構築方法による問題です。
+
+<p>
+<dt>SOLUTION:
+<dd>これは <b>xfig</b> の動作には影響しませんので、無視しても構いません。
+<p>
+あるいは、``<tt>-Bstatic -lXmu -Bdynamic</tt>'' と指定してコンパイルすることもできます。
+<p>
+OpenWindows 3.0 (X11R4 ベース) を使っており、
+この問題をきちんと解決したいのであれば、
+Sun のオフィスと連絡を取って以下のパッチを入手して下さい。
+<p>
+<pre>
+     Patch i.d.      Description
+     100512-02       4.1.x OpenWindows 3.0 libXt Jumbo patch
+     100573-03       4.1.x OpenWindows 3.0 undefined symbols when using
+			     shared libXmu
+</pre>
+
+<p>
+MIT X11R4 ライブラリのためのソース・パッチは 
+Conrad Kimball (cek@sdc.boeing.com) によって作成されました;
+これはこの問題を回避するために R5 で行なわれたいくつかの修正を 
+R4 に反映させたものです。
+このパッチは、
+<tt>contrib/X11R4_sunos4.1.2_patch_version3.Z</tt> として公開されています。
+<p>
+他の選択肢は、X11R5、もしくは X11R6 を使うことです。
+</dl>
+
+<hr>
+
+<h3><a name="hp_bus">HP のマシンで、
+コンパイラが <tt>u_undo.c</tt> で bus error を起こすことがある</a></h3>
+
+<dl>
+<dt>POSSIBLE CAUSE:
+<dd>HP のコンパイラの問題です。
+この問題は、HP-UX 8.05 を実行している HP 750 を含む、
+いくつかの HP のマシンで発生する可能性があります。
+
+<p>
+<dt>SOLUTION:
+<dd>この問題を回避するためには、
+次のように <tt>u_undo.c</tt> に行を挿入して下さい。
+
+<p>
+<dl>
+<dt>Original:
+<dd>
+<pre>
+undo_glue()
+{
+    list_delete_compound(&amp;objects.compounds, saved_objects.compounds);
+    tail(&amp;objects, &amp;object_tails);
+
+</pre>
+
+<p>
+<dt>New:
+<dd>
+<pre>
+undo_glue()
+{
+    list_delete_compound(&amp;objects.compounds, saved_objects.compounds);
+&gt;&gt;&gt;	    /* HP-UX 8.05 compiler bug fix -- don't ask */
+&gt;&gt;&gt;	    last_action = last_action;
+    tail(&amp;objects, &amp;object_tails);
+</pre>
+</dl>
+</dl>
+
+<hr>
+
+<h3><a name="hp_opt">HP のマシンで標準の <tt>cc</tt> コンパイラを使うと、
+<tt>+O3</tt> の最適化で問題を起こすことがある</a></h3>
+
+<dl>
+<dt>POSSIBLE CAUSE:
+<dd>HP のコンパイラの問題です。
+
+<p>
+<dt>SOLUTION:
+<dd><tt>+O3</tt> の代わりに <tt>+O2</tt> を使うか、
+http://support.mayfield.hp.com/ に接続して 
+<b>Patch Browsing and Downloading</b> を選択し、
+HP からコンパイラのパッチを入手して下さい。
+</dl>
+
+<hr>
+
+<h3><a name="jpeg_prob">コンパイルに際して、
+``Unresolved: jpeg_std_error / jpeg_create_decompress /
+jpeg_destroy_decompress / jpeg_stdio_src'' などのエラーが出る</a></h3>
+
+<dl>
+<dt>POSSIBLE CAUSE:
+<dd>多くの Linux マシンには古い JPEG ライブラリがインストールされていますが、
+<b>xfig</b> は Version 5b よりも古い JPEG ライブラリを使用することはできません。
+
+<p>
+<dt>SOLUTION:
+<dd>そのライブラリ・ファイル (通常は <tt>/usr/local/lib/libjpeg.so</tt>、
+及び <tt>/usr/local/lib/libjpeg.a</tt>) と、
+ヘッダ・ファイル (通常は <tt>/usr/local/include/jpegdata.h</tt>) 
+を削除して下さい。
+</dl>
+
+<hr>
+
+<h3><a name="fontset">コンパイルに際して、
+``w_menuentry.c: In function `Redisplay': /
+w_menuentry.c:129: structure has no member named `fontset' / 
+w_menuentry.c:143: structure has no member named `international' ''
+などのエラーが出る</a></h3>
+
+<dl>
+<dt>POSSIBLE CAUSE:
+<dd>おそらく、<tt>fontset</tt> や <tt>international</tt> のコンポーネントを
+含んでいない古いバージョンの 3D Athena ウィジェット・セット (Xaw3d) を持っているのに、
+Intrinsics ライブラリがそれらのコンポーネントを含んでいるのでしょう。
+
+<p>
+<dt>SOLUTION:
+<dd><a href="ftp://ftp.x.org/contrib/widgets/Xaw3d">
+ftp://ftp.x.org/contrib/widgets/Xaw3d</a> から新しいバージョンの Xaw3d を入手するか、
+システムの 2D Athena ウィジェットをを使って下さい。
+<p>
+後者は次の手順で行なえます：
+<ol>
+<li>Imakefile の ``<tt>XAWLIB = -lXaw3d</tt>'' をコメント・アウトする
+<li>``<tt>rm w_menuentry.o</tt>'' を実行する
+<li>``<tt>make Makefile</tt>''
+<li>``<tt>make</tt>''
+</ol>
+</dl>
+
+<p>
+<hr>
+
+[ <a href="contents.html">Contents</a> |
+ <a href="introduction.html">Introduction</a> |
+ <a href="authors.html">Credits</a> ]
+
+</body>
+</html>

@@ -1,0 +1,209 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<html>
+<head>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=EUC-JP">
+<title>Global Settings</title>
+<link rev="made" href="mailto:VEF00200@nifty.ne.jp">
+</head>
+
+<body>
+<a href="contents.html"><img src="../images/xfig-title.png"
+  alt="XFIG Users Manual" border=0></a>
+
+<h1>グローバル設定</h1>
+
+<blockquote>
+  <img src="../images/global-settings.png" alt="[Global Settings]">
+</blockquote>
+<p>
+このパネルは <a href="main_menus.html#edit-menu">Edit メニュー</a> 
+から <i>Global settings...</i> を選択することによって、
+あるいはアクセラレータ <tt>Meta-G</tt> によってポップアップし、
+ユーザーはここで <b>xfig</b> のいくつかの設定を変更することができます。
+<p>
+<dl>
+<dt><i>Track mouse in rulers</i>
+<dd> がルーラー (目盛) の上に
+キャンバス上のカーソルの位置を示す三角形のマーカーを
+表示するかどうかを設定します。
+<p>
+この初期状態は、
+<a href="options.html#com-other">-track / -notrack オプション</a> や 
+<a href="options.html#res-other">trackCursor リソース</a> によって
+設定することができます。
+
+<p>
+<dt><i>Show depth manager</i>
+<dd><b>xfig</b> のウィンドウの右側の Depth パネルを
+表示するかどうかを設定します。
+詳細は、<a href="layers.html#depth_panel">Depth パネル</a> を参照して下さい。
+
+<p>
+<dt><i>Show page borders</i>
+<dd>現在設定されている用紙の大きさ 
+(<a href="printing.html#export">Export</a>、
+及び <a href="printing.html#print">Print</a> を参照) 
+を示す枠をキャンバス上に表示するかどうかを設定します。
+<p>
+この初期状態は、
+<a href="options.html#com-other">-showpageborder / -dontshowpageborder オプション</a> や 
+<a href="options.html#res-other">showpageborder リソース</a> によって
+設定することができます。
+
+<p>
+<dt><i>Show info balloons</i>, <i>Delay (ms)</i>
+<dd>カーソルの下にあるボタンなどに対応する
+<a href="miscellaneous.html#balloons">「バルーン」メッセージ</a>
+を表示するかどうかを設定します。
+<p>
+<img src="../images/balloons-example.png" alt="[Image - Balloon]">
+<p>
+<i>Delay (ms)</i> は、
+カーソルがその領域の上に動かされてからバルーン・メッセージを表示するまでに
+どれだけ待つべきかを指定します。
+デフォルトは 500ms です。
+<p>
+<i>Show info balloons</i> の初期状態は 
+<a href="options.html#com-other">-showballoons / -dontshowballoons オプション</a> や 
+<a href="options.html#res-other">showballoons リソース</a> によって、
+<i>Delay (ms)</i> の初期値は 
+<a href="options.html#com-other">-balloons_delay オプション</a> や 
+<a href="options.html#res-other">balloon_delay リソース</a> によって
+設定することができます。
+
+<p>
+<dt><i>Show lengths on lines</i>
+<dd>
+線の入力に際して、線の近くにその線の長さを表示するかどうかを設定します。
+<p>
+<img src="../images/show-lengths.png" alt="[Image - Show Lengths]">
+<p>
+この初期状態は、
+<a href="options.html#showlengths">-showlength / -dontshowlength オプション</a> や 
+<a href="options.html#res-other">showlength リソース</a> によって
+設定することができます。
+
+<p>
+<dt><i>Show vertex numbers</i>
+<dd>オブジェクトの各々の頂点に番号を表示するかどうかを設定します。
+<p>
+<img src="../images/show-vertex.png" alt="[Image - Show Vertex Number]">
+<p>
+おそらく、これは Fig ファイルのデバッグの際のみ有用でしょう。
+<p>
+この初期状態は、
+<a href="options.html#showvertex">-shownums / -dontshownums オプション</a> や 
+<a href="options.html#res-other">shownums リソース</a> によって
+設定することができます。
+
+<p>
+<dt><i>Allow negative coords</i>
+<dd>負の座標までのスクロールを許すかどうかを設定します。
+これは、負の座標を持ったオブジェクトを含むファイルを読み込む際に
+図をシフトさせるかどうかを尋ねるかどうかにも影響します。
+<p>
+この初期状態は、
+<a href="options.html#com-modes">-allow_neg_coord / -dont_allow_neg_coord オプション</a> や 
+<a href="options.html#res-modes">allow_neg_coords リソース</a> によって
+設定することができます。
+
+<p>
+<dt><i>Draw lines through 0,0</i>
+<dd>キャンバス上に、原点を通る垂直、及び水平の線を描画するかどうかを設定します。
+<p>
+この初期状態は、
+<a href="options.html#com-modes">-draw_zero_lines / -dont_draw_zero_lines オプション</a> や 
+<a href="options.html#res-modes">draw_zero_lines リソース</a> によって
+設定することができます。
+
+<p>
+<dt><i>Freehand drawing resolution</i>
+<dd>フリーハンド・モードで多角形や折れ線を入力する際に、
+<b>xfig</b> は多角形や折れ線に新しい点を追加するのに充分なだけ
+マウスが動かされたかどうかを判断するためにこの値を用います。
+この単位は Fig unit  (1/1200インチ) であり、
+デフォルトは 25 (およそ 0.02インチ、あるいは 0.53mm) です。
+
+<p>
+<dt><i>Recently used files</i>
+<dd><a href="main_menus.html#file-menu">File メニュー</a> に保持する
+最近使われたファイルのリストの数を設定します。
+これは、ユーザーのホーム・ディレクトリの <tt>.xfigrc</tt> ファイルに、
+ファイル名そのものと共に保存されます。
+
+<p>
+<dt><i>Max image colors</i>
+<dd><a href="drawing.html#picture">取り込まれたイメージ</a> で用いる
+色数の最大値を設定します。
+<p>
+デフォルトは 64 ですが、これは
+<a href="options.html#max_image_colors">-max_image_colors オプション</a> や 
+<a href="options.html#res-other">max_image_colors リソース</a> によって
+変更することができます。
+
+<p>
+<dt><i>Image editor</i>
+<dd>これは、PICTURE オブジェクトに対する 
+<a href="editing.html#edit-pict-panel">Edit パネル</a> の 
+<i>Edit Image</i> ボタンが押された際に用いられる外部のプログラムです。
+デフォルトは <tt>xv</tt> であり、これを用いて
+取り込まれたイメージの切り取り、回転、色の変更などを行なうことができます。
+起動されたプログラムを終了すると、
+<b>xfig</b> はそのイメージを読み込み直します。
+<p>
+デフォルトの設定は、
+<a href="options.html#max_image_colors">-image_editor オプション</a> や 
+<a href="options.html#res-other">image_editor リソース</a> によって
+変更することができます。
+
+<p>
+<dt><i>Spelling checker</i>
+<dd>これは、<b>xfig</b> のスペルチェック機能 
+(<a href="main_menus.html#edit-menu">Edit メニュー</a> の <i>Spell Check...</i>、
+あるいはアクセラレータ <tt>Meta-K</tt>) 
+が用いられた際に呼び出される外部のスペルチェック・プログラムです。
+<p>
+デフォルトは ``<tt>spell %f</tt>'' ですが、
+これは
+<a href="options.html#com-other">-spellcheckcommand オプション</a> や 
+<a href="options.html#res-other">spellcheckcommand リソース</a> によって
+変更することができます。
+``<tt>%f</tt>'' はファイル名に置き換えられます。
+
+<p>
+<dt><i>HTML Browser</i>
+<dd>これは <b>xfig</b> のマニュアルを表示するために呼び出される
+外部の Web (HTML) ブラウザです。
+<p>
+デフォルトは ``<tt>netscape -remote 'openFile(%f)' || netscape %f</tt>'' であり、
+これは Netscape が実行中であればそれを用いてページを表示し、
+さもなくば新たに Netscape を起動します。
+``<tt>%f</tt>'' はファイル名に置き換えられます。
+このデフォルトは、 
+<a href="options.html#res-other">browser リソース</a> によって
+変更することができます。
+
+<p>
+<dt><i>PDF Viewer</i>
+<dd>これは <b>xfig</b> チュートリアルなどの表示のために呼び出される
+外部の PDF (Portable Document Format) ビューアです。
+<p>
+デフォルトは ``<tt>acroread %f</tt>'' であり、
+これは <a href="http://www.adobe.com/">Acrobat Reader</a> を起動します。
+``<tt>%f</tt>'' はファイル名に置き換えられます。
+このデフォルトは、
+<a href="options.html#res-other">pdfviewer リソース</a> によって
+変更することができます。
+</dl>
+
+
+<p>
+<hr>
+
+[ <a href="contents.html">Contents</a> |
+ <a href="introduction.html">Introduction</a> |
+ <a href="authors.html">Credits</a> ]
+
+</body>
+</html>
+

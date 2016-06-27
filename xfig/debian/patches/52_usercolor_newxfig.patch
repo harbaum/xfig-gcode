@@ -1,0 +1,50 @@
+Author: Vladislav Zavjalov <slazav@altlinux.org>
+Date:   Sat Feb 19 04:27:47 2011 +0300
+Origin: http://git.altlinux.org/people/slazav/packages/?p=xfig.git;a=patch;h=fccd915a846e498b72e14940e04af9344a692fba
+Subject: restore user colors in new_xfig_request()
+ Steps to reproduce error:
+    1. Create fig-file a.fig with user-defined color and a line object:
+    ---
+    Portrait
+    Center
+    Metric
+    A4......
+    100.00
+    Single
+    -2
+    1200 2
+    0 32 #d0b090
+    2 1 0 1 32 0 97 -1 20 0.000 0 1 -1 0 0 2
+             3150 9000 3600 9000
+    ---
+    2. Create similar file b.fig with different color value but same color number:
+    ---
+    Portrait
+    Center
+    Metric
+    A4......
+    100.00
+    Single
+    -2
+    1200 2
+    0 32 #aaffaa
+    2 1 0 1 32 0 97 -1 20 0.000 0 1 -1 0 0 2
+             3150 9000 3600 9000
+    ---
+    3. Open a.fig
+    4. Open b.fig using "new xfig" button
+    Error: color in a.fig will change
+
+--- a/w_file.c
++++ b/w_file.c
+@@ -374,6 +374,10 @@
+     GetValues(file_selfile);	/* check the ascii widget for a filename */
+     strcpy(fname, fval);
+ 
++    /* restore any colors that were saved during a preview */
++    restore_user_colors();
++    restore_nuser_colors();
++
+     if (emptyname(fname)) 
+ 	put_msg("Launching new xfig...");
+     else {

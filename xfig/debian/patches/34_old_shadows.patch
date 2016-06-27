@@ -1,0 +1,26 @@
+From: Roland Rosenfeld <roland@debian.org>
+Subject: Restore old shadow behavior. Reduce shadow width to 1 pixel and fix
+ a green scrollbar shadow.
+
+--- a/Fig.ad
++++ b/Fig.ad
+@@ -131,7 +131,7 @@
+ !	Fig*Scrollbar.topShadow: black
+ !	Fig*Scrollbar.bottomShadow: white
+ !	Fig*Scrollbar.topShadowPixel: black
+-!	Fig*Scrollbar.bottomShadowPixel: white
++	Fig*Scrollbar.bottomShadowPixel: white
+ 
+ ! this is for the standard color buttons in the color panel
+ 	Fig*stdColor.shadowWidth: 2
+@@ -674,8 +674,8 @@
+ Fig*upd_ctrl_form.upd_ctrl_btns*shadowWidth:	2
+ 
+ !##### Shadows
+-!Fig*shadowWidth:			1
+-!Fig*Label.shadowWidth:			1
++Fig*shadowWidth:			1
++Fig*Label.shadowWidth:			1
+ Fig*horizontal.shadowWidth: 		2
+ Fig*Scrollbar.shadowWidth:		2
+ ! no shadows for update indicators

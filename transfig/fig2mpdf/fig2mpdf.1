@@ -1,0 +1,208 @@
+.TH fig2mpdf 1 "Jun 2006" "" "Including xfig figures into LaTeX documents"
+.SH NAME
+fig2mpdf \- creation of multilayer pdf or eps figures from fig files using latex for typesetting
+.SH SYNOPSIS
+.B fig2mpdf
+[\fIOPTION\fR]... \fIFILE\fR
+.SH DESCRIPTION
+.PP
+This tool can create pdf or eps figures using fig files as source. For beamer
+presentations, for example, you can use the multilayer mode to create
+multiple figures that can be overlayed to get a dynamic figure. For
+proper appearance you can use latex to typeset some or all texts,
+possibly containing formulas.
+
+The default interpretation of the given fig \fIFILE\fR depends on its suffix.
+.TP
+\fIfig\fR
+Normal conversion of a fig file. All texts are interpreted as postscript
+texts and all elements of the figure are included in the resulting figure.
+.TP
+\fIlfig\fR
+LaTeX interpretation of the file. All texts of the input file that have the
+special bit set are typeset by pdflatex resp. latex (see: Option \fB\-|+l\fR).
+.TP
+\fImfig\fR
+Multilayer file interpretation. Depending on the used depths of the
+figure it is split into multiple parts. For each part an output file is
+created (see: section \fBMultiLayerOutput\fR).
+.TP
+\fImlfig\fR or \fIlmfig\fR
+Combination of multilayer and LaTeX interpretation of the input (see: Suffix
+\fIlfig\fR and \fImfig\fR).
+.PP
+The default interpretation of the input can be changed by using the options below.
+.SH OPTIONS
+.PP
+.TP
+\fB\-e\fR
+produce an eps output file. Instead of creating a pdf file (the default)
+an eps figure is produced.
+.TP
+\fB\-|+l\fR
+force calling (pdf)latex (-) or do not use (pdf)latex (+) for
+typesetting the text marked with the special flag. With this option you
+can change the default behavior given by the input file suffix.
+.TP
+\fB\-|+m\fR
+force set (-) or unset (+) the multilayer interpretation (see:
+\fBMultiLayerOutput\fR below) which was previously set by the input
+file suffix.
+.TP
+\fB\-p\fR \fIranges\fR
+explicitly set the ranges of depths for splitting the input figure in
+multilayer mode. \fIranges\fR is a colon separated list of ranges of
+the form \fIupper-lower\fR or \fIdepth\fR where \fIupper\fR  is the
+top and \fIlower\fR the bottom depth in the range. If you use the
+\fIdepth\fR form the range consist of just that depth.
+.TP
+\fB\-i\fR
+include the the bottommost range (that is, the one with the highest depth) into
+all output figures. This is for compatibility to older versions of this
+tool.
+.TP
+\fB\-I\fR
+turn on pyramid mode. The figure of a corresponding range in multilayer
+mode includes all lower ranges too.
+.TP
+\fB\-g\fR \fIgapwidth\fR
+set the allowed gapwidth between two used depths to decide if these
+depths should be grouped together in one range. With this option you get
+more flexibility to insert objects with new depths. The default width is
+zero (no gap = consecutively numbered depths are grouped together).
+.TP
+\fB\-s\fR \fIstyle\fR
+replace the default style for selecting a font family in LaTeX mode.
+If this option is omitted the style `times' is set by default.
+.TP
+\fB\-H\fR \fIheader\fR
+replace the default header sequence for creating temporary
+LaTeX documents in LaTeX mode. To get maximum flexibility you can
+set the entire document header in the file \fIheader\fR (see:
+\fBCustomized Headers\fR  below).
+.TP
+\fB\-G\fR
+in multilayer mode change the default output file pattern to the PDF
+format which is  <name>.page<no>.<ext>
+.TP
+\fB\-v\fR
+be verbose and print out all executed commands
+.TP
+\fB\-V\fR
+print out the version of \fBfig2mpdf\fR
+.PP
+.SH "MultiLayerOutput"
+In xfig you can assign an individual depth to all objects of the
+figure. These depths are normally used to determine the order of
+printing the objects. \fBfig2mpdf\fR uses these depths to group the
+objects into ranges in automatic mode (if the ranges option is
+omitted). In the list of used depths, consecutively numbered depths are
+grouped into one range. That is, all gaps between used depths are used
+to logically split the figure. With \fB\-g\fR you can set the
+gapwidth which doesn't split the figure (default: zero).
+.PP
+The resulting list of ranges determines the number of output files. In
+default mode all objects with depths assigned to one range are
+collected and put into the corresponding output file. The contents of
+the output files can be changed with the two Options \fB\-i\fR and
+\fB\-I\fR.
+.PP
+The \fB\-i\fR option reduces the number of output files by one. The
+bottommost range, that is the range which consist of the highest depths
+of the figure, is included into all output files.
+.PP
+In pyramid mode, activated by the option \fB\-I\fR, the output files
+contain additionally all lower ranges. With this mode you can
+get stand alone figures that don't have to be overlayed to have
+meaningful content.
+.PP
+\fBExample 1\fR
+.PD 0
+.PP
+Assume that you have a fig file \fIfoo.fig\fR which contains the three ranges
+.IR "230-233",
+.IR "455-460"
+and
+.IR "499-500".
+.PD
+.PP
+With no options set you get three output files, one per range. But if you
+set the \fB\-i\fR option you get the following two files where the
+bottommost range is included in both of the files:
+.PD 0
+.PP
+  \fIfoo-0.pdf\fR with ranges \fI455-460\fR and \fI499-500\fR
+.PP
+  \fIfoo-1.pdf\fR with ranges \fI230-233\fR and \fI499-500\fR.
+.PD
+.PP
+\fBExample 2\fR
+.PD 0
+.PP
+The pyramid mode, activated by the option \fB\-I\fR, will produce the
+following files from the source file of \fBExample 1\fR:
+.PP
+  \fIfoo-0.pdf\fR with ranges \fI499-500\fR
+.PP
+  \fIfoo-1.pdf\fR with ranges \fI455-460\fR and \fI499-500\fR
+.PP
+  \fIfoo-2.pdf\fR with ranges \fI230-233\fR, \fI455-460\fR and \fI499-500\fR.
+.PD
+.PP
+\fBExample 3\fR
+.PD 0
+.PP
+If both options are set you will get just two files with the following
+contents:
+.PP
+  \fIfoo-0.pdf\fR with ranges \fI455-460\fR and \fI499-500\fR
+.PP
+  \fIfoo-1.pdf\fR with ranges \fI230-233\fR, \fI455-460\fR and \fI499-500\fR.
+.PD
+.PP
+.SH "Customized Headers"
+For various reasons you might want to change the standard latex generation,
+e.g., if you want to change the default font family. The following
+example represents a valid header file.
+
+The usage of this example file changes the font family to sans serif
+and adds an additional search path for includegraphics to the `figures'
+subdirectory.
+
+.PD 0
+  \\documentclass{article}
+.PP
+  \\usepackage{german,amssymb,amsmath}
+.PP
+  \\renewcommand{\\familydefault}{\\sfdefault}
+.PP
+  \\AtBeginDocument{\\graphicspath{{figures/}}}
+.PD
+
+The following packages are generally used: \fBcolor\fR, \fBgraphicx\fR and \fBepsfig\fR.
+.SH "Tex errors"
+Sometimes it might happen that latex generates an error while processing
+your special texts. To keep you informed about the occurrence of that
+error and about what has happened, in this case the log file is shown
+by invoking a less command.
+.SH "Files"
+In single layer mode for the resulting files the suffix fig is replaced
+by pdf (resp. eps) (i.e. foo.fig -> foo.pdf).
+.PP
+.PD 0
+In multilayer mode the base name of the source fig files is extended
+by '-<range>' and the suffix is set to pdf (resp. eps).
+.PP
+(i.e., foo.fig -> foo-0.pdf, foo-1.pdf, foo-2.pdf,  ...
+.PP
+    or foo.fig -> foo.page0.pdf, foo.page1.pdf, foo.page2.pdf, ...
+.PP
+       if the option \fB\-G\fR is set).
+.PD
+.SH "SEE ALSO"
+.IR xfig(1)
+.IR fig2dev(1)
+.IR gawk(1)
+.IR pdflatex(1)
+.IR latex(1)
+.IR dvips(1)

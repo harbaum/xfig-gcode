@@ -1,0 +1,25 @@
+The following files contain copyright and license info for
+the code they contain:
+fig2mpdf, fig2mpdf.1, transfig.3.2.4.patch, transfig-3.2.5-alpha7.patch
+
+-- fig2mpdf copyright begins here --
+
+    fig2mpdf/pdftex_p and pstex_p driver of fig2dev
+    Copyright (C) 2006 Michael Pfeiffer -- p3fff@web.de
+
+    This program is free software; you can redistribute it and/or modify
+    it under the terms of the GNU General Public License as published by
+    the Free Software Foundation; either version 2 of the License, or
+    (at your option) any later version.
+
+    This program is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU General Public License for more details.
+
+    You should have received a copy of the GNU General Public License
+    along with this program; if not, write to the Free Software
+    Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
+
+    (Author's note: the license is in the file gpl.txt, which is included
+     in the archive.)

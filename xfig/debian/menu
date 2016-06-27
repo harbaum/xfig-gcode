@@ -1,0 +1,17 @@
+?package(xfig): \
+	command="/usr/bin/xfig" \
+	needs="X11" \
+	icon32x32="/usr/share/pixmaps/xfig32x32.xpm" \
+	icon16x16="/usr/share/pixmaps/xfig16x16.xpm" \
+	icon="/usr/share/pixmaps/xfig32x32cmap.xpm" \
+	section="Applications/Graphics" \
+	hints="Drawing,Draw,Vector" \
+	title="xfig" \
+	longtitle="Facility for Interactive Generation of figures" \
+	description="XFig is a menu-driven tool that allows the user \
+ 	  	     to draw and manipulate objects interactively in \
+ 	  	     an X window. The resulting pictures can be saved, \
+		     printed on postscript printers, or converted to a \
+		     variety of other formats (e.g. to allow inclusion \
+		     in LaTeX documents or web pages) using the \
+		     transfig program."

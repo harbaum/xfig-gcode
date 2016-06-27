@@ -1,0 +1,9 @@
+TODO
+====
+
+- Think about splitting xfig into xfig and xfig-libs.
+- Remove "icon" entry from menu (replaced by icon16x16 and
+  icon32x32).  Currently it stays there for compatibility reasons.
+
+Roland Rosenfeld <roland@debian.org>
+$Id: TODO,v 1.5 2003/08/28 20:36:42 roland Exp $

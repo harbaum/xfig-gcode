@@ -1,0 +1,45 @@
+This Debian package was maintained by many different Debian maintainers:
+joost witteveen  <joostje@debian.org>,
+D.J. Gregor <dgregor@gregor.com>,
+Enrique Zanardi <ezanardi@molec1.dfis.ull.es>, 
+Edward Betts <edward@debian.org> 
+and actually by Roland Rosenfeld <roland@debian.org>.
+
+Upstream Maintainer:  Brian V. Smith <bvsmith@lbl.gov>
+
+The upstream source package is available from
+http://www.xfig.org/art17.html as
+http://downloads.sourceforge.net/mcj/xfig.3.2.5c.full.tar.gz
+
+Copyright:
+
+ FIG : Facility for Interactive Generation of figures
+ Copyright (c) 1985-1988 by Supoj Sutanthavibul
+ Parts Copyright (c) 1989-2013 by Brian V. Smith
+ Parts Copyright (c) 1991 by Paul King
+ Parts Copyright (c) 1999-2002 Alexander Durner
+ Parts Copyright (c) 1989, 1994  X Consortium
+ Parts Copyright (c) 1995 Jim Daley
+ Parts Copyright (c) 1990, 1992 Richard Hesketh
+ Parts Copyright (c) 1987 Christopher A. Kent
+ Parts Copyright (c) 1993 Alan Richardson
+ Parts Copyright (c) 1998, 2002 Stephane Mancini
+ Parts Copyright (c) 1994 Anthony Dekker
+ Parts Copyright (c) 1990, 1993 David Koblas
+ Parts Copyright (c) 1992 by Brian Boyter
+ Parts Copyright (c) 1992 by Dave Hale
+ Parts Copyright (c) 1992 by James Tough
+ Parts Copyright (c) 1995 by C. Blanc and C. Schlick
+ Parts Copyright (c) 1995, 1996 Torsten Martinsen
+ Parts Copyright (c) 1994 by Bill Taylor
+ Parts Copyright (c) 1995-2012 by T. Sato
+ Parts Copyright (c) 2004 by Chris Moller
+
+ Any party obtaining a copy of these files is granted, free of charge, a
+ full and unrestricted irrevocable, world-wide, paid up, royalty-free,
+ nonexclusive right and license to deal in this software and documentation 
+ files (the "Software"), including without limitation the rights to use, 
+ copy, modify, merge, publish distribute, sublicense and/or sell copies of
+ the Software, and to permit persons who receive copies from any such 
+ party to do so, with the only requirement being that the above copyright 
+ and this permission notice remain intact.

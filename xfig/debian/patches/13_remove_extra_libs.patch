@@ -1,0 +1,30 @@
+From: Roland Rosenfeld <roland@debian.org>
+Subject: Remove unnecessary dependencies on libz, libXmu, libSM, libICE, libXext
+
+--- a/Imakefile
++++ b/Imakefile
+@@ -228,7 +228,14 @@
+ XCOMM #define XawClientLibs $(XAWLIB) $(XMULIBONLY) $(XTOOLLIB) $(XPMLIB) $(EXTRAXAWCLIENTLIBS) $(XLIB)
+ #ifdef XawClientLibs
+ # undef XawClientLibs
+-# define XawClientLibs $(XAWLIB) $(XMULIBONLY) $(XTOOLLIB) $(XTOOLONLYLIIB) $(XPMLIB) $(EXTRAXAWCLIENTLIBS) $(XONLYLIB)
++# define XawClientLibs $(XAWLIB) $(XMULIBONLY) $(XTOOLLIB) $(XTOOLONLYLIB) $(XPMLIB) $(EXTRAXAWCLIENTLIBS) $(XONLYLIB)
++#endif
++
++XCOMM Shorten unnecessary dependencies:
++XCOMM #define XawClientLibs $(XAWLIB) $(XMULIBONLY) $(XTOOLLIB) $(XPMLIB) $(EXTRAXAWCLIENTLIBS) $(XLIB)
++#ifdef XawClientLibs
++# undef XawClientLibs
++# define XawClientLibs $(XAWLIB) $(XTOOLONLYLIB) $(XPMLIB) $(EXTRAXAWCLIENTLIBS) $(XONLYLIB)
+ #endif
+ 
+ XCOMM *****************************************************
+@@ -279,7 +286,7 @@
+ DUSESMALLICONS = -DUSE_SMALL_ICONS
+ #endif /* USESMALLICONS */
+ 
+-PNGLIBS = -L$(PNGLIBDIR) -lpng -L$(ZLIBDIR) -lz
++PNGLIBS = -L$(PNGLIBDIR) -lpng
+ 
+ #ifdef USEJPEG
+ DUSEJPEG = -DUSE_JPEG

@@ -1,0 +1,67 @@
+#! /bin/sh
+#
+# $Id: xfig-pdf-viewer,v 1.6 2014/05/13 16:04:34 roland Exp $
+#
+##########################################################################
+#
+# xfig-pdf-viewer is a little shell script, which tries to find out
+# which PDF viewer you have installed on your system and then starts
+# them. The environment variable PDFVIEWER has priority over all other
+# viewers.
+# See xfig-pdf-viewer(1) man page for more information.
+#
+##########################################################################
+#
+#   Copyright (C) 1999-2014  Roland Rosenfeld <roland@spinnaker.de>
+#
+#   This program is free software; you can redistribute it and/or
+#   modify it under the terms of the GNU General Public License as
+#   published by the Free Software Foundation; either version 2 of
+#   the License, or (at your option) any later version.
+#
+#   This program is distributed in the hope that it will be useful,
+#   but WITHOUT ANY WARRANTY; without even the implied warranty of
+#   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU
+#   General Public License for more details.
+#
+#   You should have received a copy of the GNU General Public License
+#   along with this program; if not, write to the Free Software
+#   Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301 USA
+#
+##########################################################################
+
+if [ "$1" = "-n" ]; then
+    echo "No viewer found in xfig-pdf-viewer(1), please set PDFVIEWER"
+    echo "environment variable or install a PDF viewer"
+    read dummy
+    exit 0
+fi
+
+if [ $# -ne 1 ]; then
+    echo "Usage: $0 file.pdf"
+    exit 0
+fi
+
+if [ "$PDFVIEWER" != "" ]; then
+    :
+elif type xpdf >/dev/null 2>&1; then
+    PDFVIEWER=xpdf
+elif type okular >/dev/null 2>&1; then
+    PDFVIEWER=okular
+elif type evince >/dev/null 2>&1; then
+    PDFVIEWER=evince
+elif type acroread >/dev/null 2>&1; then
+    PDFVIEWER=acroread
+elif type ViewPDF >/dev/null 2>&1; then
+    PDFVIEWER=ViewPDF
+elif type gv >/dev/null 2>&1; then
+    PDFVIEWER=gv
+elif type zathura >/dev/null 2>&1; then
+    PDFVIEWER=zathura
+elif type epdfviewer >/dev/null 2>&1; then
+    PDFVIEWER=epdfviewer
+else
+    exec x-terminal-emulator -e $0 -n
+fi
+
+exec $PDFVIEWER "$1"

@@ -1,0 +1,69 @@
+#!/usr/bin/make -f
+#
+# (C) 1999-2014 Roland Rosenfeld <roland@debian.org>
+#
+# Uncomment this to turn on verbose mode.
+#export DH_VERBOSE=1
+#export DH_OPTIONS=-v
+
+DEBDIR=`pwd`/debian/transfig
+
+export DEB_BUILD_MAINT_OPTIONS = hardening=+all
+
+%:
+	dh  $@
+
+override_dh_auto_configure:
+	xmkmf -a
+
+override_dh_auto_build:
+	$(MAKE) CDEBUGFLAGS="$(shell dpkg-buildflags --get CFLAGS)" \
+		EXTRA_LDOPTIONS="$(shell dpkg-buildflags --get LDFLAGS)" \
+		PROJECT_DEFINES="$(shell dpkg-buildflags --get CPPFLAGS)"
+	[ ! -f doc/manual/trans.tex ] || chmod u+w doc/manual/trans.tex
+	$(MAKE) transfig.man
+
+	(cd doc/manual; ps2pdf manual.ps)
+
+#	uudecode fig2mpdf documentation:
+	(cd fig2mpdf/doc && perl uudecode *.uue)
+	(cd fig2mpdf/doc && $(MAKE))
+
+override_dh_clean:
+	[ ! -f Makefile ] || $(MAKE) clean
+	rm -f fig2dev/*.man transfig.man
+	rm -f doc/manual/*.aux doc/manual/*.log doc/manual/*.dvi \
+		doc/manual/*.ps doc/manual/manual.pdf
+	rm -f doc/manual/trans.tex
+	rm -f fig2mpdf/doc/*.gif fig2mpdf/doc/*.pdf fig2mpdf/doc/*.jpg
+	[ ! -f fig2mpdf/doc/Makefile ] || (cd fig2mpdf/doc && $(MAKE) clean)
+
+	dh_clean
+
+
+override_dh_auto_install:
+	$(MAKE) install DESTDIR=$(DEBDIR) \
+		BINDIR=/usr/bin LIBDIR=/usr/share
+	mv -f $(DEBDIR)/usr/bin/fig2ps2tex.sh $(DEBDIR)/usr/bin/fig2ps2tex
+
+	$(MAKE) install.man DESTDIR=$(DEBDIR) \
+		MANPATH=/usr/share/man MANSUFFIX=1
+
+	install -m644 -oroot -groot debian/override.Lintian \
+		$(DEBDIR)/usr/share/lintian/overrides/transfig
+
+#       Install fig2mpdf files:
+	install -m755 fig2mpdf/fig2mpdf $(DEBDIR)/usr/bin/
+	install -m644 fig2mpdf/fig2mpdf.1 $(DEBDIR)/usr/share/man/man1/
+	for f in fig2mpdf/doc/*.html fig2mpdf/doc/*.css fig2mpdf/doc/*.gif \
+		fig2mpdf/doc/*.jpg fig2mpdf/doc/*.lfig \
+	 	fig2mpdf/doc/sample-flat.pdf \
+		fig2mpdf/doc/sample-presentation.pdf; do \
+	    install -m644 $$f $(DEBDIR)/usr/share/doc/transfig/fig2mpdf/; \
+        done
+
+override_dh_installchangelogs:
+	dh_installchangelogs -k CHANGES
+
+override_dh_compress:
+	dh_compress -X.pdf

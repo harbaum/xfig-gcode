@@ -1,0 +1,2275 @@
+Changes to Xfig
+=============================================================================
+Version 3.2
+=============================================================================
+
+IMPORTANT NOTE:
+	Please use bvsmith@lbl.gov to report xfig problems or questions.
+
+	Also please note that I don't have much time anymore to work on xfig/transfig,
+	  so while you may have a great contribution to make, unfortunately I
+	  won't have time to work it into a release.  However, I will still try
+	  to fix bugs.
+
+Patchlevel 5c (August, 2013)
+
+BUGS FIXED:
+	o Increased default width of layer panel from 58 to 64 to accomodate scrollbar width
+	o missing comma in FIXED_JAPANESE_PDF #ifdef case in w_cmdpanel.c
+	o printer name enclosed in apostrophes when printing in case has spaces in name
+	o new link from Elizabeth Bailey for Fig applications referenced in installation.html
+	o old link to duke.uask.ca for Fig applications has new link in installation.html
+	o Typo in message "GIF read error on extention ..." should be "extension"
+	o Possibility of stack overflow with malformed Fig files.
+	o In version 1.4 of the PNG library dither was removed so xfig now uses quantize when
+	  importing PNG images with palettes
+	o Other updates for PNG library version 1.5 from Peter Volkov
+	o Some versions of Cygwin don't have either REG_NOERROR or REG_OKAY defined so 
+	  REG_NOERROR defined to be 0
+	o Changed X-Spline parameter to match original intent of X-Spline authors:
+	  changed definition of Q(s) from -s to -0.5 * s in u_draw_spline.c
+	o Allowance for stricter ghostscript in -dSAFER mode.  Was causing error on reading EPS images.
+	  From Hans de Goede
+	o Security vulnerability with importing images fixed 
+	  (RedHat bug # 657981 - xfig buffer overflow when opening .fig file with malicius color definition)
+	o When exporting to combined PS/PDF/LATEX the -D option to exclude all but active layers
+	  was not passed to fig2dev
+	o Uses 24-bit color instead of 8-bit when importing eps files (pcx24b driver for ghostscript)
+	o Bug in freeing null fontset
+	o Semicolon (;) added at end of MimeType line in xfig.desktop as per
+	  http://standards.freedesktop.org/desktop-entry-spec/desktop-entry-spec-latest.html
+	o Reference to "Darwin Ports" changed to "MacPorts"
+	o Renamed O_TEXT to O_TXT to avoid conflicts with system define
+	o On lines with Round or Projecting cap style and arrowheads, the line endpoint stuck out
+	  beyond the arrowhead
+	  
+	From Vladsilav Zavjalov:
+	o Uses fontsets for all fonts in international mode
+	o SEGV when zooming while creating object (e.g. text)
+	o Add locale_encoding appres which acts similar to euc_encoding, but uses system locale and
+	  mbrlen function for multibyte character length calculation.
+	o Move "file not found" error message from check_docfile() to launch_viewer(), 
+	  remove excess check_docfile() call.
+	  Error message is not shown when looking for a locale-dependent docs. It is shown only
+	  if no docs found at all.
+	o Do not do strcpy with equal arguments in w_cmdpanel.c/update_cur_filename()
+	o Print to file had extra argument in sprintf in international mode
+	o Message panel not tall enough with 3D Athena widgets
+	o Warnings about different size of int and void * on 64-bit system.
+	  To fix this problem I changed int to intptr_t in some places.
+
+
+NEW FEATURES:
+	o New library objects from Markus Laner:
+	  Networks: NodeB.fig, cloud.fig, router.fig, wlan.fig
+	  Computers: datacard.fig, screen.fig, usbpen.fig, xbox.fig
+	o New command-line option -nowrite_bak to turn off automatic renaming of .fig to .fig.bak
+	  when saving .fig file.  X resource is "write_bak".  Also command-line option -write_bak
+	  to force renaming to true.
+	o Can now specify small buttons with command-line argument -smallicons
+	  From Ed Rosten
+
+-----------------------------------
+Patchlevel 5b (Jun 1, 2009)
+
+BUGS FIXED:
+	o Dimension line indicator incorrectly showed arrow length/width
+	o Several patches from Fedora xfig maintainer
+	o divide by 0 under certain circumstances in ruler code
+	  From Libor Pechacek
+	o Segfault if PRINTER env variable was not defined
+-----------------------------------
+Patchlevel 5a (Mar 16, 2009):
+
+NEW FEATURES:
+	o "Chop" tool which allows you to chop polylines, arcs and circles into individual objects that together,
+	  approximate the original object.
+	  From Chris Moller
+	o Fig-color merged into Fig app-defaults file because almost no one knows about
+	  the "*customization: -color" option to make X programs read the color def file.
+	o 22 new arrowhead types
+	o changed default browser to firefox and default pdf viewer to xpdf
+	o HTML MAP export (fig2dev) produces reference to .png file instead of .gif now
+	o A note added to i18n.html that says if you run fig2dev standalone, you must
+	  pass the -j option to it
+	o No need to have the C99 complex functions in the math library.
+	o New computers from Andre Esser (Libraries/Computers)
+	o Some network icons colored and/or combined by Roland Rosenfeld.
+	o When exporting only active layers have choice of bounding area of whole
+	  figure or only the active layers
+	o Two new library figures - piano_keyboard.fig, top view of a piano keyboard
+	  by Reinaert Albrecht, and piano_keyboard_perspect.fig, a perspective
+	  view of a piano keyboard by Brian Smith, both in the Libraries/Music
+	  directory.
+	o New library figure - scissors.fig in Libraries/OfficeEquip from Kasie
+	  Breezer Talbot
+	o Search tolerance increased from 4 pixels to 10 for zoom < 20
+	o Isometric grid to ease making isometric drawings
+	  From Jasper Wesselingh
+	o New 37-pin D connector and 50-pin ribbon connector in Libraries/Electronic/Physical
+
+BUGS FIXED:
+	o dimension line arrowhead width and length used %d instead of %f in
+	  dialog, always displaying 0
+	o leftover debugging printf(...color = ) in startup
+	o finally fixed size of mode panel so it doesn't cover indicator panel
+	  under certain circumstances
+	o removed "Alpha" from splash
+	o updated copyright date in Help/About
+	o problem with depth panel height due to snap mode indicator
+	o snap indicator indicated "Focus" when "Diameter" was selected
+	o w_keyboard.c had pointer assignment reversed
+	o extraneous "done" in Imakefile in "install.jhtml" section
+	  From Eric Scott
+	o many protoytpe cleanups from Eric Scott
+	o #ifndef __FreeBSD__ added around #include <alloca.h> from Eric Scott
+	o uses rint() instead of lrint() for those with non-C99 compilers
+	o Solaris doesn't have REG_NOERROR for regex, so have new #define for that
+	o added dependency on version.h and patchlevel.h for f_util.c and f_save.c to
+	  Imakefile
+	o In imperial fractional scale mode, if the user scale factor wasn't 1.0, xfig
+	  would switch to decimal mode.  This has been fixed to remain in fractional mode.
+	o Added condition for GLIBC to not declare srandom(int)
+	o Better resizing of message popup panel
+	o Map of Spain included Portugal. From Eugen Dedu.
+	o Double-clicking on either style or family would crash xfig
+	o Export/Print grid units were not reset when loading Fig file of different units
+	o When converting empty export/print grid units to fractional inches would make 0/2
+	o Escaped hyphens in man page
+	  From Roland Rosendfeld
+	o When exporting to all three: PostScript, PDF and TeX, incorrectly generated
+	  PostScript and PDF that included LaTeX-only (special) text
+	o Bug when doing Save As to a shorter filename - would corrupt name sometimes
+	o Note about 450 pixels/cm didn't make it from the FORMAT3.1 file to FORMAT3.2
+	o Print command was using -P instead of -d for lp
+	o On Cygwin, needed to double-escape PRINTER environment when backslashes in name
+	o w_library.c had incompatible poiner type in call to ScanLibraryDirectory
+	o Not enough characters allocated for ruler inch/cm indicators.  Would cause segfault
+	  on zooming out because of longer ruler text, e.g. -10210cm
+
+-----------------------------------
+Patchlevel 5 (Feb 22, 2007):
+
+NEW FEATURES:
+	o Shift-U accelerator added to popup units panel
+	o The library menu button sizes with the library panel, to show longer
+	  path names if the user wants.
+	o The cursor for drawing lines, splines, etc. is a crosshair now instead
+	  of an arrow.
+	o Snap features to allow snapping points to endpoints, midpoints and
+	  intersections of other objects.
+	  From Chris Moller.
+	o Keyboard input of object coordinates for precise positioning.
+	  From Chris Moller.
+	o Can grab arc anywhere along the curve instead of just at grab points
+	  From Chris Moller.
+	o Added -noflipvisualhints for cases where, due to "different" pointer
+	  devices, they aren't really flipped, but the mapping indicates they are.
+	o Export to all of PS, PDF and LaTeX in one operation
+	  From Alistair Ramsey
+	o Reorganized Networks library and new devices: ASX-200, 1000, and 4000
+	  by Bill Chimiak
+	o New figures "betty.fig" (Betty Boop) and "nikke.fig" (German detective
+	  Nick Knatter) in Libraries/Examples drawn by Markku Reunanen
+	o Can finish text input by pressing Escape.  This removes the cancellation
+	  of a compose sequence (e.g. a-umlaut)
+	o Actually a bug fix, import of PDF files is now possible.  The code was
+	  there since version 3.2.3, but the user interface was not.
+	o Nearly-full ANSI protoization of code by Harald Koenig
+	o Installation of Libraries and doc files faster with tar instead of shell loop
+	o New Gregorian chant music symbols from Bill Chimiak.  Also, Music library
+	  divided into "chant" and "modern"
+	o Popup edit panel slightly more compact vertically
+	o New library "Fasteners" containing various bolts and screws
+	  From Jim Yuzwalk
+	o Increased size of numeric entry fields in indicator panels
+	o N-channel IGBT in Electronic/Schematics Library from Art Blair
+	o starting values for arrow type, width, length, thickness may be specified
+	  on command-line or in X resources:
+	  -startarrowtype, -startarrowwidth, -startarrowlength, -startarrowthick
+
+BUGS FIXED:
+	o xfig would crash on 64-bit processors because of a missing include, which 
+	  causes new_string() to be declared implicitly as returning an integer.
+	  This may cause the top 32 bits to get lost and hence the crash.
+	o Blanks not preserved in imported picture filename when reading Fig file
+	o When in metric mode, decimal precision was ignored for dimension lines
+	o When showing vertex numbers on objects, first vertex is now 0 to match
+	  edit window vertex numbers
+	o Also, vertex numbers are not shown on inactive (grayed) layers
+	o Widget shadow resources moved from Fig-color to Fig because they don't
+	  really have anything to do with color. There was a problem when running
+	  KDE because it set a global resource *Scrollbar*height: which made xfig 
+	  freeze when *customization: -color was NOT used.
+	o The point positioning indicator is turned on when editing a compound
+	  object to show the user that it is used
+	o Increased the maximum size of images that can be imported.  There was
+	  a limit in the PostScript image encoder of 4096x4096 pixels.  This was
+	  increased to 8192x8192.
+	o Centered text was changed to left-justified when flipped horizontally
+	  inside a compound object.
+	o With -v option, after reporting the version, xfig would say that -v
+	  was an unknown option 
+	o Local locale was being used when writing the xfig cut buffer file
+	  instead of switching to "C" locale.  This created commas instead of
+	  decimal (.) for numbers in those particular locales.
+	  From Dirk Osswald 
+	o Local locale was used when forming command for calling fig2dev,
+	  resulting in commas instead of decimals for floating point numbers.
+	o count_user_colors buffer overflow fixed
+	o Under Cygwin, temporary file stayed around after unlink(), causing
+	  error when importing more than one ps/eps/pdf file
+	o Segfault when using -update because appres resources were NULL
+	o -update option failed when not first option passed to xfig
+	o Clicking window manager "close window" button in library titlebar
+	  didn't close the window
+	o Wasn't distributing objects in compounds when there were only 2 objects
+	o Some compilers complain about the order of declaration in u_fonts.h - fixed
+	o Northern part of map of India was incorrect (Libraries/Maps/Asia/india.fig)
+	o Map of Serbia was misnamed "yugoslavia.fig" (Libraries/Maps/Europe/yugoslavia.fig)
+	o Map of Central Europe had old Yugoslavia instead of Croatia, Serbia, Bosnia-
+	  Herzegovina, and Macedonia (also, Slovenia was mistakenly inside the border)
+	o Editing a compound object with more than 200 texts would crash xfig
+
+-----------------------------------
+Patchlevel 5-alpha5 (April, 26, 2004):
+
+NEW FEATURES:
+	o Added note to README and FAQ html file:
+	  If the Xaw or Xaw3d Athena widget sets are compiled with the
+	  ARROW_SCROLLBAR style of scrollbars, there is no StartScroll action
+	  and you won't be able to scroll using the wheel on the mouse.  
+	  If you want to be able to scroll using the wheel, you must recompile
+	  the Xaw library from sources, disabling the ARROW_SCROLLBAR option.
+	o Astrological symbols for planets in Miscellaneous/Astrology by Andrew Collier
+	o Added key bindings to text dialogs to be more like modern systems (the
+	  Athena Widget Set that xfig uses is very old):
+	    Home:  beginning-of-line
+	    End:   end-of-line
+	    Del:   delete-character-right
+	o Added *.jpeg* to picture browse options
+	o New libraries for electronics from Fabio González in
+	  Libraries/Electronics/Schematic/More 
+
+BUGS FIXED:
+	o typo in latex_and_xfig.html and LATEX_AND_XFIG files. Text should be:
+	  \convertMPtoPDF{foo.0}{1}{1}
+	  It was missing parameters {1}{1}
+	o -correct_font_size missing from -help option list and man pages
+	o -help and -version didn't work unless they were first in the options
+	o -O option wasn't passed to fig2dev for overlapping pages in multiple
+	  page mode for PostScript export
+-----------------------------------
+Patchlevel 5-alpha4 (Feb, 19, 2004):
+
+Note:	There is a minor change to the copyright/permission notice for xfig.
+	Basically, I have restored the part that allows one to sell xfig
+	regardless of whether it is bundled as part of a package or not.
+	This is identical to the original copyright/permission notice for
+	xfig, which was based on the MIT (then later, the X Consortium) 
+	copyright notice.
+	Here is the new notice (different files have different author 
+	copyrights at the top):
+
+	> FIG : Facility for Interactive Generation of figures
+	> Copyright (c) 1985-1988 by Supoj Sutanthavibul
+	> Parts Copyright (c) 1989-2002 by Brian V. Smith
+	> Parts Copyright (c) 1991 by Paul King
+
+	> Any party obtaining a copy of these files is granted, free of charge, a
+	> full and unrestricted irrevocable, world-wide, paid up, royalty-free,
+	> nonexclusive right and license to deal in this software and documentation 
+	> files (the "Software"), including without limitation the rights to use, 
+	> copy, modify, merge, publish distribute, sublicense and/or sell copies of
+	> the Software, and to permit persons who receive copies from any such 
+	> party to do so, with the only requirement being that the above copyright 
+	> and this permission notice remain intact.
+
+NEW FEATURES:
+	o Introduction.html and installation.html updated to include Macintosh
+	  port of xfig
+	o Button to collapse depths of a compound object (make all same depth)
+	  in popup object editor
+	o Grid changed from dotted line to light red solid line
+	o Candle in Libraries/Miscellaneous by Dr. Lyman Hazelton
+	o Right-click on depth checkbox sets current depth in indicator panel
+	  to that depth
+	o Library of symbols used when diagramming folding instructions to make
+	  origami models and example contributed by Marc Vigo
+	o Can adjust width and height directly in popup editor for picture
+	  objects
+	o Support for David Hawkey's Xaw3D version 1.5E
+	  (http://www.visi.com/~hawkeyd/xaw3d.html)
+
+BUGS FIXED:
+	o When loading a library object, if it contained only a compound and
+	  nothing else, when xfig promoted that compound to the toplevel the
+	  main comment was lost
+	o Incorrect header files used for SmeBSB resulted in either segfault or
+	  none of the command panel entries being underlined
+	o Drawing very large splines (e.g. at zoom = 0.01) caused integer
+	  roundoff errors, making xfig loop indefinitely
+	o Bug where a line that had a zero width or length arrowhead was not
+	  redrawn after being moved, copied, canvas redraw, etc.
+	o The page border and axis lines would obscure Fig objects when moving,
+	  copying etc. other objects on the canvas.
+	o In the popup picture editor, if the relative position of the corners
+	  of the picture were changed, the rotation field was not updated
+	  (this bug was in 3.2.5-alpha3 only)
+	o line, arc, ellipse length tool was reporting 0 length
+
+-----------------------------------
+Patchlevel 5-alpha3 (Dec, 9, 2003):
+
+NOTE:
+	o URL for information about the color optimization code (written by
+	  Anthony Dekker) has changed to:
+	  http://members.ozemail.com.au/~dekker/NEUQUANT.HTML
+
+NEW FEATURES:
+	o -autorefresh command-line option (resource: Fig.autorefresh) which
+	  will make xfig look at the timestamp on the .fig file and
+	  automatically load it and display it everytime it changes.
+	o Removed requirement to compile with WHEELMOUSE when using wheelmouse
+	o New tower computers (Libraries/Computers/AOpenKF45E.fig and
+	  AOpenKF45E.fig from Dirko van Schalkwyk)
+	o New 10/100 8port hub (Libraries/Networks/3Com3C16750.fig also from
+	  Dirko van Schalkwyk)
+	o When placing library objects, the name and comments are displayed in
+	  message window
+	o New flags (Libraries/Flags): Africa/Eritrea, Africa/Zimbabwe,
+	  Asia/Myanmar, Asia/Tajikstan, Asia/Kyrgystan, Europe/Croatia
+	o non-polar capacitor added to Libraries/Electronic/Schematic
+	o Mouse wheel can be used to scroll through filename lists in File and
+	  Export panels and icons or object lists in Library panel
+	o Thickness of ticks in dimension lines are user-adjustable now
+	o For attribute popup dialogs with only one text entry, keyboard now
+	  focuses on the entry as long as the pointer is anywhere in the dialog
+	o When using the "Open compound, keep rest visible", the other objects
+	  are drawn in shades of gray similar to the inactive layers feature.
+	o New library objects: adder, multiplier, sine-source and voltage-source
+	  in Electronic/Schematic by Hubert Lam
+	o Zooming in or out with the Z or z key respectively will keep the canvas
+	  centered on the mouse pointer
+	o Full version and patchlevel is included in Fig file header for
+	  diagnostics
+	o Can explicitly set the rotation of imported pictures in edit panel
+	  after importing
+	o Export option to produce both EPS and PDF (in two files) in one step.
+	  Useful for those who both use LaTeX and PDFLaTeX
+	o "Epoch" added to rpm spec
+	o New HP/GL2 (fig2dev) driver from Glenn Burkhardt with paper size
+	  selection, offset, centering and orientation options
+	o New library object "atom" in Libraries/Miscellaneous is the classic
+	  drawing of an atom with electrons circling
+	  From Andrew B. Collier
+
+BUGS FIXED:
+	o Missing #ifdef XAW3D in SimpleMenu.c
+	o Bug when breaking a compound object - depths were added twice to the
+	  counts
+	o When implicitly cancelling the placement of a library object by
+	  choosing another mode, xfig would do one of two things:
+	    1. tell user to cancel or finish the current operation, but there
+	       was no way to do that
+	    2. create the object that was being cancelled with extremely large,
+	       negative coordinates
+	o Picture Reread button was active before file was read the first time
+	o Rereading picture in edit popup produced bad colors
+	o When using multiple copies of an imported picture, h/w ratio was not
+	  computed for copies
+	o Importing PCX images were incorrect when bytes per line different from
+	  width*bpp
+	o When passed a filename containing a directory name for a Fig object
+	  library using -library_dir, and that directory only contains Fig files
+	  and no subdirectories with Fig files, xfig segfaulted
+	o Several checks for memory allocation failure added to the library
+	  loading procs
+	o Forgot to free allocated memory when return abnormally from loading
+	  libraries
+	o Path length check in loading libraries fixed
+	o Missing include for put_msg prototype in e_measeure.c
+	o Needed #ifdef for XtVersion in SmeBSB.c (X11R5 doesn't have
+	  international fontset)
+	o Added SIGPIPE signal to ignore in case an external program dies when we're
+	  using pipes
+	o Screen capture on an MSBFirst X server with 24/32 bits per pixel was
+	  incorrect.
+	o Importing any image file on such a server was incorrect (bytes/bits
+	  reversed).
+	o Reading GIF or PCX files on 24-bit server *and* on big-endian machine
+	  (e.g. Sparcstation) resulted in bytes being swapped and funny colors
+	o Could popup unit dialog when drawing/editing objects
+	o Embedded whitespace in filenames in recently loaded files weren't
+	  parsed properly (.xfigrc)
+	o When pasting an object on the canvas, point positioning grid wasn't used
+	o Bug when reading a compressed eps file (file handle was passed to open
+	  proc instead of name)
+	o Minor grid spec used twice instead of minor/major when passed to fig2dev
+	o Fixed conversions of export/print grid values when switching to/from
+	  metric, decimal or fraction
+	o When loading or merging a file, xfig appended ".fig" to the name if
+	  there wasn't ".fig" in the name. Now it only appends ".fig" if there
+	  is no suffix (no ".").
+	o When appending the ".fig" before the previous change, xfig would segfault
+	o Libraries/Electronic/Schematic/transformer and transformer_ironcore
+	  aligned to 1/16" grid
+	o Bugs in indicator panel display of text flags, dimension line params
+	  and arrow size params when cycling through settings with middle or
+	  right mouse button
+	o Bug in callbacks for dimension line checkboxes that select actual
+	  length or user text
+	o When exporting to Combined PDF/LaTeX it uses ".pdf" and ".pdf_t"
+	  suffixes because LaTeX doesn't recognize ".pdftex" as a PDF file
+	o Better clipping around arrowheads on thick lines (lines that are
+	  thicker than the arrowhead is wide)
+	o Checks for open splines of < 2 points when reading figure file and
+	  removes them
+	o Clicking middle mouse button after creating first point of closed
+	  spline switched to freehand mode
+	o Export panel sections would get messed up when changing export
+	  languages
+	o Now checks whether scrollbars support StartScroll before trying to use
+	  it for the wheel scrolling.  When the Xaw widgets are compiled with
+	  ARROW_SCROLLBAR, there is no such action.
+	o pstex_t export lacked border option (-b) to align LaTeX text when
+	  pstex figure specified border (also fixed in fig2dev)
+	o Create one picture object with no filename, then create another and
+	  xfig crashed
+	o Some bugs when freeing dimension line components
+	o Bad choices for grid dot spacing in metric mode in the 5mm grid, and
+	  decimal inch mode in the 0.5 and 1.0 inch grids
+	o -international flag missing from xfig.html and xfig.man docs
+	o Added call to XsetLocaleModifiers() when initializing input method
+	  (-international mode only)
+	o xfig was limiting arrowhead lengths to 50 pixels instead of 50 inches,
+	  and the width to 10 pixels instead of 10 inches.
+	o edit panel for circles shouldn't have "angle" entry
+	o edit panel wasn't allowing typing in of negative angles for text and
+	  ellipses
+	o Objects were sometimes drawn with a wild point when zooming
+	o Full path was being added to default export filename and wasn't
+	  changing when user changed directories
+	o When drawing a box or rounded box with the "show line lengths" on, the
+	  sizes were in Fig units (1200ppi) instead of user units.
+	o Spacing cedilla (ISO 0xB8 / octal 270) was missing from CompKeyDB file
+	o Changing the units in the popup edit panel for a text object caused a
+	  segfault.
+	o Rulers and grid didn't change scale when user scale was != 1.0.  Even
+	  though the message window showed the correct user scale when drawing
+	  objects, the rulers and grid still showed the unscaled values.
+	o Axis lines through 0,0 now drawn after page border so it remains
+	  visible when there is a grid
+	o Segfault if current directory was deleted after starting xfig
+	o Positioning grid was set to "ANY" when editing a compound object,
+	  causing the original bounding box to be lost
+	o Bug in arc drawing caused arcs to be drawn as circles at high zoom
+	o Computing the area of a polygon larger than 38x38 inches overflowed
+	  calculation
+	o Bug in bounds calculation for ellipses and circles that increased
+	  bounding box even with line width = 1
+	o Limit on number of styles in a family wasn't checked
+	o If all depths were turned off and any edit operation was attempted on
+	  the canvas such as move object, delete object, xfig would hang,
+	  searching for objects indefinitely.
+
+----------------------------
+Patchlevel 4 (December 2002)
+
+SPECIAL COPYRIGHT NOTICE:
+
+*********** THE FOLLOWING HAS BEEN SUPERCEDED BY THE ONE FOR 3.2.5 ***********
+The xfig copyright has changed slightly since the previous version.
+It now states that:
+
+	Any party obtaining a copy of these files is granted, free of charge, a
+	full and unrestricted irrevocable, world-wide, paid up, royalty-free,
+	nonexclusive right and license to deal in this software and
+	documentation files (the "Software"), including without limitation the
+	rights to use, copy, modify, merge, publish and/or distribute copies of
+	the Software, and to permit persons who receive copies from any such
+	party to do so, with the only requirement being that this copyright
+	notice remain intact.
+
+The previous notice allowed the *selling* of xfig or any code in xfig. This is
+not allowed now, unless xfig is simply included in a collection of programs
+(e.g. on a CD) that you are selling.
+*******************************************************************************
+
+NEW FEATURES:
+
+	o Binary RPM available for systems with rpm (RedHat Package Manager).
+	o Examples moved to Libraries/Examples so they are installed in a
+	  convenient place for viewing (via the library feature)
+	o "Front" and "Back" labels in depth manager to show relative
+	  positioning of depths on drawing.
+	o The mu (micro) character is now entered using "Compose | u" instead
+	  of "Compose / u"
+	o If you wish to place a library object at the position it was
+	  originally created, e.g. for laser printer labels, hold down the Shift
+	  key and press mouse button 3 (`place at orign posn') to place it.
+	o New URL for chemtool, a chemical structure editor:
+	  http://ruby.chemie.uni-freiburg.de/~martin/chemtool/chemtool.html
+	o The minimum and maximum depth of objects are shown in the edit panel
+	  for compound objects
+	o EMF (Enhanced Metafile) export driver (TransFig/fig2dev) based on CGM
+	  driver. Converted by M. Schrick
+	o SVG (Scalable Vector Graphics) beta driver (for TransFig/fig2dev) from
+	  Anthony Starks with major improvements by Martin Kroeker
+	  Some caveats when using Mozilla-SVG to view these:
+	    1. the file must be exported with magnification = 6.6% (0.066 in
+	       fig2dev) to scale to screen coords
+	    2. the file suffix must be ".xml"
+	o The xfig documentation is nearly entirely GIF-free (TM).  Only the
+	  frames images use GIF because they use a transparent background, which
+	  many browsers don't honor.  PNG is used for all other images.
+	o Xfig reference manual now available in PDF besides html.  The English
+	  version is in Doc/xfig_en.pdf and the Japanese in Doc/xfig_jp.pdf.
+	  These are also available in the Help menu.
+	o Dimension lines - Hold the shift key down while drawing a polyline,
+	  and after specifying the two endpoints a "dimension line" is created,
+	  which is actually a compound object containing the line drawn (with
+	  arrowheads if auto arrow mode is on) in the current color, "tick"
+	  lines at each endpoint, text showing the length of the line in the
+	  current units, and a box around the text filled in the current fill
+	  color.  If this compound object is rescaled or one or more endpoints
+	  are moved, the actual length is recalculated and the text is updated.
+	o New Xfig logo courtesy of Marc-Aurele Darche.
+	o Can now paste text in text mode using Shift+Middle-mouse-button in
+	  addition to F20 and Sun's Paste key (F18).
+	o If xfig is compiled with #define WHEELMOUSE uncommented in the
+	  Imakefile, the wheel may be used for several things (see html docs
+	  under Miscellaneous/Wheel Mouse).
+	o New grid/positioning option for inches mode: -grid_unit.  If the value
+	  given is "1/10", "ten", "tenth", "1/10" or "10", (e.g. -grid_unit ten)
+	  then the grid and point positioning is in decimal inches.  Otherwise
+	  they are in 1/16 inch units (as before).  When in this mode, the grid
+	  step sizes are 0.1, 0.2, 0.5 and 1 inch and the positioning steps are
+	  0.05, 0.10, 0.2, 0.5, and 1.0 inch.
+	o Background (-g to fig2dev) option for tk export honored now.
+	o New command-line argument -correct_font_size (X resource
+	  Fig.correct_font_size) to make xfig use real points for font sizes
+	  instead of units of 1/80 inch.  xfig has always claimed that the font
+	  size units are points (1/72inch), but in fact they were 1/80 inch.
+	  This new option is not the default because it will break some figures
+	  by making the text too large compared to other Fig objects, but it
+	  will be the default in a future version.
+	  The corresponding argument to fig2dev is -F (xfig automatically sets
+	  this when calling fig2dev).
+	o Added "Stop" button to stop loading library.
+	o Much more efficient when copying large imported pictures - existing
+	  pixmap is used instead of creating new one.  This also precludes the
+	  need to remap colors when running out of colors when the colors are
+	  identical.
+	o When changing an attribute of an imported picture that doesn't change
+	  the picture itself (e.g. depth), the pixmap is not regenerated,
+	  therefore saving time.  The same is true when copying a picture.
+	o New X resource Fig.ghostscript and command-line argument -ghostscript
+	  by which you can tell xfig what your ghostscript is called (e.g. "gs"
+	  or "gswin32").
+	o Can now add ASCII (EPSI) preview to EPS export. See export panel.
+	o Can now add monochrome or color TIFF preview to EPS export.  This is
+	  needed by Microsoft Word, Powerpoint, etc. to display the EPS on the
+	  screen. Select from the pulldown menu of export languages.  You must
+	  have fig2dev 3.2.4 for these features. See export panel.
+	o Translations of LATEX.AND.XFIG document into two popular Chinese
+	  encodings (GB2312 and Big5).  These are called LATEX.AND.XFIG.zh_CN
+	  and LATEX.AND.XFIG.zh_TW respectively.
+	  From Mendel Chan
+	o When text becomes too small to see (e.g. small zoom), xfig will
+	  "Greek" it, meaning it draws a gray line segment for each word in the
+	  string.
+	o When resizing canvas to a smaller height, the number of buttons per
+	  row of the mode (side) panel increases so that it doesn't protrude
+	  into the indicator (bottom) panel
+	o Smarter redraw when turning on depths from the depth manager.  If
+	  depth N is turned on and there are no active depths < N, only depth N
+	  is drawn - otherwise, the canvas is erased and the whole figure is
+	  redrawn.
+	o If the user's pointer (mouse) buttons are switched (usually 3 2 1)
+	  xfig will automatically flip the mouse hints messages. This overrides
+	  the -flipvisualhints command-line argument.
+	o If the user clicks on or modifies an existing text, and presses
+	  return, the new text on the next line will use the attributes of the
+	  first text instead of the attributes from the indicator panel.
+	o Note in README and Imakefile about not casually setting the DESTDIR
+	  make variable.
+	o Picture objects are drawn as filled gray boxes when their layer is
+	  inactive in gray mode.
+	o xfig no longer requires fonts that are named "-adobe-..." (e.g. for
+	  RedHat systems with URW fonts).
+	o Updating the attribute panel from a compound object will retrieve
+	  (only) the smallest depth from the compound.
+	o When scaling an object, the line thickness is no longer scaled with it
+	o New measuring modes: angle, length, area and tangent. See Editing
+	  section in html docs.  From Alex Durner.
+	o New feature to add tangents and normal lines to curves.  See Editing
+	  section in html docs.  From Alex Durner.
+	o Splash screen on startup. Disable with -nosplash (resource Fig.splash).
+	  Interior logo by  Marc-Aurèle Darche.
+	o New command-line option -grid_color (resource grid_color) to set the
+	  color of the canvas grid (default: red).
+	o New option to print grid when exporting or printing (see printing/
+	  exporting section in html docs).
+	o When drawing an arc by specifying the center point, a circle is drawn
+	  showing the radius of the arc as the user drags the mouse, then when
+	  the first end point is clicked an arc is drawn as the mouse is dragged.
+	  The user then clicks in the direction the arc should go, followed by
+	  the final angle to complete it.
+	o If the Ruler unit is Imperial (in), you may have xfig display
+	  measurements using fractions where possible.  If a measurement can be
+	  shown as an integer multiple of 64ths of an inch (or 32nds, 16ths,
+	  etc.) it will show it as such (e.g. 3-5/64 in), otherwise a decimal
+	  value will be shown (e.g. 3.085 in).
+	o When opening a compound object, if the middle button us used to open
+	  the compound, all other objects on the canvas are kept visible.
+	  From Alex Durner.
+	o When opening a compound object, the "point positioning" indicator is
+	  enabled, allowing you to set the bounds of the compound according to
+	  the indicator when you close the compound.
+	o Zero-crossing lines on canvas have own command-line parameter
+	  (-zero_lines) and resource (Fig.zero_lines) for setting color separate
+	  from page border color.
+	o Smooth factor when exporting to bitmap format is now a pull-down menu
+	  with: No smoothing, Some smoothing, More smoothing.
+	o When flipping compound objects with text, a vertical flip will now
+	  shift the text to maintain its relative position to the other objects
+	  in the compound and its angle is rotated by 180 degrees minus the
+	  original angle.  This behavior will for example, keep the orientation
+	  of a text inside a polygon consistent with the polygon.
+	  A horizontal flip of a compound containing text will change the angle
+	  in the same way.
+	o Three-D borders for buttons, etc reduced from 2 to 1 pixel for "lean"
+	  look (resource Fig*shadowWidth in Fig-color.ad).
+	o Additional JPEG file format (EXIF) added for import. These usually
+	  come from digital cameras.
+	o Validation for integer spinners - doesn't allow non-numeric input when
+	  typing in values directly.
+	o When scaling an object, the scale factor is shown in the message.
+	  window in addition to the width/height. From Alex Durner.
+	o New url for pstoedit (mentioned in installation.html).
+	o When picking points of an object at high zoom, the tolerance has been
+	  reduced to make it easier to pick the correct point.
+	o When "graying" inactive depths, the inactive objects are drawn first
+	  followed by active objects ensuring visibility of active objects.
+	o xfig now draws "grayed out" picture objects (inactive depth) as a gray
+	  box with the filename only.
+	o Line style in edit panel now shows graphic of style instead of
+	  textual description.
+	o Cap style in edit panel was inadvertantly left off open-splines.
+	o Popup dialog to edit behavior of spline point now pops up near the
+	  point being edited.
+	o When cancelling drawing a picture object from the popup editor, the
+	  empty object is removed rather than showing a <empty> in the box.
+	o Pressing Return or Escape in popup message window will dismiss it.
+	o In picture browser popup, double clicking or clicking and pressing
+	  Return will apply the selected picture AND close the browser.
+	o New popup query if updating the depth in a compound object would
+	  result in any depth exceeding the maximum.  The popup gives the user
+	  the option to cancel the depth update part.
+	  From Marcus Eger
+	o More consistent placement of Cancel/Ok/Set etc. buttons in dialogs.
+	  Generally, the Cancel button is first followed by the others, and
+	  where possible, they are at the bottom of the dialog.
+	o More meaningful message "Cut buffer is empty" if there is no .xfig
+	  file in the user's home directory.
+	o New MetaPost driver for TransFig 3.2.4 supported.
+	o New option for binary CGM export (must have TransFig 3.2.4 too). The
+	  ralcgm program is required for this option.
+	  See ftp://ftp.cc.rl.ac.uk/pub/graphics/ralcgm/
+	o In popup edit panel for compound objects, one may easily shift a
+	  compound object by changing either corner's x, y values and pressing
+	  return or scale it by changing the width and/or height and pressing
+	  return.
+	o "condensed" alias for "narrow" fonts (urw changed their helvetica-
+	   narrow to helvetica-condensed).
+	o Pressing escape in a popup dialog will dismiss it.
+	o Zoom/Unzoom (Shift-Z/z) changes zoom by a factor of 1.5 instead of
+	  adding or subtracting 1 from the zoom value. Also, the zoom/unzoom is
+	  centered on the canvas.
+	o Exporting to JPEG doesn't require compiling with USE_JPEG defined in
+	  Imakefile.
+	o Minimum and maximum depths of objects in a compound are displayed in
+	  popup edit panel.
+	o Named styles where user can save attributes that are often used for
+	  quick access.  For example, the user may want dashed, thick, red lines
+	  often so he can save those attributes and call it (e.g.) "thickred",
+	  and easily call it up later.  See the html docs in Main Menus (the
+	  View/Manage Styles...) menu entry.
+
+NEW LIBRARIES and Examples:
+
+	o Poster advertizing German version of "Little Shop of Horrors" in
+	  Libraries/Examples/poster.fig.  From Kai-Martin Knaak
+	o Three new Examples from Carlo Kopp (in Libraries/Examples):
+	   Python-4.fig  - RAFAEL Python 4 all aspect agile heatseeking missile
+	   YF-23A.fig    - Development example of the USAF's Northrop-MDC YF-23A
+	   tsr2-side.fig - Notional camouflages for BAC TSR.2 production aircraft.
+	o Many new country flags in the Libraries/Flags directory. Now
+	  organized by region of the world (e.g. Africa, Europe, MiddleEast).
+	o New flags of Bosnia and Slovenia with vector coat of arms in
+	  Libraries/Flags directory from Roman Maurer
+	o New maps of Yugoslavia, Macedonia, Croatia, Bosnia-Herzegovina and
+	  Slovenia (Libraries/Maps/Europe)
+	o New maps of Russia, Kazakstan, Kyrgyzstan, Tajikistan, Turkmenistan
+	  and Uzbekistan (Libraries/Maps/Asia)
+	o New Avery label templates in Libraries/Labels directory, including a
+	  CD label, Avery_5931, done by William Chimiak.
+	o New Avery and PerfectData Corp CD label templates in Libraries/Labels
+	  directory, done by Len Hickey.
+	o New computers and printers in Libraries/Computers library from Ernst
+	  Pisch
+	o New network library devices Extreme Networks Inc. Black Diamond and
+	  Summit 5i network switches, Net Gear Hub, and new CODECs in
+	  Audiovisual library from Bill Chimiak
+	o New DSP component library from Jakub Stastny
+	o Standard welding bevels library from Erik Engh (Libraries/Welding)
+	o Canadian map from Seymour Green
+	o A Uno hand (card game) drawn by Roland Rosendfeld
+	  (Libraries/Examples/uno_hand.fig)
+
+BUGS FIXED:
+
+	o Undo of join/split now works correctly.
+	  From Pieter-Tjerk de Boer
+	o Pulldown menu for object library didn't always go away while loading
+	  library
+	o If -library_dir was relative path, any imported pictures in library
+	  files wouldn't be found.
+	o If in text draw mode and user uses Alt- accelerator, the compose LED
+	  would stay on
+	o Middle mouse emulation for 2-button mice wasn't accepting Alt-Right-
+	  click, only Meta-Right-click.
+	o If one created a new figure and didn't save it before exporting, the
+	  export command was malformed resulting in an error message.
+	o Numeric locale setting moved to routines that read and write Fig files
+	  so that the user's numeric convention is used in everything else.
+	o Point positioning was truncated in the negative X and Y regions of the
+	  canvas instead of being rounded.
+	o -b (border margin) wasn't being passed to fig2dev for PDF and PSTEX
+	  output.
+	o xfig only recalculate the bounds of compound objects being read if
+	  there are no bounds following the "6" or they are all 0.  This fixes
+	  the problem introduced in 3.2.3d where objects that were bound at a
+	  certain point positioning were rebound at the current positioning.
+	o When xfig reads in a .fig file (merge_file or load_lib_obj) it will
+	  not put the file into another compound if it contains only one
+	  compound. This will prevent the double compounding of library objects
+	  or merged files.
+	o If a compound with more than 64 strings was edited, xfig segfaulted
+	  because the limit wasn't checked.  This is fixed, and the limit has
+	  been increased to 200.
+	o Typo in figx.h. "#ifdef XAW3d" instead of "#ifdef XAW3D" (capital "D")
+	o If the XFIGDOCDIR directory didn't already exist, install.doc failed.
+	o The "make install.all" directive did not install the executable, as
+	  the README file said is would.  This has been fixed.
+	o Deleting a region (middle mouse button delete) of a figure resulted in
+	  all other objects dissappearing after a screen refresh.
+	o If the user mistakenly clicked the *left* mouse button on a point
+	  where he wanted to *split* a line, the ability to split was turned off.
+	o Toplevel library directory wasn't included in library menu when it
+	  contained .fig files.
+	o Subdirectories without any .fig files appeared in the library menus,
+	  contrary to the documentation.
+	o If xfig was renamed to anything else, the command-line arguments and
+	  X resources weren't parsed by the Intrinsics.  This is fixed.
+	o Some versions of "make" don't like the blank line produced by the
+	  "#ifdef I18N" in the install.html section of the Imakefile, so it has
+	  been reworked to get around that bug.
+	o Array placement with horizontally/vertically constrained copy works now
+	o Html "options" page showed "-pa" as abbreviation for -paper_size, when
+	  in fact it is now "-pap" because of the new "-pageborder" option.
+	o If display zoom was large (> 20) and grid was turned on, very large
+	  pixmap was being created for the grid.
+	o Inconsistancy with "char" vs "unsigned char" in get_canvas_clipboard().
+	o Text input and editing more efficient when redrawing large fonts.
+	o Box curve indicator now appears when in "convert box<->arcbox" mode.
+	o If user called xfig with empty (but existing) file, the filename was
+	  not retained for subsequent save.
+	o Cleaned up redrawing of corner markers when editing objects from popup
+	  edit panel.
+	o Scaling arcbox didn't report scaling messages.
+	o When scaling rotated ellipses, scaling messages were overwritten.
+	o Improved redraw when moving/scaling/copying objects and screen is
+	  redrawn.
+	o Drawing units indicator was not updated when reading Fig file.
+	o Cleaned up "move point" code.  When moving a corner point of a box or
+	  compound or the radius or diameter of a circle or ellipse, it would
+	  first make the object dissappear until the mouse was moved.  This
+	  doesn't happen anymore.
+	o Command-line -userunit (X resource Fig.userunit) were overwritten when
+	  reading Fig file.  Now it is only changed if units are inconsistent
+	  with value in file.  E.g. if file has "Inches" and xfig has "cm", xfig
+	  changes to "in" when reading file.
+	o A few files were left open that should be closed.
+	o If the print and/or export panels are up and the figure units are
+	  changed from/to Metric/Imperial, the figure size wasn't updated in
+	  the print/export panel(s).
+	o Missing link from editing.html file to "Paste Objects" in
+	  main_menus.html.
+	o Bug in array place item - didn't work when number of X copies and
+	  Y copies = 1.
+	o Bug in *undo* of array place - didn't account for adding back object
+	  depths
+	o (dx, dy) values weren't displayed when moving the midpoints of a line
+	  or arc.
+	o While drawing freehand (middle mouse button start), if the user wanted
+	  to delete points by holding down the shift key and pressing the left
+	  button, moving the mouse would still add points to the object
+	o PNGINC Imakefile variable added to specify where png.h is located (was
+	  already there in fig2dev)
+	o The depth counts were erased when deleting a region of a figure.
+	o If you choose one object from a library to place on the canvas and
+	  then popup the library panel and choose another object, the depths
+	  from the temporary object following the pointer weren't accounted for.
+	o Added "Fig*AllowShellResize: false" to the app-defaults file to fix a
+	  problem that some window managers have with xfig continually resizing
+	  itself
+	o When saving path of imported picture, xfig thought path was relative
+	  to current directory when it wasn't
+	o Added "|| defined(apollo)" in fig.h to include sys/types.h
+	o Doc/FORMAT3.2 file had imported picture description line reversed with
+	  points lines
+	o Doc/FORMAT3.2 file had incorrect values for object types in the first
+	  part of section 3.
+	o Segfault when merging a Fig file with only color objects (no drawing
+	  objects)
+	o No message when toggling on/off depth manager
+	o If xfig couldn't open ~/.xfigrc for writing (e.g. because of
+	  permissions) it would segfault
+	o Segfault when converting a 2-point line to a polygon.
+	  Bugfix from Tom Sato.
+	o Segfault when creating a closed spline with three points, where the
+	  last two points are coincident.
+	  Bugfix from Tom Sato.
+	o Typo in attributes.html in describing the selection of the previous or
+	  next attribute with mouse buttons 2 and 3 respectively.  For mouse
+	  button 2 it should read "previous" and for button 3 "next".
+	o Typo in Doc/FORMAT3.2 and Doc/html/fig-format.html for backward_arrow
+	  description:
+	  said "(0: no forward arrow, 1: on)" instead of ... no backward ...
+	o Added $(DUSESMALLICONS) to dependencies for main.c in Imakefile
+	o Reduced height of object edit panels by only displaying 3 comment
+	  lines and 6 x,y pairs before scrolling.
+	o Special texts weren't filtered by the depth filter when exporting to
+	  combined ps/latex or pdf/latex
+	o Various typographical errors found by Daniel Frèrejacque
+	o Segfault if fast export (Alt-Shift-X) is done before either the file,
+	  export or browse panel was created
+	o When xfig was compiled with WHEELMOUSE support, zooming was always
+	  "centered" even not zooming with wheel
+	o Typo in Fig.ad resource file for pasting text using F8 key
+	o When doing a panic save (segfault, etc.), xfig now closes any open
+	  compound objects first
+	o Bug in importing GIF file.  File descriptor changed between first open
+	  and final close.
+	o Bug in Imakefile with JPEGINCDIR
+	o Had to include SimpleMenu.c and header files because of changes to
+	  some Xaw SimpleMenu implementations that were incompatible with xfig's
+	  own SmeBSB object
+	o Bug in "Figure size" label in export panel caused segfault sometimes
+	o Macro call (up_part) in e_update.c caused problems on HP/UX ANSI
+	  compiler
+	o Same compiler takes issue with empty action records in w_style.c:
+	  library_actions[] ={}; Removed because it isn't used anymore.
+	o After pressing the "Reread" button in imported picture edit popup, the
+	  Shrink, Expand and Original size buttons were disabled
+	o Bug in SmeCascadeP.h when not using 3D widget set (Xaw3d)
+	o One remaining use of sys_errlist[] should have been changed to
+	  strerror() in f_util.c
+	o Pressing Escape while drawing an object caused segfault
+	o When line type is dotted and the dot gap is < 0.5, XSetDashes()
+	  produced "Bad Value" error.  Found by Tom Sato
+	o init_break_tag() and init_break_only() each had an extraneous parameter
+	  (loc_tag) which wasn't used and wasn't passed by the caller anyway. This
+	  caused havoc with (at least) the gcc optimizer on an Alpha processor.
+	  Found by Jay Estabrook.
+	o If you open a dimension line compound object and close it with zoom != 1,
+	  the text is drawn unzoomed
+	o Didn't allow smoothing when exporting to AutoCAD slide file.
+	o Changing browser or pdfviewer in dialog had no effect.
+	o Fixed problem with RedHat imake rules not installing Doc/xfig.man
+	  properly.
+	o When making a compound object including lines that have arrowheads and
+	  large coordinates (>= 100000), an incorrect bounding box was produced.
+	  This same bug was in fig2dev 3.2.3d and earlier.
+	o Drawing an arc by starting with the center and dragging it out now
+	  reports the angles of the endpoints after clicking on first endpoint
+	  instead of incorrectly reporting the radius.
+	o Checks that closed splines have at least 3 points when reading Fig
+	  file and removes any that have fewer.
+	o Exporting with color TIFF preview option missing parameter when
+	  calling fig2dev
+	o Export grid option disabled for languages other than PS/EPS/PDF/bitmaps
+	o Not really a bug, but the message that tells the user when xfig is
+	  converting a figure from an older file format to the current format
+	  has been removed.
+	o When changing the height of xfig, the number of buttons per row on the
+	  mode (left) panel increase OR decrease as needed.
+	o When reading a Fig file with different units (metric/imperial) than
+	  the current figure didn't change the ruler tick spacing.
+	o Chemical Process Flowsheet library Valve_horizontal and Valve_vertical
+	  valves reversed.
+	o Bug in forcing absolute path for picture objects in libraries
+	o Bug where xfig may change the Major/Minor printing/export grid tick
+	  values from "None" to 0.0
+	o When an imported picture is compressed but the .fig file has the
+	  uncompressed name, export failed.
+	o Xfig allowed "splitting" a picture box into a polyline.  This has been
+	  fixed to disallow it.
+	o Queries user if hasn't saved named styles after adding or deleting same.
+	o Print-to-batch-file didn't call print_to_file with all parms
+	o xfig crashed if the window manager deleted the color popup panel in
+	  the popup editors
+
+
+----------------------------
+Patchlevel 3d (May 29, 2001)
+
+NEW FEATURES:
+
+	o New Imakefile variable XFIGDOCDIR points to directory for xfig doc
+	  files, which may be different from XFIGLIBDIR
+	o New aircraft from Carlo Kopp in Examples directory.  These may be
+	  reproduced for educational and other non-commercial use only.
+	o Support for importing PNG image files added
+	o GIF transparency for imported images honored by fig2dev now
+	o New option to print only active layers when exporting or printing (see
+	  printing/exporting section in html docs).
+	o When loading a compressed Fig file that is either read-only, or is on
+	  a read-only file system (e.g. a CDROM), xfig uncompresses it into the
+	  temp directory (env TMPDIR, or /tmp if TMPDIR environvment variable is
+	  undefined).
+	o New Maps library - currently contains Most Canadian provinces, USA
+	  coast and states, most of the continents and a world outline
+	  World outline map and United States by Steve Eichblatt
+	o I had forgotten to credit Kai-MartinKnaak for his Mechanical_DIN
+	  library of mechanical drawing symbols from July 1998
+	o New Chemical Process Flowsheet library by Volker Siepmann
+	o New Laptop computer and Ericsson R320 cell phone in Libraries/Computers
+	  from Dirko van Schalkwyk
+	o New PMOS FET (Field Effect Transistors) and NMOS FET library objects
+	  in Electrical/Schematic library - from Min Xu
+	o New network devices in Networks library from Bill Chimiak:
+		atmswitch.fig	- generic ATM switch
+		dsu-csu.fig	- Digital Service Unit/Channel Service Unit
+		smartbit.fig	- Netcom Smartbit network tester
+	o New Catalan flag in Flags library from Francesc Burrull i Mestres.
+	o New office building (office2.fig) in Buildings library from Brian
+	  V. Smith
+	o New variable PRINTCAP in Imakefile to specify where the printer
+	  capabilities file is (default /etc/printcap)
+	o New drawing: plan view of house and backyard (Libraries/Examples/house_plans.fig)
+	  from Scott Gordon.  It may not be used for profit without express written
+	  permission from Scott.
+	o xfig recalculates the bounds of compound objects read in from the file,
+	  ignoring the bounds values in the file.  This makes it easier for Fig
+	  file generators to produce compound objects since they don't have to
+	  know how to calculate the bounds themselves. fig2dev doesn't even use
+	  those values but recalculates them upon reading the file.
+	o New VA Linux machines in Computers library from Yazz Atlas
+	o Increased maximum number of libraries to 100
+	o New and improved library object Computers/film_digitizer (and in
+	  Hospital/film_digitizer) from Bill Chimiak
+
+BUGS FIXED:
+
+	o New cascaded menu for the Fig object libraries.  This reduces the
+	  height of the menu to allow many more libraries, by arranging them
+	  hierarchically.  This required writing a subclass of the SmeBSB Athena
+	  widget.
+	o When browsing libraries or merging figures, identical user colors were
+	  multiply defined
+	o Fig library objects may use imported images because the absolute path
+	  is forced in those cases
+	o When modifying an existing centered or right-justified text, pressing
+	  enter moved the cursor to the X position of the beginning of the
+	  string just modified instead of its anchor point
+	o "Delete Unused" button sensitivity not reset when loading subsequent
+	  Fig files
+	o If -library_dir (Fig.library_dir resource) pointed to a *file* of Fig
+	  library directories, sub-directories weren't added to library list
+	o If a bad Fig file was previewed in a library, xfig would display a bad
+	  preview and segfault of the object was selected
+	o Incorrect dx/dy distance reported when moving object/point
+	o Better support for Cygwin - Importing eps files changes to the
+	  directory of the file to avoid pathname differences between Windows
+	  and Unix/Linux/etc
+	  From Pierre Humblet
+	o Can now rotate boxes and arcboxes by -90, -180 and 180 degrees in
+	  addition to 90 degrees
+	o A compressed .fig file is only uncompressed if the directory is
+	  writable
+	o When reading a Fig file, if there was a bad object inside a compound,
+	  xfig would discard the entire compound.
+	o When reading a Fig file, if there was an incomplete or bad object,
+	  the storage wasn't freed in some cases.
+	o xfig would stop reading a Fig file as soon as it encountered a bad
+	  object
+	o xfig now uses its own my_strdup() so it will compile on those machines
+	  that don't have strdup()
+	o "Minitower" computer in Fig object library of computers had an illegal
+	  Fig object
+	o Typo in Doc/FORMAT3.2 file in the join style descriptions.  Round and
+	  bevel values were reversed (correct values: Round = 1, Bevel = 2)
+	  Also, fill pattern list was incomplete and incorrect, and arc subtypes
+	  were switched.
+	o When cancelling modification of text using text tool, refreshing of
+	  original text wasn't done
+	o Comments longer than 200 characters caused problems.  They may be
+	  unlimited in length now.
+	o Some functions inconsistently declared static/non-static
+	o Wasn't allowing negative rotation angle in indicator panel
+	o Typographical error in xfig.man - resources "canvasBackground" and
+	  "canvasForeground" should be "canvasbackground" and "canvasforeground"
+	  respectively (no uppercase letters)
+	o Updating objects didn't refresh the updated object correctly if the
+	  bounds changed
+	o The lengths and lines drawn when "showlengths" is enabled has been
+	  cleaned up to remove detritus left behind
+	o There was a bug in sizing of imported EPS images.  They were too small
+	  by the equivalent of one pixel in width and height.  Strangely, this
+	  also affected the background color in some cases.
+	o When merging or pasting a figure of opposite unit system (metric vs
+	  imperial), xfig used the wrong scale factor.
+	o If malloc fails when xfig tries to create a Fig object, the null
+	  pointer was subsequently dereferenced
+	o Objects at MAX_DEPTH (999) were sometimes unaccounted for, meaning
+	  they wouldn't be refreshed in some cases.
+	o Balloon delay value wasn't visible in  Global Settings panel
+	o When updating depths in a compound, xfig didn't check for depths
+	  exceeding the maximum depth (999)
+	o Grid calculations didn't coerce types properly, resulting in strange
+	  grid in negative canvas region
+	o Empty lines in the ~/.xfigrc file were causing xfig to segfault
+	o Updated fig-format.html to correctly reflect Doc/FORMAT3.2
+	o If a region was deleted (middle mouse button) and undone, the
+	  recovered objects were invisible except for their grab corners
+	o If an object was selected from a library while it was still loading
+	  and placed on the canvas after the library finished loading, xfig
+	  would segfault
+	o When pasting or merging objects, xfig would recompute colors of
+	  already imported pictures in current figure even if merged/pasted
+	  objects didn't contain any pictures
+	o When scaling a compound containg text, text size may have exceeded
+	  MIN_FONT_SIZE or MAX_FONT_SIZE limits
+	o Font name list was freed when it shouldn't have been, when using
+	  -noscalablefonts
+	o Changing depth of an object in the edit panel didn't always update the
+	  depth manager correctly
+	o Actual message was missing from "Error during ..." export message
+	o Undefined user color in Libraries/Knitting/Symbols/purl-dash.fig
+	o Removed unused user colors in various Library symbols
+	o Bug when merging or pasting figures with user-defined colors.
+	o No more than 100 points are  displayed for polylines, polygons in
+	  popup edit panel to prevent system meltdown.  This doesn't affect the
+	  maximum number of points *allowed* in a polygon/polyline, only the
+	  number displayed.
+	o Quotes around definition of MKDIRHIER should not be there in Imakefile
+	o Made all references to Xaw header files use #ifdef Xaw3d to include
+	  3d header files
+	o Added back requirement that fonts (except Zapf Dingbats and Symbol)
+	  are iso8859 encoded
+	o When editing a compound object containing text, and the canvas zoom
+	  is != 1.0, the zoomed text size was used instead of the unzoomed
+	o Printer choice menu now discards any empty or duplicate printers that
+	  are in /etc/printcap
+	o A more robust algorithm for finding the center of an arc given three
+	  points on the radius is in place. The old algorithm gave up too often,
+	  making some operations on arcs (e.g. rotate) fail.
+	o Rounding error in zoom-to-fit-canvas produced bad centering of figure
+	o Maximum number of printers increased to 1000 for lprng systems, and is
+	  now checked for exceeding maximum
+	o Export to PDF now disables page size, orientation, etc. since PDF is
+	  meant to be imported into pdflatex or other processors
+	o Fixed a bug introduced in 3.2.3b which made selecting objects
+	  difficult at higher zooms
+	o When editing a compound, if either the width or height was made 0,
+	  divide by 0 would occur
+	o Line lengths weren't erased after creating arc box (showlengths on)
+	o Doesn't allow coincident consecutive points in objects or boxes with
+	  zero dimensions (coincident corners).  Also, doesn't allow box or
+	  arcbox with zero x- or y-dimension.
+	o Line width indicator didn't always update on some systems
+	o Temporary files weren't closed before deleting them in read_gif,
+	  read_tif and read_ppm
+	o Undoing the conversion of a spline<->line or line<->spline would crash
+	o When loading a figure from the recent files list in the File menu, imported
+	  pictures with relative paths would not load
+	o Illegal box object removed from Libraries/Examples/lidar.fig
+	o Typo on html docs - button 3 cancels constrained copy, not button 2
+	o Keyboard accelerators mislabeled - <Shift-f> flips objects left/right,
+	  unshifted <f> flips them up/down
+
+-----------------------------
+Patchlevel 3c  (Jul 26, 2000)
+
+NEW FEATURES:
+	o New export shortcut Shift-Alt-x or Shift-Meta-x to export using
+	  current settings without popping up the panel
+	o New print shortcut Shift-Alt-p or Shift-Meta-p to print using current
+	  settings without popping up the panel
+
+BUGS FIXED:
+	o Added -m 644 to "install" directives in Imakefile to make updates
+	  easier in future (no read-only files)
+	o I18N text handling fixed (bug introduced in 3.2.3b)
+	o If a filename with an absolute path was given when starting xfig, it
+	  prepended the current path to the path given thus generating a path
+	  that didn't exist.
+	o "Film digitizer" in Fig object library of computers had an illegal
+	  Fig object
+	o Pixmap bits for sm_check_bits should be unsigned in w_util.c
+
+----------------------------
+Patchlevel 3b (Jul 19, 2000)
+
+NEW FEATURES:
+	o Object library now shows icons of all objects. The size of the icons
+	  is selectable from 40 pixels to 120 via a pulldown menu and resource
+	  (Fig.library_icon_size). The the old "list" view is also available.
+	o When drawing an arc by specifying the center point, a circle is drawn
+	  showing the radius of the arc as the user drags the mouse, then when
+	  the first end point is clicked an arc is drawn as the mouse is dragged
+	o Simplistic super/subscripting by typing Ctrl-^ for superscript and
+	  Ctrl-_ for subscript.  It creates a new string in the proper size
+	  and position for super- or subscripting.  May be nested.  Does NOT
+	  work for centered or right-justified text.
+	  from Ian Hutchinson with improvements by Brian V.
+	  Smith
+	o new Imakefile variable NEED_STRERROR to allow for systems that don't
+	  have the sys_errlist[] error string array (this is already in fig2dev)
+	o Additional JPEG file format (EXIF) added. These usually come from
+	  digital cameras
+	o New library of knitting symbols from Kate Hedstrom
+	o New Cisco network devices in Libraries/Networks from Louis B. Moore
+	o New 10/100 Ether network hub in Libraries/Networks from Dirko van
+	  Schalkwyk
+	o New libraries from Al Delgado for Chen's model of Entity Relations
+	  (Libraries/ERD) and symbols for various widgets, e.g. buttons,
+	  sliders, scrollbars, etc. (Libraries/GUI)
+
+BUGS FIXED:
+	o If the BSD symbol is defined but has no value, the "#if" condition
+		#if ( !(defined(BSD) && (BSD >= 199306)) && ...
+	o Importing 24-bit PCX files works now with the new PCX reader from
+	  Russell Marks (public domain).
+	o Importing PPM images with more than 256 colors failed because it was
+	  first converted to 24-bit PCX, which xfig couldn't read before now.
+	o Importing TIFF files (which is first converted to PPM them to PCX)
+	  works now with new PCX reader to handle 24-bit images.
+	o Bug where updating an arrowhead used the line thickness from the
+	  current settings instead of the line being updated to set the
+	  arrowhead thickness.
+	o "=" instead of "==" in checking if picture type is XBM to allow
+	  updating pen color from update button
+	o xfig would stop reading objects from a file when it encountered one
+	  bad object unless it had already read one or more good objects
+	o If a polygon was created with ALL coincident points (i.e. zero width/
+	  height, xfig would remove ALL points when reading the file and would
+	  subsequently crash.  Objects with zero width/height are now removed
+	  when reading the file.
+	o If a box with fewer than four points or a polygon with fewer than
+	  three points is read from a file, xfig removes it
+	o Could still move point of object even if its depth was not active
+	o References to "make" in Imakefile changed to "$(MAKE)"
+	o When vertex number display was turned on, canvas wasn't refreshed to
+	  show them
+	o When the page border was turned off, the zero-crossing lines weren't
+	  redrawn
+	o User colors defined in the current session weren't saved with the
+	  figure.
+	o User could click on text in disabled layer when in text mode
+	o Bug which allowed only 511 user colors instead of 512
+	o Background color of RGB slider lock buttons changed to random color
+	  when lock turned off
+	o User colors in current figure would be lost if user previewed more
+	  than one file before cancelling file popup
+	o "Transparent" color menu button for GIF export wasn't updated after
+	  export panel was created when loading new figure
+	o Spurious comments would appear in spline after editing control point
+	o If editing spline point for curvature and spline line had zero
+	  thickness, the spline would dissappear during edit
+	o Incorrect declaration for put_msg()
+	o Prepended $(DESTDIR) to $(XFIGLIBDIR) directory variable in Imakefile
+	  to be portable
+	o Changed w_menuentryP.h and w_menuentry.c to explicitely use
+	  X11/Xaw3d/...  path for menu entry when user has XAW3D set in
+	  Imakefile to use 3D Athena Widget set
+	o xfig now uses gunzip instead of uncompress to uncompress .Z files to
+	  be more portable for Cygwin environment
+	o Current directory for loading/saving figures was overwritten when
+	  changing export or picture browse directory
+	o Loading a .fig file or importing a picture from an MSDOS filesystem
+	  failed because xfig tried to see if the file existed with a suffix of
+	  .Z, .gz, or .z, all of which were reported by stat() to exist because
+	  it apparently truncates any suffixes after the first
+	o Bounding box of objects in negative region weren't calculated
+	  correctly when positioning grid was on
+	o If "allow negative coordinates" was turned off, one could still pan
+	  into negative region by dragging mouse on side ruler with middle
+	  button pressed
+	o Bug which prevented dragging rulers (with middle mouse button) into
+	  negative region unless it had been moved into the positive region first
+	o If user specified a -geometry on the command-line and then switched to
+	  Portrait mode, the geometry requested was overridden
+	o Various bugs in export commands when calling fig2dev
+	o Inconsistent prototypes declared for pw_arcbox() and curve()
+	o One of the header values for TIFF files was incorrect (was "DD",
+	  should be "II")
+	o When scaling a box and the point positioning grid is more coarse than
+	  the points in the box, and you try to grab a corner of the box, xfig
+	  thought you want to scale either horizontally or vertically only.
+	o Excessive updating of layer buttons when reading Fig file fixed
+	o Problem when exporting to GIF with transparent = background
+	o Certain files are now opened in binary mode ("wb" or "rb") for DOS
+	  compatibility
+	o Rulers show units now every 10 units (e.g. 0cm, 10cm, ...)
+
+----------------------------
+Patchlevel 3a (Jan 19, 2000)
+
+NEW FEATURES:
+	o Library of UML objects (Unified Modelling Language)
+	  From Andreas Ludwig
+
+BUGS FIXED:
+	o w_menuentry (subclassed menu entry widget) has been modified to be
+	  compatible with the X11R5 Intrinsics besides R6
+	o Several bugs in sprintf statements which create export command
+	o Incorrect lengths reported when drawing box with "showlengths" on
+	  and user scale != 1.0 (e.g. 1cm = 3km)
+	o Declaration for preview_widget was both static and extern
+	o Declaration for preview_pixmap was both static and extern
+	o Two vars passed to XGetGeometry should have been int instead of
+	  unsigned int (CreateCheckbutton() proc)
+	o Added '#include "w_msgpanel.h"' for every file containing calls to
+	  put_msg() or file_msg() since they contain varargs and should be
+	  declared as having variable arguments
+
+-----------------------
+NOTE ABOUT GIF SUPPORT:
+
+	Because Unisys has stated that they WILL charge royalties for the
+	use of the LZW compression algorithm even in FREE programs, I have
+	removed all traces of the GIF LZW compression/decompression code from
+	xfig.  Xfig now calls giftopnm and ppmtopcx to import GIF files.
+	Screen capture writes a PCX file.
+	Exporting is handled by calling the ppmtogif program from fig2dev.
+
+Patchlevel 3 (Jan 14, 2000)
+
+NEW FEATURES:
+	o Arrow thickness is a function of line width by default now instead of
+	  absolute
+	o If figure is modified and user does "File/New", xfig first asks if
+	  user wants to save the file before doing the "new" operation
+	o Changed the "paste text" key in app-defaults file from F20 to F12,
+	  because most systems don't have an F20 key.  The "Paste" key on Sun
+	  workstations (it is really F18) may also be used to paste text.
+	o Changed default export border margin width to 0
+	o Re-enabled export magnification for EPS
+	o New "Flags" group of library objects from Roland Rosenfeld.  These are
+	  flags of Europe which Roland converted from a Sketch example.
+	  There is also Japan's and the U.S.'s flag which were drawn in xfig by
+	  Brian Smith
+	o Added Ian MacPhedran's web site http://duke.usask.ca/~macphed/soft/fig/
+	  for FIG-related information to the html docs under "Related
+	  Applications" in the "Getting and Installing Xfig" section
+	o Moved allocation of xfig's 32 "standard" colors last in the widget
+	  setup procedure so that there is a better chance of the widgets
+	  getting the correct colors before the colormap fills up and xfig
+	  changes to a private map.
+	o Assumes default of Letter(or A4 if metric mode) if no %%BoundingBox in
+	  imported eps
+	o All traces of GIF decoding/encoding have removed from xfig so as to
+	  avoid the patent royalty issue with Unisys corp.  xfig now calls
+	  giftopnm (part of the netpbm package) to read the GIF file and then
+	  ppmtopcx to convert it to a colormapped image that xfig's read_pcx
+	  routine can handle.
+	o New depth manager.  Enable/disable depths individually or all at once
+	  to selectively hide parts of drawing.  Can also click on one depth
+	  button and drag mouse up or down to enable/disable multiple buttons.
+	  Command-line options -showdepthmanager and -hidedepthmanager to
+	  control it (resource Fig.showdepthmanager). The default is to show it.
+	o When updating the depth of a compound object, the relative depths of
+	  the objects inside are retained, with the object having the smallest
+	  depth number being assigned to the value updated by the user.  For
+	  example, if you update a compound object to depth = 5, and it contains
+	  objects with depths 8 and 11, after the update they will have depths
+	  5 and 8 respectively. From T. Sato.
+	o Default depth for creating new objects is now 50 to make it easier to
+	  put new objects on top without having to remember to start the older
+	  objects at a depth > 0.
+	o Xfig allows panning to negative x and y now. This is the default
+	  and may be turned and off with the -allow_neg command-line option
+	  and from the global settings panel.
+	o Command panel has pull-down menus for File, Edit, View and Help
+	  operations.  Default accelerators for these menus are Meta-F, Meta-E,
+	  Meta-V and Meta-H respectively.
+	  File menu includes list of recently loaded Fig files.
+	o Comments in Fig files are preserved with the objects and are written
+	  back when the file is saved.  Popup edit for objects allows entering/
+	  editing of comments.  Also, clicking mouse button 2 on the canvas in
+	  edit mode will popup a panel to edit comments for whole figure.
+	o From the File/Open panel, you may startup another xfig process to open
+	  a Fig file.  From T. Sato.
+	o New join/split button to split a line/spline/etc into two, or to join
+	  two lines/splines etc together to make one.  Also, will convert a box
+	  to a line by splitting between two corners, and close an open line
+	  or spline by joining the two ends.
+	o Arrow keys, Home and End keys may be used to browse any of the lists
+	  in xfig. (e.g. Open file list, library popup object list, misspelled
+	  word list in spell checker)
+	o Border option put back in for exporting to EPS and bitmap formats
+	  (fig2dev -b option).
+	  User may specify border margin in pixels (roughly).  This will be
+	  a background margin area around the figure bounding area.
+	o New background color option for printing and exporting - sets whole
+	  background of figure to this color.  Available for all bitmap formats
+	  and PostScript, EPS, PSTEX and PDF
+	o New background option to specify background color for figure.  This
+	  works for all bitmap formats and PostScript (including pstex).
+	  This is passed to fig2dev as the -g option.
+	o If your system uses /etc/printcap to define printers, xfig will make
+	  a pulldown menu for the printer selection in the printer panel.
+	o New "smooth" button in export to smooth when exporting to bitmap
+	  format (e.g. GIF, JPEG).  Causes fig2dev (using -S 2 option) to force
+	  ghostscript to render at 2x magnification which improves font
+	  rendering, then passes through pnmscale to reduce to original size,
+	  which also smooths the image by averaging colors of adjacent pixels.
+	o Export/Print errors now appear in the popup error message window
+	o Popup object editor positions itself adjacent to object being edited
+	  instead of possibly being on top of it
+	o Xfig automatically chooses pwidth, pheight and the number of buttons
+	  per row on the mode panel (left side) if necessary, to fit on a small
+	  screen.  If the user explicitely chooses any of those options, their
+	  choice overrides the automatic setting.
+	o New PDF export driver (uses ps2pdf from the ghostscript distribution)
+	o New CGM export driver (Computer Graphics Metafile) for fig2dev (and in
+	  xfig export menu).  From Philippe Bekaert
+	o More paper sizes (Japanese JIS B0-B10 and ISO A0-A9)
+	o Middle button in paste mode will place object at its original position
+	  (where it was when it was placed in the xfig cut file)
+	o "Spinners" increment/decrement by value appropriate to item being
+	  modified.  E.g., fill intensity % now steps by 5% for each click
+	  of the mouse on the spinner arrows, and text step by 0.1.
+	o Also, if mouse button is held down on spinup/down button, spinner
+	  counts automatically after "spinner_delay" every "spinner_rate"
+	  milliseconds (resources).
+	o Fill intensity and Pattern fill now show image in popup edit panel
+	o Can now draw arcs by defining:
+		1. Center point
+		2. First angle/Radius
+		3. Second point to deterimine direction
+		4. Final angle
+	    Initiate this mode by starting arc with mouse button 2. Original
+	    arc mode still available.  From T. Sato
+	o New color scheme (grayish instead of bisque) - can still use old
+	  colors by using Fig-color.bisque.ad or really old colors in
+	  Fig-color.classic.ad
+	o I have made the web pages available from our server at:
+	      http://www-epb.lbl.gov/xfig
+	  A mirror site in Japan is
+	      http://www.lint.ne.jp/~masashi/xfig/index.html
+	o Popup window with global settings (use Meta-g or Alt-g) containing:
+		o checkbutton for tracking mouse in rulers
+		o checkbutton for showing page borders
+		o checkbutton for showing info balloons
+		o checkbutton for lengths on lines
+		o checkbutton for showing vertex numbers on objects
+		o entry for max image colors
+		o entry for image editor
+		o entry for spelling checker
+		o entry for HTML browser
+		o entry for PDF viewer
+		o checkbutton for turning on/off debug information
+	     Consequently, the balloon on/off checkbutton has been removed from
+	     the message window area
+	o Two new "make" options:
+	   1. "make install.doc" - install only the documentation files (i.e.
+	      man pages, html and pdf files)
+	   2. "make install.libs" - install only xfig object libraries
+	o Filename mask for File and Export panels can have multiple wildcard
+	  masks separated by blanks or tabs, e.g. "*.fig *.fig.gz *.fig.[Zz]"
+	o Export wildcard mask is dynamically changed when selecting the export
+	  language (e.g. *.gif when GIF is selected for export).  Thus, the
+	  Fig*export_panel*mask*string resource is defunct.
+	o New format for browser resource will parse for "%f" and replace with
+	  the filename.  Using this and the -remote option for netscape, xfig
+	  will either use a running netscape to open the help file (html) or
+	  will start one if one isn't already running.
+	o PDF viewer resource is also parsed for %f (filename)
+	o Xfig will first try the correct PostScript font name (e.g. AvantGarde)
+	  and then try a backup font name if the first fails.  If that one fails
+	  too, it will use 6x13.  In the past, because the AvantGarde, Bookman,
+	  HelveticaNarrow and Palatino fonts were NOT distributed with the X
+	  distribution from the Open Group (and the X Consortium before that),
+	  xfig would substitute fonts for those, that were close.  Now it will
+	  try the correct one and switch to one of the backups if it doesn't
+	  exist.
+	o FIGAPPS file updated with new information about GNU plotutils
+	o Rulers shows fewer ticks for smaller zooms
+	o Rulers show more labels between major ticks for larger zooms
+	o New floppy disk library object in "Computers"
+	o New firewall symbol and "generic hardware" library objects in "Networks"
+	  from Tomi Ollila
+	o New "Optics" library includes mirrors, lenses, fiber optics
+	  from Kai-Martin Knaak
+	o New Structural Analysis library includes plates, supports, loads,
+	  beams, coordinate systems and trusses.
+	  From Roman Putanowicz
+	  Please see copyright information in the Structural_Analysis/readme
+	  object. (Libraries/Examples/Structural_Analysis/readme.fig
+	o More descriptive error message about non-existent or old app-defaults
+	  file
+	o Removed restriction that fonts are ISO8859-1 encoded to allow, e.g.
+	  iso646.1991, which is what the scalable Schumacher fonts are.
+	o New computers/terminals in Computers library, and new network comp-
+	  onents in the Networks library of objects.  From T. Sato
+	o When a compound object containing right- or left-justified text is
+	  flipped horizontally, the justification of those text objects is also
+	  swapped (i.e. right-justified text becomes left-justified and vice
+	  versa)
+	o Warning printed if user uses Fig.geometry resource to size main xfig
+	  window - should only use -geometry command-line argument or
+	  pwidth/pheight args/resources.
+	o Uses ANSI stdargs.h instead of varargs.h now
+	  From Roland Rosenfeld
+	o Spell check command uses "%f" now instead of "%s" for filename
+	o Can define BINDIR to install xfig in custom directory (see README file)
+	o Xfig windows aren't unmapped now when user presses "Edit Image" to
+	  edit imported image file (not necessary)
+	o When in edit mode and you hit Control-Return inside of a text box
+	  rather than just Return, it's a shortcut for DONE.  From Jeff Hakner
+	o When editing a compound object, any text objects in it are shown and
+	  editable.  From Jeff Hakner
+	o In library place mode, the change draw mode function was moved to
+	  Shift-Middle rather than Shift-Left.  Shift-Left now has the behavior
+	  of placing the object and doing an edit on it.  When you conclude the
+	  edit, it resumes place mode.  This combined with including the text
+	  objects in editing compound objects, allows you to edit any text
+	  labels in library objects as they are placed.  From Jeff Hakner
+	o Rotation angle of objects may be floating point now
+	  From Marc Joosen
+	o Spelling checker and search/replace popup more useful now
+	o New "zoom to fit canvas" feature - Ctrl-Z accelerator in canavs will
+	  zoom the figure to just fit the canvas.  New button in popup zoom
+	  dialog to do same.
+	o After closing an open compound, the "Open Compound" mode is selected
+	o If the Shift key is held down while mouse button 2 is clicked on an
+	  object, any comments in the object are displayed in a popup until the
+	  mouse button is released
+	o New command-line option -flipvisualhints (resource Fig.flipvisualhints)
+	  which will flip left/right mouse indicator messages for mice whose
+	  buttons have been switched.
+	o New import picture formats supported - TIFF and PPM
+	o Added -hiddentext and -rigidtext command-line options and X resources
+	  to fill out the text flags options (first was -specialtext)
+
+BUGS FIXED:
+	o In "move point" mode, mouse button 3 incorrectly labelled as "Locate
+	  Object", when in fact no function is associated with that button
+	o Error reading GIF header under certain circumstances
+	o For JPEG and GIF export, -g option was being passed to fig2dev even
+	  with no background color selected
+	o Exporting to PDF using xfig actually exported to PS.  Fig2dev does the
+	  correct thing, though.
+	o Depth manager didn't update correctly if depth between two other
+	  depths was removed (e.g. when deleting an object of depth 51 leaving
+	  only depths 50 and 52, the indicator for depth 51 wasn't removed from
+	  the display)
+	o PAPER_A4 pointed to A9 entry
+	o Docmentation incorrectly mentioned "page_size" when it should say
+	  "paper_size" (Doc/html/options.html)
+	o Split line didn't work on ArcBox
+	o Opening a compound object, changing an object inside, closing the
+	  compound then pressing "Undo" would result in the original object
+	  outside the compound, plus the changed object still inside, and would
+	  then eventually segfault if the compound was operated on in any way.
+	o Imakefile didn't install pdf files as advertised with "make install"
+	o "XEvent event" missing from input tablet code in main.c
+	o If xfig tried to import a compressed image file and the directory was
+	  not writable, it segfaulted while trying to close an unopen file
+	o Inadvertantly removed "Help/Xfig man pages" menu entry
+	o Wrong path for installation of the xfig-howto.pdf file
+	o Bad hyperlink for "Help Menu" in html docs
+	o Fig files with "#FIG" but no version number crashed xfig
+	o "Show depth manager" missing from screenshot and description of global
+	  settings
+	o Background color for exporting didn't have "None" option
+	o PDF export ignored centering, background color and multiple pages
+	  options
+	o Warnings from fig2dev weren't displayed when exporting
+	o Various command-line options missing from man pages and html docs
+	o When turning on or off the depth manager the canvas needed refreshing
+	o Symbol "MAXCOMLEN" defined by xfig is already used on some systems
+	o Character array illegally freed in screen capture procedure
+	o There is a less restrictive copyright on the html pages.  Instead of:
+	    "However, you may not modify any part of this documentation
+	    without explicit permission of T.Sato or Brian V. Smith."
+	  there is now:
+	    "Modification of this documentation is also granted as long as
+	    this copyright notice remain intact and name of the person who made
+	    the modification is explicitly written in the documentation.
+	    However, contact to T.Sato and/or Brian V. Smith is strongly
+	    recommended if you want to distribute modified version of this
+	    documentation."
+	o "Smart links" wasn't working when copying compound object with link -
+	  the link wasn't copied
+	o Preview figure wasn't freeing memory
+	o Text lines with trailing carriage returns (^M) were read incorrectly
+	  from .fig file, causing following object lines to be included with the
+	  text object
+	o Some calls to free_spline were passing wrong type of pointer
+	  Fixed by Bradley Kuszmaul
+	o Call to init_point_array shouldn't have arguments
+	  Fixed by Bradley Kuszmaul
+	o Changing to/from PostScript and LaTeX font type using the update
+	  button didn't work unless "update text flags" was also enabled
+	o The CompKeyDB file didn't get installed correctly if user specified
+	  a path for DESTDIR (normally empty).
+	o arrowhead thickness/width/height were being truncated to integers in
+	  popup edit panel
+	o was using /tmp instead of TMPDIR env variable for xfig cut file if
+	  user .xfig file couldn't be used
+	o cleaned up routines that "show line lengths" while drawing/moving
+	  objects (-showlengths).  Much less detritus now.
+	o bug when allocating more user colors than colortable can handle
+	o message string not large enough for some of the balloons for the
+	  attribute panel. From Martin Kroeker
+	o Fixed bug in arc arrows introduced when units for arrowhead width and
+	  height were changed to be the same as for arrowhead thickness
+	o Pie-wedge arcs can no longer have arrowheads.
+	o In the popup edit panel, if no numeric value was in either the fill
+	  intensity or fill pattern entry and carriage return was pressed, an
+	  illegal value might have appeared there
+	o Filename sometimes trashed when trying to call external image editor
+	  from edit popup on imported picture
+	o If the text mode is selected followed by the "Paste" mode, xfig would
+	  segfault
+	o Another change to the "make install.doc" and "make install.libs"
+	  because some systems' install program can only take one file at a time
+	o "make install.doc" doesn't install the Japanese html files unless I18N
+	  is set in the Imakefile (Internationalization)
+	o If Fig.ad isn't installed, xfig died because "browser" or "pdfviewer"
+	  resources were NULL
+	o Mouse function indicator wasn't being reset for cancel library popup
+	o Cancelling the library popup wasn't quite working
+	o If preview of any library object failed, user couldn't place any more
+	  library objects
+	o Typing characters other than 'r', 'l', 'h' and 'v' are ignored when
+	  placing library objects on canvas
+	o When calling external image editor (via "edit image" from importing
+	  picture object), argument list[0] wasn't name of image editor
+	o When using the external image editor on an imported picture, xfig
+	  compared the file modification time before and after to re-read it if
+	  it changed, however the modification time before the edit was never
+	  obtained
+	o Moved JPEGINCDIR definition in the Imakefile near the #ifdef USEJPEG
+	  for easier access
+	o Bug in code which redisplays canvas sometimes left ghosts behind if a
+	  "move object" was cancelled
+	o Center/Flushleft setting was not properly set from figure file
+	o Align-to-canvas assumed US Size A or ISO A4 paper instead of using the
+	  current page size from export/print
+	o Objects with large coordinates (e.g. 190000 Fig units) were drawn
+	  incorrectly because of a peculiarity in either the X server or the
+	  X Drawing procedures that didn't work correctly for screen coords >
+	  16000.
+	o If the canvas was either refreshed or zoomed while previewing a file,
+	  things failed miserably
+	o Line counter corrected when reading Fig file.  Was in error sometimes
+	  when reporting bad input lines.
+	o Fill patterns (e.g. bricks, vertical lines etc.) were not zoomed
+	  correctly in figure preview
+	o INLINE definition changed from "inline" to "__inline" to satisify DEC
+	  Unix or Irix and Solaris OSs
+	o Removed all "NullParameter" from Imakefile because OpenWindows doesn't
+	  have it
+	o Changed XPointer to XVisualInfo * in call to XFree in main.c for those
+	  still running OpenWindows
+	o The "About Xfig" window didn't trap for "Delete Window" so a window
+	  manager that substitutes "Destroy Window" in that case would kill xfig
+	o If user is previewing a figure (via popup file panel) and the canvas
+	  needs to be redrawn it is deferred until the preview is finished,
+	  preventing the Bad Window error previously seen.
+	o Doesn't segfault now if no app-defaults file is installed
+	o Bug fixed where a rotated string with only blanks (spaces) would
+	  segfault
+	o Mask for attribute panel button management changed to unsigned long to
+	  insure 32-bit values
+	o When reading in a figure containing an image, any offset in the file
+	  panel was applied to the SIZE of the image.  This is obviously
+	  incorrect.
+	o When cancelling the file panel during a file preview xfig would
+	  sometimes die with an X error.
+	  Fix from Patrick Gosling
+	o There was a bug when converting Fig 3.1 splines to 3.2 under certain
+	  circumstances
+	o Changed fig.h to always include (sys/param.h)
+	o Various function mis-declarations and signed/unsigned casts fixed by
+		Jonathan R. Ferro
+	o Bug in image capture fixed by
+		Jonathan R. Ferro
+	o Not really a bug, but a change in default - define HAVE_NO_DIRENT
+	  in the Imakefile if your system DOESN'T have dirent.h
+	o When browsing pictures in the import picture interface, if you single-
+	  click on a filename and then close the browse panel, it now applies
+	  that picture.  In the past you had to double-click on a filename to
+	  apply it.
+	o Cleaned up error reporting of line numbers in Fig file
+	o cur_dir[] array in mode.c wasn't large enough (changed to PATH_MAX)
+	  From Martin Pahl
+	o Hidden, Rigid and Special text flags weren't updated correctly with
+	  update tool
+	o -international and -inputStyle added to help message.
+	o Multiple page option was being turned off but pulldown menu showed
+	  otherwise
+	o If the user changes directories in the file/open panel but then
+	  presses "cancel", the original directory is restored now
+	o Stops parsing library directories when limit is reached
+	o Doc/FORMAT3.2 file (and all previous) incorrectly described the
+	  bounding box for compound objects as having upper-right and lower-left
+	  values, when in fact they have upper-*left* and lower-*right* bound
+	  values
+	o On a PseudoColor server, with xfig in -mono mode, it attempted to
+	  store a color illegally
+	o Editing of comments for picture objects wasn't retained
+	o Library directory now may include files with more than just .fig in
+	  name (e.g. .fig.gz, .fig.Z, etc).  Also, explicit check is made to
+	  ensure that whatever matches *.fig* isn't a directory.
+	o Missing quote for MKDIRHIER variable in Imakefile:
+	  XCOMM MKDIRHIER = "/bin/sh /usr/bin/X11/mkdirhier"
+	o When using small icons, xfig would still use 3 buttons per row on
+	  small screens even when not necessary.
+	o Allocation error in reading some pcx files
+	o Bug in HSV color sliders when clicking left or right (increase/
+	  descrease) mouse button
+	o Bug in HSV color sliders on 16bpp PseudoColor visuals
+
+---------------------------
+Patchlevel 2 (July 2, 1998)
+
+BUGS FIXED:
+	o Placing a library object caused xfig to die after recursing for a
+	  long time
+	o Arrowheads in xfig 2.x files were incorrectly converted to 3.2.1
+	  (they came out too large)
+	o Imakefile didn't properly install Electrical/Physical and
+	  Electrical/Schematic directories
+	o Some variables multiply defined in u_draw.c
+	o Some systems' "install" program don't have the "-d" (create directory)
+	  option so I have reworked the install part of the Imakefile
+
+---------------------------------
+Patchlevel 1 Final (July 1, 1998)
+
+NEW FEATURES:
+	o Preview of figure is created when you single click on a filename
+	  in the popup file panel. It also shows the size of the figure.
+	o Library feature - load a library of Fig objects and pick and place
+	  objects from the library on the canvas where you want.
+	  See the man pages for details, and see Libraries/Examples for some
+	  examples.  From Stephane Mancini
+	  modifications by Brian V. Smith
+	o Preview of library objects in library popup similar to figure preview
+	  by Brian Smith
+	o The library objects in the Electrical and Logic libraries were done
+	  by Peter Hiscocks
+	o Xfig tutorial (PDF) in Doc/xfig-howto.pdf.  Also available from the
+	  Help menu. Written by Peter Hiscocks
+	o "make install" installs the Fig object libraries to the library
+	  directory.
+	  The default is $XFIGLIBDIR/Libraries (/usr/lib/X11/xfig/Libraries),
+	  which may be changed in the Imakefile.
+	o When pasting a Fig object from the xfig cut buffer it appears under
+	  the mouse (or near the mouse if pressing the "Paste" button) where
+	  it may then be moved around on the canvas before pressing mouse
+	  button 1 to place it.
+	o Unit box in upper-right corner now shows the scale (e.g. 1cm=3km)
+	  This necessitated making the top ruler a little narrower to make the
+	  unitbox fit.  If the mode panel is on the right side, the side ruler
+	  is made wider to fit the unit box above it.
+	o The path of imported pictures is saved as relative path if picture is
+	  in subdirectory of main figure file, else it is saved as absolute.
+	  from T. Sato
+	o When drawing a line, moving a point on a line, or adding a point to
+	  the end of a line, the angle to horizontal is shown in the message
+	  window
+	o Pressing <Meta>-I turns on and off new feature that draws red
+	  horizontal and vertical lines near the line you are drawing, or point
+	  you are moving, to indicate rise and run.  Also, the length is shown
+	  next to and above the horizontal and vertical line respectively, and
+	  the actual length of the line is shown near the line itself.
+	  The command-line argument -showlengths (resource Fig.showlengths) will
+	  enable this feature as xfig starts.
+	o Print popup button is active even when print panel is up which makes
+	  it easy to force it to the top of the window stack if it is hidden
+	o Pressing the File button in the command panel while the Export panel
+	  is up will popdown the export panel and popup the file panel.  The
+	  converse is also true - if the Export button is pressed while the file
+	  panel is up, the file panel will be popped down and the export panel
+	  is popped up.
+	o When merging a file/figure into the current figure it is made into
+	  a compound object first
+	o Merging a figure keeps the file panel up to be able to merge more
+	  figures
+	o Better memory allocation for temporary arrays when drawing objects -
+	  may be slightly faster now
+	  from T. Sato
+	o Freehand line/polygon drawing - use mouse button 2 to start after
+	  choosing polyline.  As the mouse is moved points are added to the
+	  line or polygon.
+	  NOTE - this changes the line drawing behaviour:  Mouse button 3 is
+	  now used to create a single-point object.
+	o Whole window screen capture in addition to area capture in picture
+	  object popup.  The behaviour of the mouse has changed with this -
+	  Mouse button 1 captures whole window now and mouse button 2 is used
+	  to capture area of screen.
+	o Characters added to Fig*browse_panel*mask*string to include .tif
+	  and .sld files
+	o If xfig is started without a filename, the default filename is empty
+	  instead of unnamed.fig.  This forces the file panel popup when save
+	  is done, to enter a new file name.
+	o Variable time delay for popup information balloons, specified in
+	  milliseconds (-balloon_delay; resource Fig.balloon_delay)
+	o If you enlarge the File, Export or Library panels only the file list
+	  area is enlarged to show more files
+	o New "spinner" widgets to increment/decrement values in popup indicator
+	  entries (e.g. line thickness indicator popup)
+	o Option of using either absolute values for arrowhead sizes or multiple
+	  of current line length (see arrow size popup)
+  	o Arrowhead thickness, width and height can be set explicitely in
+  	  bottom panel for creating arrowheads.  Update button also copies
+  	  arrowhead size info to/from objects and indicator panel.
+	  The arrowhead width and height parameters are now the same units as
+	  the arrowhead thickness, which is units of line thickness, not 1/1200
+	  inch as they were in previous versions of xfig.
+	o Color popup menu in popup edit panel handles lots of colors better
+	o Option of smaller icons for the mode panel (left side) by compiling
+	  with USESMALLICONS in Imakefile.  See the Imakefile for details. Also
+	  see Fig.ad.  Look for "icons".
+	  From Andrew Morgan (morgan@physics.ucla.edu)
+	o New grid and point positioning setting at 1/8" (or 2mm in metric mode)
+	o When moving, copying, moving a point of or adding a point to objects,
+	  all the "grab corners" of the other objects in the figure disappear
+	  to make the figure less cluttered.  They reappear when the operation
+	  is complete.
+	o Pull-down menu buttons have an arrow icon to show that it is a pull-
+	  down
+	o Units such as "i" for inches and "c" for cm may be entered following
+	  coordinates in popup edit panel for editing objects (e.g. 3c for 3 cm)
+	  From Rick Richardson (rick@dgii.com)
+	o When importing a picture file (eps, GIF, etc) xfig is more intelligent
+	  and faster about deciding the format
+	o "Integer area zoom" option in zoom popup - if checked, when using the
+	  mouse to zoom an area of the canvas, the zoom amount will be an
+	  integral value (e.g. 2, 3, 4)
+	o Compose key LED may be turned on for multi-key characters (e.g.
+	  a-umlaut etc) on Sun Sparcstations.  See README file about COMP_LED.
+	  from Hans Werner Strube (strube@swing.physik3.gwdg.de)
+	o New fig2dev driver for tk (tcl/tk) - Generates tk canvas and canvas
+	  objects.  From Mike Markowski (mm@udel.edu)
+	o Added "Alt" key definitions to the accelerators in Fig.ad to
+	  accomodate those machines which don't have a Meta key
+
+BUGS FIXED:
+	o Line width is scaled with object scaling now
+	o Arrowheads are scaled when scaling lines, splines and arcs now
+	o Screen_res was incorrect for drawing tablets
+	o When scaling a compound by using the "move point" edit mode, undoing
+	  the scale didn't work properly because of rounding problems.
+	  A proper "undo" is now performed.
+	o Note: the -inverse (reverse video) option has been removed because
+	  the same effect can be achieved using "-cbg black -cfg white"
+	o Made the export_panel*mask*string same as browse_panel*mask*string
+	o User-defined colors weren't being merged properly in compound objects
+	o If Paste was performed while opening a compound object, some objects
+	  outside the opened compound object may have been lost and xfig may
+	  have crashed with a segfault later.
+	o ARC-BOX corner radius scaled incorrectly when box was scaled
+	o ARC-BOX corner radius is now only scaled with Scale operation, not
+	  move point
+	o Busy cursor wasn't being reset when reading some figures
+	o Refreshing the screen while creating a Fig object (e.g. POLYLINE)
+	  refreshes that object correctly now
+	o Updated pointer for hp2xx and additional pointer to Fig related apps
+	  in FIGAPPS file. From Ian MacPhedran
+	o Declaration of clrtab array incorrect in f_neuclrtab.h - caused
+	  problems on Digital Unix. From Ian MacPhedran
+	o When loading a figure that changes the canvas orientation (Portrait/
+	  Landscape), the file modified flag was not cleared
+	o When it can't save to a file, xfig now rings the bell and puts the
+	  error message in the *popup* message window
+	o Trying to use the external image editor in the edit panel for an
+	  imported picture failed if the file was compressed
+	o When switching to a private colormap because of importing a picture,
+	  xfig is better about matching the colormap of the popup edit panel
+	o Objects not aligned correctly in large drawings due to bad choice
+	  of starting min/max values (use INT_MIN and INT_MAX now)
+	o When running "xfig -right" (mode/edit panel on right-side) the popup
+	  balloons were too long, never showed the message and popped up and
+	  down because they appeared under the mouse.
+	o Cleanup of many, many function declarations (mostly type void)
+	o Inadvertantly used incorrect font for Avant-Garde
+	o When undo'ing load figure, any objects using user-defined colors may
+	  not have been displayed correctly until doing a "Redraw".  Also,
+	  non-existant user colors may have stayed in pen and/or fill color
+	  indicators.
+	o Bug in size of imported Picture when clicking on "Use orig size" -
+	  image was slightly too small.  Also bug when clicking "Use orig size"
+	  in metric mode - even worse scaling.
+	o Code to check for bad font numbers when reading Fig file was in wrong
+	  place
+	o Bug in pcx decoder - odd-width images caused seg fault.  This would
+	  also affect importing eps files since xfig uses pcx output from gs.
+	o Another bug in pcx decoder - wasn't allocating correct amount of
+	  memory for the image buffer.  This would of course, cause segfaults.
+	o Bug in "Fit-to-page" in metric mode fixed
+	  from Hans Werner Strube (strube@swing.physik3.gwdg.de)
+	o Cleaned up mode button icons to fit within button area better
+	o An old feature to prevent an expose event on the canvas from erasing
+	  a newly imported image while still in the picture editor is no longer
+	  needed and prevented screen refreshing
+	o If screen capture is attempted with no Fig filename (e.g. when
+	  starting xfig with no file name) seg fault occurred.
+	  from T. Sato
+	o Small correction to I18N draw_string routine
+	  from T. Sato
+	o Not all calls to fig2dev had I18N localization options passed
+	  from T. Sato
+	o If you create a new figure (no name yet) and try to export before
+	  saving, xfig asked you if you wanted to save the figure first.  If
+	  you said yes, it would popup the file panel to choose a name and save.
+	  After that though, it wouldn't do the export as you first requested.
+	  This has been fixed.
+	o Added && !defined(__GLIBC__) to declarations of random and srandom for
+	  systems with glibc
+	o Imported eps files containing "initgraphics" commands weren't working
+	  correctly.  This has been fixed by defining initgraphics and
+	  initmatrix as {}.
+	o Yet another #if added to the never-ending list.  This one is for
+	  sys_errlist.  FreeBSD systems already define it in stdio.h.
+	o Inconsistent declaration uncompress_file (static)
+	o Missing braces around initializers for headers structure for imported
+	  bitmap file types
+	o Some unused variables and procedures removed
+	o Incorrect casts in e_align.c
+	o Bug in figure size in export and print panels - bounding variable
+	  was clobbered soon after being calculated
+	o Allowed saving over a read-only file if file panel wasn't created
+	o Various problems with New figure->Export->File popup sequence either
+	  segfaulting or permanently disabling xfig buttons and canvas fixed.
+	o GC wasn't properly setup for dragging rectangle on screen for screen
+	  capture for some systems.
+	o Very small arcs "blew up" making very large arcs on screen
+	o Bug in draw_arc() - would free unallocated memory if arc was small
+	o Imakefile had w_icons.o in XFIGSRC instead of w_icons.c
+	o Fixed annoying warning about StartScroll action not found on Linux
+	  systems that use the "modified" Xaw3d widget set (ARROW_SCROLLBAR
+	  defined, which makes the scrollbars look like the Windows scrollbars)
+	o Mouse indicator was leaving bits of old text behind for long messages
+	o Removed call to rint() because gcc can't find it on HP-UX
+	o Move_point_selected() called set_mousefun() with too few args
+	o Variable "text_translations" multiply defined
+	o Fixed some bugs relating to updating dash-length/dot-gap in indicator
+	  panel from dashed/dotted lines
+	o Bug fixed where update indicator (red box) didn't always toggle
+	  correctly
+	o Undo of spline<->line conversion and box<->arc_box fixed
+	o For some reason, the Solaris version of XtAppCreateShell references
+	  an argument beyond what the users specifies in the command line,
+	  causing a seg fault.
+	  Fixed by Martin Pahl (pahl@tnt.uni-hannover.de)
+	o Renamed suffix for AutoCad Slide export to ".sld" (was ".acad")
+	o Needed #ifdef USE_JPEG in w_export.c for compiling without JPEG
+	  support
+	o Transparent color was not passed to fig2dev for GIF output (new -t
+	  option in fig2dev do do this)
+	o Inappropriate arguments to sqrt() in spline calculations (not double)
+	o The radius value displayed in the message window was incorrect when
+	  drawing ellipses
+	o Both radii are reported now when drawing ellipses
+	o Now checks whether Fig file is read-only before renaming to .bak and
+	  allowing user to save. (after second save, original, read-only file
+	  would be gone)
+	o New #ifdef for glibc which has sys_errlist and random() defined
+	o Conflict with definition M_PI (3.14159....) on RedHat systems fixed
+	o Interpolated splines in Fig version 2.1 files were read incorrectly
+	  fixed by Onno Roep (O.A.Roep@twi.tudelft.nl)
+	o If you had a line with arrowhead(s) and deleted all the points to make
+	  it a single point object, then undid the last delete point, the
+	  arrowhead(s) didn't reappear.  This has been fixed.
+	o Less multiple redrawing of figure when starting xfig with filename and
+	  it needs to change orientation (portrait/landscape)
+	o "Ledger" paper size removed from list of paper sizes.  It is really
+	  "Tabloid" size in landscape mode.
+	o Undo of align to canvas wasn't refreshing display
+
+=============================================================================
+Version 3.2 (first release Aug 22, 1997)
+=============================================================================
+
+GENERAL NOTE:
+ 	Because Unisys Corp. has stated that they will not charge royalties for
+ 	the use of the LZW compression algorithm in *FREE* programs, xfig will
+ 	continue to support importing and exporting of GIF images.
+ 	However, be aware that if you sell xfig, for example as part of a CD-ROM
+ 	package with freeware, you may be liable for paying royalties to Unisys.
+ 	You may comment out the USEGIF variable in the Imakefile to avoid this.
+ 	With USEGIF commented out, xfig will still import GIF files, but not
+ 	export in that format.  Also, for screen capture, xfig will create a PCX
+	file instead of a GIF file.
+ 	*** The authors of xfig and the Lawrence Berkeley National Laboratory
+ 	cannot be held responsible in any case. ***
+
+NOTE:	fig2dev now handles the exporting to bitmap formats (GIF, JPEG etc)
+	  instead of xfig, so there is more consistent output. Requires the
+	  netpbm package and ghostscript.  See the README file.
+
+NEW FEATURES:
+	o Japanese text objects (i18n) availble using flag I18N in Imakefile
+	    from T.Sato (VEF00200@niftyserve.or.jp)
+	o ppm, tiff (no compression) and AutoCad (acad) output languages added
+	o Image quality (0-100) is selectable for JPEG export
+	o Figure size (in inches or cm) is shown in the export and print panels,
+	  taking into account current magnification
+	o "Fit to page" button sets magnification so that figure size will just
+	  fill current paper size with (at least) 1/2 inch margin all around
+	o Emergency save file renamed from xfig.SAVE to SAVE.fig
+	o When doing a screen capture for a picture object, the filename of
+	  the capture is the name of the figure file + the time according
+	  to time(3) + .gif, e.g. myfigure_858367466.gif
+	o Xfig version number in app-defaults file is checked and warning
+	    message appears if older than current version
+	o Spell checker to find misspelled words in text objects
+	    from T.Sato (VEF00200@niftyserve.or.jp)
+	o Search and replace - search for strings and either replace them with
+	    new string or update settings like color, etc. on matched strings
+	    from T.Sato (VEF00200@niftyserve.or.jp)
+	o Exporting to pstex does both PostScript and LaTeX part in one step
+	    to file.pstex and file.pstex_t respectively
+	o Popup messages (balloons):
+	    o describes drawing/editing function when mouse passes over
+	      any drawing/editing button
+	    o describes how to activate unit/scale popup when mouse passes over
+	      units box (where the rulers meet)
+	    o describes mouse function indicator when mouse passes over it
+	    o describes each command button in top row as mouse passes over
+	      buttons
+	    o toggle button labelled "Balloons" to turn on/off the balloon
+	      messages
+	   o all have configurable colors; see Fig-color.ad
+	o New figures in Libraries/Examples directory from Bill Chimiak (chim@bgsm.edu):
+		1. clp_computer1.fig - computer equipment clipart
+		2. clp_hospit_equip.fig - hospital equipment clipart
+		3. clp_network.fig - updated network equipment clipart
+		4. musicnotes.fig - musical notes, scale lines and clef
+	o Checks version number in app-default file with xfig version and warns
+	   if file is older
+
+BUGS FIXED:
+	o Arrowheads on splines didn't always point correctly (fig2dev did the
+	  right thing, though)
+	o Accomodation for 15-bit visual (believe it or not!)
+	o Checks bits-per-pixel for image formats because some vendors use 32 bits
+	  for 24 bit depths
+	o Minor difference in A0 and A1 page sizes
+	o Changed XPM variables to default X include/library in Imakefile
+	o Path added to save filename when xfig makes emergency save
+	o Incorrect email address for xfig-bugs in man page (should be
+	  xfig-bugs@epb1.lbl.gov)
+	o Typo about font_flags bit number for LaTeX vs PostScript in
+	  Doc/FORMAT3.2 file
+	o Not enough space allocated for buf[] in create_print_panel()
+	  and create_export_panel()
+	  from T.Sato (VEF00200@niftyserve.or.jp)
+	o Typo in Doc/FORMAT3.2 file about header information in Fig files
+	o Typo in man pages - zooming uses only CONTROL key, changing spline
+	  shape factor requires both CONTROL and SHIFT keys.
+	o Justification and page size are now disabled with EPS export
+	o Undo of converting spline to line caused seg fault
+	o Added #ifdef USE_GIF around transparent color in export and read file
+	o Error in sprintf format (was %4.2lf - should be %4.2f) in bottom
+	  indicator panel buttons that have floats
+	  from T.Sato (VEF00200@niftyserve.or.jp)
+	o Center of pie-wedge style arc wasn't included in bounding box
+	  from Andy Thomas (alt@picnic.demon.co.uk)
+	o Better handling of mouse function indicator
+	  from T.Sato (VEF00200@niftyserve.or.jp)
+	o If "edit spline point" panel is popped up before general edit panel,
+	  'Warning: Action not found: apply' appeared when edit panel was
+	  later opened
+	  from T.Sato (VEF00200@niftyserve.or.jp)
+	o Actions that had same names renamed to unique names
+	  from T.Sato (VEF00200@niftyserve.or.jp)
+	o Mouse button 1 and 3 didn't scroll the H, S, or V sliders in the color
+	  edit panel
+	o Unsigned/signed char pointer mix in create_pic_pixmap and
+	  get_canvas_clipboard
+	o Cleanup of dictionary wrapped around imported EPS files
+	  from Franz Koch (franz.koch@zdv.uni-tuebingen.de)
+	o Portrait/Landscape changes didn't properly toggle width/height
+	o New font specified in app-defaults for those systems whose default
+	  font was too large for popup panels (Fig*Font: 7x13bold)
+	o Zooming not allowed if drawing object in progress (panning is OK)
+	o strcasecmp and strncasecmp bugs (s2 != '\0' and s2 == '\0' should
+	  be *s2 ...)
+	o When exporting to bitmap format, bounding box of figure was rounded
+	  to current point positioning grid (unintended)
+	o Unaligned access errors on 64-bit machines (e.g. Alpha) when importing
+	  bitmap pictures.  Now uses unsigned int for pointers
+	o Code to remove identical consecutive points in line objects had bug
+	o Workaround for long-time Intrinsics bug with scrolling text widget in
+	  viewport for file and export lists provided by
+	  Mark London (mrl@psfc.mit.edu)
+	o Bug in control-key-button-1 zoom sequence - didn't allow control key
+	  pressed when completing zoom operation
+	o Mis-named fonts for zapf chancery and zapf dingbats (many servers don't
+	  have these fonts anyway so please don't ask me where to get them)
+	o Error in JPEGINC variable in Imakefile - had leading "/" in path
+	o Width of "open compound" button was slightly too large such that
+	  the mode panel (left) obscured part of the indicator panel (bottom)
+	  when -but_per_row was 3
+	o Transparent color for GIF export wasn't "None" as default
+	o Box objects read in from Fig file would only have three points on
+	  some machines
+	o Grid wasn't changed to metric when loading metric figure
+	o 24- and 32-bit export to JPEG was incorrect
+	o "rotate and copy" for text placed first copy correctly, but subsequent
+	  copies incorrectly
+	o Comments after #FIG before end of header weren't parsed correctly
+	o Landscape/Portrait is only available for PostScript export
+	o Ledger/Tabloid sizes reversed (Tabloid is 11x17", Ledger is 17x11")
+	o Deleting all objects (Meta-D) prevented the "New figure" function
+	  by keeping the original figure name
+	o Arrowheads were inadvertantly allowed for closed splines via the popup
+	  edit panel
+	o Picture objects rotated 90 or 270 degrees were also flipped
+	o Changed sense of USEINLINE so default is NOT to use it
+
+--------------------------
+V3.2 Beta 1 (Jan, 9, 1997)
+--------------------------
+
+NEW EXAMPLE FILES (Examples/ directory)
+
+    o fantastic figure from Robort Ford (rford@mailserv.mta.ca):
+	transit.fig	- transit map of Saint John, New Brunswick (Canada)
+			  Don't use it for locating transit routes - it is only
+			  good through July 1996 and only shows non-rush-hour
+			  routes
+    o great figures from Carlo Kopp (carlo@cs.monash.edu.au):
+	greenpig.fig	- F/RF-111C/G Tactical Fighter
+	rfxc.fig	- RFX Strike/Recon Fighter
+	lidar.fig	- Sidelooking battlefield surveillance LIDAR
+	sowpig.fig	- RAAF F-111C fighter jet w/ 2x AGM-142 Have Nap SOWs
+    o some nice figures from Peter Hiscocks (phiscock@ee.ryerson.ca)
+	aircraft.fig	- light aircraft
+	ps-foil.fig	- power supply circuit board foil layout
+	ps-schematic.fig - power supply circuit board schematic
+    o from Philipp Reisner (Austria).
+	Linuxlogo.fig	- the only entry in the Linux 2.0 Logo contest to be
+			  rendered with xfig - Unfortunately, it didn't win :-(
+    o new clip art objects from W. Chimiak (chim@tachyon.medeng.wfu.edu):
+	clp_computer.fig - various computers, monitors etc.
+	clp_network.fig	- computer network components
+    o more new example files (done by me, Brian Smith)
+	3dhouse.fig	- cutaway view of a simple house drawn in 3D
+	ctrlbox_lay.fig	- dimensioned drawing of a control box for a project in my group
+	ctrlbox_sch.fig	- electrical schematic of the control box
+
+NEW FEATURES
+
+o better error reporting from ghostscript when importing EPS files
+o in color popop panel, "lookup color" button allows user to grab color from
+	any window for user-defined color in xfig
+	uses code from xpaint (Copyright 1993 David Koblas (koblas@netcom.com)
+	and Copyright 1995, 1996 Torsten Martinsen (bullestock@dk-online.dk))
+o There is a new mathematical model for splines. The new version uses X-splines
+	which allows to mix interpolation and approximation points in a same
+	curve. More precisely, it means that an X-spline curve is neither an
+	interpolated spline nor an approximated one, it is BOTH (the behaviour
+	of each point is controlled by one single parameter called "shape
+	factor"). For additional information about X-splines, see:
+
+	  "X-Splines: A Spline Model Designed for the End User"
+	  by C. Blanc and C. Schlick, Proceedings of SIGGRAPH'95
+
+  o the shape factor of each individual point can be modified interactively
+    with a dialog box that is displayed when pressing the right button in
+    the EDIT OBJECT mode.
+  o the shape factor can also be modified in any of the EDIT modes, by
+    holding down the CONTROL key while pressing the mouse buttons.
+  o because the CONTROL modifier is used for the shape factor edition,
+    the zoom rectangle is now obtained by pressing the SHIFT key AND the
+    CONTROL key while dragging the rectangle.
+  o new features have been added in the CONVERT mode. Any conversion between
+    polylines, polygons, open splines and closed splines are now possible.
+
+    *** Caveat: Because spline models of previous versions (quadratic B-splines
+    and Bezier with hidden points) are no longer supported, curves that are
+    present in version 3.1 and older files are automatically converted to
+    X-splines. This translation is only an approximation process. It means
+    that the converted curves are not exactly the same as the original ones.
+    Though the translation usually provides almost identical curves, some
+    hand-fitting may be needed in some pathological cases.
+
+    The new spline features were written by Carole Blanc (blanc@labri.u-bordeaux.fr)
+    and Christophe Schlick (schlick@labri.u-bordeaux.fr) starting from an initial
+    implementation done by C. Feuille, S. Grosbois, L. Maziere and L. Minihot as
+    a student practice (Universite Bordeaux, France).
+
+o the file format (protocol) has changed (see Doc/FORMAT3.2 for details). This
+	means you must also get transfig 3.2. Xfig will still read older Fig
+	format files but will always write the new format.
+o multiple page flag, paper size, transparent color (GIF export) and print/
+	export magnification now stored in Fig file (new protocol format 3.2)
+o export/print magnification now command-line argument (-magnification) and
+	resource (Fig.Magnification)
+o paper size now command-line argument (-paper_size) and resource
+	(Fig.paper_size)
+o multiple page flag now command-line argument (-multiple) and resource
+	(Fig.Multiple) (-single is default)
+o option of transparent color for GIF export (e.g. make background transparent)
+o new colors in Fig-color.ad resource file from Joel D. Young
+	(jdyoung@afit.af.mil).  If you want the old colors, copy Fig-color.old.ad
+	to your app-defaults directory as "Fig-color".
+o works with GrayScale, TrueColor, DirectColor, StaticColor and StaticGray
+	visuals now.  Use "-visual <visualname>" command-line argument or
+	"Fig.visual: <visualname>".  Also, "-depth <depth>" (Fig.depth: <depth>)
+	supported.
+	thanks to help from Kevin Russell (krussell@dres.dnd.ca)
+o "Delete All" button changed to "New" function - all objects are delete and
+	the current filename is cleared.  Also, the file save and load shortcuts
+	will force the file panel to popup if the current filename is empty.
+	This will prevent a user from doing a "delete all" to create a new
+	figure and forgetting to change the filename when saving.
+o new edit features when entering text on canvas:
+	Left arrow key and Control-B moves cursor left
+	Right arrow key and Control-F moves cursor right
+	Home key and Control-A moves cursor to beginning of text
+	End key and Control-E moves cursor to the end of text
+	Delete key and Control-D delete the character to the right of the cursor
+	Control-K deletes from the cursor to the end of the text
+	Pan operations using the arrows and the Home key are disabled during
+	text entry because they are used for positioning the text cursor now.
+o "Open Compound" operation to temporarily go inside a compound object to edit
+	individual components.  Can enter nested compounds. Close compound to
+	group objects back into compound.
+	Written by Bill Taylor (bill@mainstream.com)
+o xfig will now automatically unzip/uncompress Fig files with .Z, .z or .gz
+	suffixes automatically.  It does not recompress/zip them when saving,
+	though.
+o -zoom (resource Fig.zoom) option to start xfig at any zoom value
+o -startposnmode (resource Fig.startposnmode) option to start xfig with point
+	positioning mode specified. Values can be 0 ("any") to 4 (1 inch/20mm).
+o size of blank area (margin) around figure when exporting to bitmap-style
+	formats (e.g. GIF, XPM etc.) is settable in export window now
+o when zooming larger, spacing of dots in grid lines stays constant
+o button to hide/show hidden directories (names that begin with ".") in file
+	popup menus
+o paper size selectable for printing and when exporting to PS/EPS:
+	"Letter", "Legal", "Ledger", "Tabloid", "A", "B", "C", "D", "E", "A0",
+	"A1", "A2", "A3", "A4" and "B5"
+o in the past if an ellipse was scaled such that the radii become equal it was
+	"converted" to a circle.  This "feature" has been removed.
+o point objects (POLYLINES with only one point) now have thickness, as they
+	should.  Additionally, if the cap style is rounded, they will be filled
+	circles
+o when exporting figure containing picture objects, xfig warns if the export
+	filename is the same as any of the picture files
+o note explaining how metric units are defined in xfig in the Doc/FORMAT3.1 file
+o when updating objects with update button, they were drawn twice - now they are
+	only drawn once
+o when deleting xfig window (WM_DELETE_WINDOW), popup confirmation gives user
+	the option to save figure
+o README file updated to give credit for Example figures not done by Brian Smith
+o default suffix for hpgl (ibmgl) export changed to "hpl" for PC users
+
+BUGS FIXED
+
+o smart links didn't work when the box being moved had line thickness > 1
+o -exportLanguage ignores case now (e.g. GIF == gif)
+o identical consecutive points in lines and "normal" splines are removed as file
+	is read into xfig
+o some thick arrowheads still protruded into the object they touched (in fig2dev
+	too) - fix from Tobias Ringstrom
+o resource for compose key database file is keyFile, not ComposeKeyDB (Fig.ad)
+o color of labels for color numbers/names in color panel contrast their color
+o edit panel allowed > 100% fill for black and white fill
+o additional check for bad Bounding Box in imported EPS file
+o when flipping objects vertically or horizontally, overlapping objects weren't
+	redrawn
+o format error in sprintf for temp filename in screen capture (%d should be %ld)
+o some versions of imake don't like null parameters in SpecialObjectRule in
+	Imakefile - changed to "NullParameter"
+o "modified" flag wasn't being set when changing spline<->line or box<->arcbox,
+	thus one could quit without saving without xfig confirming
+	from Matthias Braun (browny@ise.fhg.de)
+o when figure is read in from file, any arrowheads with width, height or
+	thickness of 0 are given default values (were causing SIGFPE errors)
+o colormap must be saved before jpeg_finish_decompress or
+	jpeg_destroy_decompress are called in read_JPEG_file()
+o when fore/background colors different from black/white respectively, the fill
+	colors for black and white fill were incorrect
+o when merging figure with no picture objects into figure with picture objects
+	colors were unnecessarily remapped
+o "rubberbanding" of object being drawn would continue after object was
+	completed.  Also, double clicking on a directory name would cause
+	segmentation fault.
+	fixed by Stefan Proels (proels@fmi.uni-passau.de)
+o Imakefile had error - $(PCXBUG) was incorrectly passed to f_readjpc.c
+	instead of f_readeps.c where it was needed
+o If the directory path in a file popup was changed by typing into the path
+	window but carriage return wasn't pressed, rescan showed the correct
+	directory but the path wasn't correct so no files were accessible.
+o Redefined $(XPMINCDIR) to $(XPMINC) because some compilers have trouble with
+	header search path with empty "-I"
+o string allocation errors in string widgets in popup edit panels
+o no return code for successful screen capture which would result in failure
+	randomly
+o picture objects scaled (enlarged) correctly in metric mode so they print 1:1
+o incorrect values for white colormap entry when writing jpeg file on
+	monochrome display
+o Some people have older X11 include files that don't have <unistd.h> included.
+	fig.h explicitely includes that now for the SEEK_END identifier
+o Not enough space for number strings in rulers (SEG fault)
+o circle grab points moved even if no changes made in popup edit of circle or
+	ellipse object
+o after attempt to do a horiz/vert move point of a circle was disallowed,
+	further move points were disabled until edit mode switched
+o if both points of "circle-by-diameter" have same y value it thought that the
+	edge is the center when you try to use "box scale"
+o colormap from jpeg file was referenced after memory was freed
+o #include <jpeglib.h> changed to #include "jpeglib.h" to ensure corrrect path
+	used to find header file
+o problems on Linux with gcc locating old jpeg library even when JPEBLIGDIR
+	pointed to local version
+o buf too short in set_mixed_names
+o line2 too short in button struct
+o file not closed after writing JPEG file
+o pen color for picture objects disabled for all except XBM (bitmap) in popup
+	edit
+o confusion with -DNOSTRSTR, NOSTRSTR and HAVE_NO_STRSTR cleaned up. See README.
+o possible error in rulers with sprintf %f called with integer expression
+o cleaned up add/delete user defined colors - no requirement to click on
+	colorcell after "Add Color" to set color sliders
+o added condition in Imakefile that f_wrjpg.c depends on jconfig.h (jpeg library)
+o changed #include <jpeglib.h> to #include "jpeglib.h" because of search rules
+o Version 1.0 of Xaw3d used resources topShadow and bottomShadow for colors of
+	those resources.  Version 1.1 uses topShadowPixel and bottomShadowPixel.
+	I have included both names in the Fig.ad app-defaults file for
+	compatibility.
+o removed extraneous comma (,) in length and distance messages when
+	drawing/moving objects
+o cleaned up many type mismatch warnings for bitmap data
+o bug in skip_comment() which prevented some machines from seeing the end of
+	file, giving erroneous "Incorrect format" error
+o typos in xfig.man in resources StartGridMode, StartPosnMode, StartLineWidth,
+	StartFillStyle and StartTextStep (had lowercase 's')
+o pcx file was closed twice
+o if there is an error when writing screen capture to a file, the popup error
+	message window shows the error
+o Examples/logo.fig had squished logo eps file

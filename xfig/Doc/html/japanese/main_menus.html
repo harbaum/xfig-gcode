@@ -1,0 +1,711 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<html>
+<head>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=EUC-JP">
+<title>Main Menus</title>
+<link rev="made" href="mailto:VEF00200@nifty.ne.jp">
+</head>
+
+<body>
+<a href="contents.html"><img src="../images/xfig-title.png"
+  alt="XFIG Users Manual" border=0></a>
+
+<h1>メイン・メニュー</h1>
+
+<b>xfig</b> のウィンドウの上部には以下のメニューが置かれています。
+<p>
+<dl>
+<dt><a href="#file-menu"><i>File</i></a>
+<dd>ファイルのロードやセーブ、図のプリンタやファイルへの出力、
+<b>xfig</b> の終了
+
+<p>
+<dt><a href="#edit-menu"><i>Edit</i></a>
+<dd>Undo、オブジェクトやテキストのペースト、
+テキストの検索/置換やスペルチェックなど
+
+<p>
+<dt><a href="#view-menu"><i>View</i></a>
+<dd>画面の再描画、拡大/縮小など
+
+<p>
+<dt><a href="#help-menu"><i>Help</i></a>
+<dd>マニュアルの表示
+</dl>
+
+<p>
+<hr>
+
+<h2><a name="file-menu">File メニュー</a></h2>
+
+<blockquote>
+<img src="../images/file-accel.png" alt="[ File menu ]">
+</blockquote>
+
+<p>
+<dl>
+<dt><a name="new"><i>New</i></a>
+<DD>
+新しい図の作成のために、
+キャンバスからすべてのオブジェクトを削除し、
+また現在のファイル名をクリアします。
+アクセラレータ <tt>Meta-N</tt> もこの機能を実行します。
+この操作は、<a href="#undo">Undo</a> 機能によって取り消すことが可能です。
+
+<p>
+<dt><i>Open...</i>
+<dd>
+Fig ファイルを開くためのポップアップ・パネルを開きます。
+詳細については <A HREF="#file-panels">File パネル</A> を参照して下さい。
+
+<p>
+<dt><i>Merge...</i>
+<dd>
+1つ、あるいはそれ以上の 
+Fig ファイルを現在の図にマージするためのポップアップ・パネルを開きます。
+詳細については <A HREF="#file-panels">File パネル</A> を参照して下さい。
+
+<p>
+<dt><i>Save</i>
+<dd>
+編集中の図を現在のファイルにセーブします。
+
+<p>
+<dt><i>Save As...</i>
+<dd>
+編集中の図を指定したファイルにセーブするためのポップアップ・パネルを開きます。
+詳細については <A HREF="#file-panels">File パネル</A> を参照して下さい。
+
+<p>
+<dt><i>Export...</i>
+<dd>
+図を PostScript、GIF などの様々なフォーマットで出力するための
+ポップアップ・パネルを開きます。
+詳細については <A HREF="printing.html#export">エクスポート</A> を参照して下さい。
+
+<p>
+<dt><i>Print...</i>
+<dd>
+図を PostScript プリンタへ印刷するためのポップアップ・パネルを開きます。
+詳細については <A HREF="printing.html#print">印刷</A> を参照して下さい。
+
+<p>
+<dt><a name="exit"><i>Exit</i></a>
+<dd>
+<b>xfig</b> を終了します。
+アクセラレータ <tt>Meta-Q</tt> も同じ意味を持ちます。
+<p>
+図が変更され、まだセーブされていない場合には、
+ポップアップ・パネルが開かれ、ファイルへのセーブを行なった後に終了するか、
+ファイルへのセーブを行なわずに終了するか、
+もしくは操作を取り消すかの選択を求められます。
+<p>
+<b>xfig</b> が <i>HUP</i> や <i>INT</i> などのシグナルによって終了させられた 
+(例えば、<tt>kill</tt> コマンドや <b>xfig</b> の内部エラーによって) 場合には、
+<b>xfig</b> は図をファイル <tt>SAVE.fig</tt> にセーブしようとします。
+
+<p>
+<dt>Recent files (<i>1 2 3 4...</i>)
+<dd>
+<i>File</i> メニューの <i>Exit</i> の下には、
+最近ロードされた Fig ファイルのリストが置かれます。
+このリストに含まれるファイルの数は、
+ユーザーのホーム・ディレクトリの <tt>.xfigrc</tt> ファイルで、
+あるいは <a href="global_settings.html">Global Settings パネル</a> で
+設定することができます。
+保存することのできるファイル名は最大9個です。
+</dl>
+
+<hr>
+<H2><A NAME="edit-menu">Edit メニュー</A></H2>
+
+<blockquote>
+<img src="../images/edit-accel.png" alt="[ Edit menu ]">
+</blockquote>
+
+<p>
+<dl>
+<dt><a name="undo"><i>Undo</i></a>
+<dd>
+直前に行なわれた、オブジェクトの入力、削除、あるいは編集の操作を取り消します。
+アクセラレータ <tt>Meta-U</tt> もこの機能を実行します。
+<p>
+多段階の undo はサポートされていません。
+<i>Undo</i> が2回クリックされた場合には、
+最初の <i>Undo</i> の前の状態に戻ります。
+
+<p>
+<dt><a name="paste-object"><i>Paste Objects</i></a>
+<dd>
+事前にカット・バッファにコピーされたオブジェクト 
+(<a href="editing.html#copy">COPY</a>、
+及び <a href="editing.html#delete">DELETE</a> を参照) 
+を現在の図にペーストします。
+アクセラレータ <tt>Meta-T</tt> もこの機能を実行します。
+<p>
+オブジェクトはキャンバス上のマウス・カーソルの近くに表示され、
+その状態で位置を移動させた後で
+マウスボタン1 (`place object') をクリックすることによって、
+指定した場所に置くことができます。
+オブジェクトを元の位置に置きたい場合には、
+マウスボタン2 (`place at orig posn') をクリックします。
+<p>
+この機能は、他の図の一部を
+編集中の図の中にコピーするために用いることができます。
+同じユーザーが複数の <b>xfig</b> を実行している場合には
+カット・バッファはそれらの <b>xfig</b> のあいだで共有されますので、
+<b>xfig</b> を複数起動した状態で、
+それらの <b>xfig</b> のあいだでのコピーを行なうこともできます。
+ファイルに格納されている図全体を編集中の図の中にコピーしたい場合には、
+<a href="#file-panels">File パネル</a> を用いて
+ファイルを<a href="#merge">マージ</a>することができます。
+<p>
+通常、カット・バッファとしては
+ユーザーのホーム・ディレクトリの ``<tt>.xfig</tt>'' ファイルが用いられます。
+
+<p>
+<dt><i>Paste Text</i>
+<dd><a href="drawing.html#text">テキストの入力</a>に際してこれを選択すると、
+X11 のカット・バッファに格納されたテキストが挿入されます。
+<a href="drawing.html#text">Text</a> モードを選択し、
+キャンバス上のテキストを挿入したい場所でクリックすることによって、
+テキストの入力を開始していなければならないことに注意して下さい。
+アクセラレータ <tt>F18</tt>、及び/もしくは <tt>F20</tt> も同じ機能を持ちます。
+
+<p>
+<dt><i>Search/Replace...</i>
+<dd>
+図の中の Text オブジェクトの文字列の検索、
+及び/もしくは置換を行なうためのパネルを開きます。
+アクセラレータ <tt>Meta-I</tt> もこの機能を実行します。
+詳細については <A HREF="miscellaneous.html#search-replace">検索と置換</A> 
+を参照して下さい。
+
+<p>
+<dt><i>Spell Check...</i>
+<dd>
+図の中の Text オブジェクトのミス・スペルをチェックするためのパネルを開きます。
+アクセラレータ <tt>Meta-K</tt> もこの機能を実行します。
+詳細については <A HREF="miscellaneous.html#spell-check">スペル・チェック</A> 
+を参照して下さい。
+
+<p>
+<dt><i>Delete all</i>
+<dd>キャンバス上の全てのオブジェクトを削除します。
+これは、<tt>Meta-U</tt> (<a href="#undo">Undo</a>) によって取り消せます。
+
+<p>
+<dt><i>Global settings...</i>
+<dd>
+HTML ブラウザ、スペル・チェッカ、目盛の上でのマウスの追跡などの、
+大域的な設定を表示するための 
+<a href="global_settings.html">Global Settings パネル</a> をポップアップします。
+アクセラレータ <tt>Meta-G</tt> もこの機能を実行します。
+
+<p>
+<dt><i>Set unit...</i>
+<dd>
+寸法の単位の設定のための 
+<a href="panning.html#set-unit">Unit パネル</a> をポップアップします。
+<b>xfig</b> の右上の角の 
+<a href="panning.html#units">UNIT ボックス</a>の
+マウスボタン3でのクリックも同じ効果を持ちます。
+</dl>
+
+<hr>
+<H2><A NAME="view-menu">View メニュー</A></H2>
+
+<blockquote>
+<img src="../images/view-accel.png" alt="[ View menu ]">
+</blockquote>
+
+<p>
+<dl>
+<dt><a name="manage-styles"><i>Named Styles</i></a>
+<dd>
+スタイル・マネージャを開きます。
+これは、一連の<a href="attributes.html">属性</a>に名前を付けてセーブし、
+またロードできるようにします。
+詳細は、<a href="#manage-styles">スタイル・マネージャ</a>を参照して下さい。
+
+<p>
+<dt><i>Redraw</i>
+<dd>
+キャンバスの内容の再描画を行ないます。
+アクセラレータ <tt>Meta-R</tt>、
+及び <tt>Ctrl-L</tt> もこの機能を実行します。
+
+<p>
+<dt><a name="port-land"><i>Portrait/Landscape</i></a>
+<dd>
+キャンバスのオリエンテーション (方向) を、
+Portrait (横長) と Landscape (縦長) の間で変更します。
+このオリエンテーションは 
+<a href="printing.html#export">Export</a> や 
+<a href="printing.html#print">Print</a> に際しての
+デフォルトのオリエンテーションとしても用いられます。
+<p>
+デフォルトのオリエンテーションは、
+<a href="options.html">コマンド行オプション</a>によって
+指定することができます。
+また、fig ファイルを<a href="#file-panels">ロード</a>した際には、
+オリエンテーションはそのファイルの内容に応じて自動的に変更されます。
+
+<p>
+<dt><i>Zoom in</i>
+<dd>
+キャンバス上の表示を拡大します。
+<tt>Shift-Z</tt> もこの機能を実行します。
+<a href="panning.html#zooming">ズーム</a>も参照して下さい。
+
+<p>
+<dt><i>Zoom out</i>
+<dd>
+キャンバス上の表示を縮小します。
+小文字の <tt>z</tt> もこの機能を実行します。
+<a href="panning.html#zooming">ズーム</a>も参照して下さい。
+
+<p>
+<dt><i>Zoom to fit canvas</i>
+<dd>
+図全体がキャンバスに表示されるように拡大/縮小します。
+<tt>Ctrl-Z</tt> もこの機能を実行します。
+<a href="panning.html#zooming">ズーム</a>も参照して下さい。
+
+<p>
+<dt><i>Pan to origin</i>
+<dd>
+キャンバス上の表示を原点 (0, 0) に移動します。
+<a href="panning.html#scroll">キャンバスのスクロール</a>も参照して下さい。
+</dl>
+
+<p>
+以下の項目については、メニュー項目の前の ``*'' は
+その設定が ON となっていることを示します。
+<dl>
+<dt><i>Show page borders</i>
+<dd>
+キャンバス上のページ境界の表示の on/off を切り替えます。
+これが on となっている場合、
+<b>xfig</b> は現在選択されている用紙サイズ 
+(サポートされている用紙サイズについては 
+<A HREF="printing.html#export">Exporting</A> や
+<A HREF="printing.html#print">Printing</A> を参照) 
+に対応するページ境界と用紙サイズの名前を 
+キャンバス上に (デフォルトでは) 薄い青の線で表示します。
+アクセラレータ <tt>Meta-B</tt> もこの機能を実行します。
+
+<p>
+<dt><i>Show depth manager</i> 
+<dd><a href="layers.html#depth-panel">Depth マネージャ・パネル</a>を表示し、
+あるいは隠します。
+詳細については<a href="layers.html">レイヤー (Depth)</a>を参照して下さい。
+
+<p>
+<dt><i>Show info balloons</i>
+<dd>
+<a href="miscellaneous.html#balloons">バルーン・ヘルプ</a>の表示の 
+on/off を切り替えます。
+バルーンはマウスが <b>xfig</b> のボタンやその他の領域の上に動かされてから
+少しの遅延の後にポップアップし、そのボタンなどについての情報を表示します。
+アクセラレータ <tt>Meta-Y</tt> もこの機能を実行します。
+<p>
+このポップアップの遅延は 
+<A HREF="global_settings.html">Global Settings パネル</A> で設定できます。
+
+<p>
+<dt><i>Show line lengths</i>
+<dd>
+線や円などの入力に際しての線の長さの表示の on/off を切り替えます。
+これが on となっている場合、
+<b>xfig</b> は入力中の線の近くにその線の長さを赤で表示します。
+アクセラレータ <tt>Meta-L</tt> もこの機能を実行します。
+
+<p>
+<dt><i>Show vertex numbers</i>
+<dd>
+Fig オブジェクトの頂点のラベルの表示の on/off を切り替えます。
+これが on となっている場合、
+<b>xfig</b> はキャンバス上のオブジェクトのそれぞれの頂点に
+描画の順序でラベルを付けます。
+これは確認のためにのみ有用です。
+</dl>
+
+<hr>
+<H2><A NAME="help">Help メニュー</A></H2>
+
+<blockquote>
+<img src="../images/help-accel.png" alt="[ Help menu ]">
+</blockquote>
+
+<p>
+<dl>
+<dt><i>Xfig Reference (HTML)...</i>
+<dd>
+Web ブラウザ (<tt>Fig.browser</tt> リソースで設定されたもの。
+デフォルトは <b>netscape</b>) を起動し、
+このマニュアルを表示します。
+
+<p>
+<dt><i>How-To Guide (PDF)...</i>
+<dd>
+PDF ビューア (<tt>Fig.pdfviewer</tt> リソースで設定されたもの。
+デフォルトは <b>acroread</b>) を起動し、
+Peter Hiscocks によって書かれた <b>xfig</b> チュートリアルを表示します。
+
+<p>
+<dt><i>Man pages (PDF)...</i>
+<dd>
+PDF ビューア (<tt>Fig.pdfviewer</tt> リソースで設定されたもの。
+デフォルトは <b>acroread</b>) を起動し、
+<b>xfig</b> のマニュアル・ページを表示します。
+
+<p>
+<dt><i>About Xfig...</i>
+<dd>
+<b>xfig</b> のバージョンや著作権に関する情報を表示するウィンドウを開きます。
+<p>
+<img src="../images/xfighelp.png" alt="[ About Xfig ]">
+</dl>
+
+<p>
+<hr>
+
+<H2><A NAME="file-panels">File パネル</A></H2>
+
+<i>File</i> パネルは、
+fig ファイルのロードやセーブなどのための機能を提供します。
+図を fig ファイル以外の形式 (PostScript など) で出力したい場合には 
+<a href="#export">Export</a> を、
+また図の中にイメージを挿入したい場合には 
+<a href="drawing.html#picture">IMPORTING PICTURE OBJECTS</a> を
+使用します。
+<p>
+<ul>
+<li><a href="#file-menu"><i>File</i> メニュー</a>から 
+<i>Open...</i> を選択すると Open Figure パネルが開かれます。
+アクセラレータ <tt>Meta-O</tt> も同じ機能を実行します。
+<p>
+<li><a href="#file-menu"><i>File</i> メニューから</a> 
+<i>Merge...</i> を選択すると Merge Figure パネルが開かれます。
+アクセラレータ <tt>Meta-M</tt> も同じ機能を実行します。
+<p>
+<li><a href="#file-menu"><i>File</i> メニュー</a>から 
+<i>Save As...</i> を選択すると Save As パネルが開かれます。
+アクセラレータ <tt>Meta-A</tt> も同じ機能を実行します。
+</ul>
+<p>
+これらのパネルは、<i>Open</i>、<i>Merge</i>、及び <i>Save</i> のような、
+操作を反映する下部のボタン列を除き、ほとんど同じように見えます。
+<p>
+<blockquote>
+  <a name="file-panel"><img src="../images/file-panel.png" alt="[File Panel]"></a>
+</blockquote>
+
+<p>
+<dl>
+<dt><i>File Status</i>
+<dd>これは現在編集中の図が変更されているかどうかを示します。
+
+<p>
+<dt><i># of Objects</i>
+<dd>これはその図に含まれているオブジェクトの数を示します。
+複数のオブジェクトを含む複合オブジェクトは
+1個のオブジェクトとして扱われます。
+
+<p>
+<dt><i>Figure Offset</i>
+<dd>ファイルのロードやマージに際して図をシフトさせる距離を指定します。
+図は、ここで指定された距離だけ、右、もしくは下へシフトされます。
+負の値を指定することにより、
+図を左、もしくは上へシフトさせることも可能です。
+距離の単位は、<i>Inches</i>、
+<i>Centimeters</i>、及び <i>Fig Units</i> (xfig 3.x では 1/1200 インチ) 
+から選択することができます。
+
+<p>
+<dt><a name="current-file"><i>Current File</i></a>
+<dd>現在編集中のファイルの名前はここに表示され、
+<i>Filename</i> フィールドにファイル名を入力せずに 
+<i>Save</i> ボタンをクリックした場合にはそのファイルへのセーブが行なわれます。
+<p>
+ファイルのロードやセーブを行なった場合には、
+<i>Current File</i> はそのファイル名に変更されます。
+
+<p>
+<dt><i>Filename</i>
+<dd>ロードやセーブの対象とするファイルを指定します。
+このフィールドが空の場合には、
+<i>Current File</i> に表示されているファイルがアクセスされます。
+<p>
+<i>Filename</i> フィールドのファイル名は、
+<i>Fig Files</i> リストのファイル名をクリックするか、
+もしくはキーボードから直接入力することによって変更することができます。
+ファイル名を入力した後に return をタイプすると、
+<i>Open</i> パネルにおいてはそのファイルが開かれ、
+<i>Save As</i> パネルにおいてはそのファイルへセーブされ、
+また <i>Merge</i> パネルにおいてはそのファイルがマージされます。
+
+<p>
+<dt><i>Fig Files</i>
+<dd>ここには現在のディレクトリの中のファイルの一覧 
+(<i>Filename Mask</i> で指定されたパターンに一致するもの) が表示されており、
+その中からファイルを選択することができます。
+<p>
+このリストの中のファイル名をマウスボタン1でクリックすると、
+そのファイル名が <i>Filename</i> フィールドにコピーされます。
+また、このリストの中のファイル名をマウスボタン1でダブル・クリックすると、
+<i>Open</i> パネルにおいてはそのファイルが開かれ、
+<i>Save As</i> パネルにおいてはそのファイルへセーブされ、
+また <i>Merge</i> パネルにおいてはそのファイルがマージされます。
+
+<p>
+<dt><i>Filename Mask</i>
+<dd>ここで指定されたパターンに一致する名前のファイルのみが 
+<i>Fig Files</i> リストに含められます。
+パターンは UNIX のシェルで用いられるものと同様のものであり、
+``<tt>*</tt>'' や ``<tt>?</tt>'' などの
+メタ・キャラクタを用いることができます。
+<p>
+このフィールドで return をタイプすると、
+<i>Rescan</i> ボタンがクリックされた場合と同様に
+現在のディレクトリがスキャンされます。
+この文字列の初期値は ``<tt>*.fig *.fig.gz *.fig.[Zz]</tt>'' であり、
+圧縮されたものを含む fig ファイルに一致しますが、
+これは必要であればリソース 
+<tt>Fig*file-panel*mask*string</tt> によって変更することができます。
+
+<p>
+<dt><i>Current Dir</i>
+<dd>これは現在のディレクトリを示しており、
+<i>Fig Files</i> リストには
+このディレクトリの中のファイルが表示されます。
+<p>
+<i>Current Dir</i> フィールドのディレクトリ名は、
+<i>Directories</i> リストのディレクトリ名をクリックするか、
+もしくはキーボードから直接入力することによって変更することができます。
+ディレクトリ名を入力した後に return をタイプすると、
+<i>Rescan</i> ボタンをクリックした場合と同様に
+そのディレクトリの中のファイルがスキャンされ、
+<i>Fig Files</i> リストの内容が更新されます。
+
+<p>
+<dt><i>Directories</i>
+<dd>ここには現在のディレクトリの中のディレクトリの一覧が表示されており、
+このリストのいずれかの項目をマウスボタン1でクリックすると
+そのディレクトリへの移動が行なわれます。
+通常はここには<i>隠しディレクトリ</i>は表示されませんが、
+これは <i>Show Hidden</i> ボタンによって切り替えることができます。
+<p>
+``<tt>..</tt>'' は親のディレクトリを示しています。
+親ディレクトリへの移動は、<i>Fig Files</i> リスト、
+もしくは <i>Directories</i> リストの上で
+マウスボタン3をクリックすることによって行なうこともできます。
+
+<p>
+<dt><i>Home</i>
+<dd>このボタンをクリックすると、
+ユーザーのホーム・ディレクトリへ移動します。
+
+<p>
+<dt><i>Show Hidden</i>
+<dd>このボタンをクリックすると、
+隠しディレクトリ (名前が ``<tt>.</tt>'' で始まるディレクトリ) を
+表示する状態と表示しない状態とが交互に切り替えられます。
+デフォルトでは、隠しディレクトリは表示されないようになっています。
+
+<p>
+<dt><i>Rescan</i>
+<dd>このボタンをクリックすると、
+現在のディレクトリの中のファイルで 
+<i>Filename Mask</i> に一致するものがスキャンされ、
+<i>Fig Files</i> リストの内容が更新されます。
+アクセラレータ <tt>Meta-R</tt> も同じ意味を持ちます。
+
+<p>
+<dt><i>Cancel</i>
+<dd>このボタンをクリックすると File パネルが閉じられます。
+アクセラレータ <tt>Meta-C</tt>、及び <tt>Escape</tt> も同じ意味を持ちます。
+</dl>
+
+<p>
+行なわれた操作 (Open、Merge、あるいは Save) に応じて、
+以下の3つのボタンのいずれか1つのみが表示されます。
+<p>
+<dl>
+<dt><i>Open</i>
+<dd>このボタンをクリックすると、
+<i>Filename</i> フィールドで指定されたファイルから図が読み込みまれます。
+<p>
+ファイルの読み込みに先立って、キャンバスの内容は消去されます。
+キャンバス上の図に何らかの変更が行なわれており、
+かつその後でセーブが行なわれていないならば、確認ウィンドウが開かれ、
+その図を捨てて新しいファイルを読み込むか、
+もしくは新しい図のロードを取り止めるかの選択が求められます。
+<p>
+図は、<i>Figure Offset</i> で指定された距離だけ
+シフトして読み込まれます。
+<p>
+<b>xfig</b> は、<b>compress</b>、もしくは 
+<a href="installation.html#gzip"><b>gzip</b></a> 
+によって圧縮されたファイル 
+(拡張子が <tt>.Z</tt>、<tt>.z</tt>、もしくは <tt>.gz</tt> であるファイル) 
+も読むことができます。
+圧縮されたファイルの読み込みに先立って、それらのファイルは 
+<b>uncompress</b> か <a href="installation.html#gzip"><b>gunzip</b></a> 
+によって uncompress されます。
+<p>
+新しいバージョンの <b>xfig</b> は
+常に古いバージョンの <b>xfig</b> で作成された 
+fig ファイルをロードすることができますが、
+その逆は成り立ちません。
+古いフォーマットのファイルをロードした場合には、
+<b>xfig</b> はその旨をユーザーに通知し、
+またセーブに際してファイルを現在のバージョンのフォーマットに変更します。
+Fig ファイルを古いバージョンのフォーマットでセーブする方法はありません。
+<p>
+<a name="new-xfig-process"><i>Open</i> ボタンに加え、</a>
+選択したファイルを編集するために別の <b>xfig</b> を起動するための 
+<i>New xfig...</i> と書かれたボタンが用意されています。
+その <b>xfig</b> は完全に独立したプロセスとして実行されますが、
+<a href="#paste-object">cut/paste 機能</a>を用いて
+それらの <b>xfig</b> のあいだでオブジェクトをコピーすることが可能です。
+
+<p>
+<dt><i><a name="merge">Merge</a></i>
+<dd>このボタンをクリックすると、
+<i>Filename</i> フィールドで指定されたファイルから図が読み込みまれ、
+キャンバス上の図とマージされます。
+<p>
+<i>Open</i> と同様、
+図は <i>Figure Offset</i> で指定された距離だけシフトされます。
+
+<p>
+<dt><i>Save</i>
+<dd>このボタンをクリックすると、
+<i>Filename</i> フィールドでファイル名が指定されている場合には
+そのファイルへの、
+さもなくば <i>Current File</i> で示されている
+ファイルへのセーブが行なわれます。
+また、<a href="#file-menu"><i>File</i> メニュー</a>から 
+<i>Save</i> を選択した場合には、
+File パネルを開かずにこれと同様の動作をします。
+<p>
+<i>Current File</i> とは異なる、
+既に存在するファイルへのセーブを行なおうとした場合には、
+セーブを行なうかどうかを確認するための確認ウィンドウが開かれます。
+また、<i>Current File</i> とは異なるファイルへのセーブを行なった場合には、
+そのファイル名が <i>Current File</i> に設定されます。
+<p>
+ファイルのセーブに先立って、
+元のファイル (もしあれば) をバックアップ・ファイルとして残すために、
+そのファイルは拡張子 ``<tt>.bak</tt>'' を付けた名前に変更されます。
+</dl>
+
+<p>
+<hr>
+
+<h2><a name="manage-styles">スタイル・マネージャ</a></h2>
+
+<img src="../images/manage-styles.png" align="right" alt="[Manage Styles]">
+
+スタイル・マネージャは、一連の<a href="attributes.html">属性</a>
+(例えば、線の色、太さなど) に名前を付けてセーブし、
+またロードできるようにします。
+<p>
+スタイルの使用のために、スタイル・マネージャを開いた際には、
+<b>xfig</b> は自動的に <a href="editing.html#update">UPDATE</a> モードに
+切り替わります。
+スタイルのロードのためには、
+上のリストからスタイルのファミリを選択し、
+下のリストからスタイルを選択します。
+そのスタイルに設定されている属性はその値に設定され、
+またそれらの<a href="attributes.html">属性ボタン</a>の
+<a href="editing.html#update">右上のトグル・ボタン</a>は
+自動的に <i>ON</i> となり、
+また影響されないもののそれは <i>OFF</i> となります。
+ここで、キャンバス上のオブジェクトをマウスボタン1でクリックすると、
+それらの属性が更新されます。
+新しいオブジェクトの生成に際しては、それらの属性と、
+<a href="attributes.html">属性パネル</a>に示されている
+その他の属性が用いられます。
+<p>
+新しいファミリの作成のためには、
+<i>Family</i> の下の <i>Choice</i> エントリにその名前を入力し、
+<i>Add</i> ボタンをクリックします。
+次に、<a href="attributes.html">属性ボタン</a>の右上の赤いボタン
+(<a href="editing.html#update">Update</a> も参照) を
+<i>ON/OFF</i> することによってそのスタイルで影響させたい属性
+(例えば、線の色、太さ、その他) を選択し、またその属性の値を設定します。
+最後に、作成したいスタイルの名前を
+<i>Style</i> の下の <i>Choice</i> エントリに入力して、
+<i>Add</i> ボタンをクリックします。
+<p>
+16個のファミリと、それぞれについて 30個のスタイルという制限があります。
+<p>
+<dl>
+<dt><i>Family</i>
+<dd>リストからスタイル・ファミリを選択します。
+それぞれのスタイル・ファミリは、
+1つ、あるいはそれ以上のスタイルを含むことができます。
+<p>
+<dl>
+<dt>
+<i>Choice</i>
+<dd>これは現在選択されているファミリを示し、
+またユーザーはそれをロードするために
+ファミリ名を入力して Enter を押すこともできます。
+<p>
+<dt><i>Add</i>
+<dd>スタイル・ファミリのリストへの追加のためには、
+上の <i>Choice</i> フィールドに名前を入力した後で
+このボタンをクリックします。
+
+<dt><i>Delete</i>
+<dd>選択されたスタイル・ファミリを削除します。
+</dl>
+
+<p>
+<dt><i>Style</i>
+<dd>これは、上で選択されたファミリに含まれているスタイルを示します。
+選択のためには、いずれかのスタイルをクリックします。
+<p>
+<dl>
+<dt><i>Choice</i>
+<dd>これは現在選択されているスタイルを示し、
+またユーザーはそれをロードするために
+スタイル名を入力して Enter を押すこともできます。
+
+<dt><i>Add</i>
+<dd>スタイルのリストへの追加のためには、
+上の <i>Choice</i> フィールドに名前を入力した後で
+このボタンをクリックします。
+
+<dt>
+<i>Delete</i>
+<dd>選択されたスタイルを削除します。
+</dl>
+
+<p>
+<dt><i>Save settings</i>
+<dd>現在定義されている全てのファミリとスタイルをセーブします。
+
+<p>
+<dt><i>Reload settings</i>
+<dd>ファミリとスタイルの定義を再ロードし、
+現在のリストに対する全ての変更を破棄します。
+
+<p>
+<dt><i>Close</i>
+<dd>スタイル・マネージャ・パネルを閉じます。
+</dl>
+
+<p>
+<hr>
+
+[ <a href="contents.html">Contents</a> |
+ <a href="introduction.html">Introduction</a> |
+ <a href="authors.html">Credits</a> ]
+
+</body>
+</html>

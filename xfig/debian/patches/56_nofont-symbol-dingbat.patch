@@ -1,0 +1,22 @@
+Author: Vladislav Zavjalov <slazav@altlinux.org>
+Date:   Mon Nov 14 18:03:49 2011 +0400
+Origin: http://git.altlinux.org/people/slazav/packages/?p=xfig.git;a=patch;h=7bd22b2cd16cdadc30290f7f5500a4e4a67ae7f8
+Bug-Altlinux: https://bugzilla.altlinux.org/show_bug.cgi?id=26579
+Subject: w_drawprim.c: don't use fontsets for symbols and dingbats fonts (closes #26579)
+
+--- a/w_drawprim.c
++++ b/w_drawprim.c
+@@ -364,8 +364,11 @@
+ 	    set_temp_cursor(wait_cursor);
+ 	    fontst = XLoadQueryFont(tool_d, fn);
+ #ifdef I18N
+-	    if (appres.international)
+-		fontset = XCreateFontSet(tool_d, fn, &mcharset, &ncharset, &defstr);
++            /* create fontsets for all fonts but Symbol and Dingbats */
++	    if (appres.international &&
++                strstr(fn,"ymbol") == NULL &&
++		strstr(fn,"ingbats") == NULL)
++		  fontset = XCreateFontSet(tool_d, fn, &mcharset, &ncharset, &defstr);
+ #endif
+ 	    reset_cursor();
+ 	    if (fontst == NULL) {

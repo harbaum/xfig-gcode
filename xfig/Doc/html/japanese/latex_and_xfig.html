@@ -1,0 +1,430 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<html>
+<head>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=EUC-JP">
+<title>LaTeX and Xfig</title>
+<link rev="made" href="mailto:VEF00200@nifty.ne.jp">
+</head>
+
+<body>
+<a href="contents.html"><img src="../images/xfig-title.png"
+  alt="XFIG Users Manual" border=0></a>
+
+<h2><a name="latex_and_xfig">LaTeX と Xfig</a></h2>
+
+<ul>
+<li><a href="#LaTeX">xfig の図を LaTeX ファイルに取り込む</a>
+  <br>by Eric Masson (ericm@kirk.ee.mcgill.ca)
+<p>
+<li><a href="#picsize"><tt>pstex_t</tt> での図の大きさの変更</a>
+  <br>by Stephen Eglen (stephene@cogs.susx.ac.uk)
+<p>
+<li><a href="#PDFLaTeX">xfig と PDFLaTeX</a>
+  <br>by Josselin Mouette (jmouette@ens-lyon.fr)
+<p>
+<li><a href="#misc">Miscellaneous Notes</a>
+</ul>
+
+<hr>
+
+<h3>xfig の図を LaTeX ファイルに取り込む</h3>
+
+<b>xfig</b> の起動に際して、次のようなコマンドを用います：
+<pre>
+  xfig -specialtext -latexfonts -startlatexFont default
+</pre>
+<p>
+もし<b>常に</b>
+<a href="attributes.html#text-flags"><i>Special</i> フラグ</a> 
+と <a href="attributes.html#font-panel"><i>LaTeX</i> フォント</a> 
+を選択して開始したいのであれば、<tt>.Xresources</tt> ファイルか
+あなたが使っているリソース・ファイルで次のように指定します：
+<pre>
+  Fig.latexfonts: true
+  Fig.specialtext: true
+</pre>
+<p>
+<b>xfig</b> が生成でき、LaTeX が読むことのできる、
+いくつかのフォーマットがあります。
+ここでは3つのケースのみをカバーします：
+
+<ol type="A">
+<li>直接 LaTeX 形式で出力する
+<li>Encapsulated PostScript (EPS) で出力し、それを LaTeX で取り込む
+<li>図の一部を PostScript で、一部を LaTeX で出力し、
+  それらを文書の上で重ね合わせる
+</ol>
+<p>
+これらの方法にはそれぞれの利点があり、同程度に容易に扱うことができます。
+方法 (A) の利点は、全てが TeX 形式に含まれており、
+DVI ファイルが必要な情報全てを保持することです。
+(B) では出力に際して PostScript の全ての機能とフォントを使用できます。
+(C) では PostScript の描画機能と、
+LaTeX のテキストのタイプセット機能を用いることができます。
+<p>
+LaTeX 文書のプリアンブル (<tt>\begin{document}</tt> よりも前の部分) 
+に、次の行を置きます：
+<pre>
+        \input{psfig}
+</pre>
+<p>
+プリアンプルは次のようなものとなるかも知れません：
+<pre>
+  \documentstyle[12pt,bezier,amstex]{article}  % include bezier curves
+  \renewcommand\baselinestretch{1.0}           % single space
+  \pagestyle{empty}                            % no headers and page numbers
+  \oddsidemargin -10 true pt      % Left margin on odd-numbered pages.
+  \evensidemargin 10 true pt      % Left margin on even-numbered pages.
+  \marginparwidth 0.75 true in    % Width of marginal notes.
+  \oddsidemargin  0 true in       % Note that \oddsidemargin=\evensidemargin
+  \evensidemargin 0 true in
+  \topmargin -0.75 true in        % Nominal distance from top of page to top of
+  \textheight 9.5 true in         % Height of text (including footnotes and figures)
+  \textwidth 6.375 true in        % Width of text line.
+  \parindent=0pt                  % Do not indent paragraphs
+  \parskip=0.15 true in
+
+  \input{psfig}           % Capability to place postscript drawings
+
+
+  \begin{document}
+  \end{document}
+</pre>
+
+<h3>Type A ― 直接 LaTeX 形式で出力する</h3>
+
+描画能力の点では、これは最も非力です。
+LaTeX では、いくつかの特定の角度の線のみを描画することができます。
+線に矢印が付いている場合、この制限はさらに厳しくなります。
+楕円、スプラインなどの、いくつかの機能はサポートされていません。
+(<b>xfig</b> は <tt>bezier</tt> などの 
+LaTeX マクロ・パッケージによる利点を用いていません。)
+<p>
+この方法で線を描画する場合には、
+<b>xfig</b> 上での<a href="attributes.html#angle-geom">線の角度</a>を
+適切なものに制限するようにしなければなりません。
+さもなくば、図を LaTeX フォーマットでエクスポートした際に、
+<b>xfig</b> はそれを LaTeX が扱える最も近い角度で近似し、
+通常は望ましくない結果が生じます。
+<p>
+このモードではテキストに LaTeX のコマンドを含めることができ、
+LaTeX に取り込まれた際にそのコマンドは適切に解釈されます。
+例えば：
+<pre>
+        $\int_0^9 f(x) dx$
+</pre>
+は関数 <i>f(x)</i> の 0 から 9 の積分となります。
+LaTeX ファイルを生成するためには、<b>xfig</b> の 
+<a href="main_menus.html#file-menu"><i>File</i> メニュー</a> 
+から <i>Export...</i> を選択し、
+エクスポートする <a href="printing.html#language"><i>Language</i></a> として 
+<i>LaTeX picture</i> を選択します。
+これによって <tt>.latex</tt> というサフィックスを持つファイルを生成し、
+直接 LaTeX 文書に取り込むことができます。
+<p>
+例えば、次のコードはファイル <tt>yourfile.latex</tt> を
+直接 LaTeX 文書に取り込みます：
+<pre>
+  \begin{figure}[htbp]
+  \begin{center}
+
+  \input{yourfile.latex} 
+
+  \caption{The caption on your figure}
+  \label{figure:yourreferencename}
+  \end{center}
+  \end{figure}
+</pre>
+
+<h3>Type B ― Encapsulated PostScript での出力</h3>
+
+この方法では図の描画についての制限はありません。
+ただし、このフォーマットにおいては LaTeX のコマンドは使用できません。
+しかし、このフォーマットが選択された場合には
+多数の PostScript フォント全てが使用可能となります。
+<p>
+図を描き終ったならば、<b>xfig</b> の 
+<a href="main_menus.html#file-menu"><i>File</i> メニュー</a> 
+から <i>Export...</i> を選択し、
+エクスポートする <a href="printing.html#language"><i>Language</i></a> として 
+<i>Encapsulated PostScript</i> を選択します。
+これによって、次のような方法によって LaTeX 文書に取り込むことができる、
+ <tt>.eps</tt> というサフィックスを持つファイルを生成することができます。
+<pre>
+  \begin{figure}[htbp]
+  \begin{center}
+    \psfig{file=yourfile.eps}
+  \end{center}
+  \caption{Your caption}
+  \label{figure:yourreference}
+  \end{figure}
+</pre>
+<p>
+<b>注意：</b> 環境によってはこの方法は使用できないかも知れません。
+また、この方法で生成される DVI ファイルは
+ポータブルではないものとなることがあります。
+ 
+<h3>Type C ― Postscript/LaTeX の組み合わせ</h3>
+
+この方法ではどのような線や曲線を使うこともできます。
+また、LaTeX のコマンドの使用も許され、
+かつ PostScript フォントを使用することもできます。
+従って、テキストの中に
+<pre>
+        $\int_0^9 f(x) dx$
+</pre>
+のように入力すれば、それは LaTeX で処理されます。
+LaTeX で出力したいテキストについては 
+<a href="attributes.html#text-flags"><i>Special</i> フラグ</a> を ON にし、
+PostScript で出力したいテキストについては 
+OFF にする必要があることに注意して下さい。
+
+<p>
+この方法を用いる場合には、
+<a href="main_menus.html#file-menu"><i>File</i> メニュー</a> 
+から <i>Export...</i> を選択し、
+エクスポートする <a href="printing.html#language"><i>Language</i></a> として 
+<i>Combined PostScript/LaTeX (both part)</i> を選択します。
+これによって、次のような方法によって LaTeX 文書に取り込むことができる 
+<tt>.pstex_t</tt> というサフィックスを持つファイルと、
+PostScript のコードを含む <tt>.pstex</tt> というサフィックスを持つファイル
+を生成することができます。
+<tt>.pstex_t</tt> ファイルは自動的に <tt>.pstex</tt> ファイルを取り込むので、
+これを明示的に TeX ファイルに含める必要はありません。
+図を取り込むためには、次のようなものを用います：
+<pre>
+  \begin{figure}[htbp]
+  \begin{center}
+
+  \input{yourfigure.pstex_t}
+
+  \caption{Your figure}
+  \label{figure:example}
+  \end{center}
+  \end{figure}
+</pre>
+<p>
+<b>注意：</b> <b>xfig</b> が生成した <tt>.pstex_t</tt> ファイルを
+編集したいと思うことがあるかも知れません。
+それは <tt>.pstex</tt> ファイルを完全なパスで参照することがありますが、
+これはそれらのファイルを他のディレクトリに動かした場合に問題を生じます。
+個人的には、完全なパス指定を削除し、
+ファイル名のみを残しておくことを好んでいます。
+
+<hr>
+
+<h3><a name="picsize"><tt>pstex_t</tt> での図の大きさの変更</a></h3>
+
+図を <tt>\input{file.psttext_t}</tt> によって取り込む場合には、
+図の大きさを指定する方法はありません。
+<p>
+これに対する、2つの解決方法があります：
+<ol>
+<li>最初から <b>xfig</b> で正しい大きさで図を作成する。
+あるいは、図をエクスポートする際に、
+<a href="printing.html#export">Export パネル</a> の 
+<i>Magnification</i> での設定を変更することによって図の大きさを変更する。
+いずれの方法でも、LaTeX 文書上での図の大きさが気に入らなかった場合には 
+<b>xfig</b> に戻らなければならない。
+<p>
+<li><tt>\scalebox</tt>、あるいは <tt>\resizebox</tt> を用いて、
+LaTeX に図の大きさを変更させる。
+これはグラフィック・パッケージからのテキストや図をスケーリングするための
+一般的な機能です。
+<p>
+<pre>
+       \scalebox{factor}{object}
+</pre>
+は、任意の比率でオブジェクトをスケーリングします。
+比率は単純な数値 (1よりも小さければ縮小、1よりも大きければ拡大) です。
+オブジェクトは、通常はいくつかのテキストやグラフィックです。
+<p>
+例えば：
+<pre>
+       \scalebox{2}{ \input{file.pstex_t} }
+</pre>
+は、ドライバに依存して、図を2倍に拡大します。
+ビットマップ・フォントをスケーリングすると醜い結果が得られるので避けること。
+<p>
+<pre>
+       \resizebox{width}{ht} {stuff}
+</pre>
+は "<tt>stuff</tt>" を <tt>width</tt> × <tt>ht</tt> の大きさにリサイズします。
+パラメータとして "<tt>!</tt>" を用いるとボックスのアスペクト比が保存されます。
+例えば：
+<pre>
+       \resizebox{5cm}{!}{fat cat} 
+</pre>
+は "<tt>fat cat</tt>" の幅を 5cm に、高さを適切に設定します。
+(Lamport の本の 129ページより)
+</ol>
+
+<hr>
+
+<h2><a name="PDFLaTeX">xfig と PDFLaTeX</a></h2>
+
+written by Josselin Mouette (jmouette@ens-lyon.fr)
+
+<h3>普通の PDF ファイル</h3>
+
+<b>xfig</b> で<a href="printing.html#language">出力フォーマット</a>として
+<i>PDF</i> を選択し、
+<tt><i>foo</i>.pdf</tt> ファイルを生成します。
+文書のプリアンブルに <tt>\usepackage[pdftex]{graphicx}</tt> を書き、
+図を <tt>\includegraphics{<i>foo</i>.pdf}</tt> で挿入します。
+includegraphics の任意のオプションも使えます。
+<p>
+利点： 使用が非常に容易。
+<p>
+欠点： 図の中のテキストは
+文書にもそのまま PostScript フォントを用いて現れることになります；
+その中で TeX コードを用いることはできません。
+
+<h3>Combined PDF/LaTeX ファイル</h3>
+
+これが私が大抵の場合にお薦めする方法です。
+初心者にとっては最初は難しいかも知れませんが、それは実に強力です。
+この方法を選択するならば、
+<b>xfig</b> でのフォントを LaTeX のもので設定し、
+テキストの <a href="attributes.html#text-flags"><i>Special</i></a> 属性
+を設定することが必要となるでしょう。
+これを自動的に行なうためには、あなたの
+<tt>.Xresources</tt> や <tt>.Xdefaults</tt> (システムに依存する) に：
+<pre>
+  Fig.latexfonts: true
+  Fig.specialtext: true
+</pre>
+の2行を追加すれば良いでしょう。
+そして、<a href="printing.html#export">エクスポート</a>に際して、
+<i>Combined PDF/LaTeX</i> フォーマットを選択します。
+そして、LaTeX ファイルのプリアンブルに次の行を追加します：
+<pre>
+  \usepackage[pdftex]{graphicx,color}
+</pre>
+color パッケージは、テキストをカラーで出力する場合に必要です。
+そして、図を次のようにして取り込みます：
+<pre>
+  \input foo.pdftex 
+</pre>
+リサイズも可能です：
+<pre>
+  \resizebox{3cm}{!}{\input foo.pdftex} % sets the width to 3cm 
+</pre>
+<p>
+利点： テキストとして書いたものが、文書中のコードと全く同様に扱われます。
+これは自前のマクロも使えることを意味し、これは実にクールです。
+<p>
+欠点： テキストが印刷されない LaTeX 命令を含んでおり、
+xfig や fig2dev がテキストの大きさを知らないことから、
+図の中に大きな数式を入れる際にそれが占める領域を予測することは困難です。
+
+<h3>METAPOST</h3>
+
+MetaPost を使うためには、<b>xfig</b> では何も特別なことはありません。
+入力したテキストは普通の TeX コードとして扱われます
+―― 注意： これはあなたの文書中ではコンパイルされないので、
+AMS-TeX などのパッケージへはアクセスできず、
+また自前のマクロを使うこともできません。
+<b>xfig</b> では、<tt><i>foo</i>.mp</tt> を生成する
+MetaPost フィルタを用いてエクスポートします。
+その後、<tt>mpost <i>foo.</i>mp</tt> を実行し、
+これは <tt><i>foo</i>.0</tt> (場合によっては <tt><i>foo</i>.1</tt>)
+を生成します。
+文書中では、プリアンブルに次のように書きます：
+<pre>
+  \input supp-pdf.tex
+  \usepackage[pdftex]{graphicx}
+</pre>
+そして、図を取り込むために、次のように書きます：
+<pre>
+  \convertMPtoPDF{<i>foo</i>.0}
+</pre>
+それだけです。
+実に単純であり、中に TeX も入れられます。
+<p>
+利点： PDF／DVI のデュアル出力のファイルに容易に取り込めます；
+PS として取り込むためには、その文書に
+単に <tt>\includegraphics{foo.0}</tt> と書きます。
+<p>
+欠点： AMS-LaTeX は受け付けられず、大きな数式には適当ではありません。
+文書が英語以外である場合には、
+長いフレーズも酷いことになるかも知れません 
+(bebel パッケージは使えません)。
+
+<h3>MULTI-METAPOST</h3>
+
+この方法は PDF プレゼンテーションの中で使うように設計されています。
+<tt>\pause</tt> コマンドを用いて、
+ボタンのクリックに応じてレイヤを順番に表示することができ、
+これは有用なものとなり得ます。
+MetaPost の取り込みについて言ったことは全て当てはまりますが、
+知っておくべきいくつかの点があります：
+<p>
+<ol type="A">
+<li>図の作成に際しては、
+オブジェクトの<a href="attributes.html#depth">深さ</a>に注意して下さい。
+図を MultiMetapost フォーマットでエクスポートする際、
+transfig はオブジェクトが存在している連続した深さを単一のレイヤとして扱います。
+例えば：
+<pre>
+   深さ 51 に Circle ┐＿ 表示される最初のレイヤ
+   深さ 50 に Text   ┘
+   *** 深さ 49 には何もない
+   深さ 48 に Square ┐
+   深さ 48 に Text   │─ 表示される2番目のレイヤ
+   深さ 47 に Curve  ┘
+   ... 以下同様
+</pre>
+
+<p>
+<li>エクスポートの後で、<tt>mpost <i>foo</i>.mmp</tt> は
+<tt><i>foo</i>.0</tt>、<tt><i>foo</i>.1</tt> … という名前の
+一連のファイルを作成します。
+それらを文書に取り込むために、
+PPower4 の最新版 (現時点ではまだベータ段階) とともに提供されている
+<tt>mpmulti.sty</tt> が必要となります。
+文書のプリアンブルは、次のようになるでしょう：
+<pre>
+  \input supp-pdf.tex
+  \usepackage[pdftex]{graphicx}
+  \usepackage{pause,mpmulti}
+</pre>
+そして、アニメーションを取り込むためには、単に次のように書きます：
+<pre>
+  \multiinclude{foo}
+</pre>
+次のようにして、指定した大きさに調整することが可能です：
+<pre>
+  \multiinclude[graphics={width=5cm}]{foo}
+</pre>
+その文書をコンパイルし、それを <tt>ppower4</tt> に掛けます。
+洒落ているでしょ？
+</ol>
+
+<p>
+利点： アニメーションを取り込む唯一の方法。
+xfig の既存の深さの体系の恩恵。
+<p>
+欠点： 何か？
+
+<hr>
+
+<h3><a name="misc">その他</a></h3>
+
+LaTeX テキストで ``mn'' と出力されることがあるかも知れません。
+ここで示すのは、あるユーザーがこの問題を回避するために行なったことです：
+<p>
+この問題は、エクスポート出力の LaTeX 部に生成された 
+<tt>\smash</tt> コマンドにあります。
+もしあなたのシステムで
+<tt>\mddefault</tt> と <tt>\updefault</tt> が正しく設定されていないならば、
+それらを何もしないように定義することが必要です。
+
+<hr>
+
+[ <a href="contents.html">Contents</a> |
+ <a href="introduction.html">Introduction</a> |
+ <a href="authors.html">Credits</a> ]
+
+</body>
+</html>

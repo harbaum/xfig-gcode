@@ -1,0 +1,64 @@
+Author: Vladislav Zavjalov <slazav@altlinux.org>
+Date:   Sat Feb 19 06:29:39 2011 +0300
+Origin: http://git.altlinux.org/people/slazav/packages/?p=xfig.git;a=patch;h=b5c79b375eba0d5605fdb2c70ae105b8f017d8a6
+Subject: swap depths in undo_load()
+    Steps to reproduce error:
+    - create a.fig with object in depth 10
+    - create b.fig with object in depth 20
+    - run xfig, load a.fig, then load b.fig
+    - undo load
+    Error: depths will not restored
+
+--- a/u_undo.c
++++ b/u_undo.c
+@@ -633,6 +633,8 @@
+     update_cur_filename(save_filename);
+     strcpy(save_filename, ctemp);
+     /* restore colors for the figure we are restoring */
++    swap_depths();
++    swap_counts();
+     swap_colors();
+     colors_are_swapped = False;
+     /* in case current figure doesn't have the colors shown in the fill/pen colors */
+--- a/w_layers.c
++++ b/w_layers.c
+@@ -990,3 +990,39 @@
+ 	 counts[i] = saved_counts[i];
+ }
+ 
++/* swap depth counts and reset min/max depth */
++
++void
++swap_depths(void)
++{
++    int	i;
++    int	temp;
++
++    temp = min_depth;
++    min_depth = saved_min_depth;
++    saved_min_depth = temp;
++
++    temp = max_depth;
++    max_depth = saved_max_depth;
++    saved_max_depth = temp;
++
++    for (i=0; i<=MAX_DEPTH; i++){
++        temp = object_depths[i];
++	object_depths[i] = saved_depths[i];
++        saved_depths[i] = temp;
++    }
++    /* refresh the layer manager */
++    update_layers();
++}
++
++void
++swap_counts(void)
++{
++    int i;
++    struct counts temp;
++    for (i=0; i<=MAX_DEPTH; i++){
++         temp = counts[i];
++	 counts[i] = saved_counts[i];
++	 saved_counts[i] = temp;
++    }
++}

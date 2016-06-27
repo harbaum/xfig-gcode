@@ -1,0 +1,68 @@
+Author: Vladislav Zavjalov <slazav@altlinux.org>
+Date:   Sat Feb 19 06:06:48 2011 +0300
+Origin: http://git.altlinux.org/people/slazav/packages/?p=xfig.git;a=patch;h=219d69065908d5df3e9a98b7b26cc81ebf35f1ae
+Subject: Use F_LOAD action for new command, don't restore filenames in F_ADD/F_DELETE actions
+    Steps to reproduce error:
+    - prepare two files, a.fig and b.fig, run xfig
+    - load a.fig
+    - load b.fig
+    - do delete region action
+    - undo delete region
+    Error: filename will change to a.fig
+
+--- a/e_delete.c
++++ b/e_delete.c
+@@ -267,6 +267,7 @@
+     /* initialize layer/depth info */
+     reset_layers();
+     save_depths();
++    swap_colors();
+     /* reset min,max depth */
+     min_depth = max_depth = -1;
+     save_counts_and_clear();
+--- a/u_undo.c
++++ b/u_undo.c
+@@ -514,12 +514,6 @@
+ 	cut_objects(&objects, &object_tails);
+ 	compound_bound(&saved_objects, &xmin, &ymin, &xmax, &ymax);
+ 	redisplay_zoomed_region(xmin, ymin, xmax, ymax);
+-	/* restore filename if necessary (from undo of "New" command) */
+-	if (save_filename[0] != '\0') {
+-	    strcpy(ctemp, cur_filename);
+-	    update_cur_filename(save_filename);
+-	    strcpy(save_filename, ctemp);
+-	}
+ 	break;
+     }
+     last_action = F_DELETE;
+@@ -561,12 +555,6 @@
+ 	tail(&objects, &object_tails);
+ 	append_objects(&objects, &saved_objects, &object_tails);
+ 	redisplay_zoomed_region(xmin, ymin, xmax, ymax);
+-	/* restore filename if necessary (from "New" command) */
+-	if (save_filename[0] != '\0') {
+-	    strcpy(ctemp, cur_filename);
+-	    update_cur_filename(save_filename);
+-	    strcpy(save_filename, ctemp);
+-	}
+     }
+     last_action = F_ADD;
+ }
+--- a/w_cmdpanel.c
++++ b/w_cmdpanel.c
+@@ -816,6 +816,7 @@
+ 	    return;
+ 	}
+     }
++    set_action(F_LOAD);
+     update_cur_filename("");
+     put_msg("Immediate Undo will restore the figure");
+     redisplay_canvas();
+@@ -835,7 +836,6 @@
+ 	return;
+     }
+     delete_all();
+-    strcpy(save_filename,cur_filename);
+     put_msg("Immediate Undo will restore the figure");
+     redisplay_canvas();
+ }

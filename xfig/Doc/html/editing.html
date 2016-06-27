@@ -1,0 +1,1208 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<html>
+<head>
+<title>Editing Objects</title>
+</head>
+
+<body>
+<a href="contents.html"><img src="images/xfig-title.png"
+  alt="XFIG Users Manual" border=0></a>
+
+<hr>
+
+<h1>Editing Objects</h1>
+
+The editing Mode Panel is used to perform edit operations
+on existing objects,
+See also <a href="#select-object">Selecting Objects</a>.
+<p>
+<dl>
+
+<dt><a href="#glue-compound"><img src="images/glue-compound-button.png"
+    align="middle" alt="">
+  Glue COMPOUND</a>
+
+<dt><a href="#break-compound"><img src="images/break-compound-button.png"
+    align="middle" alt="">
+  Break COMPOUND</a>
+
+<dt><a href="#open-compound"><img src="images/open-compound-button.png"
+    align="middle" alt="">
+  Open COMPOUND temporarily</a>
+
+<dt><a href="#join"><img src="images/join-button.png"
+    align="middle" alt="">
+  Join/Split Lines/Splines/etc</a>
+
+<dt><a href="#chop"><img src="images/chop-button.png"
+    align="middle" alt="">
+  Chop Object</a>
+
+<dt><a href="#scale"><img src="images/scale-button.png"
+    align="middle" alt="">
+  Scale Object</a>
+
+<dt><a href="#align"><img src="images/align-button.png"
+    align="middle" alt="">
+  Align Objects</a>
+
+<dt><a href="#move-point"><img src="images/move-point-button.png"
+    align="middle" alt="">
+  Move Point</a>
+
+<dt><a href="#add-point"><img src="images/add-point-button.png"
+    align="middle" alt="">
+  Add Point</a>
+
+<dt><a href="#delete-point"><img src="images/delete-point-button.png"
+    align="middle" alt="">
+  Delete Point</a>
+
+<dt><a href="#move"><img src="images/move-button.png"
+    align="middle" alt="">
+  Move Object</a>
+
+<dt><a href="#copy"><img src="images/copy-button.png"
+    align="middle" alt="">
+  Copy Object</a>
+
+<dt><a href="#delete"><img src="images/delete-button.png"
+    align="middle" alt="">
+  Delete Object</a>
+
+<dt><a href="#update"><img src="images/update-button.png"
+    align="middle" alt="">
+  Update Attributes of Object</a>
+
+<dt><a href="#edit"><img src="images/edit-button.png"
+    align="middle" alt="">
+  Edit Attributes of Object</a>
+
+<dt><a href="#flip"><img src="images/flip-vert-button.png"
+    align="middle" alt="">
+<img src="images/flip-horiz-button.png" align="middle" alt="">
+  Flip Object Vertically or Horizontally</a>
+
+<dt><a href="#rotate"><img src="images/rotate-cw-button.png"
+    align="middle" alt="">
+<img src="images/rotate-ccw-button.png" align="middle" alt="">
+  Rotate Object</a>
+
+<dt><a href="#spline-line"><img src="images/spline-line-button.png"
+    align="middle" alt="">
+  Convert SPLINE to/from LINE or BOX to/from ARC-BOX</a>
+
+<dt><a href="#add-arrow"><img src="images/add-arrow-button.png"
+    align="middle" alt="">
+  Add/Delete Arrows</a>
+
+<dt><a href="#add-tangent"><img src="images/add-tangent-button.png"
+    align="middle" alt="">
+  Add Tangent or Normal to Curve</a>
+
+<dt><a href="#measure-angle"><img src="images/measure-angle-button.png"
+    align="middle" alt="">
+  Measure Angle</a>
+
+<dt><a href="#measure-length"><img src="images/measure-length-button.png"
+    align="middle" alt="">
+  Measure Length of Lines and Arcs, and Perimeters of Circles and Ellipses</a>
+
+<dt><a href="#measure-area"><img src="images/measure-area-button.png"
+    align="middle" alt="">
+  Measure Area of Polygons and Ellipses</a>
+
+</dl>
+<p>
+
+<hr>
+
+<dl>
+
+<dt><img src="images/glue-compound-button.png" alt="">
+  <a name="glue-compound"></a>
+Glue selected objects and make them a COMPOUND object.
+<dd>
+<p>
+This is useful to <a href="#move">move</a> 
+or <a href="#copy">copy</a> some objects together at the same time.
+It is also possible to scale part of a figure
+by <a href="#scale">scaling</a> a COMPOUND object
+after making part of the figure COMPOUND.
+<p>
+Clicking on an object with mouse button 1 (`tag object')
+will tag the object.
+Clicking one corner of a rectangular region
+with mouse button 2 (`tag region')
+and then clicking mouse button 2 (`final corner') again
+at the opposite corner of the rectangular region
+will tag all objects inside the region.
+After tagging all objects to be glued into a COMPOUND object,
+clicking mouse button 3 (`compound tagged') will
+glue those objects and make them a COMPOUND object.
+<p>
+If an already tagged object is selected by mouse button 1
+or mouse button 2, that object will be untagged.
+If you want to remove all tags,
+change the mode temporarily to any other mode (e.g. &quot;move object&quot;) except BREAK COMPOUND.
+<p>
+The COMPOUND object may be separated into component objects by
+<a href="#break-compound">BREAK COMPOUND</a>.
+
+<hr>
+
+<dt><img src="images/break-compound-button.png" alt="">
+  <a name="break-compound"></a>
+Break a COMPOUND object into separate component objects.
+<dd>
+<p>
+Clicking a COMPOUND object with mouse button 1 (`break compound')
+will break the COMPOUND into separate component objects.
+Clicking with mouse button 2 (`break and tag')
+will also achieve the same effect,
+but it will tag those component objects for re-gluing with
+<a href="#glue-compound">GLUE COMPOUND</a> again.
+<p>
+If you want to edit component objects without breaking the COMPOUND object,
+you may open the COMPOUND object temporarily
+using <a href="#open-compound">OPEN COMPOUND</a>.
+
+<hr>
+
+<dt><img src="images/open-compound-button.png" alt="">
+  <a name="open-compound"></a>
+Open a compound object temporarily for editing the component objects.
+<dd>
+<p>
+<p>
+Clicking a COMPOUND object with mouse button 1 (`open compound')
+will open the COMPOUND object,
+and then the component objects may be edited.
+All other objects which were not in the COMPOUND object
+will become invisible temporarily,
+but they will reappear after all COMPOUND objects are closed.
+<p>
+If mouse button 2 (`open, keep visible') is clicked on the COMPOUND, 
+the other objects not in the COMPOUND object will become shades of gray,
+making it easy to align objects inside the compound with those outside.
+<p>
+A popup panel with two buttons to close the COMPOUND objects
+(<i>Close This Compound</i> and <i>Close All Compounds</i>)
+will appear when a COMPOUND object is opened,
+and the open COMPOUND may be closed again using those buttons.
+Clicking <i>Close This Compound</i> will close the COMPOUND object last opened,
+and clicking <i>Close All Compounds</i> will close all nested, opened COMPOUND objects.
+<p>
+If you want to break a COMPOUND object into component objects,
+use <a href="#break-compound">BREAK COMPOUND</a>.
+<p>
+If the File/Save is attempted while a compound is open, <b>xfig</b>
+will ask if you want to save only the open COMPOUND object (Save Part)
+or the whole figure (Save All).
+<p>
+<img src="images/pict-info.png" alt="">
+<i>Note</i>:
+If you open a COMPOUND object,
+<a href="#delete">delete</a> an object in that COMPOUND object,
+close the COMPOUND object and 
+<a href="main_menus.html#undo">Undo</a> the delete operation,
+the object you deleted will reappear but it will outside of the COMPOUND object.
+Conversely, if you delete an object from the canvas,
+open a compound then undo the delete of the original object,
+it will now be part of the open compound.
+In this way you may add or remove selected objects from a COMPOUND.
+
+<hr>
+
+<dt><img src="images/join-button.png" alt="">
+  <a name="join"></a>
+Join or split lines
+<dd>
+<p>
+With this feature you may join lines or splines together or split
+a line or spline into two objects.  Also, you may close an open line
+(make it a polygon) or spline (closed spline) or open a box, polygon
+or closed spline.
+<p>
+To join two lines or two splines together
+click mouse button 1 (`Join lines/splines') to select the first endpoint
+and again (`Choose next point') to select the second endpoint to be joined.
+If the endpoints are on the same line or spline, it will make a closed object.
+<p>
+To split a line or spline into two separate objects or to convert a box
+or polygon to a line, or to open a closed spline,
+click mouse button 2 (`Spline line/spline') 
+between two the points on the line/spline etc.
+
+
+
+<hr>
+
+<dt><img src="images/chop-button.png" alt="">
+  <a name="chop"></a>
+Chopping objects.
+<dd>
+<p>
+The Chop operation allows you to chop polylines, arcs, and circles into
+individual objects that, together, approximate the original object.
+(Ellipses will be supported in a future release.)
+<p>
+Left-clicking on one or more objects selects them as "axes".  When another
+object is subsequently selected with a middle click, all possible intersections
+between that object and all "axe" objects are computed.  These intersections
+are then used to create a collection of new objects that approximate the
+original.  Additional "axe" objects can be added at anytime, and any number of
+objects may be chopped.  Right-clicking clears the axe list.
+<p>
+Circles will be partitioned into pie-wedge arcs and arcs will be partitioned
+into either open or pie-wedge arcs, depending on the type of the original arc.
+(In both cases, the type can be changed by editing the newly created objects.)
+Open polylines and unconstrained polygons (i.e., closed polylines other than
+boxes, arcboxes, and picture boxes) will be chopped into one or more objects of
+the same type.  Constrained polygons cannot be chopped.
+<p>
+How polygons are chopped is controlled by the "Arc Type" mode in the indicator
+panel.  If "Open" mode is selected, the polygons that result from the cut
+operation will defined only by the vertices of the original polygon and the
+intersection points; "Closed" mode will result in polygons that include, in
+addition to the original vertices and intersects, the geometric centerpoint of
+the  original polygon.
+<p>
+Chop operations cannot (yet) be undone.
+
+
+
+<hr>
+
+<dt><img src="images/scale-button.png" alt="">
+  <a name="scale"></a>
+Scale object
+<dd>
+<p>
+Clicking any <b>corner</b> of
+<a href="drawing.html#box">BOX</a>,
+<a href="drawing.html#arc-box">ARC-BOX</a>,
+or <a href="editing.html#glue-compound">COMPOUND</a> object
+with mouse button 1 (`scale box') and dragging the mouse will
+start scaling the object proportionally to its horizontal/vertical ratio.
+Clicking any <b>edge</b> of that object
+with mouse button 1 (`scale box') will
+start scaling the object only in one dimension (width or height).
+The scaling operation is finished
+by clicking mouse button 1 (`new position') again.
+<p>
+Clicking on an object with mouse button 2 (`scale about center')
+will scale the object proportionally about its center.
+The scaling operation is finished
+by clicking mouse button 2 (`new position') again.
+<p>
+In any case, The scaling operation may be canceled
+by clicking mouse button 3 (`cancel').
+<p>
+It is not possible to scale 
+<a href="drawing.html#text">TEXT</a> objects
+directly with this function.
+To scale TEXT objects,
+use <a href="#edit">EDIT OBJECT</a> or <a href="#update">UPDATE</a> 
+and change the size of the text
+(see <a href="attributes.html#text-size">TEXT SIZE</a>).
+However, if a <a href="#glue-compound">COMPOUND</a>
+object that includes TEXT objects is scaled,
+the TEXT objects will also be scaled 
+if the <a href="attributes.html#text-flags"><i>Rigid</i> flag</a> 
+is not set.
+<p>
+You may use also <a href="#move-point">MOVE POINT</a> 
+if you want to scale an object such as a BOX
+without keeping its horizontal/vertical ratio.
+
+<hr>
+
+<dt><img src="images/align-button.png" alt="">
+  <a name="align"></a>
+Align objects
+<dd>
+<p>
+How objects are aligned is set by
+<a href="attributes.html#vertical-align">VERTICAL ALIGN</a> 
+and <a href="attributes.html#horiz-align">HORIZONTAL ALIGN</a>.
+<p>
+Clicking on a <a href="#glue-compound">COMPOUND object</a> 
+with mouse button 1 (`align compound')
+will align objects within the COMPOUND object.
+Clicking mouse button 2 (`align canvas') anywhere on the canvas
+will align all objects to the canvas.
+
+<hr>
+
+<dt><img src="images/move-point-button.png" alt="">
+  <a name="move-point"></a>
+Move a point of an object
+<dd>
+<p>
+Select the point to be moved
+by clicking the point with mouse button 1 (`move point'),
+and finish the move by click mouse button 1 (`new position') again
+after moving mouse to the new point.
+If you want to restrict the move to horizontal or vertical,
+use mouse button 2 (`horiz/vert move') instead of mouse button 1.
+The operation may be canceled by clicking mouse button 3 (`cancel')
+in either case.
+<p>
+This may not be used for <a href="drawing.html#text">TEXT</a> objects.
+For <a href="drawing.html#box">BOX</a>,
+<a href="drawing.html#arc-box">ARC-BOX</a>,
+and <a href="editing.html#glue-compound">COMPOUND</a> objects,
+not only the selected point
+but the edges connected to the point will be moved.
+The object created by
+<a href="drawing.html#regular-polygon">REGULAR POLYGON</a> 
+is an ordinary <a href="drawing.html#polygon">POLYGON</a> object,
+and only the selected point will be moved.
+<p>
+Points may also be <a href="#add-point">added</a> 
+or <a href="#add-point">deleted</a>.
+If you want to move entire object, use <a href="#move">MOVE</a> instead.
+
+<hr>
+
+<dt><img src="images/add-point-button.png" alt="">
+  <a name="add-point"></a>
+Add a new point to a
+<a href="drawing.html#polyline">POLYLINE</a>,
+<a href="drawing.html#polygon">POLYGON</a>,
+or <a href="drawing.html#spline">SPLINE</a> object
+<dd>
+<p>
+Clicking mouse button 1 (`break/add here') between two points of an object
+will add a new point at that location,
+and the point will move following mouse cursor.
+The operation is finished
+by clicking mouse button 1 (`place new point') again.
+<p>
+It is not possible to add a point to
+<a href="drawing.html#box">BOX</a> or
+<a href="drawing.html#arc-box">ARC-BOX</a> objects.
+The object created by
+<a href="drawing.html#regular-polygon">REGULAR POLYGON</a> 
+is an ordinary <a href="drawing.html#polygon">POLYGON</a> object,
+and it is possible to add new points anywhere in it.
+<p>
+Points may also be <a href="#move-point">moved</a> 
+or <a href="#add-point">deleted</a>.
+
+<hr>
+
+<dt><img src="images/delete-point-button.png" alt="">
+  <a name="delete-point"></a>
+Delete point from
+<a href="drawing.html#polyline">POLYLINE</a>,
+<a href="drawing.html#polygon">POLYGON</a>,
+or <a href="drawing.html#spline">SPLINE</a> object
+<dd>
+<p>
+Clicking a point to be deleted with mouse button 1 (`delete point')
+will delete the point,
+and the points on either side of the point will connected directly.
+<p>
+It is not possible to delete points from a
+<a href="drawing.html#box">BOX</a> 
+or <a href="drawing.html#arc-box">ARC-BOX</a> object.
+The object created by
+<a href="drawing.html#regular-polygon">REGULAR POLYGON</a> 
+is ordinary <a href="drawing.html#polygon">POLYGON</a> object,
+and it is possible to delete points from it.
+<p>
+Points may also be <a href="#move-point">moved</a> 
+or <a href="#add-point">added</a>.
+
+<hr>
+
+<dt><img src="images/move-button.png" alt="">
+  <a name="move"></a>
+Move object
+<dd>
+<p>
+Select the object to be moved by clicking the object
+with mouse button 1 (`move object'),
+and finish the move operation by
+clicking mouse button 1 (`place object') again at the new position.
+If you want to restrict the movement to horizontal or vertical,
+use mouse button 2 (`horiz/vert move') instead of mouse button 1.
+The operation may be canceled by clicking mouse button 3 (`cancel') in 
+either case.
+<p>
+If you want to move several objects at one time,
+you may put them into a COMPOUND object
+using <a href="#glue-compound">GLUE COMPOUND</a>.
+<p>
+By setting <a href="attributes.html#smart-link">SMART-LINKS MODE</a>,
+it is possible to move the endpoints of lines which touch the object
+as you move the object itself.  Additionally, endpoints of lines which
+fall inside a COMPOUND object will also be moved.
+The SMART-LINKS feature
+only works with POLYLINES (not splines) touching a BOX, ARC-BOX, or COMPOUND.
+<p>
+Objects may also be <a href="#copy">copied</a> 
+or <a href="#delete">deleted</a>.
+If you want to move a point of the object,
+use <a href="#move-point">MOVE POINT</a> instead.
+
+<hr>
+
+<dt><img src="images/copy-button.png" alt="">
+  <a name="copy"></a>
+Copy object
+<dd>
+<p>
+Select the object to be copied by clicking the object
+with mouse button 1 (`copy object'),
+and finish the copy operation by
+clicking mouse button 1 (`place object') again at the position
+to place the copy.
+If you want to restrict the movement to horizontal or vertical,
+use mouse button 2 (`horiz/vert copy') instead of mouse button 1.
+The operation may be canceled by clicking mouse button 3 (`cancel')
+in either case.
+<p>
+If you want to copy several objects at the same time,
+you may put them a COMPOUND object
+using <a href="#glue-compound">GLUE COMPOUND</a>.
+<p>
+By setting <a href="attributes.html#smart-link">SMART-LINKS MODE</a>,
+it is possible to copy the lines which touch the object
+as you move the object itself.
+This only works with POLYLINES (not splines) touching a BOX or ARC-BOX.
+<p>
+It is also possible to make many copies in this mode,
+using <i>ARRAY PLACEMENT</i>.
+To do this, first set the number of copies to be created
+by setting <a href="attributes.html#num-x-copies">NUMBER OF X COPIES</a> 
+and <a href="attributes.html#num-y-copies">NUMBER OF Y COPIES</a>.
+Then select the object to be copied by clicking the object
+with mouse button 1 (`copy object') or 2 (`constrained copy'),
+and specify the direction and distance to place the copies
+by clicking mouse button 2 (`array placement') after moving the mouse.
+Normally, objects will be placed on the array of
+NUMBER OF X COPIES and NUMBER OF Y COPIES,
+but when either of them is set 0 or 1,
+copies of specified number will be generated
+and they can be placed obliquely.  For example, if the number of X copies is 3 and
+the number of Y copies is 0 or 1, the copied objects will be placed
+along the X direction at the same Y position as the original object.
+<p>
+Clicking an object with mouse button 3 (`copy to cut buf')
+will copy the object to the <i>xfig cut buffer</i>.
+The object copied into the <i>xfig cut buffer</i> may be inserted
+into the figure on the canvas
+using <a href="main_menus.html#paste">Paste Objects</a>.
+This allows you to copy part of a figure to another figure.
+Any object in the <i>xfig cut buffer</i> will be overwritten
+when the new object is copied into the <i>xfig cut buffer</i>.
+To copy multiple objects into the <i>xfig cut buffer</i>,
+you must first put them into a COMPOUND object
+using <a href="#glue-compound">GLUE COMPOUND</a>.
+<p>
+Objects may also be <a href="#move">moved</a> 
+or <a href="#delete">deleted</a>.
+
+<hr>
+
+<dt><img src="images/delete-button.png" alt="">
+  <a name="delete"></a>
+Delete object
+<dd>
+<p>
+Clicking an object with mouse button 1 (`delete object')
+will remove the object.
+It is also possible to remove objects in a rectangular region
+by clicking mouse button 2 (`delete region') at one corner of the region
+and then again (`final corner') again at the opposite corner.
+<p>
+Clicking an object with mouse button 3 (`del to cut buf')
+will remove the object from the canvas and move it to the <i>xfig cut buffer</i>.
+The object moved into the <i>xfig cut buffer</i> may be inserted
+into the figure on the canvas
+using <a href="main_menus.html#paste">Paste Objects</a> later.
+See also <a href="#copy">COPY</a>.
+<p>
+If you want to delete all objects from the canvas to make a new figure,
+you may use <a href="main_menus.html#new">New</a>.
+
+<hr>
+
+<dt><img src="images/update-button.png" alt="">
+  <a name="update"></a>
+Update object or attribute panel
+<dd>
+<p>
+Update the attributes (such as line width or colors) of object
+with the current settings in the
+<a href="attributes.html">Attribute Panel</a>.
+Conversely, it is also possible to copy the attributes of an object
+to the attribute panel.
+<p>
+Clicking an object with mouse button 1 (`update object')
+will apply the current settings of the attribute buttons selected for UPDATE
+to the object.
+If a <a href="editing.html#glue-compound">COMPOUND object</a> 
+is clicked with mouse button 1 (`update object'),
+the attributes of all the objects in the COMPOUND object will be updated.
+<p>
+Clicking an object (except a COMPOUND object)
+with mouse button 2 (`update settings')
+will copy the attributes of the object to the attribute buttons
+which are selected for UPDATE.
+This allows you to copy attributes from one object to another object.
+<p>
+<a name="update-control">In UPDATE mode</a>,
+a small toggle button appears in the upper-right corner
+of each <a href="attributes.html">attribute button</a>,
+and only the attribute buttons whose toggle button is set <i>ON</i> 
+will be used for update.
+Clicking the toggle button at the upper-right corner of an attribute button
+will toggle the button <i>ON</i>/<i>OFF</i>.
+It is also possible to select, unselect, or toggle all attribute buttons,
+using <i>Update Control</i> buttons at the left side of the attribute panel.
+<p>
+<blockquote>
+  <img src="images/update-control.png" alt="[Update Control Buttons]">
+</blockquote>
+<p>
+The attributes of objects may also be modified
+using <a href="#edit">EDIT OBJECT</a>.
+Some attributes can't be modified by UPDATE but may be modified by EDIT OBJECT.
+
+<hr>
+
+<dt><img src="images/edit-button.png" alt="">
+  <a name="edit"></a>
+Edit object attributes
+<dd>
+<p>
+Clicking an object with mouse button 1 (`edit object')
+will popup the <a href="#edit-panel">Edit Panel</a> to edit the attributes.
+The items in the panel depend on the object being edited.
+See <a href="#edit-panel">Edit Panel</a> for more information.
+<p>
+Clicking a control point of a
+<a href="drawing.html#spline">SPLINE</a> object
+with mouse button 3 (`edit point') will popup
+<a href="#edit-point">EDIT POINT panel</a> to
+modify the <i>shape factor</i> of the spline curve.
+<p>
+The attributes of objects may also be modified using <a href="#update">UPDATE</a>,
+but some attributes can't be modified with UPDATE.
+<p>
+<a name="edit-comments"></a>
+If mouse button 2 (`edit Fig comments') is clicked on the canvas,
+the edit panel will popup to allow the user to change the comments
+associated with the whole figure:<br>
+<img src="images/edit-figure-comments.png" align=bottom alt="[ Edit Figure Comment ]">
+<p>
+<a name="display-comments"></a>
+If the <b>Shift</b> key is held down while mouse button 2 (`show comments') 
+is clicked on an object, any comments in the object are displayed
+in a popup until the mouse button is released:<br>
+<img src="images/show-comments.png" align=bottom alt="[ Show Comment ]">
+
+<hr>
+
+<dt><img src="images/flip-vert-button.png" alt="">
+  <img src="images/flip-horiz-button.png" alt="">
+  <a name="flip"></a>
+Flip object vertically or horizontally
+<dd>
+<p>
+Clicking the object with mouse button 1 (`flip')
+will flip the object vertically/horizontally about that point.
+Clicking the object with mouse button 2 (`copy &amp; flip')
+will make <b>copy</b> of the object flipped vertically/horizontally about that point,
+leaving original object as it was.
+<p>
+It is also possible to set the <i>anchor point</i> 
+about which the object will be flipped,
+by clicking mouse button 3 (`set anchor') at the point.
+A crosshair (+) indicates the anchor point on the canvas.
+The anchor point may be removed by
+clicking mouse button 3 (`set anchor') again.
+<p>
+To rotate an object, use <a href="#rotate">ROTATE</a>.
+
+<hr>
+
+<dt><img src="images/rotate-cw-button.png" alt="">
+  <img src="images/rotate-ccw-button.png" alt="">
+  <a name="rotate"></a>
+Rotate object
+<dd>
+<p>
+Clicking an object with mouse button 1 (`rotate object') 
+will rotate the object to clockwise or counter-clockwise
+by the angle specified by
+<a href="attributes.html#rotation-angle">ROTATION ANGLE</a> 
+about the point that is clicked.
+<p>
+It is also possible to make many copies in this mode,
+using <i>COPY &amp; ROTATE</i>.
+Clicking object with mouse button 2 (`copy &amp; rotate') 
+may make many copies rotated by the angle specified by the
+<a href="attributes.html#rotation-angle">ROTATION ANGLE</a>.
+The number of copies to be created may be set by
+<a href="attributes.html#num-copies">NUMBER OF COPIES</a>.
+<p>
+As in <a href="#flip">FLIP VERTICALLY/HORIZONTALLY</a>,
+it is possible to set the <i>anchor point</i> 
+about which the object will be rotated,
+by clicking mouse button 3 (`set anchor').
+
+<p>
+<a href="drawing.html#box">BOX</a>,
+<a href="drawing.html#arc-box">ARC-BOX</a> 
+and <a href="drawing.html#picture">PICTURE</a> objects,
+and <a href="editing.html#glue-compound">COMPOUND</a>
+objects containing any of those objects may only be rotated
+by multiples of 90 degrees.
+To flip object vertically or horizontally,
+use <a href="#flip">FLIP VERTICALLY/HORIZONTALLY</a>.
+
+<hr>
+
+<dt><img src="images/spline-line-button.png" alt="">
+  <a name="spline-line"></a>
+Convert object type
+<dd>
+<p>
+Clicking an object with mouse button 1 (`spline &lt;-&gt; line')
+will perform a conversion thus:
+<dl>
+<dd><img src="images/blueballdot.png" align=bottom alt="-">
+polyline --&gt; open approximated spline --&gt;
+ open interpolated spline --&gt; polyline
+<br>
+<dd><img src="images/blueballdot.png" align=bottom alt="-">
+polygon --&gt; closed approximated spline --&gt;
+ closed interpolated spline --&gt; polygon
+<br>
+<dd><img src="images/blueballdot.png" align=bottom alt="-">
+box --&gt; arc-box --&gt; box
+</dl>
+<p>
+Clicking an object with mouse button 3 (`open &lt;-&gt; close')
+will perform a conversion thus:
+<dl>
+<dd><img src="images/blueballdot.png" align=bottom alt="-">
+polyline &lt;-&gt; polygon
+<br>
+<dd><img src="images/blueballdot.png" align=bottom alt="-">
+open approximated spline &lt;-&gt; closed approximated spline
+<br>
+<dd><img src="images/blueballdot.png" align=bottom alt="-">
+open interpolated spline &lt;-&gt; closed interpolated spline
+</dl>
+<p>
+Finer control is possible for spline curves.
+See <a href="#edit-point">EDIT POINT</a> 
+and <a href="drawing.html#spline">About Spline Curves</a> 
+for more information.
+
+<hr>
+
+<dt><img src="images/add-arrow-button.png" alt="">
+  <a name="add-arrow"></a>
+Add/delete arrow head
+<dd>
+<p>
+Clicking the end point of object with mouse button 1 (`add arrow')
+will add an arrow head to that end.
+Clicking an arrow head with mouse button 2 (`delete arrow')
+will remove the arrow head.
+<p>
+This operation is only valid for <a href="drawing.html#polyline">POLYLINE</a>,
+<a href="drawing.html#spline">OPEN SPLINE</a>,
+or <a href="drawing.html#arc">OPEN ARC</a> objects.
+<p>
+The shape of the arrow head may be set by
+<a href="attributes.html#arrow-type">ARROW TYPE</a>.
+The size of arrow head may be set by
+<a href="attributes.html#arrow-size">ARROW SIZE</a>.
+It is also possible to automatically create arrow heads when
+creating new objects
+by setting <a href="attributes.html#arrow-mode">ARROW MODE</a>.
+
+<hr>
+
+<dt><a name="add-tangent"></a>
+<img src="images/add-tangent-button.png" align="middle" alt="">
+Add Tangent or Normal to Curve
+<dd>
+<p>
+Clicking mouse button 1 near a curve of an arc or spline will create a
+2cm line <b>tangent</b> to the curve, with the current line attributes
+such as thickness, color, etc. The line has three points, with the middle point
+touching the original curve.
+<p>
+Clicking mouse button 2 near a curve will create a 2cm line <b>normal</b> to
+the curve.
+
+<hr>
+
+<dt><a name="measure-angle"></a>
+<img src="images/measure-angle-button.png" align="middle" alt="">
+Measure Angle
+<dd>
+<p>
+Clicking mouse button 1 on a vertex of a polyline or polygon will report
+(in the message window below the main menus)
+the angle between the two lines meeting at the vertex.
+<p>
+Clicking mouse button 1 on any three points in the canvas will report
+the angle between the two lines formed by the three points.
+<p>
+Clicking mouse button 2 on the vertex of a polyline or polygon will report
+the angle between the two lines meeting at the vertex, <b>and</b> save
+the angle in the <a href="attributes.html#rotation-angle">current rotation angle</a>
+setting in the attributes panel.
+
+<hr>
+
+<dt><a name="measure-length"></a>
+<img src="images/measure-length-button.png" align="middle" alt="">
+Measure Length of Lines and Arcs, and Perimeters of Circles and Ellipses
+<dd>
+<p>
+Clicking mouse button 1 on any polyline, polygon, box, arc or circle/ellipse will report
+(in the message window below the main menus)
+the length of the lines forming the object, or the perimeter for a circle or ellipse.
+<p>
+Clicking mouse button 2 on such an object will add the length to
+a running sum and report the individual and accumulated lengths.
+<p>
+Clicking mouse button 3 will reset the accumulated length to 0.
+
+<hr>
+
+<dt><a name="measure-area"></a>
+<img src="images/measure-area-button.png" align="middle" alt="">
+Measure Area of Polygons and Ellipses
+<dd>
+<p>
+Clicking mouse button 1 on any polyline, polygon, box or circle/ellipse will report
+(in the message window below the main menus)
+the area of the object.
+<p>
+Clicking mouse button 2 on such an object will add the area to
+a running sum and report the individual and accumulated areas.
+<p>
+Clicking mouse button 3 will reset the accumulated area to 0.
+<p>
+<img src="images/pict-info.png" alt="">
+The area for polygons that have overlapping parts will not be calculated correctly.
+This should be fixed in a future version.
+<br>
+Will work correctly:
+<img src="images/measure-area-goodpoly.png" alt="">
+Will NOT work correctly:
+<img src="images/measure-area-badpoly.png" alt="">
+
+</dl>
+
+<img src="images/blueramp.png" alt="-">
+
+<h2><img src="images/pict-info.png" alt="">
+  <a name="select-object">Selecting Objects</a></h2>
+
+Objects may be selected by clicking the <i>corner markers</i>
+(<i>handles</i>) of the object.
+The corner markers are small square marks
+which are displayed at the corner point of objects
+which may be selected for any particular mode.
+<p>
+Most objects may also be selected by clicking on the line 
+connecting corner markers,
+but it may have a different meaning in some editing modes.
+For example in the <a href="#scale">SCALE OBJECT</a> mode,
+clicking on a corner marker will scale the object proportionally
+to its horizontal/vertical ratio,
+but clicking on a line connecting corner markers (edge of the rectangle)
+will scale the object only in that direction (i.e. horizontally or vertically).
+<p>
+If <a href="attributes.html#point-position">POINT POSITION</a> 
+is set to other than <i>Any</i>,
+objects which are not on the virtual grid may not be be selected.
+<p>
+When object corners or edges are coincident, clicking on the object
+may not select the desired object but the other object instead.
+In this case, the desired object may be selected with following operations:
+<ol>
+<li>Press (and hold) the SHIFT key and click on the object to be selected.
+<li>If the corner marker of the other object is highlighted,
+keep the SHIFT key down and click the object again.
+<li>When corner marker of the desired object is highlighted,
+release the SHIFT key and click the object again.
+</ol>
+Note that you shouldn't move the mouse during this operation.
+
+<p>
+<img src="images/blueramp.png" alt="-">
+
+<h2><a name="edit-panel">EDIT Panel</a></h2>
+
+The Edit Panel will popup when an object is selected
+in <a href="#edit">EDIT OBJECT</a> mode,
+and it shows all of the attributes of the object.
+The Contents of the Edit Panel varies depending one the type of object.
+This shows a few of those Edit Panels.
+
+<h3>General</h3>
+
+<blockquote>
+  <img src="images/edit-panel-polyline.png" alt="[Edit Panel - Polyline]">
+</blockquote>
+
+<p>
+<dl>
+
+<dt>
+<img src="images/redballdot.png" align=bottom alt="-">
+<i>Comments</i>
+<dd>Every object may have comments associated with it for informational purposes.
+This is an ASCII text widget which may hold up to 50 lines of 200 characters each.
+<br>
+The whole figure may also have comments. To edit these,
+click mouse button 2 (`edit Fig comments') 
+on the canvas after choosing the <a href="#edit">Edit mode</a>.
+
+<dt>
+<img src="images/redballdot.png" align=bottom alt="-">
+<i>Width</i>
+<dd>The width of the line.
+(see <a href="attributes.html#line-width">LINE WIDTH</a>)
+
+<dt>
+<img src="images/redballdot.png" align=bottom alt="-">
+<i>Pen Color</i>
+<dd>The color used to draw the outline of the object.
+(see <a href="attributes.html#pen-color">PEN COLOR</a>)
+
+<dt>
+<img src="images/redballdot.png" align=bottom alt="-">
+<i>Fill Color</i>
+<dd>The color used to fill region inside the object.
+(see <a href="attributes.html#fill-color">FILL COLOR</a>)
+
+<dt>
+<img src="images/redballdot.png" align=bottom alt="-">
+<i>Depth</i>
+<dd>The `<i>depth</i>' of the object.
+(see <a href="attributes.html#depth">DEPTH</a>)
+
+<dt>
+<img src="images/redballdot.png" align=bottom alt="-">
+<i>Fill Style</i>
+<dd>The fill intensity (darkness) or fill pattern.
+The <i>Fill Intensity</i> is effective if <i>Fill Style</i> is <i>Filled</i>,
+and <i>Fill Pattern</i> is effective if <i>Fill Style</i> is <i>Pattern</i>.
+<i>Fill Intensity</i> is an integer value from 0 to 200;
+0 for black, 100 for pure <i>Fill Color</i>, and 200 for white.
+<br>
+The <i>Fill Pattern</i> is an integer value from 0 to 21.
+(see <a href="attributes.html#fill-style">FILL STYLE</a> for the actual patterns)
+
+<dt>
+<img src="images/redballdot.png" align=bottom alt="-">
+<i>Line Style</i>
+<dd>The line style.
+(see <a href="attributes.html#line-style">LINE STYLE</a>)
+
+<dt>
+<img src="images/redballdot.png" align=bottom alt="-">
+<i>Cap Style</i>
+<dd>The shape of the end-points of the line.
+(see <a href="attributes.html#cap-style">CAP STYLE</a>)
+
+<dt>
+<img src="images/redballdot.png" align=bottom alt="-">
+<i>Join Style</i>
+<dd>The shape of the join point (corner) of lines.
+(see <a href="attributes.html#join-style">JOIN STYLE</a>)
+
+<dt>
+<img src="images/redballdot.png" align=bottom alt="-">
+<i>Arrows</i>
+<dd>Indicates whether the object has arrow heads at one or both ends.
+The shape and size of the arrow heads may be modified here.
+(see <a href="attributes.html#arrow-type">ARROW TYPE</a>
+and <a href="attributes.html#arrow-size">ARROW SIZE</a>)
+
+<dt>
+<img src="images/redballdot.png" align=bottom alt="-">
+<i>Corner Radius</i>
+<dd>The radius of the corners for ARC-BOX objects.
+(see <a href="attributes.html#box-curve">BOX CURVE</a>)
+
+<dt>
+<img src="images/redballdot.png" align=bottom alt="-">
+<i>Center, Radius, Points, etc.</i>
+<dd>These fields indicate the position and size of the object, and 
+the coordinates of any points, in <b>Fig</b> units (1/1200 inch).
+<br>
+<img src="images/pict-info.png" alt="">
+Note: For these entries, you may enter values followed by either &quot;c&quot; or &quot;i&quot; 
+for centimeters or inches respectively.
+</dl>
+
+<hr>
+
+<h3><a name="edit-text-panel">TEXT object</a></h3>
+
+<blockquote>
+  <img src="images/edit-panel-text.png" alt="[Edit Panel - Text]">
+</blockquote>
+
+<p>
+<dl>
+
+<dt>
+<img src="images/redballdot.png" align=bottom alt="-">
+<i>Size</i>
+<dd>The size of the text, in points.
+(see <a href="attributes.html#text-size">TEXT SIZE</a>)
+
+<dt>
+<img src="images/redballdot.png" align=bottom alt="-">
+<i>Pen Color</i>
+<dd>The color of the text.
+(see <a href="attributes.html#pen-color">PEN COLOR</a>)
+
+<dt>
+<img src="images/redballdot.png" align=bottom alt="-">
+<i>Depth</i>
+<dd>The `<i>depth</i>' of the object.
+(see <a href="attributes.html#depth">DEPTH</a>)
+
+<dt>
+<img src="images/redballdot.png" align=bottom alt="-">
+<i>Angle</i>
+<dd>The angle of the text, in degrees.  Angles &gt; 0 are counterclockwise.
+(see <a href="attributes.html#text-angle">TEXT/ELLIPSE ANGLE</a>)
+
+<dt>
+<img src="images/redballdot.png" align=bottom alt="-">
+<i>Justification</i>
+<dd>Indicates which part of the text is placed at the specified point.
+(see <a href="attributes.html#text-justification">TEXT JUSTIFICATION</a>)
+
+<dt>
+<img src="images/redballdot.png" align=bottom alt="-">
+<i>Hidden Flag, Rigid Flag, and Special Flag</i>
+<dd>The state of those flags.
+(see <a href="attributes.html#text-flags">TEXT FLAGS</a>)
+
+<dt>
+<img src="images/redballdot.png" align=bottom alt="-">
+<i>Origin</i>
+<dd>The position of the text.
+
+<dt>
+<img src="images/redballdot.png" align=bottom alt="-">
+<i>Font</i>
+<dd>The font used for the text.
+The size of the font is displayed in the <i>Size</i> field.
+(see <a href="attributes.html#text-font">TEXT FONT</a>)
+
+<dt>
+<img src="images/redballdot.png" align=bottom alt="-">
+<i>Text</i>
+<dd>This field contains the text itself,
+and it is possible to edit the text here.  Pressing <I>Ctrl-Return</I>
+in the text box will pop down the edit panel.
+It is also possible to edit text without popping up the Edit Panel;
+in <a href="drawing.html#text">TEXT</a> mode,
+simply click any point of the text to be edit.
+</dl>
+
+<hr>
+
+<h3><a name="edit-pict-panel">PICTURE object</a></h3>
+
+<blockquote>
+  <img src="images/edit-panel-picture.png" alt="[Edit Panel - Picture]">
+</blockquote>
+
+<dl>
+
+<dt>
+<img src="images/redballdot.png" align=bottom alt="-">
+<a name="screen-capture"><i>Screen Capture</i></a>
+<dd>This is used to capture an image displayed on the screen.
+After clicking <i>Screen Capture</i> button,
+you can perform one of following actions:
+<ol>
+<li>click mouse button 1 on any window to capture the whole window
+<li>click mouse button 1 on the root window (background of the screen)
+to capture the whole screen
+<li>click mouse button 2 on one corner of a rectangle on the screen,
+drag the mouse to the other corner and click mouse button 2 again,
+to capture image in the rectangle
+<li>click mouse button 3 to cancel capture operation
+</ol>
+During the capture operation,
+<b>xfig</b> unmaps all its windows from the screen.
+Those windows reappear on the screen when completing or cancelling the capture.
+The captured image will be displayed on the canvas in the picture object area.
+During the capture, the <b>xfig</b> window(s) will be hidden (unmapped).
+The captured image will be stored in a file
+such as <tt>figure1_828065129.pcx</tt>,
+which includes the current figure name
+and the time in seconds since 00:00:00 GMT, Jan 1, 1970.
+The file format will be PCX, and will be indicated in the 
+picture type area.
+<p>
+You can't use this facility
+if visual of your display is TrueColor or it is deeper than 8 bits.
+<p>
+
+<dt>
+<img src="images/redballdot.png" align=bottom alt="-">
+<a name="edit-image"><i>Edit Image</i></a>
+<dd>Clicking this button will invoke an external bitmap editor
+(the default is <a href="installation.html#related-software"><b>xv</b></a>) 
+to edit the image.
+Program that will be invoked can be checked on the 
+<a href="global_settings.html">Global Settings panel</a>.
+<i>Edit Image</i> will invoke <b>xv</b> by default,
+but you can change it to invoke your favorite bitmap editor
+(<a href="installation.html#related-software"><b>xpaint</b></a> 
+or <a href="installation.html#gimp"><b>GIMP</b></a>, for example)
+with the resource <tt>Fig.image_editor</tt>
+or command-line argument <tt>-image_editor</tt>.
+
+<dt>
+<img src="images/redballdot.png" align=bottom alt="-">
+<i>Pen Color</i>
+<dd>This is effective only when the image file is XBM format and will be used
+to color the bits of the image.
+
+<dt>
+<img src="images/redballdot.png" align=bottom alt="-">
+<i>Depth</i>
+<dd>The `<i>depth</i>' of the object.
+(see <a href="attributes.html#depth">DEPTH</a>)
+
+<dt>
+<img src="images/redballdot.png" align=bottom alt="-">
+<i>Picture Filename</i>
+<dd>Specify the file name of the image file.
+
+<dt>
+<img src="images/redballdot.png" align=bottom alt="-">
+<i>Type, Size, and Number of colors</i>
+<dd>Information such as file format or size of the image is displayed here.
+They may not be modified.
+
+<dt>
+<img src="images/redballdot.png" align=bottom alt="-">
+<i>Reread</i>
+<dd>Clicking this button will cause <b>xfig</b> to re-read the image file.
+This may be necessary when the image file has been modified
+after the file has been read by <b>xfig</b>.
+
+<dt>
+<a name="browse-panel"><img src="images/redballdot.png" align=bottom alt="-"></a>
+<i>Browse</i>
+<dd>Clicking this button will popup a Browse Panel
+to select an image file to be imported.
+Click on an image file and press <b>Apply</b> to preview it,
+or double-click on it to choose it and close the browse panel.
+You may change directories in the same manner as in the file panels.
+The <b>Filename Mask</b> by default will show all image types that 
+<b>xfig</b> can import.
+<br>
+<img src="images/image_browse.png" align=bottom alt="[ Browse Image Files ]">
+
+<dt>
+<img src="images/redballdot.png" align=bottom alt="-">
+<i>First Corner, and Opposite Corner</i>
+<dd>The position of two corner points of the rectangular region
+where the image is pasted.
+
+<dt>
+<img src="images/redballdot.png" align=bottom alt="-">
+<i>Orientation</i>
+<dd><i>x</i> and <i>y</i> coordinates of the image will be swapped
+if <i>Flipped about diag</i> is selected here.
+
+<dt>
+<img src="images/redballdot.png" align=bottom alt="-">
+<i>Rotation</i>
+<dd>The rotation angle of the image.  It may not be modified here.
+(see <a href="#rotate">ROTATE</a>)
+
+<dt>
+<img src="images/redballdot.png" align=bottom alt="-">
+<i>Cur H/W Ratio and Orig H/W Ratio</i>
+<dd>The current and original horizontal/vertical ratio of the image. 
+
+<dt>
+<img src="images/redballdot.png" align=bottom alt="-">
+<i>Change H/W Ratio</i>
+<dd>These buttons may be used to set horizontal/vertical ratio of the image.
+<dl>
+<dt><i>Shrink to orig</i>
+<dd>revert to horizontal/vertical ratio without expanding the image.
+<dt><i>Expand to orig</i>
+<dd>revert to horizontal/vertical ratio without shrinking the image.
+<dt><i>Use original size</i>
+<dd>Clicking <i>Use original size</i> will set size of the image
+to the original size in the picture file.
+<dt><i>Scale by %</i>
+<dd>Clicking <i>Scale by %</i> will scale the image
+by a percentage of the original size in the picture file.
+</dl>
+</dl>
+
+<hr>
+
+<h2><a name="edit-point">EDIT POINT</a></h2>
+
+The Edit Point panel is used to modify the <i>shape factor</i> 
+of control points of <a href="drawing.html#spline">spline curves</a>,
+and it will popup by clicking on a control point of spline curve
+with mouse button 3 (`edit point') in <a href="#edit">EDIT OBJECT</a> mode.
+The <i>shape factor</i> will control the shape of the curve.
+<p>
+<blockquote>
+  <img src="images/edit-point-panel.png" alt="[Edit Point Panel]">
+</blockquote>
+<p>
+Clicking <i>Approximated</i>, <i>Angular</i>, or <i>Interpolated</i> 
+button will set the shape factor to a preset value.
+The shape factor may also be set to arbitrary values
+by moving the slider on the left side of the panel.
+The modified spline curve will be displayed interactively in either case.
+<p>
+<blockquote>
+  <img src="images/spline-sf-example.png" alt="[Spline - Shape Factor]">
+</blockquote>
+<p>
+The shape factor of a control point may also be modified
+without popping up the Edit Point panel
+by clicking the control point while pressing both of SHIFT key and CONTROL key.
+Clicking a control point with mouse button 1 (`More approx')
+will decrease the shape factor,
+and clicking a control point with mouse button 3 (`More interp')
+will increase the shape factor.
+Clicking a control point with mouse button 2 (`Cycle shape')
+will cycle through three preset values:
+Approximated, Angular, and Interpolated.
+
+<p>
+<hr>
+
+[ <a href="contents.html">Contents</a> |
+ <a href="introduction.html">Introduction</a> |
+ <a href="authors.html">Credits</a> ]
+
+</body>
+</html>

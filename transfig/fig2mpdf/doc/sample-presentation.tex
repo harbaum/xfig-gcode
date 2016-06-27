@@ -1,0 +1,47 @@
+\documentclass{beamer}
+
+\usepackage{xmpmulti,multimedia,xspace}
+\usepackage[latin1]{inputenc}
+
+\hypersetup{a4paper,
+        pdftitle={Overlay sample for graphics created with fig2mpdf},
+        pdfsubject={Overlay sample for fig2mpdf},
+        pdfauthor={Michael Pfeiffer},
+        pdfkeywords={multiinclude, figures, fig2mpdf, multilayer, graphics},
+        colorlinks,
+        linkcolor=black,
+        urlcolor=black, 
+        citecolor=black,
+        pdfpagemode={None},             % only text is shown
+        pdfstartview={FitH},            % View->FinInWindow
+}
+
+\setbeamercovered{invisible}
+\setbeamersize{text margin left=7.5mm}
+\setbeamersize{text margin right=7.5mm}
+
+%==============================================================================
+
+\begin{document}
+\begin{frame}
+\begin{columns}[c]
+  \begin{column}{1in}
+    \begin{center}
+      \multiinclude[<+->][format={pdf}]{overlay-sample}%
+    \end{center}
+  \end{column}
+  \begin{column}{3in}
+    \setcounter{beamerpauses}{1}
+    \setbeamercovered{transparent}
+    \begin{itemize}
+      \item<+-|alert@+> Normal working in state A
+      \item<+-|alert@+> An alarm occured (e.g. temperature too high)
+      \item<+-|alert@+> Alarm behavour executed in State B
+      \item<+-|alert@+> Got all clear signal 
+      \item<+-> Returned back to normal working state 
+    \end{itemize}
+  \end{column}
+\end{columns}
+\end{frame}
+
+\end{document}

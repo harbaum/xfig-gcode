@@ -1,0 +1,1157 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<html>
+<head>
+<title>Object Attributes</title>
+</head>
+
+<body>
+<a href="contents.html"><img src="images/xfig-title.png"
+  alt="XFIG Users Manual" border=0></a>
+
+<hr>
+
+<h1>Object Attributes</h1>
+
+Buttons to set various drawing parameters (called <i>attribute buttons</i>),
+such as line width or color, are placed on the attribute panel.
+Buttons to set global parameters such as the zoom scale or grid mode
+are also placed on the attribute panel.
+Current settings are displayed in each attribute button.
+<p>
+Settings in the attribute panel are applied when
+<a href="drawing.html">creating new objects</a>.
+It is also possible to modify attributes of existing objects
+using <a href="editing.html#update">UPDATE</a> 
+or <a href="editing.html#edit">EDIT</a>.
+
+<p>
+The first three buttons do not control object attributes but are placed
+here for convenience:
+<br>
+<a href="#zoom-scale">
+<img src="images/zoom-button.png" border=1 alt="[ZOOM SCALE]"></a>
+Zoom (magnify) figure in canvas
+<br>
+<a href="#grid-mode">
+<img src="images/grid-button.png" border=1 alt="[GRID MODE]"></a>
+<a href="#point-position">
+<img src="images/point-position-button.png" border=1 alt="[POINT POSITION]"></a>
+Grids
+<p>
+These are the attribute buttons:
+<br>
+<a href="#depth">
+<img src="images/depth-button.png" border=1 alt="[DEPTH]"></a>
+Object depths
+<br>
+<a href="#pen-color">
+<img src="images/pen-color-button.png" border=1 alt="[PEN COLOR]"></a>
+<a href="#fill-color">
+<img src="images/fill-color-button.png" border=1 alt="[FILL COLOR]"></a>
+<a href="#fill-style">
+<img src="images/fill-style-button.png" border=1 alt="[FILL STYLE]"></a>
+Colors and patterns
+<br>
+<a href="#line-width">
+<img src="images/line-width-button.png" border=1 alt="[LINE WIDTH]"></a>
+<a href="#line-style">
+<img src="images/line-style-button.png" border=1 alt="[LINE STYLE]"></a>
+<a href="#join-style">
+<img src="images/join-style-button.png" border=1 alt="[JOIN STYLE]"></a>
+<a href="#cap-style">
+<img src="images/cap-style-button.png" border=1 alt="[CAP STYLE]"></a>
+Width and shape of lines
+<br>
+<a href="#text-font">
+<img src="images/text-font-button.png" border=1 alt="[TEXT FONT]"></a>
+<br>
+<a href="#text-size">
+<img src="images/text-size-button.png" border=1 alt="[TEXT SIZE]"></a>
+<a href="#text-step">
+<img src="images/text-step-button.png" border=1 alt="[TEXT STEP]"></a>
+<a href="#text-justification">
+<img src="images/text-justify-button.png" border=1 alt="[TEXT JUSTIFICATION]"></a>
+<a href="#text-flags">
+<img src="images/text-flags-button.png" border=1 alt="[TEXT FLAGS]"></a>
+Font and other attributes of TEXT objects
+<br>
+<a href="#arrow-mode">
+<img src="images/arrow-mode-button.png" border=1 alt="[ARROW MODE]"></a>
+<a href="#arrow-type">
+<img src="images/arrow-type-button.png" border=1 alt="[ARROW TYPE]"></a>
+<a href="#arrow-size">
+<img src="images/arrow-size-button.png" border=1 alt="[ARROW SIZE]"></a>
+Arrows
+<br>
+<a href="#box-curve">
+<img src="images/box-curve-button.png" border=1 alt="[BOX CURVE]"></a>
+Corner radius of ARC-BOX objects
+<br>
+<a href="#arc-type">
+<img src="images/arc-type-button.png" border=1 alt="[ARC TYPE]"></a>
+Shape of ARC objects
+<br>
+<a href="#num-sides">
+<img src="images/num-sides-button.png" border=1 alt="[NUM SIDES]"></a>
+Number of sides of REGULAR POLYGON
+<br>
+<a href="#num-copies">
+<img src="images/num-copies-button.png" border=1 alt="[NUM COPIES]"></a>
+<a href="#num-x-copies">
+<img src="images/num-x-copies-button.png" border=1 alt="[NUM X COPIES]"></a>
+<a href="#num-y-copies">
+<img src="images/num-y-copies-button.png" border=1 alt="[NUM Y COPIES]"></a>
+Number of copies to be created
+<br>
+<a href="#rotation-angle">
+<img src="images/rotation-angle-button.png" border=1 alt="[ROTATION ANGLE]"></a>
+<a href="#text-angle">
+<img src="images/text-angle-button.png" border=1 alt="[TEXT ANGLE]"></a>
+Angle of rotation
+<br>
+<a href="#angle-geom">
+<img src="images/angle-geom-button.png" border=1 alt="[ANGLE GEOMETRY]"></a>
+Restriction of the angle of lines
+<br>
+<a href="#smart-link">
+<img src="images/smart-link-button.png" border=1 alt="[SMART LINK]"></a>
+Smart Links
+<br>
+<a href="#vertical-align">
+<img src="images/vertical-align-button.png" border=1 alt="[VERTICAL ALIGN]"></a>
+<a href="#horiz-align">
+<img src="images/horiz-align-button.png" border=1 alt="[HORIZONTAL ALIGN]"></a>
+Alignment of objects
+<br>
+<a href="#dimension-lines">
+<img src="images/dimline-button.png" border=1 alt="[DIMENSION LINES]"></a>
+Dimension Lines
+
+<p>
+Normally, only the attribute buttons
+which are significant to the selected mode
+are placed on the attribute panel.
+When it is not possible to display all the attribute buttons
+at once, a scrollbar will be added to the attribute panel.
+<p>
+These settings may be changed by clicking those attribute buttons.
+Each mouse button has the following function:
+<p>
+
+<dl>
+<dt>
+<img src="images/blueballdot.png" align=bottom alt="-">
+Mouse button 1 (`Menu') </dt>
+<dd>
+Clicking an attribute button with mouse button 1 will
+popup a panel to change setting of the attribute button,
+and the user may select a new value by
+clicking any button on the panel
+(in the case of <i>grid mode</i> or <i>text font</i>, etc.)
+or entering a new value from the keyboard
+(in the case of <i>zoom scale</i> or <i>line width</i>, etc.)
+
+<dt>
+<img src="images/blueballdot.png" align=bottom alt="-">
+Mouse button 2 (`Dec/Prev') </dt>
+<dd>
+If the attribute button contains a numeric value
+(<i>zoom scale</i> or <i>line width</i>, for example),
+clicking the attribute button with mouse button 2 will
+decrease the value.
+If the attribute button is of another type
+(<i>grid mode</i> or <i>text font</i>, for example),
+the selection will be chosen from the previous item in the list.
+The list is considered circular.
+
+<dt>
+<img src="images/blueballdot.png" align=bottom alt="-">
+Mouse button 3 (`Inc/Next') </dt>
+<dd>
+This mouse button is the reverse of mouse button 2.
+If the attribute button contains a numeric value,
+clicking the attribute button with mouse button 3 will
+increase the value.
+If the attribute button is of another type,
+the selection will be chosen from the next item in the list.
+The list is considered circular.
+</dl>
+
+<p>
+In <a href="editing.html#update">UPDATE</a> mode,
+a small toggle button appears in the upper-right corner of each attribute button.
+This controls whether the particular attribute should be applied when using 
+the UPDATE mode.
+Also, an <a href="editing.html#update-control">Update Control Button</a> 
+will be placed at the left of the attribute panel.
+<p>
+<blockquote>
+  <img src="images/update-control.png" alt="[Update Control Buttons]">
+</blockquote>
+
+<hr>
+
+<p>
+<dl>
+<dt><img src="images/zoom-button.png" alt="">
+  <a name="zoom-scale">(ZOOM SCALE)</a>
+<img src="images/zoom-panel.png" align=right alt="zoom panel">
+<dd>Set the zoom scale of display on the canvas.
+The zoom scale may be set in the range of 0.01 to 50.
+On many systems, the display on the screen will be almost actual-size
+when this is set to 1.
+<p>
+Clicking this button with mouse button 1 will popup a panel
+to enter new value of zoom scale from keyboard.
+Clicking this button with mouse button 2 or mouse button 3
+will decrease or increase the zoom scale by a factor of 1.5 respectively
+if the zoom is > 1, or 
+by 0.1 if zoom scale is less than 1.0 and 0.01 if the zoom is less than 0.1.
+<p>
+Zooming of the canvas may also be performed by
+specifying the rectangle to be zoomed on the canvas (`area zoom').
+To do this, specify the rectangle to be zoomed by
+clicking mouse button 1 (`zoom area') while pressing CONTROL key
+and specify one corner of the rectangle,
+and then clicking mouse button 1 (`final point') again
+at the opposite corner of the rectangle.
+<p>
+If you use a wheel mouse,
+then rotating the wheel on the canvas while the 
+<b>Shift</b> key is pressed
+will zoom/unzoom the canvas around the pointer
+and rotating the wheel while the
+<b>Control</b> key is
+pressed will scroll (pan) the canvas up or down.
+<p>
+It is also possible to set zoom scale to 1
+by clicking mouse button 3 (`unzoom') while pressing CONTROL key
+on the canvas.
+<p>
+To force the area-zoom to zoom using integer values check the box
+in the zoom popup panel that says <i>Integer zoom</i>.
+<p>
+To zoom the figure so that it just fills the canvas, press the
+<i>Fit to canvas</i> button.  <i>Integer zoom</i> is ignored
+if the zoom needed to fit the figure on the canvas is less than 1.0.
+
+<p>
+See also <a href="panning.html#zooming">Zooming</a>.
+
+<hr>
+<p>
+<dt><img src="images/depth-button.png" alt="">
+  <a name="depth">(DEPTH)</a>
+<dd>Set the `<i>depth</i>' of objects.
+<p>
+The <i>Depth</i> is used to decide which object should be hidden
+when objects overlap.
+The object with larger <i>depth</i> will be hidden by
+object with smaller <i>depth</i>.
+<i>Depth</i> is an integer value of the range 0 to 999.
+<p>
+If objects with the same <i>depth</i> overlap,
+it is unknown which object will be hidden,
+and the display on the screen may be different from a printout or export.
+<p>
+Normally, all depths are displayed on the canvas, but the user may control
+which depths are displayed and editable.  
+See the <a href="layers.html#depth_panel">Depth Panel</a> section.
+<p>
+If the depth of a compound object is changed with 
+<a href="editing.html#update">UPDATE</a>,
+the relative depths of the objects contained will be maintained.
+For example, consider a compound object  containing three objects
+at depths 3, 8 and 11 respectively.
+If the depth of the compound is changed to 2, then the objects contained
+will have depths of 2, 7 and 10 respectively.
+
+<hr>
+
+<p>
+<dt><img src="images/grid-button.png" alt="">
+  <a name="grid-mode">(GRID MODE)</a>
+<dd>Set the size of the grid displayed on the canvas.
+If this is set to <i>None</i>, no grid will be displayed.
+<p>
+The size of the grid may be selected
+from 1/8inch, 1/4inch, 1/2inch and 1inch
+if <a href="miscellaneous.html#units">unit</a> is set to <i>Imperial (inches)</i>,
+and from 2mm, 5mm, 10mm and 20mm
+if unit is set to <i>Metric</i>.
+
+<p>
+This grid will not restrict positioning of objects.
+If you want to set a restriction of positioning of objects,
+use <a href="#point-position">POINT POSITION</a>.
+
+<hr>
+
+<p>
+<dt><img src="images/point-position-button.png" alt="">
+  <a name="point-position">(POINT POSITION)</a>
+<dd>Set the size of virtual grid (it is not visible)
+to control the restriction of positioning of objects.
+If this is not set to <i>Any</i>,
+objects may only be placed on the virtual grid of the selected size.
+If this is set to <i>Any</i>, objects can be placed anywhere.
+<p>
+The size of the virtual grid may be selected
+from 1/16inch, 1/8inch, 1/4inch, 1/2inch and 1inch
+if <a href="miscellaneous.html#units">unit</a> is set to <i>Imperial (inches)</i>,
+and from 1mm, 2mm, 5mm, 10mm and 20mm
+if unit is set to <i>Metric</i>.
+<p>
+This will also restrict which objects may be
+`<a href="editing.html#select-object">picked up</a>' when
+<a href="editing.html">editing</a>.
+If an object is not on the virtual grid specified here,
+the object can't picked up.
+<p>
+This virtual grid will not displayed on the canvas.
+The visible grid can be set by <a href="#grid-mode">GRID MODE</a>.
+
+<hr>
+
+<p>
+<dt><img src="images/rotate-angle-button.png" alt="">
+  <a name="rotation-angle">(ROTATION ANGLE)</a>
+<dd>Set the angle for rotating objects with
+<a href="editing.html#rotate">ROTATE</a>.
+Clicking this button with mouse button 2 or mouse button 3
+will decrease or increase the angle by 15 degrees respectively.
+Clicking this button with mouse button 1 will popup
+a panel to enter the angle.
+<p>
+The angle of <a href="drawing.html#text">TEXT</a>
+or <a href="drawing.html#ellipse">ELLIPSE</a>
+objects may also be set by <a href="#text-angle">TEXT / ELLIPSE ANGLE</a>.
+<p>
+Note that some objects may only be rotated by 90 degrees
+(e.g. <a href="drawing.html#box">BOX</a>)
+
+<hr>
+
+<p>
+<dt><img src="images/text-angle-button.png" alt="">
+  <a name="text-angle">(TEXT / ELLIPSE ANGLE)</a>
+<dd>Set the angle of <a href="drawing.html#text">TEXT</a> 
+or <a href="drawing.html#ellipse">ELLIPSE</a> objects.
+Positive values indicate counter-clockwise rotation,
+and negative values indicate clockwise rotation.
+<p>
+Clicking this button with mouse button 2 or mouse button 3
+will decrease or increase angle by 15 degrees respectively.
+Clicking this button with mouse button 1 will popup
+a panel to enter the angle.
+<p>
+To rotate exisiting objects,
+use <a href="editing.html#rotate">ROTATE</a>.
+See also <a href="#rotation-angle">ROTATION ANGLE</a>.
+
+<hr>
+
+
+<p>
+<dt><img src="images/num-sides-button.png" alt="">
+  <a name="num-sides">(NUMBER OF POLYGON SIDES)</a>
+<dd>Set the number of sides used in creating a regular polygon
+with <a href="drawing.html#regular-polygon">REGULAR POLYGON</a>.
+
+<hr>
+
+<p>
+<dt><img src="images/num-copies-button.png" alt="">
+  <a name="num-copies">(NUMBER OF COPIES)</a>
+<dd>Set the number of copies to be made with <i>COPY &amp; ROTATE</i> 
+(see <a href="editing.html#rotate">ROTATE</a>).
+<p>
+The number of copies to be made with
+<a href="editing.html#copy"><i>ARRAY PLACEMENT</i></a> 
+should be set with <a href="#num-x-copies">NUMBER OF X COPIES</a> 
+and <a href="#num-y-copies">NUMBER OF Y COPIES</a>.
+
+<hr>
+
+<p>
+<dt><img src="images/num-x-copies-button.png" alt="">
+  <img src="images/num-y-copies-button.png" alt="">
+  (<a name="num-x-copies">NUMBER OF X COPIES</a>   /
+   <a name="num-y-copies">NUMBER OF Y COPIES</a>)
+<dd>Set the number of copies to be made in the X and Y direction
+when copying objects with <i>ARRAY PLACEMENT</i> 
+(see <a href="editing.html#copy">COPY</a>).
+<p>
+The number of copies to be made with
+<a href="editing.html#rotate"><i>COPY &amp; ROTATE</i></a> 
+should be set with <a href="#num-copies">NUMBER OF COPIES</a>.
+
+<hr>
+
+<p>
+<dt><img src="images/smart-link-button.png" alt="">
+  <a name="smart-link">(SMART-LINKS MODE)</a>
+<dd>This button controls the smart-link mode.
+If the smart-link mode is enabled,
+lines with an end point on the perimeter of objects such as a BOX
+or inside a <a href="editing.html#glue-compound">COMPOUND object</a> 
+(henceforth called <i>links</i>)
+will be treated specially when those objects are
+<a href="editing.html#move">moved</a> 
+or <a href="editing.html#copy">copied</a>.
+<dl>
+<dt><img src="images/smart-link-off.png" alt=""> OFF
+<dd>Disable the smart-link mode.
+When moving or copying an object,
+only the object will moved or copied.
+
+<dt><img src="images/smart-link-move.png" alt=""> MOVE
+<dd>When moving an object,
+the end point of the <i>link</i> will be moved with the object
+so that the <i>link</i> will remain linked.
+When copying an object, the
+<i>link</i> is also copied.
+
+<dt><img src="images/smart-link-slide.png" alt=""> SLIDE
+<dd>When moving an object,
+the end segment of the <i>link</i> 
+(the segment which touches the object)
+will slide so that the angle of the segment is maintained.
+When copying an object, the
+<i>link</i> is also copied.
+</dl>
+<p>
+Lines which touch objects such as
+<a href="drawing.html#circle">circles</a> 
+or <a href="drawing.html#ellipse">ellipses</a> 
+are not treated as <i>links</i>.
+If you want to use smart-link facility for such lines,
+make the object into a
+<a href="editing.html#glue-compound">COMPOUND object</a>.
+
+<hr>
+
+<p>
+<dt><img src="images/vertical-align-button.png" alt="">
+  <a name="vertical-align">(VERTICAL ALIGN)</a>
+<dd>Set the vertical alignment mode for
+<a href="editing.html#align">ALIGN</a>.
+<dl>
+<dt><img src="images/vertical-align-none.png" alt="[None]">
+  Do not align vertically.
+<dt><img src="images/vertical-align-top.png" alt="[Top]">
+  Align to top of objects.
+<dt><img src="images/vertical-align-center.png" alt="[Center]">
+  Align center of objects.
+<dt><img src="images/vertical-align-bottom.png" alt="[Bottom]">
+  Align to bottom of objects.
+<dt><img src="images/vertical-align-center-even.png" alt="[Even Center]">
+  Vertically distribute objects
+  so that the distance between center of each object is equal.
+<dt><img src="images/vertical-align-edge-even.png" alt="[Even Edge]">
+  Vertically distribute objects
+  so that the distance between the edge of each object is equal.
+<dt><img src="images/vertical-align-abut-edge.png" alt="[Abut Edge]">
+  Vertically distribute objects
+  so that the edge of each object touch.
+</dl>
+
+<hr>
+
+<p>
+<dt><img src="images/horiz-align-button.png" alt="">
+  <a name="horiz-align">(HORIZONTAL ALIGN)</a>
+<dd>Set the horizontal alignment mode for
+<a href="editing.html#align">ALIGN</a> 
+<dl>
+<dt><img src="images/horiz-align-none.png" alt="[None]">
+  Do not align horizontally.
+<dt><img src="images/horiz-align-left.png" alt="[Left]">
+  Align to left of objects.
+<dt><img src="images/horiz-align-center.png" alt="[Center]">
+  Align center of objects.
+<dt><img src="images/horiz-align-right.png" alt="[Right]">
+  Align to right of objects.
+<dt><img src="images/horiz-align-center-even.png" alt="[Even Center]">
+  Horizontally distribute objects
+  so that the distance between center of each object is equal.
+<dt><img src="images/horiz-align-edge-even.png" alt="[Even Edge]">
+  Horizontally distribute objects
+  so that the distance between the edge of each object is equal.
+<dt><img src="images/horiz-align-abut-edge.png" alt="[Abut Edge]">
+  Horizontally distribute objects
+  so that the edge of each object touch.
+</dl>
+
+<hr>
+
+<p>
+<dt><img src="images/angle-geom-button.png" alt="">
+  <a name="angle-geom">(ANGLE GEOMETRY)</a>
+<dd>Set the restriction of the angle of lines when creating 
+<a href="drawing.html#polyline">POLYLINE</a>,
+<a href="drawing.html#polygon">POLYGON</a>,
+<a href="drawing.html#spline">SPLINE</a> objects, etc.
+This will also restrict the angle of line segment when moving
+its end point with <a href="editing.html#move-point">MOVE POINT</a>.
+
+<dl>
+<dt><img src="images/angle-geom-unrestricted.png" alt=""> Unrestricted
+<dd>Don't restrict the angle of lines.
+With this setting, lines of any angle may be created.
+This is the default.
+
+<dt><img src="images/angle-geom-latex-line.png" alt=""> LaTeX Line
+<dd>Allow lines to be drawn only at slopes
+which can be handled by the <i>line</i> command of the LaTeX picture environment.
+With this setting,
+lines with slope <i>x / y</i> 
+(here, <i>x</i> and <i>y</i> are integers in the range -6 to 6)
+may be created.
+
+<dt><img src="images/angle-geom-latex-vector.png" alt=""> LaTeX Vector
+<dd>Allow lines to be drawn only at slopes
+which can be handled by the <i>vector</i> command of the LaTeX picture environment.
+With this setting,
+lines with slope <i>x / y</i> 
+(here, <i>x</i> and <i>y</i> are integers in the range -4 to 4)
+may be created.
+
+<dt><img src="images/angle-geom-mounthattan.png" alt=""> Manhattan-Mountain
+<dd>Allow lines to be drawn in the horizontal, vertical
+or diagonal (45 degrees) direction only.
+
+<dt><img src="images/angle-geom-manhattan.png" alt=""> Manhattan
+<dd>Allow lines to be drawn in the horizontal or vertical direction only.
+
+<dt><img src="images/angle-geom-mountain.png" alt=""> Mountain
+<dd>Allow lines to be drawn in the diagonal (45 degrees) direction only.
+</dl>
+
+<hr>
+
+<p>
+<dt><img src="images/pen-color-button.png" alt=""> 
+ (<a name="pen-color">PEN COLOR</a>)
+<dd>Set the color used to draw objects.
+The color may be selected from 32 standard colors
+and other arbitrary colors defined by user.
+See <a href="#colors-panel">Colors Panel</a> for more information.
+<p>
+Clicking this button with mouse button 1 will popup the
+<a href="#colors-panel">Colors Panel</a>.
+<p>
+The color to fill the region inside object is set by
+<a href="#fill-color">FILL COLOR</a> 
+and <a href="#fill-style">FILL STYLE</a>.
+If you want to fill the region without drawing the outline of the object,
+set <a href="#line-width">LINE WIDTH</a> to zero.
+
+<hr>
+
+<p>
+<dt><img src="images/fill-color-button.png" alt="">
+ (<a name="fill-color">FILL COLOR</a>)
+<dd>Set the color used to fill the region inside objects.
+As in <a href="#pen-color">PEN COLOR</a>,
+the color may be selected from 32 standard colors
+and other arbitrary colors defined by user.
+See <a href="#colors-panel">Colors Panel</a> for more information.
+<p>
+Clicking this button with mouse button 1 will popup the
+<a href="#colors-panel">Colors Panel</a>.
+<p>
+The color to draw the outline of object is set by
+<a href="#pen-color">PEN COLOR</a>.
+The FILL COLOR is only effective
+when the <a href="#fill-style">FILL STYLE</a>
+is set to other than <i>None</i>.
+If you don't want to fill the region inside objects,
+set the FILL STYLE to <i>None</i>.
+
+<hr>
+
+<p>
+<dt><img src="images/fill-style-button.png" alt="">
+  <a name="fill-style">(FILL STYLE)</a>
+<dd>Set fill darkness or fill pattern.
+Fill color is set by <a href="#fill-color">FILL COLOR</a>.
+If <i>None</i> is selected here, the region inside object will not be filled.
+<p>
+Clicking this button with mouse button 1 will popup this panel:
+<p>
+<blockquote>
+  <img src="images/fill-style-panel.png" alt="[Fill Style Panel]">
+</blockquote>
+
+<hr>
+
+<p>
+<dt><img src="images/line-width-button.png" alt="">
+  <a name="line-width">(LINE WIDTH)</a>
+<dd>Set the width of lines to draw the outline of objects.
+The unit of the line width is exactly 1 screen pixel (about 1/80 inch).
+<p>
+If this is set to zero, the outline of objects will not be drawn.
+The area fill will still be used
+if area fill is enabled by <a href="#fill-style">FILL STYLE</a>.
+
+<hr>
+
+<p>
+<dt><img src="images/line-style-button.png" alt="">
+  <a name="line-style">(LINE STYLE)</a>
+<dd>Set the line style
+from <i>solid</i>, <i>dashed</i>, <i>dotted</i>, <i>dash-dot</i>,
+<i>dash-dot-dot</i> and <i>dash-dot-dot-dot</i>.
+It is also possible to set the dash length or dot distance.
+The shape (ends) of each dash and dot may be set by
+<a href="#cap-style">CAP STYLE</a>.
+<p>
+Clicking this button with mouse button 1 will popup
+this panel:
+<p>
+<blockquote>
+  <img src="images/line-style-panel.png" alt="[Line Style Panel]">
+</blockquote>
+
+<hr>
+
+<p>
+<dt><img src="images/join-style-button.png" alt="">
+  <a name="join-style">(JOIN STYLE)</a>
+<dd>Set the shape of the join point (vertex) of lines of objects
+such as <a href="drawing.html#polyline">POLYLINE</a> 
+or <a href="drawing.html#polygon">POLYGON</a>.
+This setting does not have a remarkable effect when the line is very thin.
+<p>
+<dl>
+<dt><img src="images/join-style-miter.png" alt=""> MITER
+<dd>Extend the outer edge of the lines until they touch.
+Automatically uses <i>BEVEL</i> instead if the angle is too acute.
+This is the default.
+
+<dt><img src="images/join-style-round.png" alt=""> ROUNDED
+<dd>Join lines with an arc whose center is at the join point
+and whose diameter is equal to the line width.
+
+<dt><img src="images/join-style-bevel.png" alt=""> BEVEL
+<dd>Join the lines with <i>butt</i> end caps
+and fill the resulting triangular notch at the join position.
+</dl>
+<p>
+<blockquote>
+  <img src="images/join-style-example.png" alt="[Join Style Example]">
+</blockquote>
+<p>
+The shape of the end points of lines will set by
+<a href="#cap-style">CAP STYLE</a>.
+
+<hr>
+
+<p>
+<dt><img src="images/cap-style-button.png" alt="">
+  <a name="cap-style">(CAP STYLE)</a>
+<dd>Set the shape of end points of lines of objects
+such as <a href="drawing.html#polyline">POLYLINE</a>.
+This setting does not have a remarkable effect when the line is very thin.
+<p>
+<dl>
+<dt><img src="images/cap-style-butt.png" alt=""> BUTT
+<dd>The ends of the line don't extend beyond the end points.
+This is the default.
+
+<dt><img src="images/cap-style-round.png" alt=""> ROUND
+<dd>Terminate lines with a circle
+whose diameter is equal to the line width.
+
+<dt><img src="images/cap-style-projecting.png" alt=""> PROJECTING
+<dd>Similar to <i>BUTT</i>,
+but the ends of the line extend by half of line width beyond the
+end points.
+</dl>
+<p>
+<blockquote>
+  <img src="images/cap-style-example.png" alt="[Cap Style Example]">
+</blockquote>
+<p>
+This setting also affects the shape of dashes or dots of
+<a href="#line-style">dashed-lines or dotted-lines</a>.
+The shape of the join point (vertex) of lines is set by
+<a href="#join-style">JOIN STYLE</a>.
+
+<hr>
+
+<p>
+<dt><img src="images/arrow-mode-button.png" alt="">
+  <a name="arrow-mode">(ARROW MODE)</a>
+<dd>Determines whether an arrow head should be automatically added 
+at either or both ends of a line
+when creating a <a href="drawing.html#polyline">POLYLINE</a>,
+<a href="#arc-type">OPEN ARC</a>,
+or <a href="drawing.html#spline">OPEN SPLINE</a> object.
+<dl>
+<dt><img src="images/arrow-mode-none.png" alt="[None]">
+  Do not add any arrow heads.
+<dt><img src="images/arrow-mode-forward.png" alt="[Forward]">
+  Add an arrow head at the last point of the line.
+<dt><img src="images/arrow-mode-both.png" alt="[Both]">
+  Add an arrow head at each end of the line.
+<dt><img src="images/arrow-mode-backward.png" alt="[Backward]">
+  Add an arrow head at the first point of the line.
+</dl>
+<p>
+The shape of the arrow head may be set by <a href="#arrow-type">ARROW TYPE</a> and
+the size by <a href="#arrow-size">ARROW SIZE</a>.
+It is also possible to add (or remove) arrow heads
+to existing objects using 
+<a href="editing.html#add-arrow">ADD / DELETE ARROW</a>.
+
+<hr>
+
+<p>
+<dt><img src="images/arrow-type-button.png" alt="">
+  <a name="arrow-type">(ARROW TYPE)</a>
+<dd>Sets the shape of arrow heads.
+<dl>
+<dt><img src="images/arrow-types.png" alt="[Arrow Types]">
+</dl>
+The size of arrow head may be set using <a href="#arrow-size">ARROW SIZE</a>.
+
+<hr>
+
+<p>
+<dt><img src="images/arrow-size-button.png" alt="">
+  <a name="arrow-size">(ARROW SIZE)</a>
+<dd>Set the size of arrow head.
+<p>
+Clicking this button with mouse button 1 will popup
+this panel:
+<p>
+<blockquote>
+  <img src="images/arrow-size-panel.png" alt="[Arrow Size]">
+  <img src="images/arrow-size-image.png" alt="[Arrow Head]">
+</blockquote>
+<p>
+The <i>Thickness</i> controls the thickness of the line forming the arrow head.
+<br>
+The <i>Width</i> controls the width at the back of the arrow head.
+<br>
+The <i>Length</i> controls the length of the arrow head.
+<p>
+All these units are the same as for <a href="#line-width">LINE WIDTH</a>.
+This is a change from previous versions of <b>xfig</b>, where the width and length
+were in <i>Fig</i> units (1/1200 inch).
+
+<dl>
+<dd><img src="images/redball.png" align=bottom alt="-">
+If the <i>Absolute Values</i> box is checked, the values from the left
+side entries are used and are absolute as just described.
+<br>
+<dd><img src="images/redball.png" align=bottom alt="-">
+If the <i>Multiple of Line Width</i> box is checked, the respective value from the
+right side entry is multiplied by the current 
+<a href="#line-width">line width</a> setting to arrive at the sizes.
+</dl>
+
+<hr>
+
+<dt><img src="images/box-curve-button.png" alt="">
+  <a name="box-curve">(BOX CURVE)</a>
+<dd>Set the corner radius of
+<a href="drawing.html#arc-box">ARC-BOX</a> objects.
+The units are the same as for <a href="#line-width">LINE WIDTH</a>.
+
+<hr>
+
+<p>
+<dt><img src="images/arc-type-button.png" alt="">
+  <a name="arc-type">(ARC TYPE)</a>
+<dd>Set the style of <a href="drawing.html#arc">ARC</a> object.
+<dl>
+<dt><img src="images/arc-type-open.png" alt=""> OPEN ARC
+<dd>Draw only the arc.
+
+<dt><img src="images/arc-type-pie-wedge.png" alt=""> PIE-WEDGE
+<dd>Adding to the arc,
+draw lines which connect each end of the arc to the center.
+</dl>
+
+<hr>
+
+<p>
+<dt><img src="images/text-font-button.png" alt="">
+  <a name="text-font">(TEXT FONT)</a>
+<dd>Set the font used to draw
+<a href="drawing.html#text">TEXT</a> objects.
+The size of the font may be set by <a href="#text-size">TEXT SIZE</a>.
+<p>
+Clicking this button with mouse button 1 will popup the
+<a href="#font-panel">Font Panel</a> to select the font.
+
+<p>
+<dt><img src="images/text-size-button.png" alt="">
+  <a name="text-size">(TEXT SIZE)</a>
+<dd>Set the size (point size) of
+<a href="drawing.html#text">TEXT</a> object.
+The default is 12 points.
+The font itself is set by <a href="#text-font">TEXT FONT</a>.
+
+<p>
+<dt><img src="images/text-step-button.png" alt="">
+  <a name="text-step">(TEXT STEP)</a>
+<dd>Set the vertical distance by which lines of text
+will be spaced when entering multiple lines in
+<a href="drawing.html#text">TEXT</a> mode.
+The distance is the product of the height of the font
+(approximately <a href="#text-size">TEXT SIZE</a>)
+and this value.
+
+<p>
+<dt><img src="images/text-justify-button.png" alt="">
+  <a name="text-justification">(TEXT JUSTIFICATION)</a>
+<dd>Set which part of the text should be placed
+at the specified point when entering
+<a href="drawing.html#text">TEXT</a> object.
+<dl>
+<dt><img src="images/text-justify-left.png" alt=""> LEFT JUSTIFIED
+<dd>Place the left edge of the text at the specified point.
+This is the default.
+
+<dt><img src="images/text-justify-center.png" alt=""> CENTERED
+<dd>Place the center of the text at the specified point.
+
+<dt><img src="images/text-justify-right.png" alt=""> RIGHT JUSTIFIED
+<dd>Place the right edge of the text at the specified point.
+</dl>
+
+<p>
+<dt><img src="images/text-flags-button.png" alt="">
+  <a name="text-flags">(TEXT FLAGS)</a>
+<dd>Set the <i>Hidden</i>, <i>Rigid</i> and <i>Special</i> flags
+of <a href="drawing.html#text">TEXT</a> objects.
+These flags are used for special situations,
+and they are all <i>OFF</i> by default.
+<p>
+Clicking this button with mouse button 2 or mouse button 3
+will switch which flag's state should be displayed on the button.
+<p>
+Clicking this button with mouse button 1 will popup this panel:
+<p>
+<blockquote>
+  <img src="images/text-flags-panel.png" alt="[Text Flags]">
+</blockquote>
+<p>
+If the <i>Hidden</i> flag is set <i>ON</i>, the
+string `&lt;&lt;&gt;&gt;' is displayed on the canvas
+instead of the text itself.
+The text will output as usual when
+<a href="printing.html#print">Printing</a> 
+or <a href="printing.html#export">Exporting</a>.
+This is useful to avoid text with long sequences of LaTeX commands
+which makes the display hard to read.
+<p>
+If the <i>Rigid</i> flag is <i>ON</i>,
+the size of the font of the TEXT object will not be changed
+when a <a href="editing.html#glue-compound">COMPOUND object</a> 
+which includes the TEXT object is <a href="editing.html#scale">scaled</a>.
+<p>
+If the <i>Special</i> flag is <i>ON</i>,
+special characters (such as `<tt>\</tt>', for example)
+in text will not be specially processed
+but passed to the output `as is' when
+<a href="printing.html#export">Exporting</a>.
+This may be used to put LaTeX commands in text.
+The use of LaTeX commands is especially helpful to
+put complex mathematical formulas in the figure, for example.
+If the <i>Special</i> flag is <i>OFF</i>,
+the text will be processed before output.
+
+<hr>
+
+<a name="dimension-lines"></a>
+<p>
+<dt><img src="images/dimline-button.png" alt="">
+Dimension Lines
+<dd>Set the attributes of
+<a href="drawing.html#polyline">dimension lines</a>.
+One may have end-ticks on the lines, arrowheads,
+box around the text with or without a border, and the actual
+length of the line for the text or a user-defined text.
+<blockquote>
+  <img src="images/dimline-panel.png" alt="[Dimension Lines]" align=top>
+</blockquote>
+As you make changes to the settings, the image at the top of the
+panel shows what the dimension line would look like.
+
+<p>
+<dl>
+    <dt>
+    <img src="images/redballdot.png" align=bottom alt="-">
+    <i>Line - This is the main line</i>
+    <dd>
+    <dl>
+	<dt>
+	<img src="images/blueballdot.png" align=bottom alt="-">
+	<i>Thickness</i>
+	<dd>This is the thickness of the main dimension line.  It may be 0, in which
+	case no line is drawn.
+	<dt>
+	<img src="images/blueballdot.png" align=bottom alt="-">
+	<i>Style</i>
+	<dd>The style of the line (solid, dash, etc.).  The standard line style
+	pulldown menu appears when this is pressed.
+	<dt>
+	<img src="images/blueballdot.png" align=bottom alt="-">
+	<i>Color</i>
+	<dd>The color of the line.  A color panel pops up when this is pressed,
+	to choose the color.
+    </dl>
+    <dt>
+    <img src="images/redballdot.png" align=bottom alt="-">
+    <i>Arrows</i>
+    <dd>
+    <dl>
+	<dt>
+	<img src="images/blueballdot.png" align=bottom alt="-">
+	<i>Types</i>
+	<dd>When pressed a pulldown menu appears from which the user may
+	select the arrowhead type (or none) for each end of the line.
+	<dt>
+	<img src="images/blueballdot.png" align=bottom alt="-">
+	<i>Length</i>
+	<dd>The length of the arrowheads as a multiple of the main line thickness
+	<dt>
+	<img src="images/blueballdot.png" align=bottom alt="-">
+	<i>Width</i>
+	<dd>The width of the arrowheads as a multiple of the main line thickness
+    </dl>
+
+    <dt>
+    <img src="images/redballdot.png" align=bottom alt="-">
+    <i>Box - This is the box drawn around the dimension text</i>
+    <dd>
+    <dl>
+	<dt>
+	<img src="images/blueballdot.png" align=bottom alt="-">
+	<i>Thickness</i>
+	<dd>The thickness of the line drawn around the box
+	<dt>
+	<img src="images/blueballdot.png" align=bottom alt="-">
+	<i>Color</i>
+	<dd>The color used to fill the box.  A color panel pops up.
+    </dl>
+
+    <dt>
+    <img src="images/redballdot.png" align=bottom alt="-">
+    <i>Ticks</i>
+    <dl>
+	<dt>
+	<img src="images/blueballdot.png" align=bottom alt="-">
+	<i>Show ticks</i>
+	<dd>Checkbox to show or hide end ticks on main line.
+	<dt>
+	<img src="images/blueballdot.png" align=bottom alt="-">
+	<i>Thickness</i>
+	<dd>The thickness of the ticks
+    </dl>
+
+    <dt>
+    <img src="images/redballdot.png" align=bottom alt="-">
+    <i>Text - The text showing the length of the line</i>
+    <dd>
+    <dl>
+	<dt>
+	<img src="images/blueballdot.png" align=bottom alt="-">
+	<i>Font</i>
+	<dd>When pressed the standard font menu pops up to choose the font.
+	<dt>
+	<img src="images/blueballdot.png" align=bottom alt="-">
+	<i>Size</i>
+	<dd>The font size in points.
+	<dt>
+	<img src="images/blueballdot.png" align=bottom alt="-">
+	<i>Color</i>
+	<dd>Text color popup menu.
+	<dt>
+	<img src="images/blueballdot.png" align=bottom alt="-">
+	<i>Text type</i>
+	<dd>Checkboxes - show actual dimension of line even when the line is resized,
+	or show user-entered text.
+    </dl>
+</dl>
+</dl>
+
+<img src="images/blueramp.png" alt="-">
+
+<h2><a name="colors-panel">Colors Panel</a></h2>
+
+The Colors Panel is used to choose or define colors
+for the outline of objects or the fill area inside objects,
+and it will popup when either
+<a href="#pen-color">PEN COLOR</a> button
+or <a href="#fill-color">FILL COLOR</a> button is clicked.
+<p>
+<blockquote>
+  <img src="images/color-panel.png" alt="[Color Panel]">
+</blockquote>
+
+<p>
+<dl>
+<dt>
+<img src="images/redballdot.png" align=bottom alt="-">
+<i>Edit Pen</i>
+<dd>If this button is selected, the
+PEN COLOR (color to draw outline of object) may be selected.
+If this panel is popped up by clicking
+<a href="#pen-color">PEN COLOR</a> button,
+this button is selected initially.
+
+<p>
+<dt>
+<img src="images/redballdot.png" align=bottom alt="-">
+<i>Edit Fill</i>
+<dd>If this button is selected, the
+FILL COLOR (color to fill region inside of object) may be selected.
+If this panel is popped up by clicking
+<a href="#fill-color">FILL COLOR</a> button,
+this button is selected initially.
+
+<p>
+<dt>
+<img src="images/redballdot.png" align=bottom alt="-">
+<i>Standard Colors</i>
+<dd>This is a panel of 32 standard color buttons.
+Any of these colors may be selected by clicking on the color.
+The standard colors are black, yellow, white, gold,
+five shade of blue, four shade of green, four shade of cyan,
+four shade of red, five shade of magenta, four shade of brown,
+and four shade of pink.
+Additional colors may be defined by <i>User Defined Colors</i>.
+
+<p>
+<dt>
+<img src="images/redballdot.png" align=bottom alt="-">
+<i>User Defined Colors</i>
+<dd>
+<dl>
+<dt><img src="images/blueballdot.png" align=bottom alt="-">
+<i>Add Color</i>
+<dd>
+This button will add a new user-defined color
+in the box under <i>User Defined Colors</i>.
+Its initial color is black.  
+The color sliders may be used to change the color.
+
+<dt><img src="images/blueballdot.png" align=bottom alt="-">
+<i>Lookup Color</i>
+<dd>
+This button will also add new user-defined color,
+by getting a color from the display.
+After clicking <i>Lookup Color</i>, click on any color on the display
+and that color will be used for the new user-defined color.
+
+<dt><img src="images/blueballdot.png" align=bottom alt="-">
+<i>Delete</i>
+<dd>
+This button will delete a user-defined color.
+A user-defined color may be deleted by clicking this button
+after selecting a color cell.
+However, the color may not be deleted
+if the color is in use by any objects in the current figure.
+
+<dt><img src="images/blueballdot.png" align=bottom alt="-">
+<i>UnDelete</i>
+<dd>
+This button will undo the last delete of user-defined color.
+
+<dt><img src="images/blueballdot.png" align=bottom alt="-">
+<i>Delete Unused</i>
+<dd>
+This button will delete any unused user-defined colors.
+Notice that the number of colors actually in use are displayed next to the
+&quot;User Defined Colors&quot; title.
+Also, the borders of the colors in use are drawn in green, while the
+borders of unused colors are black.  The border of the selected color
+is red.
+
+<dt><img src="images/blueballdot.png" align=bottom alt="-">
+<i>RGB and HSV Sliders</i>
+<dd>
+The user-defined colors may be modified using
+RGB (red/green/blue) or HSV (hue/saturation/value) sliders.
+It is also possible to enter hexadecimal values
+to indicate the intensity of red, green and blue (each value is 00 to FF)
+into the fields under <i>Edit Pen</i> and <i>Edit Fill</i>.
+<p>
+If two or three of the buttons above the red, green and blue sliders are checked
+(the figure shows the red and green locked),
+those sliders will be `locked' together,
+so that moving the <i>Lock</i> slider will move those sliders together.
+</dl>
+</dl>
+
+<img src="images/blueramp.png" alt="-">
+
+<h2><a name="font-panel">Font Panel</a></h2>
+
+The Font Panel is used to select the font to draw text,
+and it will popup when the
+<a href="#text-font">TEXT FONT</a> button is clicked.
+Only the font name may be selected here;
+the size of the font must be set using <a href="#text-size">TEXT SIZE</a>.
+<p>
+There are two Font Panels;
+one for PostScript fonts and one for LaTeX fonts.
+<p>
+<blockquote>
+  <img src="images/text-font-panel.png" alt="[Font Panel - PostScript]">
+  <p>
+  <img src="images/text-font-panel-latex.png" alt="[Font Panel - LaTeX]">
+</blockquote>
+
+<p>
+Clicking a font button
+(the labels of the buttons are drawn using the font)
+will select that font.
+Clicking the <i>Use LaTeX Fonts</i> button will
+switch to the panel for LaTeX fonts,
+and clicking <i>Use PostScript Fonts</i> button will
+switch to the panel for PostScript fonts.
+<p>
+It is not guaranteed that all fonts in the panel of PostScript fonts
+are available on all PostScript printers.
+Also, different fonts may be used on the screen.
+This is dependent on which fonts the X server has.
+But at least 
+<i>Times-Roman</i>, <i>Times-Italic</i>, <i>Times-Bold</i>, <i>Times-BoldItalic</i>,
+<i>Courier</i>, <i>Courier-Oblique</i>, <i>Courier-Bold</i>, <i>Courier-BoldOblique</i>,
+<i>Helvetica</i>, <i>Helvetica-Oblique</i>, <i>Helvetica-Bold</i> and <i>Helvetica-BoldOblique</i> 
+will be available in most environments.
+<p>
+<img src="images/pict-i18n.png" alt="[I18N]"> 
+In <a href="i18n.html">international-<b>xfig</b></a>,
+ &quot;<i>Times-Roman</i>&quot; and &quot;<i>Times-Bold</i>&quot; will be replaced with
+<blockquote>
+<img src="images/font-menu-japanese.png"
+    alt="Times-Roman + Mincho and Times-Bold + Gothic">
+</blockquote>
+in the Japanese environment, and
+<blockquote>
+<img src="images/font-menu-korean.png"
+    alt="Times-Roman + Mincho and Times-Bold + Gothic">
+</blockquote>
+in the Korean environment.
+It is possible to put Japanese or Korean in text
+when these fonts are selected.
+See <a href="i18n.html">Internationalization</a> about this.
+
+<p>
+<hr>
+
+[ <a href="contents.html">Contents</a> |
+ <a href="introduction.html">Introduction</a> |
+ <a href="authors.html">Credits</a> ]
+
+</body>
+</html>

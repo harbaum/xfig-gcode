@@ -1,0 +1,40 @@
+transfig for DEBIAN
+-------------------
+
+Metafont support
+================
+
+If you want to use the mf (metafont) output language, you need the
+grafbase.mf (not graphbase.mf!), which is available from
+CTAN: graphics/mfpic/source/grafbase.mf
+
+
+CGM support
+===========
+
+To use the -b (binary) option for CGM export, the ralcgm program is
+required.  This is currently not available as a Debian package, but
+you may download the sources from
+ftp://ftp.cc.rl.ac.uk/pub/graphics/ralcgm/
+
+
+pstex
+=====
+
+There are many people heaving problems with the pstex driver.  The
+problem is, that newer versions of transfig need \usepackage{color} to
+work with pstex.  So simply add \usepackage{graphicx} and
+\usepackage{color} to your LaTeX file before using pstex and
+everything should work correct.
+
+
+Big LaTeX fonts
+===============
+
+If you want to use LaTeX fonts bigger than 42pt, you have to add
+\usepackage{type1cm} to your LaTeX file, which switches over to the
+Type1 vector fonts, that are available in all sizes.
+
+
+Roland Rosenfeld <roland@debian.org>
+$Id: README.Debian,v 1.6 2006/07/23 12:34:40 roland Exp $

@@ -1,0 +1,654 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<html>
+<head>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=EUC-JP">
+<title>Printing</title>
+<link rev="made" href="mailto:VEF00200@nifty.ne.jp">
+</head>
+
+<body>
+<a href="contents.html"><img src="../images/xfig-title.png"
+  alt="XFIG Users Manual" border=0></a>
+
+<h1>印刷、及びエクスポート</h1>
+
+<ul>
+<li><a href="#print">印刷</a>
+<li><a href="#export">エクスポート</a>
+<li><a href="latex_and_xfig.html">LaTeX と Xfig</a>
+<li><a href="#imagemap">HTML イメージ・マップの生成</a>
+</ul>
+<p>
+Fig ファイルの Export や Print のために、
+<b>xfig</b> は Fig ファイルを望みの出力フォーマットに変換するための
+ポスト・プロセッサである <b>fig2dev</b> を呼び出します。
+Export に際しては、PostScript、EPS、LaTeX、METAFONT や、
+GIF、JPEG などのビットマップ・フォーマットを含む、
+いくつものフォーマットがサポートされています。
+Export の章の <a href="#language"><i>Language</i></a> の説明を参照して下さい。
+<p>
+これは、<b>xfig</b> とともに、<b>fig2dev</b> を
+インストールしておかなければならないことを意味します。
+<b>fig2dev</b> は <b>transfig</b> パッケージの一部であり、
+あなたが <b>xfig</b> を見付けた場所から入手できる筈です。
+詳細については、<a href="installation.html">xfig の入手とインストール</a>
+を参照して下さい。
+
+<p>
+<hr>
+
+<h2><a name="print">印刷</a></h2>
+
+<a href="main_menus.html#file-menu">File メニュー</a> の <i>Print...</i> 
+(あるいはアクセラレータ <tt>Meta-P</tt>) は、
+図を PostScript プリンタへ出力するための機能を提供します。
+出力をファイルに格納したい場合には 
+<a href="#export">Export</a> を使用します。
+<p>
+アクセラレータ <tt>Shift-Meta-P</tt> は
+以前に設定されたパラメータを用いて印刷を行ないます
+(つまり、Print パネルは開かれませんが、その図は印刷されます)。
+<p>
+<blockquote>
+  <img src="../images/print-panel.png" alt="[Print Panel]">
+</blockquote>
+
+<p>
+<dl>
+<dt><i>Magnification</i>
+<dd>図の出力に際しての拡大率を、% で指定します。
+デフォルトは 100% ですが、
+<tt>Fig.magnification</tt> リソースによって変更することもできます。
+
+<p>
+<dt><i>Fit to Page</i>
+<dd>このボタンをクリックすると、
+<i>Paper Size</i> で設定された用紙に 
+少なくとも 1/2 インチの余裕を持って図が収まるように、
+<i>Magnification</i> を自動的に設定します。
+
+<p>
+<dt><i>Orientation</i>
+<dd>出力のオリエンテーション (方向) を指定します。
+<i>Landscape</i> は用紙を横長に、
+<i>Portrait</i> は用紙を縦長に使用するようにします。
+デフォルトのオリエンテーションは図のオリエンテーション 
+(これは <a href="main_menus.html#view-menu"><i>View</i> メニュー</a> の
+<a href="main_menus.html#port-land"><i>Portrait/Landscape</i></a> 
+によって変更できる) と同一となります。
+
+<p>
+<dt><i>Justification</i>
+<dd>図の左端を用紙の端に合わせる (<i>Flush Left</i>) か、
+図を用紙の中央に出力するようにする (<i>Centered</i>) かを選択します。
+
+<p>
+<dt><i><a name="paper-size">Paper Size</a></i>
+<dd>用紙の大きさを選択します。
+<p>
+用紙の大きさとしては以下のものが使用可能です。
+<ul>
+<li>Letter (8.5in x 11in)
+<li>Legal (8.5in x 14in)
+<li>Tabloid (17in x 11in)
+<li>ANSI A (8.5in x 11in)
+<li>ANSI B (11in x 17in)
+<li>ANSI C (17in x 22in)
+<li>ANSI D (22in x 34in)
+<li>ANSI E (34in x 44in)
+<li>ISO A9 (37mm x 52mm)
+<li>ISO A8 (52mm x 74mm)
+<li>ISO A7 (74mm x 105mm)
+<li>ISO A6 (105mm x 148mm)
+<li>ISO A5 (148mm x 210mm)
+<li>ISO A4 (21cm x 29.7cm)
+<li>ISO A3 (29.7cm x 42cm)
+<li>ISO A2 (42cm x 59.4cm)
+<li>ISO A1 (59.4cm x 84cm)
+<li>ISO A0 (84cm x 118.8cm)
+<li>JIS B10 (32mm x 45mm)
+<li>JIS B9 (45mm x 64mm)
+<li>JIS B8 (64mm x 91mm)
+<li>JIS B7 (91mm x 128mm)
+<li>JIS B6 (128mm x 182mm)
+<li>JIS B5 (182mm x 257mm)
+<li>JIS B4 (257mm x 364mm)
+<li>JIS B3 (364mm x 515mm)
+<li>JIS B2 (515mm x 728mm)
+<li>JIS B1 (728mm x 1030mm)
+<li>JIS B0 (1030mm x 1456mm)
+</ul>
+
+<p>
+<dt><i>Pages</i>
+<dd><i>Multiple</i> を選択すると、
+図が <i>Paper Size</i> で選択された用紙よりも大きい場合に、
+図を複数のページに分割して印刷するようになります。
+この機能は、印刷を行なった後でそれらの紙を貼り合わせる 
+(貼り合わせを容易にするために 
+<b>xfig</b> は図の一部がオーバーラップするように出力します) 
+ことによって、用紙よりも大きい図を出力することを可能とします。
+<p>
+<i>Single</i> を選択した場合にはこの機能は使用されず、
+用紙からはみ出した部分は単に失われます。
+
+<p>
+<dt><i>Background</i>
+<dd>出力する図の背景の色を設定します。
+デフォルトは白です。
+
+<p>
+<dt><i>Grid</i>
+<img src="../images/pict-new.png" alt="New">
+<dd><i>Minor</i> (細)、及び／もしくは <i>Major</i> (太) の
+グリッドの間隔をプルダウン・メニューから選択し、
+あるいは直接入力することにより、
+灰色のグリッドを印刷することができます。
+グリッドの間隔の単位は、図の単位に依存して、
+inch、あるいは mm となります。
+デフォルトは <i>None</i> です。
+
+<p>
+<dt><a name="printer"><i>Printer</i></a>
+<dd>出力先のプリンタを指定します。
+このフィールドが空の場合には、
+出力は標準プリンタへ送られます。
+<p>
+このデフォルト値は、リソース <tt>Fig*printer*string</tt>、
+もしくは環境変数 <tt>$PRINTER</tt> で指定されたものとなります。
+<p>
+システムがプリンタを定義するために 
+<tt>/etc/printcap</tt> を用いているならば、
+この右側にメニューが置かれます。
+
+<p>
+<dt><i>Print Job Params</i>
+<dd>ここで指定された文字列は、
+<tt>lpr</tt> (System V システムにおいては <tt>lp</tt>) の実行に際して
+オプションとして渡されます。
+文字列の中に <tt>%f</tt> が含まれている場合、
+それ (2回以上書いても構わない) は図の名前に置き換えられます。
+<p>
+デフォルトではこれは空ですが、必要であればリソース 
+<tt>Fig*job-params*string</tt> を用いて設定することができます。
+
+<p>
+<dt><i>Figures in batch</i>
+<dd>ここには、
+印刷のための<b>バッチ・ファイル</b>に格納されている図の個数が表示されます。
+図は <i>Print FIGURE to Batch</i> を用いて
+<b>バッチ・ファイル</b>に入れることができ、
+それらの図は <i>Print BATCH to Printer</i> によって
+1つのジョブとしてプリンタへ出力することができます。
+
+<p>
+<dt><i>Dismiss</i>
+<dd>このボタンをクリックすると Print パネルが閉じられます。
+アクセラレータ <tt>Meta-C</tt> も同じ意味を持ちます。
+
+<p>
+<dt><i>Print all layers/Export only active</i>
+<dd>図全体 (全てのレイヤ) を印刷するか、
+<a href="layers.html">Depth パネル</a>でアクティブにされている
+レイヤのみを印刷するかを選ぶことができます。
+
+<p>
+<dt><i>Print FIGURE / BATCH to Printer</i>
+<dd>このボタンをクリックすると、
+<b>バッチ・ファイル</b>に図が格納されている場合にはそれらの図が、
+さもなくば現在の図が、プリンタへ出力されます。
+アクセラレータ <tt>Meta-P</tt> も同じ意味を持ちます。
+<p>
+このボタンのラベルは、現在の図が印刷されるのか、
+もしくは<b>バッチ・ファイル</b>内の図が印刷されるのかに応じて、
+<i>Print FIGURE to Printer</i>、
+もしくは <i>Print BATCH to Printer</i> のいずれかとなります。
+<p>
+プリンタへの出力に際して、<b>xfig</b> は、まず 
+<a href="installation.html#related-software"><b>fig2dev</b></a> プログラム
+を用いて図を PostScript に変換した上で、
+その結果を <tt>lpr</tt> (System V システムにおいては <tt>lp</tt>) に
+渡します。
+<tt>lpr</tt> (もしくは <tt>lp</tt>) の実行に際しては、
+<i>PostScript Printer</i> フィールドで指定されたプリンタ名と 
+<i>Print Job Params</i> フィールドで指定されたオプションが
+コマンド行オプションとして渡されます。
+<p>
+<dt><i>Print FIGURE to Batch</i>
+<dd>このボタンをクリックすると、
+現在の図が<b>バッチ・ファイル</b>に追加されます。
+アクセラレータ <tt>Meta-B</tt> も同じ意味を持ちます。
+<p>
+<b>バッチ・ファイル</b>に格納された図は、
+後で <i>Print BATCH to Printer</i> が実行されたときにプリンタに出力されます。
+この機能は、
+複数の図を一度にプリンタへ出力するために用いることができます。
+
+<p>
+<dt><i>Clear Batch</i>
+<dd>このボタンをクリックすると、
+<b>バッチ・ファイル</b>の内容が消去されます。
+アクセラレータ <tt>Meta-X</tt> も同じ意味を持ちます。
+<b>バッチ・ファイル</b>の図は、
+<i>Print BATCH to Printer</i> がクリックされた後には自動的に消去されます。
+</dl>
+
+<p>
+<hr>
+
+<h2><a name="export">エクスポート</a></h2>
+
+<a href="main_menus.html#file-menu">File メニュー</a> の <i>Export...</i> 
+(あるいはアクセラレータ <tt>Meta-X</tt>) は、
+図を PostScript、GIF、JPEG、HP-GL などの
+種々のフォーマットでファイルに格納するための機能を提供します。
+これは、<b>xfig</b> で作成した図を他のアプリケーション 
+(例えば LaTeX や FrameMaker など) で読み込みたい場合に用いることができます。
+<p>
+<b>xfig</b> を LaTeX とともに使用するためのヒントについては 
+<a href="latex_and_xfig.html">LaTeX と Xfig</a> を参照して下さい。
+<p>
+アクセラレータ <tt>Shift-Meta-X</tt> は
+以前に設定されたパラメータを用いてエクスポートを行ないます
+(つまり、Export パネルは開かれませんが、その図はエクスポートされます)。
+<p>
+図を PostScript プリンタへ出力するためには 
+<a href="#print">Print</a> を使用して下さい。
+<p>
+<blockquote>
+  <img src="../images/export-panel.png" alt="[Export Panel]">
+</blockquote>
+<p>
+
+<dl>
+<dt><a name="language"><i>Language</i></a>
+<dd>図をエクスポートするフォーマット (言語) を選択します。
+デフォルトは <i>Encapsulated PostScript</i> ですが、
+<tt>Fig.exportLanguage</tt> リソースによって変更することもできます。
+<p>
+以下のフォーマットが使用可能です。
+<p>
+<b>ベクタ・フォーマット</b>:
+<ul>
+<li>PostScript
+<li>Encapsulated PostScript (EPSF)
+<li>EPS With ASCII (EPSI) preview
+<li>EPS With monochrome TIFF preview
+<li>EPS With color TIFF preview
+<li><a name="pdf_export">PDF (Portable Document Format)</a>
+<li>Combined PostScript/LaTeX
+<li>Combined PDF/LaTeX
+<img src="../images/pict-new.png" alt="New">
+<li>LaTeX picture environment
+<li>PicTeX macros
+<li>IBMGL (HP-GL)
+<li>Textyl
+<li>TPIC
+<li>PIC
+<li>MF (MetaFont)
+<li>MP (MetaPost)
+<img src="../images/pict-new.png" alt="New">
+<li>MMP (Multi-MetaPost)
+<img src="../images/pict-new.png" alt="New">
+<li><a name="cgm_export">CGM</a>
+(Computer Graphics Metafile - useful to import into Microsoft WORD, etc.)
+<li><a name="cgm_export">Binary CGM</a>
+<img src="../images/pict-new.png" alt="New">
+<li><a name="cgm_export">EMF</a>(Enhanced Metafile)
+<img src="../images/pict-new.png" alt="New">
+<li>Tk (Tck/Tk toolkit canvas)
+<li>SVG (Scalable Vector Graphics - beta driver)
+<img src="../images/pict-new.png" alt="New">
+<li><a href="#imagemap">HTML Image map</a>
+</ul>
+
+<p>
+ビットマップ・フォーマット:
+<ul>
+<li><A HREF="http://www.dcs.ed.ac.uk/%7Emxr/gfx/2d-hi.html">GIF</A>
+(Graphic Interchange Format)
+<li><A HREF="http://www.dcs.ed.ac.uk/%7Emxr/gfx/2d-hi.html">JPEG</A>
+<li><A HREF="http://www.dcs.ed.ac.uk/%7Emxr/gfx/2d-hi.html">PCX</A>
+(Paintbrush format)
+<li><A HREF="http://www.boutell.com/boutell/png/">PNG</A>
+(Portable Network Graphics)
+<li><A HREF="http://www.dcs.ed.ac.uk/%7Emxr/gfx/2d-hi.html">PPM</A>
+(Portable Pixmap)
+<li><A HREF="http://www.dcs.ed.ac.uk/%7Emxr/gfx/2d-hi.html">SLD</A>
+(AutoDesk slide format)
+<li><A HREF="http://www.dcs.ed.ac.uk/%7Emxr/gfx/2d-hi.html">TIFF</A>
+(Tag Image File Format)
+<li><A HREF="http://www.dcs.ed.ac.uk/%7Emxr/gfx/2d-hi.html">XBM</A>
+(X11 Bitmap)
+<li><A HREF="http://www.dcs.ed.ac.uk/%7Emxr/gfx/2d-hi.html">XPM</A>
+(X11 Pixmap)
+</ul>
+
+<p>
+LaTeX フォーマットのバリエーションとして、
+標準の picture 環境以外に、<i>epic</i>、<i>eepic</i>、
+及び <i>eepicemu</i> マクロを使用することもできます。
+<i>Combined PostScript/LaTeX</i> を用いると、図のテキストの部分を LaTeX で、
+それ以外の部分を PostScript で出力することができますが、
+これは特に図に複雑な数式が含まれている場合 
+(<a href="attributes.html#text-flags">TEXT FLAGS</a> も参照) 
+に有用です。
+<p>
+<b>xfig</b> で作成することのできるすべての図を、
+すべてのフォーマットにおいて完全に出力できるわけではありません。
+例えば、<a href="drawing.html#picture">取り込まれたイメージ</a>は 
+IBMGL でのエクスポートに際しては出力されません。
+PostScript でのエクスポートに際しては 
+<b>xfig</b> のほとんどすべての機能が使用可能であり、
+またかなり高品質の出力を生成することができます。
+<p>
+<b>xfig</b> と共に入手可能な 
+<b>TransFig</b> パッケージの一部である <b>fig2dev</b> プログラムが、
+Fig フォーマットからの実際の変換の処理を行ないます。
+<p>
+GIF や JPEG などのビットマップ形式でのエクスポートを行なうためには、
+<a href="installation.html#ghostscript">Ghostscript</a>、
+及び <a href="installation.html#netpbm">netpbm パッケージ</a> 
+が必要となります。
+
+<p>
+<dt><i>Magnification</i>
+<dd>図の出力に際しての拡大率を、% で指定します。
+デフォルトは 100% ですが、
+<tt>Fig.magnification</tt> リソースによって変更することもできます。
+
+<p>
+<dt><i>Export all layers/Export only active</i>
+<dd>図全体 (全ての<a href="layers.html">レイヤ</a>) をエクスポートするか、
+<a href="layers.html#depth_panel">Depth パネル</a> でアクティブとされている
+レイヤのみをエクスポートするかを選ぶことができます。
+
+<p>
+<dt><a name="border_margin"><i>Border Margin</i></a>
+<dd>PostScript、Encapsulated PostScript、HTML image map、
+及びビットマップ・フォーマットのいずれか (例えば、GIF、JPEG など) 
+でのエクスポートに際して、
+図の周囲にここで指定した幅の余白を設けることができます。
+余白の大きさの単位は、ピクセル、もしくは 1/80インチです。
+
+<p>
+<dt><i>Background</i>
+<dd>出力する図の背景の色を設定します。
+デフォルトは白です。
+
+<p>
+<dt><i>Grid</i>
+<img src="../images/pict-new.png" alt="New">
+<dd><i>Minor</i> (細)、及び／もしくは <i>Major</i> (太) の
+グリッドの間隔をプルダウン・メニューから選択し、
+あるいは直接入力することにより、
+灰色のグリッドを印刷することができます。
+グリッドの間隔の単位は、図の単位に依存して、
+inch、あるいは mm となります。
+デフォルトは <i>None</i> です。
+
+<p>
+<dt><i>PostScript Options</i>
+<dd>これらのオプションは、<a href="#language"><i>Language</i></a> として
+<i>PostScript</i> が選択されている場合に現れます。
+
+<p>
+<dl>
+<dt><i>Paper Size</i>
+<dd>用紙の大きさを選択します。
+使用可能な <i>Paper Size</i> については、
+<a href="#paper-size">Print パネル</a> での説明を参照して下さい。
+これは、<a href="#language"><i>Language</i></a> として 
+<i>PostScript</i> を選択している場合に限って有効となります。
+
+<p>
+<dt><i>Fit to Page</i>
+<dd>このボタンをクリックすると、
+<i>Paper Size</i> で設定された用紙に 
+少なくとも 1/2 インチの余裕を持って図が収まるように、
+<i>Magnification</i> を自動的に設定します。
+これは、<a href="#language"><i>Language</i></a> として 
+<i>PostScript</i> を選択している場合に限って有効となります。
+
+<p>
+<dt><i>Orientation</i>
+<dd>出力のオリエンテーション (方向) を指定します。
+<i>Landscape</i> は用紙を横長に、
+<i>Portrait</i> は用紙を縦長に使用するようにします。
+デフォルトのオリエンテーションは図のオリエンテーション 
+(これは <a href="main_menus.html#view-menu"><i>View</i> メニュー</a> の
+<a href="main_menus.html#port-land"><i>Portrait/Landscape</i></a> 
+によって変更できる) と同一となります。
+
+<p>
+<dt><i>Justification</i>
+<dd>図の左端を用紙の端に合わせる (<i>Flush Left</i>) か、
+図を用紙の中央に出力するようにする (<i>Centered</i>) かを選択します。
+これは、<a href="#language"><i>Language</i></a> として 
+<i>PostScript</i> を選択している場合に限って有効となります。
+
+<p>
+<dt><i>Pages</i>
+<dd><i>Multiple</i> を選択すると、
+図が <i>Paper Size</i> で選択された用紙よりも大きい場合に、
+図を複数のページに分割して出力するようになります。
+<i>Single</i> を選択した場合にはこの機能は使用されません。
+これは、<a href="#language"><i>Language</i></a> として 
+<i>PostScript</i> を選択している場合に限って有効となります。
+
+<p>
+<dt><i>Offset</i>
+<dd>エクスポートに際して、
+図はここで設定された距離だけ右、もしくは下へシフトして出力されます。
+負の値を指定することにより、
+図を左、もしくは上へシフトさせることも可能です。
+距離の単位は、<i>Inches</i>、
+<i>Centimeters</i>、及び <i>Fig Units</i> (version 3.x では 1/1200 インチ) 
+から選択することができます。
+</dl>
+
+<p>
+<dt><i>Bitmap Options</i>
+<dd>これらのオプションは、<a href="#language"><i>Language</i></a> として
+ビットマップ・フォーマットが選択されている場合に現れます。
+<p>
+<blockquote>
+  <img src="../images/export-panel-gif.png" alt="[Export GIF]" >
+  <br>
+  <img src="../images/export-panel-jpeg.png" alt="[Export JPEG]" >
+</blockquote>
+<p>
+<dl>
+<dt><a name="smooth"><i>Smoothing</i></a>
+<dd><a href="#language"><i>Language</i></a> が
+ビットマップ・フォーマットのいずれかである場合には 
+<i>Smooth</i> というラベルの付けられたボタンが現れます。
+これは、フォントの描画品質を改善するために、
+`<tt>-S 2</tt>' オプション (<i>Some smoothing</i>)、
+あるいは `<tt>-S 4</tt>' オプション (<i>Some smoothing</i>) を付けて
+<b>fig2dev</b> を呼び出します。
+これらは <a href="installation.html#install-misc">Ghostscript</a> 
+にイメージを2倍の大きさで生成させ、
+その結果を <a href="installation.html#install-misc"><tt>pnmscale</tt></a> 
+によって本来の大きさに縮小しますが、
+これは隣り合ったピクセルの色の平均を取ることによってイメージを滑らかにします。
+デフォルトは <i>No smoothing</i> です。
+
+<p>
+<dt><i>Transparent Color</i>
+<dd>GIF フォーマットでのエクスポートに際して、
+いずれかの色を ``透明'' であるものとして設定することができます。
+Transparent GIF に対応した GIF ビューア 
+(例えば <a href="http://www.netscape.com/">Netscape Navigator</a> など) 
+での表示に際しては、その色は表示されず、
+代わりにその色があった場所にはビューアの背景が現れるようになります。
+このメニュー・ボタンは、
+GIF フォーマットでのエクスポートに際してのみ表示されます。
+デフォルトは <i>None</i> です。
+
+<p>
+<dt><i>JPEG Image quality</i>
+<dd><a href="#language"><i>Language</i></a> が <i>JPEG</i> であるならば、
+「quality factor」を選択するためのエントリが現れます。
+デフォルトは 75 です。
+</dl>
+
+<p>
+<dt><i>Default File</i>
+<dd><i>Output File</i> でファイル名が指定されなかった場合には、
+出力はここに表示されているファイルへ書き込まれます。
+<p>
+このファイル名は、デフォルトでは図のファイル名に
+出力のフォーマットに対応する拡張子を付け加えたものとなっていますが、
+<i>Output File</i> でファイル名を指定して
+エクスポートを行なった場合にはそのファイル名に変更されます。
+
+<p>
+<dt><i>Output File</i>
+<dd>出力を書き込むファイルを指定します。
+このフィールドが空の場合には、
+<i>Default File</i> フィールドのファイル名が
+出力先のファイル名として用いられます。
+<p>
+<i>Output File</i> フィールドのファイル名は、
+<i>Alternatives</i> リストのファイル名をクリックするか、
+もしくはキーボードから直接入力することによって変更することができます。
+ファイル名を入力した後に return をタイプすると、
+<i>Export</i> ボタンをクリックした場合と同様に
+そのファイルへのエクスポートが行なわれます。
+
+<p>
+<dt><i>Alternatives</i>
+<dd>ここには現在のディレクトリの中のファイルの一覧 
+(<i>Filename Mask</i> に一致するもの) が表示されており、
+その中からエクスポート先のファイルを選択することができます。
+<p>
+このリストの中のファイル名をマウスボタン1でクリックすると、
+そのファイル名が <i>Output File</i> フィールドにコピーされます。
+また、このリストの中のファイル名をマウスボタン1でダブル・クリックすると、
+<i>Export</i> ボタンをクリックした場合と同様に
+そのファイルへのエスポートが行なわれます。
+既に存在しているファイルへのエクスポートを行なった場合には
+そのファイルに格納されていた情報は失われることに注意して下さい。
+
+<p>
+<dt><i>Filename Mask</i>
+<dd>ここで指定されたパターンに一致する名前のファイルのみが 
+<i>Alternatives</i> リストに含められます。
+パターンは UNIX のシェルで用いられるものと同様のものであり、
+``<tt>*</tt>'' や ``<tt>?</tt>'' などの
+メタ・キャラクタを用いることができます。
+<p>
+このフィールドで return をタイプすると、
+<i>Rescan</i> ボタンがクリックされた場合と同様に
+現在のディレクトリがスキャンされます。
+この文字列は、<a href="#language"><i>Language</i></a> の選択に応じて設定されます
+
+<p>
+<dt><i>Current Dir</i>
+<dd>これは現在のディレクトリを示しており、
+<i>Alternatives</i> リストには
+このディレクトリの中のファイルが表示されます。
+<p>
+この内容は、<i>Direcotries</i> リストの
+ディレクトリ名をクリックするか、
+もしくはキーボードから直接入力することによって変更することができます。
+ディレクトリ名を入力した後に return をタイプすると、
+<i>Rescan</i> ボタンをクリックした場合と同様に
+そのディレクトリの中のファイルがスキャンされ、
+<i>Alternatives</i> リストの内容が更新されます。
+
+<p>
+<dt><i>Directories</i>
+<dd>ここには現在のディレクトリの中のディレクトリの一覧が表示されており、
+このリストのいずれかの項目をマウスボタン1でクリックすると
+そのディレクトリへの移動が行なわれます。
+通常はここには<i>隠しディレクトリ</i>は表示されませんが、
+これは <i>Show Hidden</i> ボタンによって切り替えることができます。
+<p>
+``<tt>..</tt>'' は親のディレクトリを示しています。
+親ディレクトリへの移動は、<i>Alternatives</i> リスト、
+もしくは <i>Directories</i> リストの上で
+マウスボタン3をクリックすることによって行なうこともできます。
+
+<p>
+<dt><i>Home</i>
+<dd>このボタンをクリックすると、
+ユーザーのホーム・ディレクトリへ移動します。
+
+<p>
+<dt><i>Show Hidden</i>
+<dd>このボタンをクリックすると、
+隠しディレクトリ (名前が ``<tt>.</tt>'' で始まるディレクトリ) を
+表示する状態と表示しない状態とが交互に切り替えられます。
+通常は、隠しディレクトリは表示されないようになっています。
+
+<p>
+<dt><i>Rescan</i>
+<dd>このボタンをクリックすると、
+現在のディレクトリの中のファイルがスキャンされ、
+<i>Alternatives</i> リストの内容が更新されます。
+アクセラレータ <tt>Meta-R</tt> も同じ意味を持ちます。
+
+<p>
+<dt><i>Cancel</i>
+<dd>このボタンをクリックすると Export パネルが閉じられます。
+アクセラレータ <tt>Meta-C</tt> も同じ意味を持ちます。
+
+<p>
+<dt><i>Export</i>
+<dd>このボタンをクリックすると、
+<i>Output File</i> フィールドで
+ファイル名が指定されている場合にはそのファイルへの、
+さもなくば <i>Default File</i> で示されているファイルへの
+エクスポートが行なわれます。
+アクセラレータ <tt>Meta-E</tt> も同じ意味を持ちます。
+<p>
+<i>Default File</i> とは異なる、
+既に存在するファイルへのエクスポートを行なおうとした場合には、
+エクスポートを行なうかどうかを確認するための確認ウィンドウが開かれます。
+また、<i>Default File</i> とは異なるファイルへの
+エクスポートを行なった場合には、
+そのファイル名が <i>Default File</i> に設定されます。
+</dl>
+
+<p>
+<hr>
+
+<h2><a name="imagemap">HTML イメージ・マップの生成</a></h2>
+
+<a href="#export">Export パネル</a> で 
+<a href="#language"><i>Language</i></a> として 
+<i>HTML Image Map</i> を選択してエクスポートを行なうことにより、
+HTML 3.2 のイメージ・マップ (クリッカブル・マップ) を生成することが可能です。
+<p>
+この機能を使用する場合には、クリックできるようにしたいオブジェクトに、
+<a href="editing.html#edit-panel">Edit パネル</a> の <i>Comments</i> で、
+<p>
+<blockquote>
+  <tt>HREF="<i>url</i>" ALT="<i>string</i>"</tt>
+</blockquote>
+<p>
+のような指定を行なっておくことが必要となります。
+ここで、<tt><i>url</i></tt> はリンク先の URL、
+<tt><i>string</i></tt> は
+イメージを扱わないブラウザのための代替文字列 
+(<tt>ALT</tt> アトリビュートは HTML 3.2 では必須となっている) です。
+<tt><i>string</i></tt> は、<b>xfig</b> がイメージ・マップと共に生成する
+代替テキスト・リンクのラベルとしても用いられます。
+<p>
+TEXT オブジェクトをリンクのために用いることはできません。
+CIRCLE、ELLIPSE、SPLINE、及び ARC は多角形で近似されます。
+POLYLINE や OPEN SPLINE などの開いたオブジェクトは
+閉じられているものとして扱われます。
+ARC-BOX は BOX と同じように扱われます。
+
+<p>
+<hr>
+
+[ <a href="contents.html">Contents</a> |
+ <a href="introduction.html">Introduction</a> |
+ <a href="authors.html">Credits</a> ]
+
+</body>
+</html>

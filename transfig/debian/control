@@ -1,0 +1,27 @@
+Source: transfig
+Section: graphics
+Priority: optional
+Maintainer: Roland Rosenfeld <roland@debian.org>
+Standards-Version: 3.9.5
+Build-Depends: debhelper (>= 7.0.50~), ghostscript, 
+ libxpm-dev (>= 1:3.5.4.2), xutils-dev, libpng-dev, 
+ texlive-latex-base, texlive-latex-recommended, texlive-fonts-recommended, 
+ texlive-font-utils, texlive-lang-german, gawk, latex-beamer, 
+ texlive-pictures (>= 2013.20140314) | pgf
+Homepage: http://xfig.org/
+
+Package: transfig
+Architecture: any
+Depends: ${shlibs:Depends}, ${misc:Depends}, x11-common, gawk
+Recommends: netpbm (>= 2:10.0-4), ghostscript
+Suggests: xfig
+Multi-Arch: foreign
+Description: Utilities for converting XFig figure files
+ This package contains utilities (mainly fig2dev) to handle XFig
+ (Facility for Interactive Generation of figures) files.
+ .
+ It can convert them to box, cgm, epic, eepic, eepicemu, emf, eps,
+ gif, ibmgl, jpeg, latex, map (HTML image map), mf (MetaFont), mp
+ (MetaPost), mmp (Multi-Meta-Post), pcx, pdf, pdftex, pdftex_t, pic,
+ pictex, png, ppm, ps, pstex, pstex_t, ptk (Perl/tk), sld (AutoCad
+ slide format), textyl, tiff, tk (Tcl/Tk), tpic, xbm and xpm.

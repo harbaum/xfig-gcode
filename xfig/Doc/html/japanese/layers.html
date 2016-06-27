@@ -1,0 +1,90 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<html>
+<head>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=EUC-JP">
+<title>Layers</title>
+<link rev="made" href="mailto:VEF00200@nifty.ne.jp">
+</head>
+
+<body>
+<a href="contents.html"><img src="../images/xfig-title.png"
+  alt="XFIG Users Manual" border=0></a>
+
+<h1>レイヤー (Depth)</h1>
+
+<h2>概要</h2>
+
+<b>xfig</b> は、重なり合ったオブジェクトの描画の順序を決定するために 
+``<a href="attributes.html#depth">深さ</a>'' (レイヤーの単純な形態) 
+を用いています。
+深さは、色などと同様、オブジェクトの属性の1つです。
+2つ、あるいはそれ以上のオブジェクトが重なり合っており、
+しかもその描画の順序が重要であるならば、
+それぞれに異なった深さを指定しなければなりません。
+<p>
+深さ 0 が再優先であり、
+深さの大きいオブジェクトは深さの小さいものの下となります。
+最大の深さは 999 です。
+
+<h2><a name="depth_panel">Depth パネル</a></h2>
+
+<img src="../images/depth-panel.png" alt="[Depth panel]" align="right">
+<b>xfig</b> はかなり前から深さを取り扱う機能を持っていましたが、
+今はそれぞれの深さのオブジェクトを
+表示や編集の対象とするかどうかをユーザーが選択することができる 
+Depth パネルがキャンバスの右側に設けられています。
+このパネルは、<a href="main_menus.html#view-menu">View メニュー</a> の 
+<i>Show depth manager</i> によって隠し、あるいは表示させることができます。
+<p>
+この Depth パネルのチェックボックスをクリックすると、
+その深さのオブジェクトの表示や編集が許可、あるいは禁止されます。
+<p>
+いずれかのチェックボックスをクリックし、
+その上や下のチェックボックスの上へ
+マウスボタンを押したままでマウスをドラグすることにより、
+一度に複数の深さの状態を切り替えることもできます。
+ON となっているチェックボックスの上でクリックして
+他のチェックボックスの上へマウスをドラグすると、
+それらはその状態にかかわらず OFF に切り替えられます。
+逆に、OFF となっているチェックボックスの上でクリックして
+他のチェックボックスの上へマウスをドラグすると、
+それらはその状態にかかわらず ON に切り替えられます。
+
+<h2>コントロール</h2>
+
+<dl>
+<dt><i>All On</i>
+<dd>このボタンをクリックすると、全ての深さが ON となります。
+
+<p>
+<dt><i>All Off</i>
+<dd>このボタンをクリックすると、全ての深さが OFF となります。
+
+<p>
+<dt><i>Toggle</i>
+<dd>このボタンをクリックすると、全ての深さの設定が反転します。
+すなわち、ON であったものは OFF となり、
+OFF であったものは ON となります。
+
+<p>
+<dt><i>Gray</i>
+  <img src="../images/pict-new.png" alt="New">
+<dd>このチェックボックスを選択状態とすると、
+<b>xfig</b> は OFF となっているレイヤをグレーで表示するようになります。
+
+<p>
+<dt><i>Blank</i>
+  <img src="../images/pict-new.png" alt="New">
+<dd>このチェックボックスを選択状態とすると、
+<b>xfig</b> は OFF となっているレイヤを表示しないようになります。
+</dl>
+
+<p>
+<hr>
+
+[ <a href="contents.html">Contents</a> |
+ <a href="introduction.html">Introduction</a> |
+ <a href="authors.html">Credits</a> ]
+
+</body>
+</html>

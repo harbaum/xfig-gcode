@@ -1,0 +1,23 @@
+Author: Vladislav Zavjalov <slazav@altlinux.org>
+Date:   Tue Dec 21 22:51:52 2010 +0300
+Origin: http://git.altlinux.org/people/slazav/packages/?p=xfig.git;a=patch;h=a592399d99b0a6b3905b85d99ebf5ad5540bbc51
+Subject: w_drawprim.c: fix xfontlist->fset initialization
+
+--- a/w_drawprim.c
++++ b/w_drawprim.c
+@@ -201,6 +201,7 @@
+ 			nf->size = ss;	/* store the size here */
+ 			nf->fname = flist[i].fn;	/* keep actual name */
+ 			nf->fstruct = NULL;
++		        nf->fset = NULL;
+ 			nf->next = NULL;
+ 		    }
+ 	    } /* next size */
+@@ -306,6 +307,7 @@
+ 	    nf = newfont;		/* keep current ptr */
+ 	    nf->size = size;		/* store the size here */
+ 	    nf->fstruct = NULL;
++	    nf->fset = NULL;
+ 	    nf->next = NULL;
+ 
+ 	    if (openwinfonts) {

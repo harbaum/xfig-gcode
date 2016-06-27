@@ -1,0 +1,25 @@
+Author: Michael Tautschnig <mt@debian.org>
+Date: Sun, 16 Aug 2015 01:25:40 +0100
+Subject: missing argument may cause crash or other undefined behaviour
+Bug-Debian: http://bugs.debian.org/795642
+
+--- a/w_intersect.c
++++ b/w_intersect.c
+@@ -208,7 +208,7 @@
+   double X  = (double)(c->center.x - e->center.x);
+   double Y  = (double)(c->center.y - e->center.y);
+ 
+-  do_circle_ellipse_intersect(r, X, Y, e, x, y, isect_cb);
++  do_circle_ellipse_intersect(r, X, Y, e, x, y, NULL, isect_cb);
+ }
+ 
+ static void
+@@ -1103,7 +1103,7 @@
+       double OX = (double)(e->center.x);
+       double OY = (double)(e->center.y);
+   
+-      do_circle_circle(PX, PY, X2, Y2, R1, R2, OX, OY, a, isect_cb);
++      do_circle_circle(PX, PY, X2, Y2, R1, R2, OX, OY, a, NULL, isect_cb);
+     }
+   }
+ }

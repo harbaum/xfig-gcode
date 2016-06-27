@@ -1,0 +1,87 @@
+xfig for DEBIAN
+===============
+
+For additional information about xfig have a look at the xfig web page at
+ http://www.xfig.org
+ http://www-epb.lbl.gov/xfig/
+
+
+Japanese Support
+================
+
+Simply set the environment variable LANG to ja_JP.ujis and xfig should 
+be hopefully adapted to your needs. I cannot test this out here,
+because I don't understand any Japanese nor am I able to understand
+the fonts, so if the Japanese adaptions don't work as they should,
+please let me know.
+
+
+Korean Support
+==============
+
+Should work in the same way like Japanese support does but with LANG
+set to ko_KR.eucKR.
+
+
+UTF-8 Support
+=============
+
+xfig and transfig lack UTF-8 support, so if you have a UTF-8 locale
+set as LC_CTYPE (see locale(1)), you will not be able to enter
+characters other then 7bit ASCII via keyboard (using "View" ->
+"Character map" may work).  To work around this issue, there is a
+wrapper around xfig installed, that tries to downgrade you LC_CTYPE to
+a non-UTF-8 charset, which may or may not work.  To work around this
+automatism, you can define an environment variable XFIG_LC_CTYPE and
+set it to some non-UTF-8 value like "de_DE".
+Make sure, that you have build this ("locale -a" shows all generated
+locales on your system and "dpkg-reconfigure locales" allows one to
+extend the list of generated locales.
+
+
+Xaw vs. Xaw3D
+=============
+
+xfig can be compiled with Xaw (2D look) as well as with Xaw3D (3D
+look).  Xaw3D is designed as a plug-in-replacement for Xaw, so every
+program compiled with Xaw should be able to run with Xaw3D.  That's
+the theory, while in reality the compatibility isn't perfect.  That
+means, that xfig (since version 3.2.3) compiled with Xaw does not run
+with Xaw3D ("xfig: Symbol `smeBSBClassRec' has different size in
+shared object, consider re-linking").  So I had to decide between
+generally using 2D look (also for users who have Xaw3D installed) by
+using xaw-wrappers and denying Xaw3D or alternatively to generally use
+Xaw3D (and depend on xaw3dg) as recommended by the upstream author.  I
+choose the latter option, so xfig is now linked against xaw3dg.
+
+
+pstex
+=====
+
+It's not a xfig but a transfig issue, but there are many people
+heaving problems with the pstex driver.  The problem is, that newer
+versions of transfig need \usepackage{color} to work with pstex.  So
+simply add \usepackage{graphicx} and \usepackage{color} to your LaTeX
+file before using pstex and everything should work correct.
+
+
+Cursor theme
+============
+
+You may notice some problems with ugly cursors which don't allow you
+to do precise drawings.  This usually depends on the configured cursor
+theme.  If you don't like the configure cursor font, have a look at
+the output of 
+ update-alternatives --display x-cursor-theme
+This lists all installed cursor theme with their priorities and shows
+which of these alternatives is currently linked.  There were problems
+with the gtk2-engines-industrial theme reported, which replaces the
+cross hair cursor by a big white cross.  To change the cursor theme
+run
+ update-alternatives --config x-cursor-theme
+and select the core.theme.  After this you may have to restart you X
+server.
+
+
+Roland Rosenfeld <roland@debian.org>
+$Id: README.Debian,v 1.15 2015/08/18 12:10:36 roland Exp $

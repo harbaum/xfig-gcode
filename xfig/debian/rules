@@ -1,0 +1,125 @@
+#!/usr/bin/make -f
+#
+# (C) 1999-2015 Roland Rosenfeld <roland@debian.org>, based on
+# sample debian/rules that uses debhelper. 
+# This file is public domain software, originally written by Joey Hess.
+
+# Uncomment this to turn on verbose mode. 
+#export DH_VERBOSE=1
+
+INSTDIR=`pwd`/debian/xfig
+DOCINSTDIR=`pwd`/debian/xfig-doc
+LIBINSTDIR=`pwd`/debian/xfig-libs
+BUILD_DATE := $(shell dpkg-parsechangelog | sed -n -e 's/^Date: //p')
+
+export DEB_BUILD_MAINT_OPTIONS = hardening=+all
+
+%:
+	dh $@
+
+override_dh_auto_configure:
+	xmkmf -a
+
+override_dh_auto_build:
+	$(MAKE) CDEBUGFLAGS="$(shell dpkg-buildflags --get CFLAGS)" \
+                EXTRA_LDOPTIONS="$(shell dpkg-buildflags --get LDFLAGS)" \
+                PROJECT_DEFINES="$(shell dpkg-buildflags --get CPPFLAGS)" \
+		LIBDIR=/usr/share
+#	generate xfig_man.html, which is missing upstream:
+	man -Thtml -l Doc/xfig.man \
+	| sed "s/<!-- CreationDate: .* -->/<!-- CreationDate: $(BUILD_DATE) -->/" \
+	> Doc/xfig_man.html
+
+
+override_dh_clean:
+	[ ! -f Makefile ] || $(MAKE) clean
+	rm -f Makefile* xfig.man
+	rm -f Doc/xfig_man.html
+
+override_dh_auto_install-indep:
+	$(MAKE) install.html DESTDIR=$(DOCINSTDIR)
+#	Remove superflous files from documentation:
+	rm -f $(DOCINSTDIR)/usr/share/doc/xfig/html/images/sav1a0.tmp
+
+	(cd $(DOCINSTDIR)/usr/share/doc/xfig/html; \
+		ln -sf japanese ja_JP.ujis)
+
+#	install -m755 debian/xfig-www-browser $(DOCINSTDIR)/usr/bin/
+	install -m755 debian/xfig-pdf-viewer $(DOCINSTDIR)/usr/bin/
+
+	$(MAKE) install.libs DESTDIR=$(LIBINSTDIR) LIBDIR=/usr/share
+
+#	remove the just installed ERD/GUI license files, because they are
+#	already in debian/copyright included:	
+	rm -f $(LIBINSTDIR)/usr/share/xfig/Libraries/ERD/LICENSE
+	rm -f $(LIBINSTDIR)/usr/share/xfig/Libraries/GUI/LICENSE
+
+#	remove csh scripts
+	rm -f $(LIBINSTDIR)/usr/share/xfig/Libraries/Maps/USA/assemble
+	rm -f $(LIBINSTDIR)/usr/share/xfig/Libraries/Maps/Canada/assemble
+	rm -f $(LIBINSTDIR)/usr/share/xfig/Libraries/Flags/MAKEPNG
+
+#	fix typo in directory name
+	mv $(LIBINSTDIR)/usr/share/xfig/Libraries/Flags/Carribean \
+		$(LIBINSTDIR)/usr/share/xfig/Libraries/Flags/Caribbean
+
+#	unzip gzipped fig files:
+#	find $(LIBINSTDIR)/usr/share/xfig/Libraries/ -name \*.fig.gz \
+#		| xargs gzip -d
+
+#	Remove tar file from library:
+	rm -f $(LIBINSTDIR)/usr/share/xfig//Libraries/Fasteners/Fasteners.tar
+
+#	Fix permissions of Libraries:
+	find $(LIBINSTDIR)/usr/share/xfig/Libraries -type f \
+		| xargs chmod -x
+
+override_dh_auto_install-arch:
+	$(MAKE) install DESTDIR=$(INSTDIR) \
+		LIBDIR=/usr/share BINDIR=/usr/bin \
+		XAPPLOADDIR=/etc/X11/app-defaults
+# 	move xfig to xfig.real and install wrapper as xfig:
+	mv $(INSTDIR)/usr/bin/xfig $(INSTDIR)/usr/bin/xfig.real
+	install -m755 debian/xfig-wrapper $(INSTDIR)/usr/bin/xfig
+
+#	install japanese app-defaults:
+	install -m644 Fig.ad \
+		$(INSTDIR)/etc/X11/ja_JP.eucJP/app-defaults/Fig
+	echo 'Fig.international: true' >> \
+		$(INSTDIR)/etc/X11/ja_JP.eucJP/app-defaults/Fig
+	echo 'Fig*international: false' >> \
+		$(INSTDIR)/etc/X11/ja_JP.eucJP/app-defaults/Fig
+	echo 'Fig.japanese: true' >> \
+		$(INSTDIR)/etc/X11/ja_JP.eucJP/app-defaults/Fig
+	echo 'Fig.inputStyle: OffTheSpot' >> \
+		$(INSTDIR)/etc/X11/ja_JP.eucJP/app-defaults/Fig
+
+	install -m644 Fig.ad \
+		$(INSTDIR)/etc/X11/ko_KR.eucKR/app-defaults/Fig
+	echo 'Fig.international: true' >> \
+		$(INSTDIR)/etc/X11/ko_KR.eucKR/app-defaults/Fig
+	echo 'Fig*international: false' >> \
+		$(INSTDIR)/etc/X11/ko_KR.eucKR/app-defaults/Fig
+	echo 'Fig.korean: true' >> \
+		$(INSTDIR)/etc/X11/ko_KR.eucKR/app-defaults/Fig
+	echo 'Fig.inputStyle: OverTheSpot' >> \
+		$(INSTDIR)/etc/X11/ko_KR.eucKR/app-defaults/Fig
+
+#	Install xpm icons and backward compatibility links
+	for i in xfig16x16.xpm xfig32x32.xpm xfig64x64.xpm \
+		xfig16x16cmap.xpm  xfig32x32cmap.xpm xfig66x62cmap.xpm; do \
+	    install -m644 debian/$$i \
+		$(INSTDIR)/usr/share/pixmaps/$$i; \
+	done
+	(cd $(INSTDIR)/usr/share/pixmaps; \
+	 ln -s xfig64x64.xpm big-xfig.xpm; \
+	 ln -s xfig32x32.xpm xfig.xpm; \
+	 ln -s xfig16x16.xpm mini-xfig.xpm)
+
+	install -m644 xfig.desktop $(INSTDIR)/usr/share/applications
+
+override_dh_installchangelogs:
+	dh_installchangelogs -k CHANGES
+
+override_dh_compress:
+	dh_compress -X.pdf

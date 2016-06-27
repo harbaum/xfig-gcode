@@ -1,0 +1,15 @@
+From: Roland Rosenfeld <roland@debian.org>
+Subject: Adapt man page accordinig to -startgridmode to xfig behavior.
+Bug-Debian: http://bugs.debian.org/314820
+
+--- a/Doc/xfig.man
++++ b/Doc/xfig.man
+@@ -1039,7 +1039,7 @@
+ Set the starting grid mode (0 to 3).  Mode 0 is no grid.
+ In imperial (inches) mode, grid mode 1 is 1/4 inch,
+ mode 2 is 1/2 inch and mode 3 is 1 inch.
+-In metric mode, grid mode 1 is 5mm, mode 2 is 1cm and mode 3 is 2cm.
++In metric mode, grid mode 1 is 2mm, mode 2 is 5mm and mode 3 is 1cm.
+ .\"-------
+ .At
+ .BR \-startla [ texFont ]

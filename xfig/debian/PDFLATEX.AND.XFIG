@@ -1,0 +1,114 @@
+xfig and PDFLaTeX
+================= 
+(written by Josselin Mouette <jmouette@ens-lyon.fr>)
+
+1. A STANDARD PDF FILE
+   In xfig, select the "PDF" export filter, which will generate a
+   foo.pdf file.  In your document, put in the preamble :
+    \usepackage[pdftex]{graphicx}
+   and insert your picture with \includegraphics{foo.pdf}
+   You may use all the includegraphics options as well.
+   Pros: Very easy to use.
+   Cons: The text in your figure will appear as is on your document,
+	 using postscript fonts; you cannot put some TeX code in it.
+
+2. A COMBINED PDF/LaTeX FILE
+   This is the method I would recommend in most cases. It may be
+   difficult for the beginner at the first time, but it is really
+   powerful.  If you choose this method, you'll have to set the xfig
+   fonts to LaTeX ones, and to set the "special" attribute of your
+   text boxes. To do this automatically, you can add these 2 lines in
+   your .Xresources or .Xdefaults (depends on your system):
+    Fig.latexfonts: true
+    Fig.specialtext: true
+   Then, when exporting, select the "Combined PS/LaTeX" format. Until
+   there is a "Combined PDF/LaTeX" export filter, you'll have to do an
+   extra manipulation: just launch the script "pstex2pdf" following
+   here (requires epstopdf to work), it will convert the foo.pstex to
+   foo.pdf, and foo.pstex_t to foo.pdftex:
+
+--- CUT HERE ---
+#! /bin/sh
+for i in `ls *.pstex`; do
+    AZE=`basename "$i" .pstex`
+    if [ -r "$AZE".pdf ] && [ "$AZE".pdf -nt "$AZE".pstex ]; then
+        echo Nothing to do for "$i".
+    else
+        echo -n Converting "$i".
+	epstopdf "$AZE".pstex > "$AZE".pdf
+	echo -n .
+	sed "s/$AZE.pstex/$AZE.pdf/" "$AZE".pstex_t > "$AZE".pdftex
+	echo .
+    fi
+done
+--- CUT HERE ---
+
+   Then, in your LaTeX file, put in the preamble:
+    \usepackage[pdftex]{graphicx,color}
+   The color package is required whenever you put some text in colors.
+   Then include the picture with_
+    \input foo.pdftex
+   You can also resize it:
+    \resizebox{3cm}{!}{\input foo.pdftex}  % sets the width to 3cm
+   Pros: Whatever is put in your text boxes is treated just as your
+	 document's code; that means you can use your own macros,
+	 which is really cool.
+   Cons: When putting big formulas on your figure, it is sometimes
+	 difficult to predict what place they will take.
+
+3. METAPOST
+   There is nothing special to do in xfig to use MetaPost. All the
+   text you type will be treated as plain TeX code - note, this will
+   be not compiled within your document, so you don't have acess to
+   packages like AMS-TeX, neither have you to your macros.
+   In xfig, export your file with the MetaPost filter, it creates
+   foo.mp.  Then, type mpost foo.mp, it will generate foo.0 (or foo.1,
+   sometimes).  In your document, put this in the preamble:
+    \input supp-pdf.tex
+    \usepackage[pdftex]{graphicx}
+   And to include your figure :
+    \convertMPtoPDF{foo.0}
+   That's it. Quite simple, and you can put a bit TeX inside.
+   Pros: Can be easily included in a dual-output (pdf/dvi) file: for
+	 including it as PS, just put a \includegraphics{foo.0} in the
+	 document.
+   Cons: Not adapted to big formulas, as AMS-LaTeX is not
+	 accessible. Long phrases may look bad as well, if your
+	 document is not in English (babel cannot be used).
+
+4. MULTI-METAPOST
+   This method is designed to be used in PDF presentations. Using the
+   \pause command, it will display step by step the layers of your
+   figure as you click on the button, which can look very nice (and
+   can even be useful sometimes).  All that have been told about
+   MetaPost inclusions is true, but there are a few extra things to
+   know:
+   When creating your figure, be careful with the depth of your
+   objects. When exporting your figure in the MultiMetaPost format,
+   transfig will treat the consecutive depth levels where is an object
+   as a single layer, for example:
+   Circle at depth 51 \__first displayed layer
+   Text at depth 50   /
+   *** Nothing at depth 49
+   Square at depth 48 \
+   Text at depth 48    > Second displayed layer
+   Curve at depth 47  /
+   ... and so on.
+
+   After exporting, mpost foo.mmp will create a set of files named
+   foo.0, foo.1...
+   To include them in the document, you will need the mpmulti.sty
+   provided with the latest version of PPower4 (still in Beta stage at
+   the time of writing).
+   The preamble of your document should look like this:
+    \input supp-pdf.tex
+    \usepackage[pdftex]{graphicx}
+    \usepackage{pause,mpmulti}
+   And to include your animation, just put:
+    \multiinclude{foo}
+   You can adjust it to a defined size by using:
+    \multiinclude[graphics={width=5cm}]{foo}
+   Compile your document, then ppower4 it. Nifty, isn't it?
+   Pros: The only way to insert automatically animations. Benefit of
+	 the existing xfig's depth system.
+   Cons: Are there some ?

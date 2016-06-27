@@ -1,0 +1,20 @@
+Author: Vladislav Zavjalov <slazav@altlinux.org>
+Date: Sun Nov 10 23:31:04 2013 +0200
+Subject: fix 100% cpu load by save panel
+Origin: http://git.altlinux.org/people/slazav/packages/?p=xfig.git;a=patch;h=81a459696f64c43c4ead300c0581d74251d82644
+Bug-Debian: http://bugs.debian.org/509470
+
+--- a/w_file.c
++++ b/w_file.c
+@@ -459,11 +459,6 @@
+ 	put_msg("No filename, please enter name");
+ 	beep();
+ 	popup_saveas_panel();
+-	/* wait for user to save file or cancel file popup */
+-	while (file_up) {
+-	    if (XtAppPending(tool_app))
+-		XtAppProcessEvent(tool_app, XtIMAll);
+-	}
+ 	return;
+     }
+     if (file_popup) {

@@ -1,0 +1,20 @@
+#FIG 3.2
+Portrait
+Center
+Metric
+Letter  
+100.00
+Single
+-2
+# Epiphonus  (A podatus with a liquescent note)
+# (best used with metric ruler units)
+# by W. Chimiak A.D. 2005
+1200 2
+6 450 225 540 450
+2 2 0 1 0 0 50 -1 20 0.000 0 0 -1 0 0 5
+	 450 360 540 360 540 450 450 450 450 360
+2 1 0 1 0 0 50 -1 20 0.000 0 0 -1 0 0 2
+	 540 225 540 450
+2 2 0 1 0 0 50 -1 20 0.000 0 0 -1 0 0 5
+	 495 225 540 225 540 270 495 270 495 225
+-6

@@ -1,0 +1,15 @@
+#/bin/csh -f
+#
+# This will make the thumbnail PNG files for the flags
+#
+foreach dir ( * )
+ if ( -d $dir ) then
+   echo doing $dir
+   cd $dir
+   foreach file (*.fig)
+     echo "  doing $file"
+     fig2dev -L png -m .3 $file  ${file:r}.png
+   end
+   cd ..
+ endif
+end

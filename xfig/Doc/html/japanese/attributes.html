@@ -1,0 +1,1061 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<html>
+<head>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=EUC-JP">
+<title>Object Attributes</title>
+<link rev="made" href="mailto:VEF00200@nifty.ne.jp">
+</head>
+
+<body>
+<a href="contents.html"><img src="../images/xfig-title.png"
+  alt="XFIG Users Manual" border=0></a>
+
+<h1>オブジェクトの属性</h1>
+
+属性パネルには、
+線の太さや色などの種々の描画パラメータを設定するためのボタン 
+(属性ボタンと呼ぶ) が置かれています。
+また、表示の拡大率やグリッドなどの設定のためのボタンも
+属性パネルに置かれています。
+それぞれの属性ボタンには、現在の設定が表示されています。
+<p>
+<a href="drawing.html">新しいオブジェクトの入力</a>
+に際しては、属性パネルでの設定が適用されます。
+また、<a href="editing.html#update">UPDATE</a> や 
+<a href="editing.html#edit">EDIT</a> を用いることにより、
+既に入力されているオブジェクトの属性を変更することも可能です。
+<p>
+最初の3つのボタンはオブジェクトの属性を制御するものではありませんが、
+便宜のためにここに置いてあります。
+<p>
+<dl>
+<dt><a href="#zoom-scale"><img src="../images/zoom-button.png"
+  alt="[ZOOM SCALE]"></a>
+<dd>表示の拡大率
+
+<p>
+<dt><a href="#grid-mode"><img src="../images/grid-button.png"
+  alt="[GRID MODE]"></a>
+<a href="#point-position"><img src="../images/point-position-button.png"
+  ALT="[POINT POSITION]"></a>
+<dd>グリッド
+</dl>
+<p>
+属性ボタンには以下のものがあります。
+<p>
+<dl>
+<dt><a href="#depth"><img src="../images/depth-button.png"
+  alt="[DEPTH]"></a>
+<dd>オブジェクトの深さ
+
+<p>
+<dt><a href="#pen-color"><img src="../images/pen-color-button.png"
+  alt="[PEN COLOR]"></a>
+<a href="#fill-color"><img src="../images/fill-color-button.png"
+  alt="[FILL COLOR]"></a>
+<a href="#fill-style"><img src="../images/fill-style-button.png"
+  alt="[FILL STYLE]"></a>
+<dd>色とパターン
+
+<p>
+<dt><a href="#line-width"><img src="../images/line-width-button.png"
+  alt="[LINE WIDTH]"></a>
+<a href="#line-style"><img src="../images/line-style-button.png"
+  alt="[LINE STYLE]"></a>
+<a href="#join-style"><img src="../images/join-style-button.png"
+  alt="[JOIN STYLE]"></a>
+<a href="#cap-style"><img src="../images/cap-style-button.png"
+  alt="[CAP STYLE]"></a>
+<dd>線の太さや形状
+
+<p>
+<dt><a href="#text-font"><img src="../images/text-font-button.png"
+  alt="[TEXT FONT]"></a>
+<br>
+<a href="#text-size"><img src="../images/text-size-button.png"
+  alt="[TEXT SIZE]"></a>
+<a href="#text-step"><img src="../images/text-step-button.png"
+  alt="[TEXT STEP]"></a>
+<a href="#text-justification"><img src="../images/text-justify-button.png"
+  alt="[TEXT JUSTIFICATION]"></a>
+<a href="#text-flags"><img src="../images/text-flags-button.png"
+  alt="[TEXT FLAGS]"></a>
+<dd>TEXT オブジェクトのフォントやその他の属性
+
+<p>
+<dt><a href="#arrow-mode"><img src="../images/arrow-mode-button.png"
+  alt="[ARROW MODE]"></a>
+<a href="#arrow-type"><img src="../images/arrow-type-button.png"
+  alt="[ARROW TYPE]"></a>
+<a href="#arrow-size"><img src="../images/arrow-size-button.png"
+  alt="[ARROW SIZE]"></a>
+<dd>矢印
+
+<p>
+<dt><a href="#box-curve"><img src="../images/box-curve-button.png"
+  alt="[BOX CURVE]"></a>
+<dd>ARC-BOX オブジェクトの角の丸み
+
+<p>
+<dt><a href="#arc-type"><img src="../images/arc-type-button.png"
+  alt="[ARC TYPE]"></a>
+<dd>ARC オブジェクトの形状
+
+<p>
+<dt><a href="#num-sides"><img src="../images/num-sides-button.png"
+  alt="[NUMBER OF POLYGON SIDES]"></a>
+<dd>REGULAR POLYGON の角の数
+
+<p>
+<dt><a href="#num-copies"><img src="../images/num-copies-button.png"
+  alt="[NUMBER OF COPIES]"></a>
+<a href="#num-x-copies"><img src="../images/num-x-copies-button.png"
+  alt="[NUMBER OF X COPIES]"></a>
+<a href="#num-y-copies"><img src="../images/num-y-copies-button.png"
+  alt="[NUMBER OF X COPIES]"></a>
+<dd>生成するコピーの数
+
+<p>
+<dt><a href="#rotation-angle"><img src="../images/rotation-angle-button.png"
+  alt="[ROTATION ANGLE]"></a>
+<a href="#text-angle"><img src="../images/text-angle-button.png"
+  alt="[TEXT/ELLIPSE ANGLE]"></a>
+<dd>回転の角度
+
+<p>
+<dt><a href="#angle-geom"><img src="../images/angle-geom-button.png"
+  alt="[ANGLE GEOMETRY]"></a>
+<dd>線の角度の制限
+
+<p>
+<dt><a href="#smart-link"><img src="../images/smart-link-button.png"
+  alt="[SMART-LINK MODE]"></a>
+<dd>スマート・リンク
+
+<p>
+<dt><a href="#vertical-align"><img src="../images/vertical-align-button.png"
+  alt="[VERTICAL ALIGN]"></a>
+<a href="#horiz-align"><img src="../images/horiz-align-button.png"
+  alt="[HORIZONTAL ALIGN]"></a>
+<dd>オブジェクトの整列
+
+<p>
+<dt><a href="#dimension-lines"><img src="../images/dimline-button.png"
+  alt="[DIMENSION LINES]"></a>
+<dd>寸法線
+</dl>
+
+<p>
+通常は、その時に選択されているモードにおいて意味を持つ
+属性ボタンのみが実際に属性パネルに置かれます。
+属性ボタンを一度に表示することができない場合には、
+属性パネルにはスクロール・バーが付けられます。
+
+<p>
+属性ボタンの設定の変更は
+属性ボタンをクリックすることによって行なえます。
+それぞれのマウス・ボタンは次のような意味を持ちます。
+<p>
+<ul>
+<li>マウスボタン1 (`Menu') <br>
+属性ボタンをマウスボタン1でクリックすると
+設定の変更を行なうためのポップアップ・パネルが開かれ、
+ポップアップ・パネル上のいずれかのボタンをクリックする 
+(グリッドの種類やフォント名などの場合) か、
+もしくはキーボードから新しい値をタイプする 
+(拡大率や線の太さなどの場合) ことにより、
+新しい値を選択することができます。
+
+<p>
+<li>マウスボタン2 (`Dec/Prev') <br>
+属性ボタンをマウスボタン2でクリックすると、
+属性ボタンが数値を設定するものである場合 
+(例えば線の太さ) には、その数値が減らされます。
+その他の属性ボタン (例えばグリッドの種類やフォント名) 
+では、選択肢が切り替えられます。
+
+<p>
+<li>マウスボタン3 (`Inc/Next') <br>
+これはマウスボタン2と逆の機能を持ちます。
+属性ボタンが数値を設定するものである場合には、
+その数値が増やされます。
+その他の属性ボタンでは、
+選択肢がマウスボタン2の場合とは逆の方向に切り替えられます。
+</ul>
+
+<p>
+<a href="editing.html#update">UPDATE</a> モードにおいては、
+それぞれの属性ボタンの右上には
+UPDATE に際してその設定を適用するかどうかを指定するための
+小さいトグル・ボタンが付けられ、
+また属性パネルの左側には 
+<a href="editing.html#update-control">Update Control ボタン</a>が置かれます。
+<p>
+<blockquote>
+  <img src="../images/update-control.png" alt="[Update Control Buttons]">
+</blockquote>
+
+<p>
+<hr>
+
+<dl>
+<dt><img src="../images/zoom-button.png" alt="">
+  <a name="zoom-scale">(ZOOM SCALE)</a>
+<dd>キャンバス上の表示の拡大率を設定します。
+拡大率は、0.01倍から50倍までの範囲で設定することができます。
+多くのシステムにおいては、
+これを 1 に設定した場合の画面上の表示はおおむね原寸大となります。
+<p>
+<img src="../images/zoom-panel.png" align="right" alt="zoom panel">
+このボタンをマウスボタン1でクリックすると
+ポップアップ・パネルが開かれ、
+拡大率をキーボードから入力することが可能となります。
+このボタンをマウスボタン2、もしくはマウスボタン3でクリックすると、
+拡大率が 1よりも大きい場合には拡大率は 1.5倍の比率で、
+拡大率が1以下である場合には0.1刻みで、
+また拡大率が 0.1以下である場合には0.01刻みで増加、もしくは減少します。
+<br clear="all">
+<p>
+キャンバスの拡大は、拡大したい領域を
+キャンバス上で指定することによって行なうこともできます。
+このためには、キャンバス上で、CONTROL キーを押した状態で
+マウスボタン1 (`zoom area') をクリックすることによって
+拡大したい領域の1つの角を指定し、
+次にその対角でマウスボタン1 (`final point') を押すことにより、
+拡大したい領域を指定します。
+<p>
+xfig がホイール・マウス・サポートを有効としてコンパイルされている
+(Imakefile の WHEELMOUSE で) 場合には、
+キャンバス上で SHIFT キーを押した状態でホイールを回転させると
+ポインタの周囲で表示を拡大/縮小し、
+また CONTROL キーを押した状態でホイールを回転させると
+キャンバスを上下にスクロール (パン) します。
+<p>
+また、キャンバス上で、CONTROL キーを押した状態で
+マウスボタン3 (`unzoom') をクリックすることにより、
+拡大率を1に戻すこともできます。
+<p>
+キャンバス上で領域を指定して拡大を行なう場合の拡大率を
+整数に制限したい場合には、Zoom ポップアップ・パネルの 
+<i>Integer zoom</i> ボタンを <i>ON</i> としておきます。
+<p>
+図がちょうどキャンバス一杯になるように拡大するためには、
+Zoom ポップアップ・パネルの <i>Fit to canvas</i> ボタンをクリックします。
+<i>Integer zoom</i> が <i>ON</i> となっている場合には、
+拡大率が1未満とならない限り、
+拡大率は図全体をキャンバス上に表示できる最大の整数の値に設定されます。
+<p>
+<a href="panning.html#zooming">ズーム</a>も参照して下さい。
+
+<p>
+<dt><img src="../images/depth-button.png" alt="">
+  <a name="depth">(DEPTH)</a>
+<dd>オブジェクトの ``深さ'' を設定します。
+<p>
+``深さ'' はオブジェクトが重なり合った場合に
+どちらのオブジェクトが隠されるかを規定するものであり、
+より大きい ``深さ'' を持ったオブジェクトは
+より小さい ``深さ'' を持ったオブジェクトによって隠されるようになります。
+``深さ'' は 0 から 999 の範囲の整数となります。
+<p>
+同じ ``深さ'' を持ったオブジェクトが重なり合った場合には
+どちらのオブジェクトが隠されるかはわかりませんし、
+画面での表示と印刷の結果とが異なったものとなる可能性もあります。
+<p>
+通常は全ての深さのオブジェクトがキャンバス上に表示されますが、
+ユーザーはどの深さのオブジェクトを表示や編集の対象とするかを
+制御することができます。
+これについては <a href="layers.html#depth_panel">Depth パネル</a> を参照して下さい。
+<p>
+<a href="editing.html#update">UPDATE</a> による
+複合オブジェクトの深さの更新に際しては、
+それに含まれるオブジェクトの相対的な深さが維持したままで、
+最も小さい深さを指定された値に設定します。
+例えば、ある複合オブジェクトが深さ 3、8、及び 11 のオブジェクトを含んでおり、
+この複合オブジェクトの深さが 2 に変更された場合には、
+それに含まれるオブジェクトの深さはそれぞれ 2、7、及び 10 となります。
+
+<p>
+<dt><img src="../images/grid-button.png" alt="">
+  <a name="grid-mode">(GRID MODE)</a>
+<dd>キャンバス上に表示するグリッドの間隔を設定します。
+これが <i>None</i> 以外に設定されている場合には、
+設定された間隔のグリッドがキャンバス上に表示されます。
+<p>
+このグリッドの間隔は、
+<a href="miscellaneous.html#unit-box">寸法の単位</a>がインチとなっている場合には 
+1/8inch、1/4inch、1/2inch、及び 1inch の中から、
+寸法の単位が cm となっている場合には 
+2mm、5mm、1cm、及び 2cm の中から選択することができます。
+<p>
+このグリッドは、オブジェクトの配置を制限する効果は持ちません。
+オブジェクトの配置を制限したい場合には、
+<a href="#point-position">POINT POSITION</a> 
+を使用して下さい。
+
+<p>
+<dt><img src="../images/point-position-button.png" alt="">
+  <a name="point-position">(POINT POSITION)</a>
+<dd>オブジェクトの配置を制御するグリッド (表示はされない) の間隔を設定します。
+これが <i>Any</i> 以外に設定されている場合には、
+オブジェクトは設定された間隔のグリッド上にのみ配置できるようになります。
+これが <i>Any</i> に設定されている場合には、
+オブジェクトは任意の位置に配置することができます。
+<p>
+このグリッドの間隔は、<a href="miscellaneous.html#unit-box">寸法の単位</a>
+がインチとなっている場合には 
+1/16inch、1/8inch、1/4inch、1/2inch、及び 1inch の中から、
+寸法の単位が cm となっている場合には 
+1mm、2mm、5mm、1cm、及び 2cm の中から選択することができます。
+<p>
+これは、<a href="editing.html">編集</a>に際してどのオブジェクトが 
+「<a href="editing.html#select-object">掴み上げられる</a>」かも制限します。
+オブジェクトがここで指定されたグリッド上にない場合には、
+そのオブジェクトを掴み上げることはできません。
+<p>
+このグリッドは画面には表示されません。
+目に見えるグリッドは、
+<a href="#grid-mode">GRID MODE</a> によって設定することができます。
+
+<p>
+<dt><img src="../images/rotate-angle-button.png" alt="">
+  <a name="rotation-angle">(ROTATION ANGLE)</a>
+<dd><a href="editing.html#rotate">ROTATE</a> 
+によってオブジェクトを回転させる角度を設定します。
+このボタンをマウスボタン2、もしくはマウスボタン3でクリックすると、
+角度が15度刻みで減少、もしくは増加します。
+マウスボタン1でクリックすると、
+角度を入力するためのポップアップ・パネルが開かれます。
+<p>
+<a href="drawing.html#text">TEXT</a> や 
+<a href="drawing.html#ellipse">ELLIPSE</a> の角度は、
+<a href="#text-angle">TEXT/ELLIPSE ANGLE</a> によって設定することもできます。
+<p>
+オブジェクト (例えば <a href="drawing.html">BOX</a> など) 
+によっては90度単位での回転のみが可能であることに注意して下さい。
+
+<p>
+<dt><img src="../images/text-angle-button.png" alt="">
+  <a name="text-angle">(TEXT/ELLIPSE ANGLE)</a>
+<dd><a href="drawing.html#text">TEXT</a> や 
+<a href="drawing.html#ellipse">ELLIPSE</a> の角度を設定します。
+正の値は反時計方向 (右上がり) の回転を、
+負の値は時計方向 (右下がり) の回転を示します。
+<p>
+このボタンをマウスボタン2、もしくはマウスボタン3でクリックすると、
+角度が15度刻みで減少、もしくは増加します。
+マウスボタン1でクリックすると、
+角度を入力するためのポップアップ・パネルが開かれます。
+<p>
+すでに入力されているオブジェクトを回転させたい場合には、
+<a href="editing.html#rotate">ROTATE</a> 
+を用いることもできます。
+<a href="#rotation-angle">ROTATION ANGLE</a> も参照して下さい。
+
+<p>
+<dt><img src="../images/num-sides-button.png" alt="">
+  <a name="num-sides">(NUMBER OF POLYGON SIDES)</a>
+<dd><a href="drawing.html#regular-polygon">REGULAR POLYGON</a> 
+機能によって正多角形を生成する際に、何角形を生成するのかを設定します。
+
+<p>
+<dt><img src="../images/num-copies-button.png" alt="">
+  <a name="num-copies">(NUMBER OF COPIES)</a>
+<dd><i>COPY &amp; ROTATE</i> 
+(<a href="editing.html#rotate">ROTATE</a> を参照) 
+によってオブジェクトの回転を行なう際に生成するコピーの数を設定します。
+<p>
+<a href="editing.html#copy"><i>ARRAY PLACEMENT</i></a> 
+によって生成するコピーの数は、
+<a href="#num-x-copies">NUMBER OF X COPIES</a>、
+及び <a href="#num-y-copies">NUMBER OF Y COPIES</a> によって設定します。
+
+<p>
+<dt><img src="../images/num-x-copies-button.png" alt="">
+  <img src="../images/num-y-copies-button.png" alt="">
+  (<a name="num-x-copies">NUMBER OF X COPIES</a>   /
+   <a name="num-y-copies">NUMBER OF Y COPIES</a>)
+<dd><i>ARRAY PLACEMENT</i> 
+(<a href="editing.html#copy">COPY</a> を参照)
+によってオブジェクトのコピーを行なう際に、
+X 方向、及び Y 方向に生成するコピーの数を設定します。
+<p>
+<a href="editing.html#rotate"><i>COPY &amp; ROTATE</i></a> 
+によって生成するコピーの数は、
+<a href="#num-copies">NUMBER OF COPIES</a> によって設定します。
+
+<p>
+<dt><img src="../images/smart-link-button.png" alt="">
+  <a name="smart-link">(SMART-LINKS MODE)</a>
+<dd>このボタンはスマート・リンク機能を制御します。
+スマート・リンク機能が有効となっている場合には、
+端点が BOX などのオブジェクトの外周の上や
+<a href="editing.html#glue-compound">複合オブジェクト</a>
+の内側にある線 (以後それらの線を<b>リンク</b>と呼ぶ) は、
+そのオブジェクトの<a href="editing.html#move">移動</a>や
+<a href="editing.html#copy">コピー</a>に際して特別扱いされます。
+<p>
+<dl>
+<dt><img src="../images/smart-link-off.png" alt=""> OFF
+<dd>スマート・リンク機能を解除します。
+オブジェクトの移動やコピーに際しては、
+そのオブジェクトのみが移動、もしくはコピーされます。
+
+<dt><img src="../images/smart-link-move.png" alt=""> MOVE
+<dd>オブジェクトの移動に際して、
+<b>リンク</b>の端点は端点がリンクした状態を保つように
+オブジェクトとともに移動します。
+オブジェクトのコピーに際しては、<b>リンク</b>もコピーされます。
+
+<dt><img src="../images/smart-link-slide.png" alt=""> SLIDE
+<dd>オブジェクトの移動に際して、
+<b>リンク</b>の最後の (オブジェクトに接している) セグメントは、
+その角度を保つように平行移動します。
+オブジェクトのコピーに際しては、<b>リンク</b>もコピーされます。
+</dl>
+<p>
+<a href="drawing.html#circle">円</a> や 
+<a href="drawing.html#ellipse">楕円</a> などに接した線は
+<b>リンク</b>としては扱われません。
+そのような線に対してスマート・リンク機能を有効としたい場合には、
+その円などのオブジェクトを
+<a href="editing.html#glue-compound">複合オブジェクト</a>
+にしてみて下さい。
+
+<p>
+<dt><img src="../images/vertical-align-button.png" alt="">
+  <a name="vertical-align">(VERTICAL ALIGN)</a>
+<dd><a href="editing.html#align">ALIGN</a> 
+によって整列を行なう際の、
+垂直方向の整列の方法を設定します。
+<p>
+<dl>
+<dt><img src="../images/vertical-align-none.png" alt="[None]">
+  垂直方向の整列は行ないません。
+<dt><img src="../images/vertical-align-top.png" alt="[Top]">
+  オブジェクトの上端を揃えます。
+<dt><img src="../images/vertical-align-center.png" alt="[Center]">
+  オブジェクトの中心を揃えます。
+<dt><img src="../images/vertical-align-bottom.png" alt="[Bottom]">
+  オブジェクトの下端を揃えます。
+<dt><img src="../images/vertical-align-center-even.png" alt="[Even Center]">
+  オブジェクトの中心の間隔が均等になるように整列します。
+<dt><img src="../images/vertical-align-edge-even.png" alt="[Even Edge]">
+  オブジェクトのエッジの間隔が均等になるように整列します。
+<dt><img src="../images/vertical-align-abut-edge.png" alt="[Abut Edge]">
+  オブジェクトのエッジが接するように整列します。
+</dl>
+
+<p>
+<dt><img src="../images/horiz-align-button.png" alt="">
+  <a name="horiz-align">(HORIZONTAL ALIGN)</a>
+<dd><a href="editing.html#align">ALIGN</a> 
+によって整列を行なう際の、
+水平方向の整列の方法を設定します。
+<p>
+<dl>
+<dt><img src="../images/horiz-align-none.png" alt="[None]">
+  水平方向の整列は行ないません。
+<dt><img src="../images/horiz-align-left.png" alt="[Left]">
+  オブジェクトの左端を揃えます。
+<dt><img src="../images/horiz-align-center.png" alt="[Center]">
+  オブジェクトの中心を揃えます。
+<dt><img src="../images/horiz-align-right.png" alt="[Right]">
+  オブジェクトの右端を揃えます。
+<dt><img src="../images/horiz-align-center-even.png" alt="[Even Center]">
+  オブジェクトの中心の間隔が均等になるように整列します。
+<dt><img src="../images/horiz-align-edge-even.png" alt="[Even Edge]">
+  オブジェクトのエッジの間隔が均等になるように整列します。
+<dt><img src="../images/horiz-align-abut-edge.png" alt="[Abut Edge]">
+  オブジェクトのエッジが接するように整列します。
+</dl>
+
+<p>
+<dt><img src="../images/angle-geom-button.png" alt="">
+  <a name="angle-geom">(ANGLE GEOMETRY)</a>
+<dd>これは、
+<a href="drawing.html#polyline">POLYLINE</a> や 
+<a href="drawing.html#polygon">POLYGON</a> などによる
+オブジェクトの生成に際しての、線の角度に対する制限を設定します。
+これは、<a href="editing.html#move-point">MOVE POINT</a> で
+線の端点を移動する際の、線のセグメントの角度も制限します。
+<p>
+<dl>
+<dt><img src="../images/angle-geom-unrestricted.png" alt=""> Unrestricted
+<dd>線の角度を制限しません。
+この設定では、どのような角度の線でも入力することができます。
+これがデフォルトです。
+
+<dt><img src="../images/angle-geom-latex-line.png" alt=""> LaTeX Line
+<dd>線の角度を、LaTeX の picture 環境の 
+line コマンドで扱えるもののみに制限します。
+この設定では、傾斜が <i>x / y</i> 
+(ただし、<i>x</i>、及び <i>y</i> は -6〜6 の範囲の整数) 
+である線の入力のみが可能となります。
+
+<dt><img src="../images/angle-geom-latex-vector.png" alt=""> LaTeX Vector
+<dd>線の角度を、LaTeX の picture 環境の 
+vector コマンドで扱えるもののみに制限します。
+この設定では、傾斜が <i>x / y</i> 
+(ただし、<i>x</i>、及び <i>y</i> は -4〜4 の範囲の整数) 
+である線の入力のみが可能となります。
+
+<dt><img src="../images/angle-geom-mounthattan.png" alt=""> Manhattan-Mountain
+<dd>線の角度を水平、垂直、及び45度に制限します。
+
+<dt><img src="../images/angle-geom-manhattan.png" alt=""> Manhattan
+<dd>線の角度を水平、及び垂直に制限します。
+
+<dt><img src="../images/angle-geom-mountain.png" alt=""> Mountain
+<dd>線の角度を45度に制限します。
+</dl>
+
+<p>
+<dt><img src="../images/pen-color-button.png" alt=""> 
+ (<a name="pen-color">PEN COLOR</a>)
+<dd>オブジェクトの描画に用いる色を設定します。
+色は、32個の標準の色から選択するか、
+もしくは任意の色を合成して使用することができます。
+これについては、
+<a href="#colors-panel">Colors パネル</a> を参照して下さい。
+<p>
+このボタンをマウスボタン1でクリックすると、
+<a href="#colors-panel">Colors パネル</a> が開かれます。
+<p>
+オブジェクトの内部の塗りつぶしの色は、
+<a href="#fill-color">FILL COLOR</a>、
+及び <a href="#fill-style">FILL STYLE</a> で設定します。
+オブジェクトの外形を描画せずにその内部の塗りつぶしのみを行ないたい場合には、
+<a href="#line-width">LINE WIDTH</a> を 0 に設定して下さい。
+
+<p>
+<dt><img src="../images/fill-color-button.png" alt="">
+ (<a name="fill-color">FILL COLOR</a>)
+<dd>オブジェクトの内部の塗りつぶしの色を設定します。
+<a href="#pen-color">PEN COLOR</a> と同様、
+32個の標準の色から選択するか、
+もしくは任意の色を合成して使用することができます。
+これについては、
+<a href="#colors-panel">Colors パネル</a> を参照して下さい。
+<p>
+このボタンをマウスボタン1でクリックすると、
+<a href="#colors-panel">Colors パネル</a> が開かれます。
+<p>
+オブジェクトの外形の色は、<a href="#pen-color">PEN COLOR</a> で設定します。
+FILL COLOR の設定は、<a href="#fill-style">FILL STYLE</a> で 
+<i>None</i> 以外が選択されている場合に限って意味を持ちます。
+塗りつぶしを行ないたくない場合には、
+<a href="#fill-style">FILL STYLE</a> で <i>None</i> を選択して下さい。
+
+<p>
+<dt><img src="../images/fill-style-button.png" alt="">
+  <a name="fill-style">(FILL STYLE)</a>
+<dd>塗りつぶしの濃さ、もしくは塗りつぶしのパターンを設定します。
+塗りつぶしの色は、<a href="#fill-color">FILL COLOR</a> で設定します。
+ここで <i>None</i> を選択した場合には、オブジェクトの塗りつぶしは行なわれません。
+<p>
+このボタンをマウスボタン1でクリックすると、
+次のようなポップアップ・パネルが開かれます。
+<p>
+<blockquote>
+  <img src="../images/fill-style-panel.png" alt="[Fill Style Panel]">
+</blockquote>
+
+<p>
+<dt><img src="../images/line-width-button.png" alt="">
+  <a name="line-width">(LINE WIDTH)</a>
+<dd>オブジェクトの外形を描画する線の太さを設定します。
+太さの単位はピクセル (約 1/80 インチ) です。
+<p>
+これを 0 に設定した場合にはオブジェクトの外形は描画されなくなります。
+しかし、その場合でも <a href="#fill-style">FILL STYLE</a> で
+塗りつぶしが指定されていれば内部の塗りつぶしは行なわれます。
+
+<p>
+<dt><img src="../images/line-style-button.png" alt="">
+  <a name="line-style">(LINE STYLE)</a>
+<dd>線の形状を、
+実線、破線、点線、一点鎖線、二点鎖線、及び三点鎖線から選択します。
+破線の長さや点の間隔を設定することも可能です。
+それぞれの線分の端や点の形状は 
+<a href="#cap-style">CAP STYLE</a> の影響を受けます。
+<p>
+このボタンをマウスボタン1でクリックすると、
+次のようなポップアップ・パネルが開かれます。
+<p>
+<blockquote>
+  <img src="../images/line-style-panel.png" alt="[Line Style Panel]">
+</blockquote>
+
+<p>
+<dt><img src="../images/join-style-button.png" alt="">
+  <a name="join-style">(JOIN STYLE)</a>
+<dd><a href="drawing.html#polyline">POLYLINE</a> オブジェクトや 
+<a href="drawing.html#polygon">POLYGON</a> オブジェクトなどにおける、
+線分の結合部 (角) の形状を設定します。
+この設定は、線が細い場合にはそれほど顕著な効果は生じません。
+<p>
+<dl>
+<dt><img src="../images/join-style-miter.png" alt=""> MITER
+<dd>外側の線が交わるまで延長します。
+ただし、線の角度が鋭角すぎる場合には、代わりに <i>BEVEL</i> が用いられます。
+これがデフォルトです。
+<dt><img src="../images/join-style-round.png" alt=""> ROUNDED
+<dd>結合部を中心とした、線幅と同じ直径の円弧で線が接合するようにします。
+<dt><img src="../images/join-style-bevel.png" alt=""> BEVEL
+<dd>線を延長せずに接合し、線の接合部に残された三角形の領域を塗りつぶします。
+</dl>
+<p>
+<blockquote>
+  <img src="../images/join-style-example.png" alt="[Join Style Panel]">
+</blockquote>
+<p>
+線の末端の形状は 
+<a href="#cap-style">CAP STYLE</a> で設定します。
+
+<p>
+<dt><img src="../images/cap-style-button.png" alt="">
+  <a name="cap-style">(CAP STYLE)</a>
+<dd><a href="drawing.html#polyline">POLYLINE</a> オブジェクト
+などにおける、線の末端の形状を設定します。
+この設定は、線が細い場合にはそれほど顕著な効果は生じません。
+<p>
+<dl>
+<dt><img src="../images/cap-style-butt.png" alt=""> BUTT
+<dd>線の末端を端点よりも延長しません。
+これがデフォルトです。
+<dt><img src="../images/cap-style-round.png" alt=""> ROUND
+<dd>線の末端を線の幅と同じ直径の円で終るようにします。
+<dt><img src="../images/cap-style-projecting.png" alt=""> PROJECTING
+<dd>形状は <i>BUTT</i> と同様ですが、線の幅の半分の長さだけ余計に延長されます。
+</dl>
+<p>
+<blockquote>
+  <img src="../images/cap-style-example.png" alt="[Cap Style Example]">
+</blockquote>
+<p>
+この設定は、<a href="#line-style">破線や点線</a>などの
+個々の線分や点の形状にも影響します。
+線の結合部 (角) の形状は 
+<a href="#join-style">JOIN STYLE</a> で設定します。
+
+<p>
+<dt><img src="../images/arrow-mode-button.png" alt="">
+  <a name="arrow-mode">(ARROW MODE)</a>
+<dd>これは、<a href="drawing.html#polyline">POLYLINE</a>、
+<a href="#arc-type">OPEN ARC</a>、あるいは 
+<a href="drawing.html#spline">OPEN SPLINE</a> オブジェクトの入力に際して
+線の端に矢印を付けるかどうかを選択します。
+<p>
+<dl>
+<dt><img src="../images/arrow-mode-none.png" alt="[None]">
+  矢印を付けません。
+<dt><img src="../images/arrow-mode-forward.png" alt="[Forward]">
+  線の終点に矢印を付けます。
+<dt><img src="../images/arrow-mode-both.png" alt="[Both]">
+  線の両端に矢印を付けます。
+<dt><img src="../images/arrow-mode-backward.png" alt="[Backward]">
+  線の始点に矢印を付けます。
+</dl>
+<p>
+矢印の形状は <a href="#arrow-type">ARROW TYPE</a> によって、
+またその大きさは <a href="#arrow-size">ARROW SIZE</a> によって
+設定することができます。
+すでに入力されているオブジェクトに矢印を付けたい場合 
+(あるいは矢印を削除したい場合) には、
+<a href="editing.html#add-arrow">ADD/DELETE ARROW</a> を用いることもできます。
+
+<p>
+<dt><img src="../images/arrow-type-button.png" alt="">
+  <a name="arrow-type">(ARROW TYPE)</a>
+<dd>矢印の形状を、以下のものの中から選択します。
+<p>
+<dl>
+<dt><img src="../images/arrow-types.png" alt="[Arrow Types]">
+</dl>
+<p>
+矢印の大きさは <a href="#arrow-size">ARROW SIZE</a> によって
+設定することができます。
+
+<p>
+<dt><img src="../images/arrow-size-button.png" alt="">
+  <a name="arrow-size">(ARROW SIZE)</a>
+<dd>矢印の大きさを設定します。
+<p>
+このボタンをマウスボタン1でクリックすると、
+次のようなポップアップ・パネルが開かれます。
+<p>
+<blockquote>
+  <img src="../images/arrow-size-panel.png" alt="[Arrow Size]">
+  <img src="../images/arrow-size-image.png" alt="[Arrow Head]">
+</blockquote>
+<p>
+<i>Thickness</i> は矢印の線の太さを、
+<i>Width</i> は矢印の横幅を、
+<i>Height</i> は矢印の長さを設定します。
+<p>
+これらの単位は <a href="#line-width">LINE WIDTH</a> の単位と同一です。
+これは以前のバージョンの <b>xfig</b> (横幅と長さの単位が 1/1200インチだった)
+から変更されています。
+<p>
+<i>Absolute Values</i> ボックスがチェックされている場合には
+左側の値が用いられ、
+それらの値がそのまま矢印の大きさとなります。
+<i>Multiple of Line Width</i> ボックスがチェックされている場合には
+右側の値が用いられ、
+<a href="#line-width">線の太さ</a>にそれらの値を掛けたものが
+矢印の大きさとなります。
+
+<p>
+<dt><img src="../images/box-curve-button.png" alt="">
+  <a name="box-curve">(BOX CURVE)</a>
+<dd><a href="drawing.html#arc-box">ARC-BOX</a> オブジェクトの
+角の丸みの半径を設定します。
+この単位は <a href="#line-width">LINE WIDTH</a> と同様です。
+
+<p>
+<dt><img src="../images/arc-type-button.png" alt="">
+  <a name="arc-type">(ARC TYPE)</a>
+<dd><a href="drawing.html#arc">ARC</a> オブジェクトの
+形状を設定します。
+<p>
+<dl>
+<dt><img src="../images/arc-type-open.png" alt=""> OPEN ARC
+<dd>円弧のみを描画します。
+<dt><img src="../images/arc-type-pie-wedge.png" alt=""> PIE-WEDGE
+<dd>円弧に加えて、円弧の両端と円の中心とを結ぶ線を描画します。
+</dl>
+
+<p>
+<dt><img src="../images/text-font-button.png" alt="">
+  <a name="text-font">(TEXT FONT)</a>
+<dd><a href="drawing.html#text">TEXT</a> オブジェクトの
+描画に用いるフォントを設定します。
+フォントの大きさは <a href="#text-size">TEXT SIZE</a> で設定します。
+<p>
+このボタンをマウスボタン1でクリックすると、
+フォントの選択を行なうための 
+<a href="#font-panel">Font パネル</a> が開かれます。
+
+<p>
+<dt><img src="../images/text-size-button.png" alt="">
+  <a name="text-size">(TEXT SIZE)</a>
+<dd><a href="drawing.html#text">TEXT</a> オブジェクトの
+フォントの大きさ (ポイント数) を設定します。
+デフォルトは12ポイントです。
+フォントの種類は <a href="#text-font">TEXT FONT</a> で設定します。
+
+<p>
+<dt><img src="../images/text-step-button.png" alt="">
+  <a name="text-step">(TEXT STEP)</a>
+<dd><a href="drawing.html#text">TEXT</a> モードで
+複数の行のテキストを入力する際の行の間隔を設定します。
+行の間隔はフォントの高さ 
+(<a href="#text-size">TEXT SIZE</a> とほぼ等しい) に
+この値を掛けた大きさとなります。
+
+<p>
+<dt><img src="../images/text-justify-button.png" alt="">
+  <a name="text-justification">(TEXT JUSTIFICATION)</a>
+<dd><a href="drawing.html#text">TEXT</a> オブジェクトの
+入力に際して、
+指定した位置にテキストのどの部分を置くようにするかを設定します。
+<p>
+<dl>
+<dt><img src="../images/text-justify-left.png" alt=""> LEFT JUSTIFIED
+<dd>指定した位置にテキストの左端を置く 
+(テキストを左揃えにする) ようにします。
+これがデフォルトです。
+<dt><img src="../images/text-justify-center.png" alt=""> CENTERED
+<dd>指定した位置にテキストの中心を置く 
+(テキストをセンタリングする) ようにします。
+<dt><img src="../images/text-justify-right.png" alt=""> RIGHT JUSTIFIED
+<dd>指定した位置にテキストの右端を置く 
+(テキストを右揃えにする) ようにします。
+</dl>
+
+<p>
+<dt><img src="../images/text-flags-button.png" alt="">
+  <a name="text-flags">(TEXT FLAGS)</a>
+<dd><a href="drawing.html#text">TEXT</a> オブジェクトの 
+<i>Hidden</i>、<i>Rigid</i>、及び <i>Special</i> フラグを設定します。
+これらのフラグはやや特殊な状況において用いられるものであり、
+デフォルトではすべて <i>OFF</i> となっています。
+<p>
+このボタンをマウスボタン2、もしくはマウスボタン3でクリックすると、
+そのボタン上にどのフラグの状態を表示するかが切り替えられます。
+<p>
+このボタンをマウスボタン1でクリックすると、
+次のようなポップアップ・パネルが開かれます。
+<p>
+<blockquote>
+  <img src="../images/text-flags-panel.png" alt="[Text Flags]">
+</blockquote>
+<p>
+<i>Hidden</i> フラグを <i>ON</i> とすると、
+キャンバス上にはテキスト自身の代わりに
+文字列 ``&lt;&lt;&gt;&gt;'' が表示されるようになります。
+<a href="printing.html#print">Print</a> や 
+<a href="printing.html#export">Export</a> に際しては、
+そのテキストは通常通りに出力されます。
+これは、テキストが LaTeX の長いコマンドを含んでいる場合などに
+表示が見にくくなることを防ぐために使用することができます。
+<p>
+<i>Rigid</i> フラグを <i>ON</i> とすると、
+そのテキストを含んだ
+<a href="editing.html#glue-compound">複合オブジェクト</a>が
+<a href="editing.html#scale">スケーリング</a>された場合でも、
+そのテキストのフォントの大きさを変更しないようになります。
+<p>
+<i>Special</i> フラグを <i>ON</i> とすると、図の LaTeX フォーマットでの 
+<a href="printing.html#export">Export</a> に際して、
+テキストに含まれる特殊文字 (``<tt>\</tt>'' など) を特別扱いせず、
+そのまま出力するようになります。
+これはテキストに LaTeX のコマンドを含める際に使用することができます。
+LaTeX のコマンドの使用は、
+特に図の中に複雑な数式などを書きたい場合などに有用です。
+<i>Special</i> フラグが <i>OFF</i> となっている場合には、
+特殊文字はその文字を印刷することができるように
+適切に変換した上で出力されます。
+
+<p>
+<dt><img src="../images/dimline-button.png" alt="">
+  <a name="dimension-lines">(Dimension Lines)</a>
+<dd>
+<dd><a href="drawing.html#polyline">寸法線</a>の属性を設定します。
+これは、線の端の短い線、矢印、文字列を囲む枠、
+そして線の実際の長さを示す文字列かユーザーが設定した文字列を
+含むことができます。
+<blockquote>
+  <img src="../images/dimline-panel.png" alt="[Dimension Lines]" align=top>
+</blockquote>
+その設定を変更すると、パネルの上部のイメージが
+その寸法線がどのように見えるであろうかを示します。
+<p>
+<ul>
+<li><i>Line</i> ― 主寸法線
+  <ul>
+  <li><i>Thickness</i>
+  ― 主寸法線の太さ。
+  これは 0 とすることもでき、その場合には線は描画されません。
+  <li><i>Style</i>
+  ― 線の種類 (実線、破線など)。
+  これを押すと、標準の線の種類のメニューが表示されます。
+  <li><i>Color</i>
+  ― 線の色。
+  これが押されると、色の選択のためのパネルがポップアップします。
+</ul>
+
+<p>
+<li><i>Arrows</i> ― 矢印
+  <ul>
+  <li><i>Types</i>
+  ― これを押すと、矢印の種類を選択する (あるいは矢印をなくす) ための
+  プルダウン・メニューが表示されます。
+  <li><i>Length</i>
+  ― 主寸法線の太さに対する比率で表現した、矢印の長さ。
+  <li>
+  <i>Width</i>
+  ― 主寸法線の太さに対する比率で表現した、矢印の幅。
+  </ul>
+
+<p>
+<li><i>Box</i> ― 寸法の周囲に描画される枠
+  <ul>
+  <li><i>Thickness</i>
+  ― 描画される枠の線の太さ。
+  <li><i>Color</i>
+  ― 枠内を塗りつぶす色。
+  これが押されると、色の選択のためのパネルがポップアップします。
+  </ul>
+
+<p>
+<li><i>Show ticks</i>
+  ― 主寸法線に目盛を付けるかどうかのチェックボックス
+
+<p>
+<li><i>Text</i> ― 線の長さを示す文字列
+  <ul>
+  <li><i>Font</i>
+  ― これを押すと、
+  標準的なフォントの選択のためのメニューがポップアップします。
+  <li><i>Size</i>
+  ― ポイントで表現した、フォントの大きさ。
+  <li><i>Color</i>
+  ― 文字列の色。
+  <li><i>Text type</i>
+  ― その線の長さが変えられた場合にもその線の実際の寸法を表示するか、
+  ユーザーが入力した文字列を表示するかのチェックボックス。
+  </ul>
+</ul>
+
+</dl>
+
+<p>
+<hr>
+
+<h2><a name="colors-panel">Colors パネル</a></h2>
+
+Colors パネルはオブジェクトの外形の描画や
+内部の塗りつぶしの色の設定を行なうためのものであり、
+<a href="#pen-color">PEN COLOR</a> ボタン、
+もしくは <a href="#fill-color">FILL COLOR</a> ボタンが
+クリックされたときに開かれます。
+<p>
+<blockquote>
+  <img src="../images/color-panel.png" alt="[Color Panel]">
+</blockquote>
+
+<p>
+<dl>
+<dt><i>Edit Pen</i>
+<dd>このボタンが選択された状態となっているときには、
+PEN COLOR、すなわち
+オブジェクトの外形を描画するための色の選択を行なうことができます。
+このパネルが <a href="#pen-color">PEN COLOR</a> ボタンの
+クリックによって開かれたときには、
+このボタンが選択された状態となっています。
+
+<p>
+<dt><i>Edit Fill</i>
+<dd>このボタンが選択された状態となっているときには、
+FILL COLOR、すなわち
+オブジェクトの内部の塗りつぶしを行なうための色の選択を行なうことができます。
+このパネルが <a href="#fill-color">FILL COLOR</a> ボタンの
+クリックによって開かれたときには、
+このボタンが選択された状態となっています。
+
+<p>
+<dt><i>Standard Colors</i>
+<dd>ここには 32 個の標準の色が含まれており、
+いずれかの色のボタンをクリックすることによって
+その色を選択することができます。
+標準の色は、黒、黄、白、金色、5階調の青、4階調の緑、4階調のシアン、
+4階調の赤、5階調のマゼンタ、4階調の茶色、及び4階調のピンクです。
+これ以外の色は、<i>User Defined Colors</i> で定義することができます。
+
+<p>
+<dt><i>User Defined Colors</i>
+<dd>ここには、ユーザー定義カラーを定義したり、
+その色を選択したりするための機能が含まれています。
+<p>
+<dl>
+<dt><i>Add Color</i>
+<dd>このボタンをクリックすると、
+<i>User Defined Colors</i> の下のボックスに
+新しいユーザー定義カラーが追加されます。
+新しいユーザー定義カラーは
+<i>Add Color</i> がクリックされる前に選択されていた色に設定されますので、
+その色を元にして新しい色を定義することができます。
+<p>
+<dt><i>Lookup Color</i>
+<dd>このボタンも新しいユーザー定義カラーを追加するためのものですが、
+これを用いると画面上の任意の色を取り込むことができます。
+<i>Lookup Color</i> ボタンをクリックした後に
+画面上の任意の位置でクリックすると、
+その位置に表示されていた色が新しいユーザー定義カラーに設定されます。
+<p>
+<dt><i>Delete</i>
+<dd>このボタンはユーザー定義カラーを削除するためのものであり、
+いずれかのユーザー定義カラーを選択した状態でこのボタンをクリックすると、
+その色が削除されます。
+ただし、そのユーザー定義カラーが使用されている場合には、
+その色を削除することはできません。
+<p>
+<dt><i>UnDelete</i>
+<dd>このボタンをクリックすると、<i>Delete</i> ボタンによる
+ユーザー定義カラーの削除 (最後に行なわれたもの) が取り消されます。
+<p>
+<dt><i>Delete Unused</i>
+<dd>このボタンをクリックすると、
+使用されていないユーザー定義カラーが全て削除されます。
+実際に使用されている色の数は 
+<i>User Defined Colors</i> のタイトルの隣に表示されています。
+また、使用されている色の枠は緑で表示され、
+使用されていない色の枠は黒で表示されます。
+選択されている色の枠は赤となります。
+<p>
+<dt><i>RGB and HSV Slider</i>
+<dd>ユーザー定義カラーの色の変更は、
+RGB (赤、緑、青)、もしくは HSV (色相、彩度、明度) の
+スライダを用いて行なうことができます。
+あるいは <i>Edit Pen</i>、もしくは <i>Edit Fill</i> の下のフィールドに
+赤、緑、及び青の量 (それぞれの値は 00〜FF の範囲) を示す16進数を
+直接タイプすることもできます。
+<p>
+赤、緑、及び青のスライダの上のボタンの
+2つ、もしくは3つを選択した状態とすると、
+それらのスライダは ``ロック'' され、
+<i>Lock</i> スライダを動かすことによって同時に動かせるようになります。
+</dl>
+</dl>
+
+<p>
+<hr>
+
+<h2><a name="font-panel">Font パネル</a></h2>
+
+Font パネルは
+テキストの描画に用いるフォントの選択を行なうためのものであり、
+<a href="#text-font">TEXT FONT</a> ボタンが
+クリックされたときに開かれます。
+ここで選択することができるのはフォントの種類のみであり、
+フォントの大きさは 
+<a href="#text-size">TEXT SIZE</a> で設定する必要があります。
+<p>
+Font パネルには、PostScript フォントの選択のためのものと、
+LaTeX フォントの選択のためのものとがあります。
+<p>
+<blockquote>
+  <img src="../images/text-font-panel.png" alt="[Font Panel - PostScript]">
+  <p>
+  <img src="../images/text-font-panel-latex.png" alt="[Font Panel - LaTeX]">
+</blockquote>
+<p>
+いずれかのフォントのボタン 
+(ボタンのラベルはそのフォントで表示してある) をクリックすると、
+そのフォントが選択されます。
+<i>Use LaTeX Fonts</i> ボタンをクリックすると
+パネルが LaTeX のフォントの選択のためのものに、
+<i>Use PostScript Fonts</i> ボタンをクリックすると
+パネルが PostScript フォントの選択のためのものに切り替えられます。
+<p>
+PostScript フォントの選択のためのパネルに含まれているすべてのフォントが、
+すべての PostScript プリンタで使用可能であるとは限りません。
+また、画面への表示に際して、
+指定したものと異なったフォントが用いられることもあります。
+しかし、少なくとも 
+<i>Times-Roman</i>、<i>Times-Italic</i>、
+<i>Times-Bold</i>、<i>Times-BoldItalic</i>、
+<i>Courier</i>、<i>Courier-Oblique</i>、
+<i>Courier-Bold</i>、<i>Courier-BoldOblique</i>、
+<i>Helvetica</i>、<i>Helvetica-Oblique</i>、
+<i>Helvetica-Bold</i>、及び <i>Helvetica-BoldOblique</i> 
+については、ほとんどすべての環境で使用可能であるものと思われます。
+<p>
+<a name="font-panel-i18n"><img src="../images/pict-i18n.png" alt="[I18N]"></a>
+<a href="i18n.html">国際化 xfig</a> では、
+日本語環境においては
+ ``<i>Times-Roman</i>'' と ``<i>Times-Bold</i>'' が
+<blockquote>
+<img src="../images/font-menu-japanese.png"
+    alt="Times-Roman + Mincho and Times-Bold + Gothic">
+</blockquote>
+に、韓国語環境においては
+<blockquote>
+<img src="../images/font-menu-korean.png"
+    alt="Times-Roman + Mincho and Times-Bold + Gothic">
+</blockquote>
+に置き換えられ、これらのフォントを選択した場合には
+テキストに日本語や韓国語を含めることが可能となります。
+これについては <a href="i18n.html">国際化</a> を参照して下さい。
+
+<p>
+<hr>
+
+[ <a href="contents.html">Contents</a> |
+ <a href="introduction.html">Introduction</a> |
+ <a href="authors.html">Credits</a> ]
+
+</body>
+</html>

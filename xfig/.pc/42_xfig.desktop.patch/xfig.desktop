@@ -1,0 +1,7 @@
+[Desktop Entry]
+Exec=/usr/X11R6/bin/xfig
+InitialPreference=2
+MimeType=image/x-xfig;
+Name=xfig
+Terminal=false
+Type=Application

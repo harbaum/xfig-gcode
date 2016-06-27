@@ -1,0 +1,19 @@
+From: Roland Rosenfeld <roland@debian.org>
+Subject: Change documentation, that image libraries are in
+
+--- a/Doc/xfig.man
++++ b/Doc/xfig.man
+@@ -1489,8 +1489,11 @@
+ See the
+ .IR Imakefile .
+ .TP
+-/usr/lib/X11/xfig
+-This directory contains the html documentation, the above mentioned
++/usr/share/doc/xfig
++This directory contains the documentation.
++.TP
++/usr/share/xfig
++This directory contains the above mentioned
+ CompKeyDB file, and a directory of libraries containing Fig objects
+ such as electrical symbols, logic symbols, etc.
+ .TP

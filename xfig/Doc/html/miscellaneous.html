@@ -1,0 +1,299 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<html>
+<head>
+<title>Miscellaneous</title>
+</head>
+
+<body>
+<a href="contents.html"><img src="images/xfig-title.png"
+  alt="XFIG Users Manual" border=0></a>
+
+<hr>
+
+<h1>Miscellaneous</h1>
+
+<dl>
+<dd><img src="images/redballdot.png" alt="-">
+<a href="#search-replace">Search/Replace/Update</a>
+<dd><img src="images/redballdot.png" alt="-">
+<a href="#spell-check">Spell Check</a>
+<dd><img src="images/redballdot.png" alt="-">
+<a href="#mouse">2- or 3-Button Mouse</a>
+<dd><img src="images/redballdot.png" alt="-">
+<a href="#wheelmouse">Wheel Mouse</a>
+<dd><img src="images/redballdot.png" alt="-">
+<a href="#mouse-indicator">Mouse Function Indicator</a>
+<dd><img src="images/redballdot.png" alt="-">
+<a href="#balloons">Information Balloons</a>
+<dd><img src="images/redballdot.png" alt="-">
+<a href="fig-format.html">Fig File Format</a>
+<dd><img src="images/redballdot.png" alt="-">
+<a href="latex_and_xfig.html">LaTeX and Xfig</a>
+<dd><img src="images/redballdot.png" alt="-">
+<a href="i18n.html">Internationalization</a>
+<dd><img src="images/redballdot.png" alt="-">
+<a href="#y2k">Year 2000 Compliancy</a>
+<dd><img src="images/redballdot.png" alt="-">
+<a href="#keyboard-entry">Keyboard Coordinate Entry</a>
+</dl>
+
+<hr>
+
+<h2><a name="search-replace">Search and Replace Text</a></h2>
+
+The <b>Search/Replace</b> entry in the 
+<a href="main_menus.html#edit-menu"><b>Edit</b> menu</a> 
+will popup the Search &amp; Replace Panel.
+The keyboard accelerator <tt>Meta-I</tt> will do the same.
+Using the Search &amp; Replace Panel,
+users can search and optionally replace 
+<a href="drawing.html#text">text</a> in the figure.
+It is also possible to apply
+<a href="editing.html#update">UPDATE</a> to searched texts.
+<p>
+  <img src="images/search-text-panel.png" alt="[Search/Replace Panel]">
+
+<p>
+<dl>
+<dt>
+<img src="images/redballdot.png" align=bottom alt="-">
+<i>Search for</i>
+<dd>Specify the string to be searched.  Pressing <i>Return</i> in this window
+or pressing the <i>Search</i> button will start the search.
+
+<dt>
+<img src="images/redballdot.png" align=bottom alt="-">
+<i>Search</i>
+<dd>
+Pressing this button will start the search for the text
+in the <i>Search for</i> entry.
+The results of the search will be displayed in the bottom window, with 
+the coordinates of each text object containing the word or words.
+
+<dt>
+<img src="images/redballdot.png" align=bottom alt="-">
+<i>Case Sensitive</i>
+<dd>If this box is checked,
+upper-case and lower-case letters will be considered significant when searching.
+
+<dt>
+<img src="images/redballdot.png" align=bottom alt="-">
+<i>Replace with</i>
+<dd>Specify the string to replace the string
+entered in the <i>Search</i> field.
+
+<dt>
+<img src="images/redballdot.png" align=bottom alt="-">
+<i>Replace</i>
+<dd>If this button is clicked after the search,
+the string specified in <i>Search for</i> field will be replaced
+with the string specified in the <i>Replace with</i> field.
+<i>Search</i> must be clicked once before clicking this button.
+
+<dt>
+<img src="images/redballdot.png" align=bottom alt="-">
+<i>UPDATE Settings</i>
+<dd>
+If this button is clicked after the search,
+the <a href="editing.html#update">UPDATE</a> function will be performed
+on the matching texts, applying settings in the
+<a href="attributes.html">Attribute Panel</a>
+to the matched text objects.
+
+</dl>
+N.B.: The <a href="main_menus.html#undo"><i>Undo</i></a> function 
+is not available for this feature.
+
+<hr>
+
+<h2><a name="spell-check">Spell Check</a></h2>
+
+<i>Spell Check...</i> in the 
+<a href="main_menus.html#edit-menu"><i>Edit</i> menu</a> or
+keyboard accelerator <tt>Meta-K</tt> will popup the Spell Check Panel.
+Xfig will run the external spelling checker (resource <TT>Fig.spellcheckcommand</TT>)
+on <a href="drawing.html#text">text</a> in the figure,
+and shows any misspelled words in the text.
+<p>
+  <img src="images/spell-check-panel.png" alt="[Spell Check Panel]">
+
+<dl>
+<dt>
+<img src="images/redballdot.png" align=bottom alt="-">
+<i>Status window</i>
+<dd>This window shows the status of the spelling checker, and how 
+many words (if any) are misspelled.
+
+<dt>
+<img src="images/redballdot.png" align=bottom alt="-">
+<i>Misspelled words</i>
+<dd>This listbox shows the misspelled words, with a scrollbar if necessary
+If you click on a word it is copied to the <i>Correction</i> window
+where you may edit it to correct it.  Pressing <i>Return</i> in this
+window or the <i>Correct</i> button will replace <b>all</b> occurrances
+of this word in all text objects in the figure.
+
+<dt>
+<img src="images/redballdot.png" align=bottom alt="-">
+<i>Recheck</i>
+<dd>Pressing this button will do a re-check of spelling.  This is useful
+after correcting words to verify the corrections.
+
+</dl>
+N.B.: The <a href="main_menus.html#undo"><i>Undo</i></a> function 
+is not available for this feature.
+
+<hr>
+<h2><a name="mouse">2- or 3-Button Mouse</a></h2>
+Use of a three-button mouse is recommended, but it is also
+possible to use a two-button mouse (if you have a two-button mouse and
+your X server doesn't emulate a three-button mouse, press the Meta (or Alt) key
+and right mouse button together to simulate mouse button 2). Normally, mouse
+buttons 1 to 3 are assigned to the left, middle, and right buttons respectively.
+<br>
+<img src="images/pict-info.png" alt="">
+However, be warned that some window managers may use the Meta-Right button combination
+to do window operations (e.g. resize). If this is the case you will have to 
+change the setting in the window manager.
+
+<hr>
+<h2><a name="wheelmouse">Wheel Mouse</a></h2>
+
+If you use a wheel-mouse, then the following functions are available:
+<dl>
+<dt>
+<img src="images/redballdot.png" align=bottom alt="-">
+Attribute Buttons
+<dd> Rotating the wheel on attribute buttons will increase/decrease
+  setting of the button as if mouse button 2 or 3 is clicked.
+  This can be useful to alter parameters such as Line Width.
+
+<dt>
+<img src="images/redballdot.png" align=bottom alt="-">
+Spinners
+<dd> Rotating the wheel on a spinner will increase/decrease the value.
+
+<dt>
+<img src="images/redballdot.png" align=bottom alt="-">
+Rulers and Canvas
+<dd> Rotating the wheel on the rulers or canvas will scroll the canvas.
+
+<dt>
+<img src="images/redballdot.png" align=bottom alt="-">
+Zooming
+<dd> Rotating the wheel on the canvas while the <b>Control</b> key is pressed
+  will zoom/unzoom the canvas around the pointer.
+
+<dt>
+<img src="images/redballdot.png" align=bottom alt="-">
+Changing Modes
+<dd> Rotating the wheel on the canvas while the <b>Shift</b> key is pressed
+  will popup a panel to select
+  drawing modes (upward) and editing modes (downward).
+  The panel will close when any item is selected, or when the
+  wheel is rotated in the reverse direction.
+
+</dl>
+
+<hr>
+<h2><a name="mouse-indicator">Mouse Function Indicator</a></h2>
+
+<blockquote>
+  <img src="images/mouse-function-indicator.png" alt="[Mouse Function Indicator]">
+</blockquote>
+<p>
+Mouse Function Indicator shows which functions are assigned
+to each mouse button.
+<p>
+Although the function of each mouse button changes
+depending on the state (selected mode, position of the mouse cursor,
+state of SHIFT key or CONTROL key, etc) at the time,
+the mouse function indicator shows the current function at all times.
+<p>
+If the <a href="drawing.html#text">TEXT</a> mode is selected
+and it is ready to enter text from keyboard,
+the mouse function indicator shows that as a keyboard icon.
+<p>
+If left and right mouse button are switched,
+message on the mouse function indicator can be switched with 
+<tt>-flipvisualhints</tt> option or <tt>Fig.flipvisualhints</tt> resource.
+<p>
+See also <a href="#balloons">Information Balloons</a>.
+
+<hr>
+
+<h2><a name="balloons">Information Balloons</a></h2>
+
+<p>
+If this mode is <i>ON</i> 
+(see <a href="global_settings.html">Global Settings Panel)</a>,
+`balloon' messages corresponding to the object the mouse is positioned
+over will popup after a predetermined time 
+(in milliseconds; resource <tt>Fig.balloon_delay</tt>).
+Here is an example:
+<blockquote>
+  <img src="images/balloons-example.png" alt="[Balloons Example]">
+</blockquote>
+
+<hr>
+
+
+<hr>
+<h2><a name="y2k">Year 2000 Compliancy</a></h2>
+Both <b>Xfig</b> and <b>TransFig/fig2dev</b> are Year 2000 compliant.
+They don't rely on any dates for their operation.
+
+<hr>
+
+<h2><a name="keyboard-entry">Keyboard Coordinate Entry</a></h2>
+In any drawing or edit mode, the location of the next point may be specified from the
+keyboard rather from the pointer.  Pressing Ctrl-k while the pointer is in the
+canvas will pop up a dialog that allows a coordinate to be entered.
+<p>
+The coordinates may be specified  in either rectangular or polar form, either
+absolutely or realative to the current point, and in either decimal or
+fractional notation.  Rectangular coordinates are specified as
+<p>
+<center><i>x-coord</i>, <i>y-coord</i></center>
+<p>
+or
+<p>
+<center>r <i>x-coord, y-coord</i></center>
+<p>
+where the comma is optional and a leading 'r' (or 'R') indicates that the point
+specified is relative to the current point.  Coordinates may be entered either in
+decimal form or fraction form like, for example "2-7/8" and are in the
+currently selected units.
+<p>
+Polar coordinates are entered as:
+<p>
+<center><i>distance</i> &lt; <i>angle</i></center>
+<p>
+where the <i>distance</i> is always relative to the current point and, like
+rectangular coordinates, may be expresed as a decimal or a fraction.
+<p>
+The <i>angle</i> may be suffixed with any of the three letters "d", "r", or
+"p", in either upper or lower case.  A "d" suffix indicates that the angle is in
+degrees, an "r" suffix indicates radians, and a "p" suffix indicates
+pi-radians.  (Pi-radians are a multipler of &pi;; ".5p" would represent the
+angle &pi;/2.)  The default if no suffix is specified is degrees.
+<p>
+Keyboard entry is completed by pressing the Enter key.  An unshifted Enter is
+equivalent to a left-button pointer click at the entered location; Shift-Enter 
+is the equivalent of a middle-button (Button2) click and Ctrl-Enter is the 
+equivalent of a right-button (Button3) click.
+<p>
+Keyboard entry may be cancelled by pressing Escape.
+<p>
+The keyboard entry mechanism maintains a stack of recently entered coordinates.
+While the text cursor is in the keyboard entry text field, the Ctrl-P, Ctrl-N,
+Up-arrow, and Down-arrow keys navigate up and down in the stack.
+
+<hr>
+
+[ <a href="contents.html">Contents</a> |
+ <a href="introduction.html">Introduction</a> |
+ <a href="authors.html">Credits</a> ]
+
+</body>
+</html>

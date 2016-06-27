@@ -1,0 +1,18 @@
+#FIG 3.2
+Portrait
+Center
+Metric
+Letter  
+100.00
+Single
+-2
+# Custos (meaning sentry/guardian - denotes the next tone)
+# (best used with metric ruler units)
+# by W. Chimiak A.D. 2005
+1200 2
+6 315 225 360 540
+2 2 0 1 0 0 50 -1 20 0.000 0 0 -1 0 0 5
+	 315 405 360 405 360 540 315 540 315 405
+2 1 0 1 0 0 50 -1 20 0.000 0 0 -1 0 0 2
+	 360 540 360 225
+-6

@@ -1,0 +1,22 @@
+#!/bin/csh
+#
+# Assemble all the state maps into one _all.fig
+#
+if ( -e _all.fig ) chmod 664 _all.fig
+# get the header from one of the states
+head -8 alaska.fig > _all.fig
+# a comment
+echo "# Albers Equal-Area projection map of the USA." >> _all.fig
+echo "# By Steve Eichblatt with touchup by Brian Smith" >> _all.fig
+# add the resolution
+echo 1200 2 >> _all.fig
+echo adding... 
+foreach file ( [a-z]*.fig )
+  if ( $file == "usa.fig" ) continue
+  echo -n " $file "
+  # get state name from main comment on line 9
+  tail +9 $file | head -1 >> _all.fig
+  # then the state Fig objects
+  tail +11 $file >> _all.fig
+end
+echo ""

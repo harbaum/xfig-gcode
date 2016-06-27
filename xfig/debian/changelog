@@ -1,0 +1,1221 @@
+xfig (1:3.2.5.c-5) unstable; urgency=medium
+
+  * 48_intersect_missing_argument: add missing argument to some intersect
+    function calls. Thanks to Michael Tautschnig (Closes: #795642).
+  * 49_filled_objects: Fix default origin (100000,100000) -> (0,0) for
+    filled objects. New intel video driver shows filled objects wrongly if
+    origin is large.  Thanks to Vladislav Zavjalov from Altlinux.
+  * 50_fset_init: w_drawprim.c: fix xfontlist->fset initialization.  Thanks
+    to Vladislav Zavjalov from Altlinux.
+  * 51_depth_undo_join_split: fix depth handling in undo_join_split().
+    Thanks to Vladislav Zavjalov from Altlinux.
+  * 52_usercolor_newxfig: restore user colors in new_xfig_request().
+    Thanks to Vladislav Zavjalov from Altlinux.
+  * 53_filename_undo: Use F_LOAD action for new command, don't restore
+    filenames in F_ADD/F_DELETE actions.  Thanks to Vladislav Zavjalov from
+    Altlinux.
+  * 54_depth_undo_load: swap depths in undo_load().  Thanks to Vladislav
+    Zavjalov from Altlinux.
+  * 55_indpanel_warnings: fix some warnings in w_indpanel.c.  Thanks to
+    Vladislav Zavjalov from Altlinux.
+  * Install a wrapper around xfig, that tries to switch to a non-UTF-8
+    charset, since xfig doesn't support UTF-8. README.Debian gives some
+    more information about this (Closes: #395328, #656560).
+  * 56_nofont-symbol-dingbat: w_drawprim.c: don't use fontsets for symbols
+    and dingbats fonts. Thanks to Vladislav Zavjalov from Altlinux.
+  * Remove debian/preinst, since the xaw-wrappers uninstall code was from
+    potato and is no longer needed.
+  * Change CreationDate to changelog date in xfig_man.html to make package
+    reproducible.
+
+ -- Roland Rosenfeld <roland@debian.org>  Thu, 20 Aug 2015 10:59:07 +0200
+
+xfig (1:3.2.5.c-4) unstable; urgency=low
+
+  * 43_startgridmode_man: Adapt man page accordinig to -startgridmode to
+    xfig behavior (Closes: #314820).
+  * Add %f to Exec in xfig.desktiop (42_xfig.desktop).
+  * 44_crash-on-exit: Fix crash on exit (regression of xfig.3.2.5c).
+    Thanks to Peter Volkov from Gentoo.
+  * Change spellcheckcommand from spell to enchant (04_app-defaults).
+    Thanks to Caolan McNamara from Fedora.
+  * 45_fix_dash_list_for_different_styles: Fix crash when creating lines
+    with linestyle 3.  Thanks to Michal Srb, Maurizio Paolini and David
+    Kaufmann from Fedora (Closes: #755492, #774373).
+    This should also fix Ubuntu bug #1317825.
+  * 46_arrowhead-thickness: Fix crash when changing arrow size on x86_64.
+    Thanks to Hans de Goede from Fedora (Closes: #774673).
+  * Update to Standards-Version 3.9.6 (no changes).
+  * 47_100pCPU_save: fix 100% cpu load by save panel.  Thanks to Vladislav
+    Zavjalov from Altlinux (Closes: #509470, #256556).
+
+ -- Roland Rosenfeld <roland@debian.org>  Thu, 04 Jun 2015 22:42:18 +0200
+
+xfig (1:3.2.5.c-3) unstable; urgency=low
+
+  * Split indep/arch parts of debian/rules install.
+
+ -- Roland Rosenfeld <roland@debian.org>  Tue, 13 May 2014 22:39:02 +0200
+
+xfig (1:3.2.5.c-2) unstable; urgency=low
+
+  * Remove archive Libraries/Fasteners/Fasteners.tar from xfig-libs.
+  * 40_XAW3D1_5E_notlocal: Don't use local SimpleMenu.c with XAW3D1_5E
+    (Closes: #296703). Thanks to Vladislav Zavjalov.
+  * 41_mkstemp: Missed hunk noticed
+    https://bugzilla.redhat.com/show_bug.cgi?id=505257#c1 is recreated.
+    (Closes: #565341).
+  * 42_xfig.desktop: Install modified xfig.desktop (Closes: #494790).
+  * Complete rewrite of debian/rules.
+  * Now uses hardening via debhelper.
+  * Use hardening=+all.
+  * Update to Standards-Version 3.9.5 (no changes).
+  * Use iceweasel as default www-browser.
+  * Remove xfig-www-browser and man page from source tree.
+  * Update list of PDF viewers in xfig-pdf-viewer and man page.
+
+ -- Roland Rosenfeld <roland@debian.org>  Tue, 13 May 2014 18:04:18 +0200
+
+xfig (1:3.2.5.c-1) unstable; urgency=low
+
+  * New upstream version 3.2.5c.
+  * Update all patches to new upstream version.
+  * 12_network_images, 30_figparserstack, 35_CVE-2010-4262, 36_libpng15,
+    37_fix-eps-reading.patch removed, since this is now incorporated upstream.
+  * Update homepage URL.
+  * Create xfig_man.html using man-db&groff, which is missing upstream.
+  * Upgrade to Standards-Version 3.9.4 (no changes).
+  * Update debian/watch.
+  * 39_man_hyphen: escape "-" in man page to make lintian happy
+
+ -- Roland Rosenfeld <roland@debian.org>  Tue, 15 Oct 2013 22:54:49 +0200
+
+xfig (1:3.2.5.b-3) unstable; urgency=low
+
+  * Remove deprecated dpatch and upgrade to packaging format "3.0 quilt".
+  * Update to Standards-Version to 3.9.3 and debhelper to 9.
+  * Add build-arch and build-indep targets; use dh_prep in rules file.
+  * Thanks to Jari Aalto for providing a patch for the previous lines
+    (Closes: #668557).
+  * debian/rules: Change build options to harden binaries.
+  * 38_formatstring: fix format string error with hardening.
+  * 13_reove_extra_libs: really remove libz now.
+
+ -- Roland Rosenfeld <roland@debian.org>  Thu, 07 Jun 2012 23:30:49 +0200
+
+xfig (1:3.2.5.b-2) unstable; urgency=low
+
+  * 35_CVE-2010-4262: add documentation to the patch.
+  * Build-depend on libjpeg-dev instead of libjpeg62-dev (Closes: #647107).
+  * Add ${misc:Depends} to all packages.
+  * Add debian/source/format (1.0).
+  * Add build-arch/build-indep to debian/rules.
+  * Upgrade to Standards-Version 3.9.2 (no changes).
+  * Use Breaks instead of Conflicts in debian/control.
+  * 36_libpng15: Some changes to cooperate with libpng 1.5. Thanks to
+    Nobuhiro Iwamatsu <iwamatsu@nigauri.org> for providing the patch
+    (Closes: #635707)
+  * 36_libpng15: Add switch to support both libpng12 and libpng15.
+  * Build-Depend on libpng-dev instead of libpng12-dev.
+  * 37_fix-eps-reading by Hans de Goede <hdegoede@redhat.com>:
+    Fix importing of eps files (Closes: #612180, #614616).
+  * Update debian/watch (Closes: #449653).
+
+ -- Roland Rosenfeld <roland@debian.org>  Sat, 05 Nov 2011 22:57:46 +0100
+
+xfig (1:3.2.5.b-1.1) unstable; urgency=high
+
+  * Non-maintainer upload by the Security Team.
+  * Fixed CVE-2010-4262: Stack-based buffer overflow by processing certain FIG
+    images (Closes: #606257)
+
+ -- Giuseppe Iuculano <iuculano@debian.org>  Wed, 29 Dec 2010 16:50:04 +0100
+
+xfig (1:3.2.5.b-1) unstable; urgency=low
+
+  * New upstream version 3.2.5b.
+  * Remove patches that are incorporated upstream: 25_mkstemp,
+    26_missingprotos, 27_zoom-crash, 28_text-size-input, 29_print_segfault.
+  * 30_figparserstack: Fix Stack-based buffer overflow by loading
+    malformed .FIG files
+    (https://bugzilla.redhat.com/show_bug.cgi?id=543905) (Closes: #559274).
+  * Upgrade to Standards-Version 3.8.3 (no changes).
+  * Added debian/README.source (from dpatch package) to explain how dpatch
+    works.
+  * Remove path from update-xaw-wrappers script in preinst.
+  * 31_spelling: Fix spelling errors in binary.
+  * 13_remove_extra_libs: s/XTOOLONLYLIIB/XTOOLONLYLIB/, so Xt is linked
+    into the binary to make binutils-gold happy (Closes: #556705).
+  * 32_papersize_b1: xfig -papersize b1 now really uses B1 instead of B10
+    (Closes: #535181).
+  * 33_pdfimport_mediabox: Fix reading "/MediaBox" when importing PDF.
+    Thanks t jsoula@univ-lille2.fr for providing a patch (Closes: #530898).
+  * 34_old_shadows: Restore old shadow behavior. Reduce shadow width to 1
+    pixel and fix a green scrollbar shadow.
+
+ -- Roland Rosenfeld <roland@debian.org>  Sun, 06 Dec 2009 12:56:18 +0100
+
+xfig (1:3.2.5.a-2) unstable; urgency=low
+
+  * 29_print_segfault: Avoid segmentation fault on print panel.
+
+ -- Roland Rosenfeld <roland@debian.org>  Sat, 18 Apr 2009 10:49:24 +0200
+
+xfig (1:3.2.5.a-1) unstable; urgency=medium
+
+  * New upstream version 3.2.5a (as of 2009-03-17).
+  * The following patches are incorporated upstream, so they were
+    removed here: 01_fix_warnings, 06_manual_version, 07_maps_europe,
+    08_maps_spain, 09_andre_images.dpatch, 10_manpage_hyphen,
+    11_shadow_app_defaults, 14_manpage_fixsyntax, 15_lp_or_lpr,
+    16_man_rigidtext, 19_xaw3d1_5e_fix, 20_nodebugout,
+    21_Imake_jhtml_fix, 22_kfreebsd, 23_modepanel_width, 
+    24_lp_printer_fixup.
+  * Updated the other patches to the new version.
+  * Updated debian/copyright.
+  * Several patches from Hans de Goede, the Fedora maintainer (many thanks
+    for this):
+    - 25_mkstemp: Temp file vulnerability Security fix!
+    - 26_missingprotos: Add various missing #includes, fixing compiler
+      warnings (and potential 64 bit bugs)
+    - 27_zoom-crash: Crasher fix, see
+      https://bugzilla.redhat.com/show_bug.cgi?id=420411
+    - 28_text-size-input: Text size field inserts characters on left
+      instead of right, https://bugzilla.redhat.com/show_bug.cgi?id=490257
+  * Upgrade to Standards-Version 3.8.1 (no changes).
+  * Remove duplicate section for xfig-libs from debian/control
+
+ -- Roland Rosenfeld <roland@debian.org>  Wed, 25 Mar 2009 17:17:09 +0100
+
+xfig (1:3.2.5-rel-3) unstable; urgency=low
+
+  * Remove trailing space from debian/patches/00list to make lintian happy.
+  * Stop ignoring "make clean" errors in debian/rules.
+  * xfig-doc.doc-base: Change section from Apps/Graphics to Graphics.
+  * menu: Change section Apps/Graphics to Applications/Graphics.
+  * Upgrade to Standards-Version 3.8.0:
+    - Fix Homepage header in control file.
+  * Build-Depend on xutils-dev instead of xutils (Closes: #485545).
+  * Suggest ghostscript instead of gs now.
+  * Suggest cups-client instead of cupsys-client now.
+  * 23_modepanel_width: finally fixed size of mode panel so it doesn't
+    cover indicator panel under certain circumstances (backported from
+    unreleased 3.2.5a by Brian V. Smith) (Closes: #427960).
+  * 24_lp_printer_fixup: Fix printer selection option if lp is used
+    (instead of lpr) (Closes: #443832).
+
+ -- Roland Rosenfeld <roland@debian.org>  Sun, 05 Oct 2008 15:49:56 +0200
+
+xfig (1:3.2.5-rel-2) unstable; urgency=low
+
+  * 22_kfreebsd: tweak to build on GNU/kFreeBSD (Closes: #430358).
+    Thanks to Petr Salinger <Petr.Salinger@seznam.cz> for providing a patch.
+
+ -- Roland Rosenfeld <roland@debian.org>  Mon, 25 Jun 2007 19:38:11 +0200
+
+xfig (1:3.2.5-rel-1) unstable; urgency=low
+
+  * New upstream version 3.2.5. 
+    - Most of 01_fix_warnings is incorporated upstream.
+    - 17_numfracts and 18_edit_compounds are completely incorporated 
+      upstream.
+    - Adapted all other patches to new version.
+    - It isn't mentioned in upstream changelog, but drawing arcs from
+      center point no longer segfaults with this release (Closes: #345674).
+  * 19_xaw3d1_5e_fix: Fix a typo (#ifndef instead of #ifdef) in
+    w_library.c.
+  * chmod -x to all libraries.
+  * 20_nodebugout: get rid of annoying debug output on stderr.
+  * Remove xfig.man in clean target, because otherwise it isn't possible
+    to build the package twice (Closes: #424116)
+  * 02_Imakefile_Debian: #define I18N which isn't defined upstream now.
+  * 21_Imake_jhtml_fix: fix syntax error in Imakefile install.jhtml
+
+ -- Roland Rosenfeld <roland@debian.org>  Sun, 20 May 2007 12:23:51 +0200
+
+xfig (1:3.2.5-alpha5-9) unstable; urgency=low
+
+  * 18_edit_compunds.dpatch by "Brian V. Smith" <bvsmith@lbl.gov> fixes
+    the bug where editing a compound with more than 200 texts crashes
+    xfig (Closes: #292336).
+
+ -- Roland Rosenfeld <roland@debian.org>  Wed, 11 Oct 2006 18:58:10 +0200
+
+xfig (1:3.2.5-alpha5-8) unstable; urgency=low
+
+  * 13_remove_extra_libs.dpatch: Remove unnecessary dependencies on libz,
+    libXmu, libSM, libICE, and libXext.
+  * 14_manpage_fixsyntax.dpatch: Fix a nroff syntax error in man page.
+  * 15_lp_or_lpr.dpatch: Use lp if available or fall back to lpr 
+    (Closes: #384330).
+  * 16_man_rigidtext.dpatch: document X resource .rigidtext in man page
+    (Closes: #338544).
+  * 17_numfracts.dpatch: Fix NUM_FRACTS otherwise the for loop will
+    overrun. Thanks to Eric Sharkey <sharkey@netrics.com> for mentioning
+    this and providing a fix (Closes: #308527).
+
+ -- Roland Rosenfeld <roland@debian.org>  Sun,  1 Oct 2006 15:32:32 +0200
+
+xfig (1:3.2.5-alpha5-7) unstable; urgency=low
+
+  * Run gzip -d using find/xargs instead of using shell wildcard
+    expansion, hopefully this builds on m68k with less problems.
+  * Add debian/watch file.
+
+ -- Roland Rosenfeld <roland@debian.org>  Wed,  9 Aug 2006 20:40:11 +0200
+
+xfig (1:3.2.5-alpha5-6) unstable; urgency=low
+
+  * Add a notice about changing the x-cursor-theme to README.Debian 
+    (Closes: #358748).
+  * Migrate to dpatch.
+  * Add parameter types to CreateCheckbutton() prototype in w_util.h. This
+    should aviod some segfaults on 64bit archs (Closes: #315096).
+  * Add some network images (colored switch, router, pair of (routers,
+    switches, firewalls), internet cloud).
+  * Remove unused user colors from Andre's images.
+
+ -- Roland Rosenfeld <roland@debian.org>  Sun, 23 Jul 2006 23:49:22 +0200
+
+xfig (1:3.2.5-alpha5-5) unstable; urgency=low
+
+  * Add libxi-dev to Build-Deps (Closes: #379248).
+  * Remove non-POSIX code from preinst.
+  * Update to Standards-Version 3.7.2 (no changes).
+  * Upgrade to debhelper >= 5.
+  * Suggest firefox|www-browser in xfig-docs now.
+  * Add kpdf, evince and gpdf to xfig-pdf-viewer.
+
+ -- Roland Rosenfeld <roland@debian.org>  Sat, 22 Jul 2006 18:13:48 +0200
+
+xfig (1:3.2.5-alpha5-4) unstable; urgency=low
+
+  * Replace mozilla-firebird by mozilla-firefox in xfig-doc suggests
+    (Closes: #299695).
+  * u_fonts.h: declare structs before using them to make gcc-4.0 happy
+    (Closes: #300366).
+  * Rename Flags/Carribean to Flags/Caribbean (Closes: #307692).
+  * Run "install --" on installing Libraries to avoid trouble with file
+    names that start with a dash.
+
+ -- Roland Rosenfeld <roland@debian.org>  Sun, 17 Jul 2005 21:35:56 +0200
+
+xfig (1:3.2.5-alpha5-3) unstable; urgency=low
+
+  * Move shadow X resources from Fig-color.ad to Fig.ad.  This should
+    avoid the problems with XFig freezing when KDE tries to adapt its
+    colors to XFig (especially *Scrollbar*height: 15 causes much trouble
+    otherwise (Closes: #234575).
+
+ -- Roland Rosenfeld <roland@debian.org>  Tue, 24 Aug 2004 21:24:01 +0200
+
+xfig (1:3.2.5-alpha5-2) unstable; urgency=low
+
+  * Added some rack mounted components to the computers library. Thanks to
+    Andre Esser for drawing and providing them.
+  * Remove Portugal from Maps/Europe/spain.fig, otherwise this should be
+    named iberia.fig (Closes: #258224).
+  * Replace xfig-www-browser by sensible-browser, which internally handles
+    the BROWSER environ(7) variable (including colon separated
+    alternatives) and uses x-www-browser and www-browser alternatives, so
+    xfig-www-browser is no longer needed (Closes: #257976).
+
+ -- Roland Rosenfeld <roland@debian.org>  Sat,  7 Aug 2004 19:12:04 +0200
+
+xfig (1:3.2.5-alpha5-1) unstable; urgency=low
+
+  * New upstream version 3.2.5-alpha5.
+  * Build-depends on libxt-dev, libsm-dev, libxpm-dev, libxmu-dev,
+    libice-dev, libx11-dev, libxext-dev instead of xlibs-dev.
+  * Increase priority of xpdf over acroread in xfig-pdf-viewer.
+  * Add xpdf as the real package alternative to pdf-viewer.
+  * Escape some '-' chars in xfig.man.
+  * #include u_create.h in w_drawprim.c to avoid crashes on ia64.  Thanks
+    to avid Mosberger <davidm@hpl.hp.com> for finding and fixing this
+    problem (Closes: #248380).
+  * Add \usepackage{graphics,color} to TeXfig2eps script (Closes: #240190).
+
+ -- Roland Rosenfeld <roland@debian.org>  Tue, 11 May 2004 21:36:42 +0200
+
+xfig (1:3.2.5-alpha4-1) unstable; urgency=low
+
+  * New upstream version 3.2.5-alpha4.
+    - Better clipping around arrowheads on thick lines (lines that are
+      thicker than the arrowhead is wide) (Closes: #232674).
+    - Fixed annoying warning about StartScroll action not found on Linux
+      systems that use the "modified" Xaw3d widget set (ARROW_SCROLLBAR
+      defined, which makes the scrollbars look like the Windows
+      scrollbars) (Closes: #173925).
+  * Add support for mozilla-firebird and epiphany to xfig-www-browser.
+  * Add homepage URL to package descriptions.
+  * Split clipart libraries into separate package xfig-libs (Closes: #233458).
+  * Add version and date to ALT-tag of the title logo in introduction.html
+    (Closes: #230578).
+
+ -- Roland Rosenfeld <roland@debian.org>  Fri, 20 Feb 2004 22:49:14 +0100
+
+xfig (1:3.2.4-rel-9) unstable; urgency=low
+
+  * Build-Depend on xaw3dg-dev (>= 1.5+E-2), which contains a shlibs file
+    with a versioned dependency on a new xaw3dg version, because otherwise
+    we run into unresolved symbols on a system with older xaw3dg
+    (Closes: #206638).
+  * Upgrade to Standards-Version 3.6.1 (no changes).
+  * Add new xpm icons with full colors (new menu policy allows this) and
+    rename the old icons to xfig<size>cmap.xpm.  Add symlinks to the old
+    file names of the icons to keep backward compatible.
+  * Update debian/menu (add longtitle, description, icon16x16, icon32x32
+    and more hints).
+
+ -- Roland Rosenfeld <roland@debian.org>  Thu, 28 Aug 2003 17:58:17 +0200
+
+xfig (1:3.2.4-rel-8) unstable; urgency=low
+
+  * Apply patch from http://www.visi.com/~hawkeyd/xaw3d.html to cope with
+    new Xaw3D 1.5E (Closes: #206638).
+  * Build-Depends on xaw3dg-dev 1.5+E-1.
+
+ -- Roland Rosenfeld <roland@debian.org>  Fri, 22 Aug 2003 09:11:40 +0200
+
+xfig (1:3.2.4-rel-7) unstable; urgency=low
+
+  * Correct description of Maps/Europe/central_europe and add description
+    to eastern_europe (Closes: #197592).
+  * Apply patch.pipe from upstream author, which fixes problems where
+    pipes can't be opened (e.g. if external package is not installed)
+    (Closes: #197633).
+
+ -- Roland Rosenfeld <roland@debian.org>  Wed,  2 Jul 2003 19:00:49 +0200
+
+xfig (1:3.2.4-rel-6) unstable; urgency=low
+
+  * Undo parts of the previous patch, because they implies a segmentation
+    fault on moving or copying objects (Closes: #191180).
+
+ -- Roland Rosenfeld <roland@debian.org>  Tue, 29 Apr 2003 22:06:07 +0200
+
+xfig (1:3.2.4-rel-5) unstable; urgency=low
+
+  * Fix warnings in u_smartsearch.c and w_zoom.c to work around problems
+    with gcc on hppa.
+
+ -- Roland Rosenfeld <roland@debian.org>  Sat, 26 Apr 2003 21:49:28 +0200
+
+xfig (1:3.2.4-rel-4) unstable; urgency=low
+
+  * Build-Depend on libpng12-dev instead of libpng12-0-dev (the name of
+    this package was changed).
+  * Fix warnings in u_free.c (and add a new file u_free.h) to solve
+    compiler problem on hppa.
+
+ -- Roland Rosenfeld <roland@debian.org>  Sat, 26 Apr 2003 15:58:02 +0200
+
+xfig (1:3.2.4-rel-3) unstable; urgency=low
+
+  * Apply patch.dimline from upstream maintainer, which removes the
+    erroneous keyboard accelerator text about Shift-L initiating a
+    dimension line (Closes: #173181).
+  * Fix path to xfig documentation, CompKeyDB and Fig objects in xfig.man,
+    xfig_man.html and xfig.html (Closes: #181911).
+  * Upgrade Standards-Version to 3.5.9 (no changes).
+  * Upgrade to debhelper >= 4.0.0 
+    - Use compat instead of DH_COMPAT
+    - Update debian/rules based on debhelper example.
+  * Build-Depends on "libpng12-0-dev | libpng-dev" instead of
+    "libpng2-dev" now.
+  * Upgrade preinst scripts (use "set -e" instead of "#!/bin/sh -e").
+  * Remove empty /usr/share/doc/xfig/examples.
+
+ -- Roland Rosenfeld <roland@debian.org>  Mon, 21 Apr 2003 18:22:15 +0200
+
+xfig (1:3.2.4-rel-2) unstable; urgency=low
+
+  * Apply patch.action from upstream maintainer, which fixes three bugs:
+    - selecting an editing mode while placing a library object caused xfig
+      to tell the user to finish the operation, but was stuck in limbo
+      (Closes: #173924)
+    - cancelling the placement of a library object by changing modes
+      didn't erase the library object being dragged around the canvas
+      (Closes: #177106, #174014)
+    - breaking a compound object resulted in incorrect depth count of the
+      objects. 
+  * Change section of xfig-doc package from graphics to doc.
+
+ -- Roland Rosenfeld <roland@debian.org>  Tue,  7 Jan 2003 19:56:33 +0100
+
+xfig (1:3.2.4-rel-1) unstable; urgency=low
+
+  * New upstream release 3.2.4.
+    - No longer segfaults when ~/.xfigrc includes only 0 (Closes: #170290).
+    - No longer xfig gets confused when first displaying units on the metric
+      ruler (Closes: #171529).
+  * Upgrade to Standards-Version 3.5.8 (no changes).
+  * Re-add C-33A-USAF-1.fig KC-33A-USAF-1.fig KC-33-RORO-M113A4.fig
+    KC-33-RORO-M8AGS.fig KC-747+KMD-11.fig M113A1-Camo.fig M8-AGS-Camo.fig
+    because they now have a DFSG free copyright.
+  * Upgrade to DH_COMPAT=3 (and remove debian/conffiles).
+  * Modified debian/xpm.xpm to follow menu policy about colors.
+
+ -- Roland Rosenfeld <roland@debian.org>  Sat, 21 Dec 2002 16:00:45 +0100
+
+xfig (1:3.2.4-beta6-1) unstable; urgency=low
+
+  * New upstream version 3.2.4-beta6.
+    - fixes the problem that having the NumLock key on prevents the
+      accelerators from working (Closes: #148286).
+    - The problem toolbar overlapping other buttons seems to be fixed now
+      (Closes: #150019).
+    - The "UPDATE object" function allows to update the depth of a compund
+      now, where the smallest depth of the compound is set to the new
+      value while all other depths are kept relatively to this smallest
+      depth (Closes: #123413).
+    - 3D look can be disabled now using "Fig*shadowWidth: 0" in
+      $HOME/.Xresources (Closes: #132071).
+    - Resizing the XFig window or using the -geometry option now works and
+      adapts the buttons per row correctly (Closes: #53295).
+    - Parsing a FIG file does not longer SEGV, when a spline consists of
+      less then 3 points but prints out a warning and ignores that spline
+      (Closes: #161657).
+  * Apply upstream patch.colortiff, which calls "fig2dev -L tiff -C" with
+    a dummy argument on -C, otherwise creating color previews in TIFF
+    doesn't work.
+  * Apply upstream patch.gridunits, which fixes the bug where xfig may
+    change the Major/Minor grid tick values to "None" to 0.0.
+  * Upgrade to Standards-Version 3.5.7:
+    - New handling of DEB_BUILD_OPTIONS.
+  * Increase priority of xpdf over gv in xfig-pdf-viewer.
+  * Add kghostview as a 5th alternative to xfig-pdf-viewer.
+  * Add light(1) to xfig-www-browser and optimize priority of browsers.
+  * Move the documentation (in package xfig-doc) from
+    /usr/share/doc/xfig-doc to /usr/share/doc/xfig.
+  * Moved xpm icons from /usr/X11R6/include/X11/pixmaps to
+    /usr/share/pixmaps.
+
+ -- Roland Rosenfeld <roland@debian.org>  Tue, 19 Nov 2002 20:57:47 +0100
+
+xfig (1:3.2.3.d-rel-6) unstable; urgency=low
+
+  * Suggests: netpbm, which is used to read GIF images (Closes: #146302).
+
+ -- Roland Rosenfeld <roland@debian.org>  Thu,  9 May 2002 01:15:59 +0200
+
+xfig (1:3.2.3.d-rel-5) unstable; urgency=low
+
+  * xfig-www-browser: add opera, increase priority of mozilla and galeon,
+    which are now very usable browsers.
+  * Apply patch by Daniel Robert Franklin <daniel@ieee.uow.edu.au>, which
+    fixes segfaults on load/save when ~/.xfigrc has wrong permissions.
+
+ -- Roland Rosenfeld <roland@debian.org>  Fri, 22 Mar 2002 10:39:49 +0100
+
+xfig (1:3.2.3.d-rel-4) unstable; urgency=low
+
+  * Add debian/mime to handle application/x-xfig MIME type.
+  * Remove dh_installxaw, which is no longer used or supported 
+    (Closes: #120231).
+  * Install new version of xfig-howto.pdf from
+    http://www.ee.ryerson.ca/~phiscock/papers/xfig-howto.pdf, which uses
+    Type1 fonts now (Closes: #102783).
+  * XFIG.AND.LATEX, README.Debian: Add a comment that the transfig pstex
+    driver needs \usepackage{color} (Closes: #77516).
+
+ -- Roland Rosenfeld <roland@debian.org>  Sun, 10 Feb 2002 17:05:11 +0100
+
+xfig (1:3.2.3.d-rel-3) unstable; urgency=low
+
+  * Apply upstream patch cluster against 3.2.3d:
+    - patch.deletedepth: Do no longer erase depth counts when deleting a
+      region of a figure.  Correctly handle depths of temporary objects
+      when using library objects.
+    - patch.editcompound: If you have >64 text objects in a compound,
+      editing the compound no longer causes a segfault.
+    - patch.imakefile: fixes the problem that several vendors' "make"
+      don't like the blank line produced when I18N is not defined.
+    - patch.joinsplit: If the user mistakenly clicked the *left* mouse
+      button on a point where he wanted to *split* a line, the ability to
+      split was turned off. 
+    - patch.libsubs: fixes the bug where subdirectories without any .fig
+      files appeared in the library menu. 
+    - patch.pdftex: adds the "Combinded PDF/LaTeX" export option to xfig
+      (Recommends transfig >= 1:3.2.3.d-rel-2, which is needed to use this
+      new feature).
+    - patch.pointermapping: make xfig automatically flip the mouse hints
+      messages when pointer button 1 is not logical button 1.  This
+      overrides the -flipvisualhints command-line argument to xfig. 
+    - patch.readcompound2: makes xfig only recalculate the bounds of
+      compound objects being read if there are no bounds following the "6"
+      or they are all 0.  This fixes the problem introduced in 3.2.3d
+      where objects that were bound at a certain point positioning are
+      rebound at the current positioning. 
+    - patch.showlengths: fixes the final problems with the "showlengths"
+      lines and texts erasing parts of the objects below them.
+    - patch.textattrib: If the user clicks on or modifies an existing
+      text, and presses return, the new text on the next like will use the
+      attributes of the first text instead of the attributes from the
+      indicator panel. 
+  * Stop calling "make install.man", which is broken with the given
+    Imakefile (Closes: #115419).
+  * Replace dh_installmanpages by dh_installman and install various man
+    pages using it.
+  * Remove C-33A-USAF-1.fig KC-33A-USAF-1.fig KC-33-RORO-M113A4.fig
+    KC-33-RORO-M8AGS.fig KC-747+KMD-11.fig M113A1-Camo.fig M8-AGS-Camo.fig
+    from examples directory, because they are not DFSG free (only for
+    educational and non-commercial use) (Closes: #115658)
+
+ -- Roland Rosenfeld <roland@debian.org>  Tue, 16 Oct 2001 12:13:24 +0200
+
+xfig (1:3.2.3.d-rel-2) unstable; urgency=low
+
+  * Add mozilla as another alternative in xfig-www-browser (Closes: #104205).
+  * Add "Fig*AllowShellResize: false" to Fig.ad to avoid problems with
+    XFig window constantly resizing itself (Closes: #107209).
+  * Added a new documentation PDFLATEX.AND.XFIG written by Josselin
+    Mouette <jmouette@ens-lyon.fr> to the documentation (Closes: #100656).
+
+ -- Roland Rosenfeld <roland@debian.org>  Fri,  5 Oct 2001 15:13:56 +0200
+
+xfig (1:3.2.3.d-rel-1) unstable; urgency=low
+
+  * New upstream release 3.2.3d:
+    - Adds cascade menu to support hierarchical libraries (Closes: #95648).
+  * Remove dh_testversion from debian/rules (use Build-Dependencies
+    instead).
+  * Make /etc/X11/*app-defaults/Fig* conffiles.
+
+ -- Roland Rosenfeld <roland@debian.org>  Sun,  3 Jun 2001 11:10:45 +0200
+
+xfig (1:3.2.3.d-beta2-3) unstable; urgency=low
+
+  * Apply patch.globalpopup, which fixes the problem where popping up the
+    global settings panel, cancelling it then popping it up again
+    segfaults (Closes: #96138).
+
+ -- Roland Rosenfeld <roland@debian.org>  Thu,  3 May 2001 19:03:08 +0200
+
+xfig (1:3.2.3.d-beta2-2) unstable; urgency=low
+
+  * Add Build-Depends: libpng2-dev (Closes: #94800, #95004).
+
+ -- Roland Rosenfeld <roland@debian.org>  Tue, 24 Apr 2001 18:07:05 +0200
+
+xfig (1:3.2.3.d-beta2-1) unstable; urgency=low
+
+  * New upstream beta(!) version 3.2.3d-beta2.
+  * Some minor adjustments to make lintian happy.
+  * Upgrade to policy 3.5.2.
+  * Remove dh_suidregister from debian/rules.
+  * Depend on debhelper >=2.1.6 and remove nostrip handling, which is done
+    by dh_strip now.
+  * Correct version in Fig.ad.
+
+ -- Roland Rosenfeld <roland@debian.org>  Wed, 18 Apr 2001 21:03:13 +0200
+
+xfig (1:3.2.3.c-5) unstable; urgency=low
+
+  * Undo app-defaults symlink removal hack, which is no longer needed with
+    xlibs-dev (>= 4.0.1-11).  Change Build-Depends accordingly.
+  * Apply several patches from upstream author:
+    - patch.arccenter: a more robust algorithm for finding the center of
+      an arc given three points on the radius.
+      (And change variable names to make this patch usable).
+    - patch.scalelinethick: Fixes the bug where scaling a compound object
+      by dragging a corner to the other side of another corner would make
+      a negative line thickness and arrow width & height.
+    - patch.zoom: This fixes two bugs:
+      1. If the figure is large enough, zoom-to-fit-canvas calculates a
+	 zoom of 0.0 and an incorrect centering.
+      2. If the figure is panned and a zoom to fit canvas is done, the
+         rulers aren't updated.
+    - patch.search: improves the searching of objects at higher zooms.
+    - patch.editdepths: fixes the problem where the depth manager doesn't
+      always update correctly when the depth of an object is changed in
+      the popup edit panel.
+  * Add xutils to Build-Depends, because we need xmkmf (Closes: #89837).
+  * xaw3dg >=1.5-5 is no more a libXaw replacement but a separate
+    library.  I (the Debian maintainer) decided to link against Xaw3d
+    instead of Xaw, which means that this (Closes: #54923).
+
+ -- Roland Rosenfeld <roland@debian.org>  Mon, 19 Mar 2001 18:39:49 +0100
+
+xfig (1:3.2.3.c-4) unstable; urgency=low
+
+  * Recompile with dpkg 1.7.2, because 1.7.1.1 erroneously created a
+    dependency to xlib6 (the libc5 version of the X11 libraries) 
+    (Closes: #77941).
+
+ -- Roland Rosenfeld <roland@debian.org>  Sat, 25 Nov 2000 09:39:24 +0100
+
+xfig (1:3.2.3.c-3) unstable; urgency=low
+
+  * Upgrade to XFree86 4.0.1:
+    - Build-Depends: xlib6g-dev, xpm4g-dev => xlibs-dev
+    - Move app-defaults files from
+      /usr/X11R6/lib/X11/[locale/]app-defaults to
+      /etc/X11/[locale/]app-defaults.
+    - Remove symlink /usr/share/app-defaults -> ../../etc/X11/app-defaults
+      (don't ask me, why imake creates it...)
+  * Rename Japanese locale files from ja_JP.ujis to ja_JP.eucJP 
+    (Closes: #77690).    
+
+ -- Roland Rosenfeld <roland@debian.org>  Fri, 24 Nov 2000 18:42:06 +0100
+
+xfig (1:3.2.3.c-2) unstable; urgency=low
+
+  * Apply two patches by upstream author:
+    - If the user attempts to load a compress .fig file from a read-only
+      filesystem (e.g. CD), xfig will now uncompress the file to the
+      TMPDIR directory.
+    - Empty lines in the ~/.xfigrc file were causing xfig to segfault
+      (Closes: #75534).
+  * Comment my_strdup() from f_util.c (it's already in w_rottext.c).
+
+ -- Roland Rosenfeld <roland@debian.org>  Wed, 25 Oct 2000 21:40:04 +0200
+
+xfig (1:3.2.3.c-1) unstable; urgency=low
+
+  * New upstream version 3.2.3c:
+    - fixes problem with absolute path names in command line arguments
+      (Closes: #75257).
+  * s/canvasBackground/canvasbackground/ and
+    s/canvasForeground/canvasforeground/ in all documentation, so it fits
+    the program behavior (Closes: #69727).
+  * Upgrade to new debhepler:
+    - Change to DH_COMPAT=2.
+  * Upgrade to Standards-Version 3.2.1:
+    - Evaluate DEB_BUILD_OPTIONS for -g and strip.
+    - Move binary and manpage from /usr/X11R6/* to /usr/*.
+  * Add skipstone, galeon, dillo, konqueror, and links to xfig-www-browser
+    and xfig-www-browser.1.
+  * Apply several bugfix patches from upstream author:
+    - patch.popups: Fixes the problem where, if you popup a dialog such as
+      the export dialog, then you move xfig to another virtual desktop or
+      workspace, the export dialog will popup in the previous space.  This
+      patch will make them reposition relative to the current xfig
+      position (but the problem with WMaker in #73651 still remains).
+    - patch.create: Fixes the bug that when creating Fig objects, if
+      malloc() fails, xfig attempts to reference memory using the
+      resulting null pointer.
+    - patch.maxdepth: Fixes the problem that objects at MAX_DEPTH (999)
+      were sometimes unaccounted for, meaning they wouldn't be refreshed
+      in some cases.
+    - patch.pictures: Fixes the bug in sizing of imported pictures.  They
+      were too small by the equivalent of one pixel in width and height.
+      Also, calls to strdup() are replaced with calls to my_strdup().
+    - patch.read: fixes two bugs:
+      1. While reading a Fig file, if there is a bad object inside a
+	 compound, xfig would discard the entire compound.
+      2. If any object is incomplete, its storage wasn't freed in all
+         cases before returning to the caller.
+      3. Comments longer than 200 characters caused problems.  They may be
+         unlimited in length now.
+    - patch.showlength: cleans up the "show lengths" feature by making it
+      draw the lines and text using the xor operator to draw/erase these
+      temporary indicators.
+    - patch.update: Updating objects didn't refresh the updated object
+      correctly if the bounds changed.
+  * s/userscale/user_scale/ and s/ulen/len/ in w_msgpanel.c, which seem to
+    be a typos in patch.showlength.
+  * w_rottext.c: export my_strdup, because it is also used by e_edit.c.
+
+ -- Roland Rosenfeld <roland@debian.org>  Tue, 10 Oct 2000 14:07:49 +0200
+
+xfig (1:3.2.3.b-1) unstable; urgency=low
+
+  * New upstream version 3.2.3b.
+  * s/allownegcoords/allow_neg_coords/ in w_rules.c (upstream typo?)
+
+ -- Roland Rosenfeld <roland@debian.org>  Wed, 19 Jul 2000 00:58:05 +0200
+
+xfig (1:3.2.3.a-6) frozen unstable; urgency=low
+
+  * Add pmos.fig and nmos.fig by Min Xu <mxu@Horse.ece.wisc.edu> to
+    Libraries/Electrical/Schematic.
+  * Apply patch from Joseph Maher <maher@math.ucsb.edu> to reset copied
+    pointer subspline->comments to NULL.
+  * Apply patch.colors from upstream author, which fixes the following
+    bugs:
+    - This fixes the bug that user colors defined in the current session
+      aren't saved with the figure.
+    - Also the background color for the "locked" buttons weren't restored
+      properly when the lock was turned off.
+    - User colors in current figure would be lost if user previewed more
+      than one file before cancelling file popup.
+  * There are only some small bug fixes in this release, so it should go
+    into frozen, too.  It doesn't close any bug reports, because the fixed
+    bugs were reported to me personally instead of using the BTS.
+
+ -- Roland Rosenfeld <roland@debian.org>  Wed, 26 Apr 2000 21:32:06 +0200
+
+xfig (1:3.2.3.a-5) frozen unstable; urgency=low
+
+  * Apply Brian's second patch.updatelayers, which avoids more memory
+    problems with many different layers and creating compounds from this.
+
+ -- Roland Rosenfeld <roland@debian.org>  Thu,  6 Apr 2000 00:48:11 +0200
+
+xfig (1:3.2.3.a-4) frozen unstable; urgency=low
+
+  * Correct typo in xfig-www-browser: s|/dev/nul|/dev/null|
+  * Apply Brian's patch.badobjects, which allows to read FIG files which
+    contain "bad" objects (under special circumstances xfig writes those
+    "bad" objects to the FIG file itself) (Closes: #61364).
+
+ -- Roland Rosenfeld <roland@debian.org>  Mon,  3 Apr 2000 20:27:30 +0200
+
+xfig (1:3.2.3.a-3) unstable; urgency=low
+
+  * Fixes the problem where the depth buttons are updated after each
+    object is added to the list when pasting or loading a Fig file (patch
+    submitted by upstream maintainer).
+
+ -- Roland Rosenfeld <roland@debian.org>  Tue, 28 Mar 2000 00:34:12 +0200
+
+xfig (1:3.2.3.a-2) frozen unstable; urgency=low
+
+  * Conflicts with old transfig versions, so transfig should automatically
+    be upgraded (Closes: #60163).
+
+ -- Roland Rosenfeld <roland@debian.org>  Mon, 13 Mar 2000 13:58:20 +0100
+
+xfig (1:3.2.3.a-1) frozen unstable; urgency=low
+
+  * New upstream version.  This is a bugfix only release, so it should go
+    into frozen.
+
+ -- Roland Rosenfeld <roland@debian.org>  Wed, 19 Jan 2000 22:38:21 +0100
+
+xfig (1:3.2.3-rel-0-2) frozen unstable; urgency=low
+
+  * Fixed prototype of curve() in u_draw.c, which caused xfig to always
+    segfault on PowerPC at startup.  Thanks to Alex Romosan
+    <romosan@adonis.lbl.gov> for debugging and patching this problem
+    (Closes: #48113).
+
+ -- Roland Rosenfeld <roland@debian.org>  Mon, 17 Jan 2000 10:38:08 +0100
+
+xfig (1:3.2.3-rel-0-1) unstable; urgency=low
+
+  * New upstream version (munged the official 3.2.3 according to packaging
+    manual section 5 to make it bigger than the betas) (Closes: #48028).
+  * Explain the decision to always use Xaw3D in README.Debian (compare
+    this with #54923).
+  * Fix version number in main.c, otherwise xfig will complain about an
+    outdated app-defaults file.
+
+ -- Roland Rosenfeld <roland@debian.org>  Fri, 14 Jan 2000 11:52:39 +0100
+
+xfig (1:3.2.3-beta-3-1) unstable; urgency=low
+
+  * New upstream version. This makes "none" the default background color
+    (Closes: #53699, #53331). 
+  * Update xfig.html according to xfig.man.
+  * Correct order of fig2dev arguments when i18n support is activated.
+
+ -- Roland Rosenfeld <roland@debian.org>  Wed, 12 Jan 2000 22:40:09 +0100
+
+xfig (1:3.2.3-beta-2-2) unstable; urgency=low
+
+  * Extend white background export hack to work on PS, PDF and pstex, too
+    (Fixes part 2 of #54540).
+
+ -- Roland Rosenfeld <roland@debian.org>  Sun,  9 Jan 2000 14:09:26 +0100
+
+xfig (1:3.2.3-beta-2-1) unstable; urgency=low
+
+  * New upstream version.
+  * Rebuild xfig.html from new man page.
+  * Add another work around for filling white background (-g\#ffffff) to
+    the eps export function.  Now you can export with background "none"
+    (this works in the upstream source) without problems as well as with
+    background "white" (this works with my patch).  Maybe we should simply
+    make "none" the default background for EPS export, this would solve
+    all problems.
+  * Remove xfig-howto LaTeX sources from debian directory, because the new
+    upstream package now comes with a good looking PS- and PDF version.
+    Remove Build-Depends to tetex and transfig accordingly.
+  * Change default export_margin (the border around figures on export)
+    from 10 to 0 (this was the default in former versions).
+
+ -- Roland Rosenfeld <roland@debian.org>  Thu,  6 Jan 2000 14:59:52 +0100
+
+xfig (1:3.2.3-beta-1-3) unstable; urgency=low
+
+  * Recommend transfig >=1:3.2.3-beta-1, because xfig calls fig2dev with
+    options, which weren't available in older versions.
+  * When exporting to EPS with white background, don't use -g#ffffff
+    option for fig2dev, because this creates EPS files, which fill
+    everything before the figure with white color, when they are included
+    in a (La)TeX file. This is reported in #53331, #53699, which was
+    forwarded to the upstream author. The applied patch is an ugly hack,
+    so I won't close this bug now, but it should work around the biggest
+    problems.
+
+ -- Roland Rosenfeld <roland@debian.org>  Wed, 29 Dec 1999 21:17:53 +0100
+
+xfig (1:3.2.3-beta-1-2) unstable; urgency=low
+
+  * s/xpm6g-dev/xpm4g-dev/ in build-depends (Closes: #53196).
+  * Add LaTeX sources of xfig-howto and create a new (smaller and much
+    more readable) xfig-howto.pdf.
+  * Add xfig-pdf-viewer and man page and use it to view PDF documentation
+    instead of always calling gv.
+
+ -- Roland Rosenfeld <roland@debian.org>  Tue, 21 Dec 1999 19:11:11 +0100
+
+xfig (1:3.2.3-beta-1-1) unstable; urgency=low
+
+  * New upstream version (most of the former patches are incorporated now
+    upstream).
+  * Disable input tablet support, it is broken in 3.2.3-beta-1.
+  * Depend on Xaw3d, this doesn't work with other Xaw replacements.
+  * Remove xaw-wrapper support (no longer needed, because of Xaw3d
+    dependency). Remove symlink to/from /etc/alternatives/xfig in preinst.
+  * Suggest gsfonts-x11 (>= 0.7), which supports avantgarde aliases as
+    used in u_fonts.c.
+  * Add menu list to <noframes> tag of Doc/html/index.html, so the
+    documentation can be read with browsers that doesn't support frames.
+  * Create new xfig-howto.pdf from xfig-howto.ps by using ghostscript,
+    because the xfig-howto.pdf from the source package cannot be displayed
+    with gv.  Add source dependency to gs.
+  * Added hints to menu file.
+  * Added 32x32 pixel icon and use it in menu file.
+  * xfig-www-browser: 
+    - Use type instead of test -x to find out what programs are available.
+    - Use x-terminal-emulator instead of xterm (with xterm, rxvt, eterm as
+      fallback)
+  * Upgrade to Standards version 3.1.1: Add Build-Depends.
+
+ -- Roland Rosenfeld <roland@debian.org>  Wed, 15 Dec 1999 01:13:48 +0100
+
+xfig (1:3.2.2-13) unstable; urgency=low
+
+  * Remove images which are not referenced in HTML files from
+    /usr/share/doc/xfig-doc/html/images.
+  * Add a shell script xfig-www-browser, which automatically selects the
+    best available HTML browser, to xfig-doc package.
+  * Change control and Fig.ad accordingly.
+  * Remove left over doc-base files with old xfig ID in xfig-doc.preinst.
+  * Fix segfault in free_subspline(), which was introduced with the free
+    spline patch.  Thanks to Brian V. Smith for this bug fix.
+
+ -- Roland Rosenfeld <roland@debian.org>  Tue, 12 Oct 1999 12:06:48 +0200
+
+xfig (1:3.2.2-12) unstable; urgency=low
+
+  * Upgrade to Debian Standards version 3.0.1
+    - /usr/doc -> /usr/share/doc
+  * remove debian/compress and debian/xfig-doc.compress (not needed)
+  * Applied Korean support patch provided by Changwoo Ryu
+    <cwryu@debian.org> (Closes: #45369).
+  * Smart-links were lost when copying linked compounds.  Thanks to
+    Olivier Delemar <delemar@mimosa.ceng.cea.fr> for reporting and
+    providing the patch written by Brian Smith (Closes: #45822).
+
+ -- Roland Rosenfeld <roland@debian.org>  Thu, 23 Sep 1999 15:41:22 +0200
+
+xfig (1:3.2.2-11) unstable; urgency=low
+
+  * Corrected control file (the object library files are moved from
+    xfig-doc to xfig since 1:3.2.2-2.1).
+  * Changed copyright of HTML documentation with permission of the
+    copyright holders (T.Sato and Brian V. Smith). Now the documentation
+    is DFSG-free (Closes #39824).
+  * Replaced all ``VEF00200@niftyserve.or.jp'' in the English version of
+    the documentation to ``VEF00200@nifty.ne.jp'' on behalf of T.Sato.
+  * Get rid of "incompatible pointer type" warnings in d_text.c.
+
+ -- Roland Rosenfeld <roland@debian.org>  Tue, 22 Jun 1999 16:30:18 +0200
+
+xfig (1:3.2.2-10) unstable; urgency=low
+
+  * Added icons xfig.xpm and mini-xfig.xpm, where the latter one is used
+    in the menu.
+  * Converted from varargs.h to stdarg.h to be ANSI-C compliant. This
+    allows us to recompile xfig on an Alpha Linux system. This recompiled
+    version will close #32735.
+
+ -- Roland Rosenfeld <roland@debian.org>  Tue,  8 Jun 1999 21:16:15 +0200
+
+xfig (1:3.2.2-9) unstable; urgency=low
+
+  * Use kterm lynx instead of xterm lynx for viewing documentation in
+    Japanese locale. xfig-doc now suggests xterm | kterm for this.
+    Thanks to Taketoshi Sano <xlj06203@nifty.ne.jp>.
+  * Merged T.Sato's <VEF00200@nifty.ne.jp> small screen patch and use
+    large icons again (Closes #31148, #34798, #37520)
+  * Fixed problem with inputStyle OverTheSpot (Patch from Sato Tomonori).
+
+ -- Roland Rosenfeld <roland@debian.org>  Fri, 21 May 1999 16:40:46 +0200
+
+xfig (1:3.2.2-8) unstable; urgency=low
+
+  * Suggest gs (>= 5.10-1) | gs-aladdin (>= 5.10-1), needed for eps
+    import (Closes #12185).
+  * Changed u_fonts.c to use original Adobe Postscript fonts. Suggest
+    gsfonts-x11 to make ghostscript fonts available as X11 fonts (Closes
+    #19073, #31380).
+  * Merged patch for creating arcs with specific center point, diameter or
+    angle written by T.Sato <VEF00200@nifty.ne.jp>.
+  * Merged in patch collection from upstream author Brian V. Smith
+    <xfigmail@epb1.lbl.gov>, which results in an unofficial xfig 3.2.2a,
+    with the following patches:
+    - Fixes arrowheads on arcs
+    - Fix BadWindow error for the X_ClearArea when previewing a file and
+      the canvas is redrawn 
+    - Fixes problem where some servers won't draw dashed lines of 0 width
+    - Add delete window catching. Some window managers use destroy window
+      if delete window isn't honored.
+    - Fixes bug where file name is clobbered because it writes
+      uncompressed filename over original name, but the string space is in
+      the Xt library. 
+    - make xfig flip left/right text justification when flipping a
+      compound object with text horizontally.
+    - Solaris and DEC Unix don't like "inline" so we'll use "__inline"
+    - fix the problem of zooming in on a figure that has *large*
+      coordinates (140000 Fig units or > 16000 screen units).
+      It also makes the point allocation for zXDrawLines and zXFillPolygon 
+      more efficient by not allocing/freeing every time a polyline/gon is
+      drawn.
+    - Added minimal changes from paste/redraw bugfix (most of it was done
+      in 1:3.2.2-7)
+    - Fixes problem where the edit- and/or pen colors didn't show the
+      color in the popup color panel for any non-PseudoColor visual.
+    - fixes the potential problem of segfaults when freeing splines.
+      A F_Spline ** should be passed, not F_spline *.
+    - fixes the problem that xfig segfaults when it tries to display a 
+      string with only blanks at 90 degrees using the adobe-courier font.
+      The lbearing and rbearing are both zero in that case.
+      The second part of the patch fixes the "markers" so that it only
+      draws one for this case of zero-dimension string so that one marker
+      doesn't undo the other.
+    - fixes the problem when allocating too many user colors
+    - fixes the bug when updating text to/from PostScript and LaTeX fonts
+      using the update feature.
+    - Merged Imakefile patch.
+  * Did some Imakefile rewriting.
+
+ -- Roland Rosenfeld <roland@debian.org>  Wed, 19 May 1999 14:16:28 +0200
+
+xfig (1:3.2.2-7) unstable; urgency=low
+
+  * New Debian maintainer.
+  * Added ja_JP.ujis app-defaults which enable -international (Closes #34799).
+  * Made documentation also available with LANG=ja_JP.ujis.
+  * Disable GIF writing routines in f_wrgif.c which are non-free. This is
+    only used for screen capturing and PCX does this job as good as GIF
+    did. No problem with exporting to GIF which is realized by calling
+    ppmtogif. See README.Debian for more information.
+  * No longer "hang" when pasting. Merged in patch from the upstream
+    authors, thanks to Manfred Pflueger, who send me this patch. 
+    (Closes #29346)
+  * Merged in inofficial patch from bug report #34799.
+  * Updated copyright file according to the upstream README.
+  * Added xaw-wrapper entry for neXtaw, because some (not all) people have
+    problems with xfig in combination with neXtaw (Closes #31811, #32472,
+    #37536).
+
+ -- Roland Rosenfeld <roland@debian.org>  Sat, 15 May 1999 00:57:08 +0200
+
+xfig (1:3.2.2-6) unstable; urgency=low
+
+  * Complied against glibc 2.1 
+  * Update xaw-wrapper config file to version 0.92 format. 
+  * Modified w_library.c, because glibc 2.1 stdio.h #includes <stdarg.h>
+
+ -- Edward Betts <edward@debian.org>  Wed, 12 May 1999 14:52:36 +0100
+
+xfig (1:3.2.2-5) unstable; urgency=low
+
+  * Changed doc-base id of xfig to xfig-doc fixes Bug#35335 reported by
+    Ulf Jaenicke-Roessler <ujr@physik.phy.tu-dresden.de> 
+
+ -- Edward Betts <edward@hairnet.demon.co.uk>  Wed, 31 Mar 1999 20:52:36 +0100
+
+xfig (1:3.2.2-4) unstable; urgency=low
+
+  * Change xfig so it uses the smaller icons, should work better on 800x600
+    and friends. (suggested by Matthew W. Lee <lee@physics.ucla.edu>).
+    If this really bugs any one with larger screen drop me a line. It would be
+    interesting to see if I can write some code to make it a X resource option.
+  * Change doc_base so that dh_installdocs handles it.
+  * Add xaw-wrappers support. xfig is now configured so that it will not use
+    Xaw95. Strangly Xaw95 was already configured that way.
+
+ -- Edward Betts <edward@debian.org>  Sat, 20 Feb 1999 14:03:57 +0000
+
+xfig (1:3.2.2-3) frozen unstable; urgency=low
+
+  * Acknowledge Roland's NMU.
+  * Correct spelling of maintainer name (how did that happen?)
+  * Correct problem of slink dh_installdocs and doc_base
+
+ -- Edward Betts <edward@debian.org>  Tue, 19 Jan 1999 18:07:50 +0000
+
+xfig (1:3.2.2-2.1) frozen unstable; urgency=low
+
+  * NMU (with permission of maintainer): closes #31492, #27430
+  * Moved picture library from xfig-doc to xfig package.
+  * Suggest xfig-doc (instead of Recommend it).
+  * Changed w_help.c to tell you that you have to install xfig-doc, when
+    the documentation is missing.
+  * Moved documentation from /usr/X11R6/lib/X11/xfig to /usr/doc/xfig-doc.
+  * Registered documentation using doc-base.
+
+ -- Roland Rosenfeld <roland@debian.org>  Wed, 13 Jan 1999 12:27:37 +0100
+
+xfig (1:3.2.2-2) frozen unstable; urgency=low
+
+  * New maintainer 
+     - Please include in slink so that the maintainer field is correct.
+  * Converted to debhelper
+  * Updated standards version to 2.5.0.0
+  * Passes Lintian v0.9.4
+  * Added suggests: xfig to xfig-doc
+
+ -- Edward Betts <edward@debian.org>  Thu,  3 Dec 1998 16:53:38 +0000
+
+xfig (1:3.2.2-1) unstable; urgency=low
+
+  * New upstream release.
+
+ -- Enrique Zanardi <ezanard@debian.org>  Mon, 13 Jul 1998 16:09:07 +0100
+
+xfig (1:3.2.0-2) unstable; urgency=low
+
+  * Use double constants for M_PI and M_PI_2, instead of long double 
+    constants as defined in /usr/include/math.h.
+
+ -- Enrique Zanardi <ezanardi@molec1.dfis.ull.es>  Mon, 20 Oct 1997 18:11:06 +0100
+
+xfig (1:3.2.0-1) unstable; urgency=low
+
+  * New upstream version (Bug#12429)
+  * New maintainer
+  * Pristine sources
+  * Allows choosing metric units as default in postinst (Bug#7931)
+  * postinst doesn't prompt if called with abort-* (Bug#12606)
+  * Does not depends on elf-x11r6lib (Bugs#11379, 12893, 13072)
+
+ -- Enrique Zanardi <ezanardi@molec1.dfis.ull.es>  Sat, 27 Sep 1997 19:37:56 +0100
+
+xfig (3.2.0-beta3-3) unstable; urgency=low
+
+  * Fixed the link to "Fig-default" in postinst, solving bug#6719
+
+ -- joost witteveen <joost@rulcmc.leidenuniv.nl>  Mon, 20 Jan 1997 17:35:38 +0100
+
+xfig (3.2.0-beta3-2) unstable; urgency=low
+
+  * changed '#include "Fig"' to '#include "Fig-mono" in Fig-color,
+    fixing Bug#6687
+
+ -- joost witteveen <joost@rulcmc.leidenuniv.nl>  Mon, 20 Jan 1997 10:01:55 +0100
+
+xfig (3.2.0-beta3-1) unstable; urgency=low
+
+  * new upstream version
+
+ -- joost witteveen <joost@rulcmc.leidenuniv.nl>  Sun, 19 Jan 1997 14:06:00 +0100
+
+xfig (3.1.4b-6) stable unstable; urgency=low
+
+  * recompiled to remove the libc5_5.4.17-1 dependancy.
+    (now only depends on libc5_5.4.13-1).
+
+ -- joost witteveen <joost@rulcmc.leidenuniv.nl>  Tue, 14 Jan 1997 20:29:30 +0100
+
+xfig (3.1.4b-5) stable unstable; urgency=low
+  
+   * changed application name back to Fig (upstream maintainer request)
+   * converted to new source format
+   * added menu file to package
+   * added a few doc's.
+  
+ -- joost witteveen <joost@rulcmc.leidenuniv.nl>  Sat, 4 Jan 1997 21:46:56 +0100
+Wed May  3 16:38:07 EDT 1995   D.J. Gregor <dgregor@coil.com>
+
+	xfig-3.1.3-0:  (unreleased)
+
+	* First version, unreleased because of too many bugs
+
+	* Made postinst script to install either color or mono
+	  app-defaults.
+
+
+	xfig-3.1.3-1:
+
+	* Fixed problems in postinst script, and added postrm
+	  script to remove link made by postinst.
+	
+	* Added DEPENDS line to control file
+
+	* Fixed problem that caused postinst and postrm to not
+	  be put in the .deb file.
+
+
+Fri May 19 18:10:30 EDT 1995   D.J. Gregor <dgregor@coil.com>
+
+	xfig-3.1.3-2:
+
+	* Added transfig to Recommended: line.
+
+	* Removed a few lines in Makefile that placed files in
+	  /usr/X11R6/lib/X11/app-defaults on the build machine
+	  when being built.
+
+	* Modified Postinst to use c/m instead of color/mono to
+	  select app-defaults file.
+
+
+Mon Jun 12 18:42:51 EDT 1995   D.J. Gregor <dgregor@coil.com>
+
+	xfig-3.1.3-3:
+
+	* Changed postinst to not ask about installing the Xfig
+	  link if it is already in place.  If xfig is already
+	  installed, it won't ask about using a color/mono app-
+	  defaults file.
+
+
+Sun Aug 20 12:54:10 EDT 1995   D.J. Gregor <dgregor@coil.com>
+
+	xfig-3.1.3-4:
+
+	* Fixed Depends: line in debian.control for new X11 packages
+
+
+Mon Oct 30 21:45:16 EST 1995   D.J. Gregor <dgregor@gregor.com>
+
+	xfig-3.1.3-5:
+	
+	* Edited Depends: line again - replaced xbase with X11R6
+	
+	# Updated maintainer's e-mail address in debian.control
+
+	* Modified debian.postrm script to only remove the Xfig
+	  app-defaults file when it is purged.
+
+	* Thinking about possibly moving Xfig app-default link to
+	  somewhere in /etc/X11 ???  Ideas that can be standardized
+	  anyone?
+
+	* Added debian.ChangeLog file to archive - was previously
+	  outside of the archive.
+
+somewhere early may/late april 1996  Michael Meskes <meskes@debian.org>
+
+        * xfig 3.1.3-6
+	
+	* ELF release.
+	
+Fri May 17 13:18:44 1996  joost witteveen  <joostje@debian.org>
+
+	* xfig-3.1.4-1
+	
+	* upgreaded upstream source.
+
+	* changed maintainers
+
+	* changed Imakefile as described in README for libjpeg
+
+	* added libjpeg dependancy to debian.control

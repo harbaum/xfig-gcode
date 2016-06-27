@@ -1,0 +1,14 @@
+From: Roland Rosenfeld <roland@debian.org>
+Subject: escape "-" in man page to make lintian happy
+
+--- a/Doc/xfig.man
++++ b/Doc/xfig.man
+@@ -1180,7 +1180,7 @@
+ .BR \-write_bak
+ .Ap
+ When saving a drawing into an existing .fig file xfig will first rename that file by
+-appending \".bak\" to the name.  This is the default.  Use -nowrite_bak to disable this feature.
++appending \".bak\" to the name.  This is the default.  Use \-nowrite_bak to disable this feature.
+ .\"-------
+ .At
+ .BR \-zoom

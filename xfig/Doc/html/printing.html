@@ -1,0 +1,811 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<HTML>
+<HEAD>
+   <META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+   <TITLE>Printing/Exporting</TITLE>
+</HEAD>
+<BODY>
+<a href="contents.html"><img src="images/xfig-title.png"
+  alt="XFIG Users Manual" border=0></a>
+
+<HR>
+
+<h1>Printing and Exporting</h1>
+
+<ul>
+<li><a href="#print">Print</a>
+<li><a href="#export">Export</a>
+<li><a href="latex_and_xfig.html">LaTeX and Xfig</a>
+<li><a href="#imagemap">Generating an HTML Image Map</a>
+</ul>
+
+<p>To export or print a <b>Fig</b> file,
+<b>xfig</b> calls <b>fig2dev</b>, the post-processor which converts the <b>Fig</b>
+file to the desired output language.  For printing, this is PostScript.
+For exporting, there are a dozen or so languages, including PostScript, EPS, 
+LaTeX, MetaFont, and bitmap formats such as GIF, JPEG, PPM and several others.
+See the <a href="#language"><i>Language</i></a> description of the Exporting section.
+<br>This means that you must have <b>fig2dev</b> installed on your system along 
+with <b>xfig</b>.  <b>Fig2dev</b>, which is part of the <b>TransFig</b>
+distribution is always available where you find <b>xfig</b>. 
+See <a href="installation.html">Getting and Installing Xfig</a> for details.
+
+<p>
+<hr>
+
+<H2><font color="blue"><A NAME="print">Printing</A></font></H2>
+
+The <i>Print...</i> entry in the 
+<a href="main_menus.html#file-menu"><I>File</I> menu</a> 
+(or accelerator <TT>Meta-P</TT>) provides the facility 
+to print figures to PostScript
+printers. Use <A HREF="#export">File/Export</A> if you want to store the output to a file.
+<br>
+The accelerator <TT>Shift-Meta-P</TT> will print using the previously set
+paramters (i.e. the print panel isn't popped up, but the figure is printed).
+
+<BLOCKQUOTE><IMG SRC="images/print-panel.png" ALT="[Print Panel]" ></BLOCKQUOTE>
+
+<DL>
+<DT><img src="images/redball.png" align=bottom alt="-">
+<I>Magnification</I>
+
+<DD>
+Specify the magnification when printing figure in percent of full size (%).
+The default is 100% and may be set by the <TT>Fig.magnification</TT> resource.
+<P>
+
+<DT><img src="images/redball.png" align=bottom alt="-">
+<I>Fit to Page</I>
+
+<DD>
+Clicking this button will set the <I>Magnification</I> automatically so that
+figure size will just fill current <I>Paper Size</I> with at least 1/2
+inch margin all around.
+<P>
+
+<DT><img src="images/redball.png" align=bottom alt="-">
+<I>Orientation</I>
+
+<DD>
+Specify the orientation of the output as <I>Landscape</I> (horizontal)
+or <I>Portrait</I> (vertical). The default orientation is same as the
+orientation of the canvas which may be changed by 
+<A HREF="main_menus.html#port-land"><i>Portrait/Landscape</i></A> 
+in the <a href="main_menus.html#view-menu"><i>View</i> menu</a>.
+<P>
+
+<DT><img src="images/redball.png" align=bottom alt="-">
+<I>Justification</I>
+
+<DD>
+Specify if the figure should be <I>Flush Left</I> or <I>Centered</I> on the
+paper of size selected by <I>Paper Size</I>.
+<P>
+
+<DT><img src="images/redball.png" align=bottom alt="-">
+<A NAME="paper-size"><I>Paper Size</I></A>
+
+<DD>
+Specify the size of the paper.
+
+The following paper sizes are available:
+<DL>
+<DT><img src="images/blueballdot.png" align=bottom alt="-">
+Letter (8.5in x 11in)
+
+<DT><img src="images/blueballdot.png" align=bottom alt="-">
+Legal (8.5in x 14in)
+
+<DT><img src="images/blueballdot.png" align=bottom alt="-">
+Tabloid (17in x 11in)
+
+<DT><img src="images/blueballdot.png" align=bottom alt="-">
+ANSI A (8.5in x 11in)
+
+<DT><img src="images/blueballdot.png" align=bottom alt="-">
+ANSI B (11in x 17in)
+
+<DT><img src="images/blueballdot.png" align=bottom alt="-">
+ANSI C (17in x 22in)
+
+<DT><img src="images/blueballdot.png" align=bottom alt="-">
+ANSI D (22in x 34in)
+
+<DT><img src="images/blueballdot.png" align=bottom alt="-">
+ANSI E (34in x 44in)
+
+<DT><img src="images/blueballdot.png" align=bottom alt="-">
+ISO A9 (37mm x 52mm)
+
+<DT><img src="images/blueballdot.png" align=bottom alt="-">
+ISO A8 (52mm x 74mm)
+
+<DT><img src="images/blueballdot.png" align=bottom alt="-">
+ISO A7 (74mm x 105mm)
+
+<DT><img src="images/blueballdot.png" align=bottom alt="-">
+ISO A6 (105mm x 148mm)
+
+<DT><img src="images/blueballdot.png" align=bottom alt="-">
+ISO A5 (148mm x 210mm)
+
+<DT><img src="images/blueballdot.png" align=bottom alt="-">
+ISO A4 (210mm x 297mm)
+
+<DT><img src="images/blueballdot.png" align=bottom alt="-">
+ISO A3 (297mm x 420mm)
+
+<DT><img src="images/blueballdot.png" align=bottom alt="-">
+ISO A2 (420mm x 594mm)
+
+<DT><img src="images/blueballdot.png" align=bottom alt="-">
+ISO A1 (594mm x 840mm)
+
+<DT><img src="images/blueballdot.png" align=bottom alt="-">
+ISO A0 (840mm x 1189mm)
+
+<DT><img src="images/blueballdot.png" align=bottom alt="-">
+JIS B10 (32mm x 45mm)
+
+<DT><img src="images/blueballdot.png" align=bottom alt="-">
+JIS B9 (45mm x 64mm)
+
+<DT><img src="images/blueballdot.png" align=bottom alt="-">
+JIS B8 (64mm x 91mm)
+
+<DT><img src="images/blueballdot.png" align=bottom alt="-">
+JIS B7 (91mm x 128mm)
+
+<DT><img src="images/blueballdot.png" align=bottom alt="-">
+JIS B6 (128mm x 182mm)
+
+<DT><img src="images/blueballdot.png" align=bottom alt="-">
+JIS B5 (182mm x 257mm)
+
+<DT><img src="images/blueballdot.png" align=bottom alt="-">
+JIS B4 (257mm x 364mm)
+
+<DT><img src="images/blueballdot.png" align=bottom alt="-">
+JIS B3 (364mm x 515mm)
+
+<DT><img src="images/blueballdot.png" align=bottom alt="-">
+JIS B2 (515mm x 728mm)
+
+<DT><img src="images/blueballdot.png" align=bottom alt="-">
+JIS B1 (728mm x 1030mm)
+
+<DT><img src="images/blueballdot.png" align=bottom alt="-">
+JIS B0 (1030mm x 1456mm)
+</DL>
+
+<P>
+<DT><img src="images/redball.png" align=bottom alt="-">
+<I>Pages</I>
+
+<DD>
+If <I>Multiple</I> is selected here, the figure will be split into multiple
+pages if the size of the figure is larger than <I>Paper Size</I>. It allows
+the user to output a figure larger than paper size by pasting
+those papers together (to make it easier, <B>xfig</B> generates output
+so that the parts of the figure will be overlap).
+
+<P>If <I>Single</I> is selected here, this facility will not be used;
+any part of the figure outside the paper boundary will be clipped.
+
+<P>
+<DT><img src="images/redball.png" align=bottom alt="-">
+<a name="background"><I>Background</I></a>
+<DD>
+This will set the background color of the whole figure
+when printing.  The default is white.
+
+<P>
+<DT><img src="images/redball.png" align=bottom alt="-">
+<a name="grid"><I>Grid</I></a>
+<DD>
+You may print a light-gray grid on the page by choosing a minor (thin) and/or
+a major (thick) grid spacing from pulldown menus or entering the spacing
+directly in the entry.  The units of grid spacing are inches or mm, depending
+on the units of the figure.
+<br>
+The grid options is only available for PostScript, Encapsulated PostScript,
+PSLatex, PDF and all the bitmap export formats.
+
+<P>
+<DT><img src="images/redball.png" align=bottom alt="-">
+<a name="printer"><I>Printer</I></a>
+
+<DD>
+Specify the printer name output should be directed to. If this field is empty,
+output will be directed to the default printer.
+<br>
+The default value is specified by the resource <TT>Fig*printer*string</TT>
+or the environment variable <TT>$PRINTER</TT>.
+<p>
+If your system uses <b>/etc/printcap</b> to define printers, <b>xfig</b> will make
+a pulldown menu of printers next to the entry.
+
+<P>
+<DT><img src="images/redball.png" align=bottom alt="-">
+<I>Print Job Params</I>
+
+<DD>
+The string specified here will be passed as command-line options when executing 
+<TT>lpr</TT> (<TT>lp</TT> on System V system). If <TT>%f</TT> is included in the string,
+(it may appear more than once) it will be replaced by the name of the figure.
+<P>
+The default is empty, but it may be specified by <TT>Fig*job_params*string</TT>
+resource.
+
+<P>
+<DT><img src="images/redball.png" align=bottom alt="-">
+<I>Figures in batch</I>
+
+<DD>
+This indicator shows how many figures have been put in the <I>batch file</I>
+for printing. Figures may be printed into the <I>batch file</I> by <I>Print FIGURE
+to Batch</I>, and those figures may be sent to the printer as one print job
+by clicking on <I>Print BATCH to Printer</I>.
+
+<P>
+<DT><img src="images/redball.png" align=bottom alt="-">
+<I>Dismiss</I>
+
+<DD>
+Clicking this button will close the Print panel. The accelerator <TT>Meta-C</TT>
+will also perform this function.
+
+<P>
+<DT><img src="images/redball.png" align=bottom alt="-">
+<I>Print all layers/Print only active</I>
+
+<DD>
+You may print the whole figure (all layers) or just the layers that are
+active according to the layer manager.
+
+<P>
+<DT><img src="images/redball.png" align=bottom alt="-">
+<I>Print FIGURE/BATCH to Printer</I>
+
+<DD>
+Clicking this button will spool the figures in the <I>batch file</I>
+if any, or the current figure if none, to the printer. 
+The accelerator <TT>Meta-P</TT> will also perform this function.
+<P>
+The label of this button will be <I>Print BATCH to Printer</I> if there
+are any figures in the batch file, or <I>Print FIGURE to Printer</I>
+if there are none.
+<P>
+When printing to the printer, <B>xfig</B> will first convert the figure
+to PostScript with <B><A HREF="installation.html#related-software">fig2dev</A></B>
+program, and pass the result to <TT>lpr</TT> (<TT>lp</TT> on System V system).
+When executing <TT>lpr</TT> (or <TT>lp</TT>), the printer name specified by
+<I>PostScript Printer</I> field and options specified by <I>Print Job Params</I>
+will be passed as command-line options.
+
+<P>
+<DT><img src="images/redball.png" align=bottom alt="-">
+<I>Print FIGURE to Batch</I>
+
+<DD>
+Clicking this button will append the current figure to the <I>batch file</I>.
+The accelerator <TT>Meta-B</TT> will also perform this function.
+<P>
+The figures stored in the <I>batch file</I> will be printed to the printer
+when <I>Print BATCH to Printer</I> is clicked later. You can use this facility
+when you want to send some figures to the printer at one time.
+
+<P>
+<DT><img src="images/redball.png" align=bottom alt="-">
+<I>Clear Batch</I>
+
+<DD>
+Clicking this button will erase the accumulated figures in the <I>batch
+file</I>. The accelerator <TT>Meta-X</TT> will also perform this function.
+The figures are automatically deleted from the batch file when 
+<I>Print BATCH to Printer</I> is clicked.
+</DL>
+
+<hr>
+
+<H2><font color="blue"><A NAME="export">Exporting</A></font></H2>
+
+The <i>Export...</i> entry in the 
+<a href="main_menus.html#file-menu"><I>File</I> menu</a> 
+(or accelerator <TT>Meta-X</TT>) provides the facility 
+to output the figure in various format such as PostScript,
+GIF, JPEG, HP-GL, etc. to a file.
+This is useful when you want to read figures by other applications 
+(LaTeX or FrameMaker, for example).
+See <a href="latex_and_xfig.html">LaTeX and Xfig</a> for hints about
+using <b>xfig</b> with LaTeX.
+<br>
+The accelerator <TT>Shift-Meta-X</TT> will export using the previously set
+paramters (i.e. the export panel isn't popped up, but the figure is exported).
+<p>
+Use <A HREF="printing.html#print">File/Print</A> if you want to print the
+figure to a PostScript printer.
+
+<BLOCKQUOTE><IMG SRC="images/export-panel.png" ALT="[Export Panel]" ></BLOCKQUOTE>
+
+<DL>
+<DT><img src="images/redball.png" align=bottom alt="-">
+<a name="language"><I>Language</I></a>
+
+<DD>
+Specify the format (language) to be generated as output. The default is
+<I>Encapsulated PostScript</I>, but may be changed with the resource 
+<TT>Fig.exportLanguage</TT>.
+
+<P>The following formats are available:
+<P>Vector formats:
+<DL>
+<DT><img src="images/blueballdot.png" align=bottom alt="-">
+PostScript
+
+<DT><img src="images/blueballdot.png" align=bottom alt="-">
+Encapsulated PostScript (EPSF)
+
+<DT><img src="images/blueballdot.png" align=bottom alt="-">
+EPS With ASCII (EPSI) preview
+
+<DT><img src="images/blueballdot.png" align=bottom alt="-">
+EPS With monochrome TIFF preview
+
+<DT><img src="images/blueballdot.png" align=bottom alt="-">
+EPS With color TIFF preview
+
+<DT><img src="images/blueballdot.png" align=bottom alt="-">
+<a name="pdf_export">PDF (Portable Document Format)</a>
+
+<DT><img src="images/blueballdot.png" align=bottom alt="-">
+Combined PostScript/LaTeX
+
+<DT><img src="images/blueballdot.png" align=bottom alt="-">
+Combined PDF/LaTeX
+
+<DT><img src="images/blueballdot.png" align=bottom alt="-">
+LaTeX picture environment
+
+<DT><img src="images/blueballdot.png" align=bottom alt="-">
+PicTeX macros
+
+<DT><img src="images/blueballdot.png" align=bottom alt="-">
+IBMGL (HP-GL)
+
+<DT><img src="images/blueballdot.png" align=bottom alt="-">
+Textyl  \special commands
+
+<DT><img src="images/blueballdot.png" align=bottom alt="-">
+TPIC
+
+<DT><img src="images/blueballdot.png" align=bottom alt="-">
+PIC
+
+<DT><img src="images/blueballdot.png" align=bottom alt="-">
+<a href="#imagemap">HTML Image map</a>
+
+<DT><img src="images/blueballdot.png" align=bottom alt="-">
+MF (MetaFont)
+
+<DT><img src="images/blueballdot.png" align=bottom alt="-">
+MP (MetaPost)
+
+<DT><img src="images/blueballdot.png" align=bottom alt="-">
+MMP (Multi-MetaPost)
+
+<DT><img src="images/blueballdot.png" align=bottom alt="-">
+<a name="cgm_export">CGM</a>
+(Computer Graphics Metafile - useful to import into Microsoft WORD, etc.)
+
+<DT><img src="images/blueballdot.png" align=bottom alt="-">
+<a name="binarycgm_export">Binary CGM</a>
+
+<DT><img src="images/blueballdot.png" align=bottom alt="-">
+<a name="emf_export">EMF</a>
+(Enhanced Metafile)
+
+<DT><img src="images/blueballdot.png" align=bottom alt="-">
+SVG (Scalable Vector Graphics - beta driver)
+
+<DT><img src="images/blueballdot.png" align=bottom alt="-">
+Tk (Tck/Tk toolkit canvas)
+
+</DL>
+
+<P>Bitmap formats:
+<DL>
+<DT><img src="images/blueballdot.png" align=bottom alt="-">
+
+<A HREF="http://www.dcs.ed.ac.uk/%7Emxr/gfx/2d-hi.html">GIF</A>
+Graphic Interchange Format
+
+<DT><img src="images/blueballdot.png" align=bottom alt="-">
+<A HREF="http://www.dcs.ed.ac.uk/%7Emxr/gfx/2d-hi.html">JPEG</A>
+
+<DT><img src="images/blueballdot.png" align=bottom alt="-">
+
+<A HREF="http://www.dcs.ed.ac.uk/%7Emxr/gfx/2d-hi.html">PCX</A>
+Paintbrush format
+
+<DT><img src="images/blueballdot.png" align=bottom alt="-">
+
+<A HREF="http://www.boutell.com/boutell/png/">PNG</A>
+Portable Network Graphics
+
+<DT><img src="images/blueballdot.png" align=bottom alt="-">
+
+<A HREF="http://www.dcs.ed.ac.uk/%7Emxr/gfx/2d-hi.html">PPM</A>
+Portable Pixmap 
+
+<DT><img src="images/blueballdot.png" align=bottom alt="-">
+
+<A HREF="http://www.dcs.ed.ac.uk/%7Emxr/gfx/2d-hi.html">SLD</A>
+(AutoDesk slide format)
+
+<DT><img src="images/blueballdot.png" align=bottom alt="-">
+
+<A HREF="http://www.dcs.ed.ac.uk/%7Emxr/gfx/2d-hi.html">TIFF</A>
+Tag Image File Format
+
+<DT><img src="images/blueballdot.png" align=bottom alt="-">
+
+<A HREF="http://www.dcs.ed.ac.uk/%7Emxr/gfx/2d-hi.html">XBM</A>
+X11 Bitmap 
+
+<DT><img src="images/blueballdot.png" align=bottom alt="-">
+
+<A HREF="http://www.dcs.ed.ac.uk/%7Emxr/gfx/2d-hi.html">XPM</A>
+X11 Pixmap
+
+</DL>
+
+<P>
+As a variation of the LaTeX format, <I>epic</I>, <I>eepic</I> and <I>eepicemu</I>
+macros are also available. It is also possible to output the text part of the
+figure in LaTeX and the graphics part in PostScript using <I>Combined PostScript/LaTeX</I>.
+This is especially useful when complex numerical formulas are included in
+the figure (see also <A HREF="attributes.html#text-flags">TEXT FLAGS</A>).
+
+<P>Not all of the features in <B>xfig</B> are supported by all export languages.
+For example, <a href="drawing.html#picture">imported pictures</a> 
+are not supported for IBMGL export.
+The PostScript export language supports all features
+of <B>xfig</B> and a fairly high quality output will be generated.
+
+<P>The <b>fig2dev</b> program, part of the <b>TransFig</b> package available with <b>xfig</b>
+does the actual conversion from Fig to the output language.
+
+<P>To export the figure in a bitmap format such as GIF or JPEG, you must have the
+<A HREF="installation.html#ghostscript">GhostScript</A> and 
+<A HREF="installation.html#netpbm">netpbm</A>
+packages on your system.
+
+<DT><img src="images/redball.png" align=bottom alt="-">
+<I>Magnification</I>
+
+<DD>
+Specify the magnification when exporting figure in percent of full size (%). 
+The default is 100% and may be set by the <TT>Fig.magnification</TT> resource.
+
+<P>
+<DT><img src="images/redball.png" align=bottom alt="-">
+<I>Export all layers/Export only active</I>
+
+<DD>
+You may export the whole figure (all layers) or just the layers that are
+active according to the layer manager.
+<p>
+<DT><img src="images/redball.png" align=bottom alt="-">
+<a name="border_margin"><I>Border Margin</I></a>
+<dd>
+When exporting to PostScript, Encapsulated PostScript, HTML MAP, or any 
+of the bitmap formats (e.g. GIF, JPEG, etc.), you may add a margin
+space around the figure.  The size of the margin is in pixels or 1/80th inch.
+
+<P>
+<DT><img src="images/redball.png" align=bottom alt="-">
+<a name="background"><I>Background</I></a>
+<DD>
+This will set the background color of the whole figure
+when printing.  The default is white.
+
+<P>
+<DT><img src="images/redball.png" align=bottom alt="-">
+<a name="grid"><I>Grid</I></a>
+<DD>
+You may add a light-gray grid to the page by choosing a minor (thin) and/or
+a major (thick) grid spacing from pulldown menus or entering the spacing
+directly in the entry.  The units of grid spacing are inches or mm, depending
+on the units of the figure.
+<br>
+The grid option is only available for PostScript, Encapsulated PostScript,
+PSLatex, PDF and all the bitmap export formats.
+
+<P>The default is <I>None</I>.
+
+
+
+<DT><img src="images/redball.png" align=bottom alt="-">
+PostScript Options - These options will appear below the Grid options 
+when PostScript is selected as the export language.
+<p>
+<DT><img src="images/export-panel-postscript.png" align=bottom alt="-">
+
+<DL>
+
+<DT><img src="images/redball.png" align=bottom alt="-">
+<I>Paper Size</I>
+
+<DD>
+Specify the size of the paper. See description in <A HREF="#paper-size">Print
+Panel</A> about available paper sizes. This is effective only if <I>PostScript</I>
+is selected at <a href="#language"><I>Language</I></a>.
+
+<DT><img src="images/redball.png" align=bottom alt="-">
+<I>Fit to Page</I>
+
+<DD>
+Clicking this button will set the <I>Magnification</I> automatically so that the
+figure size will just fill current <I>Paper Size</I> with at least 1/2
+inch margin all around. This is effective only when <I>PostScript</I> is
+selected as <a href="#language"><I>Language</I></a>.
+
+<DT><img src="images/redball.png" align=bottom alt="-">
+<I>Orientation</I>
+
+<DD>
+Specify the orientation of the output as <I>Landscape</I> (horizontal)
+or <I>Portrait</I> (vertical). The default orientation is same as the
+orientation of the canvas which may be changed by 
+<A HREF="main_menus.html#port-land"><i>Portrait/Landscape</i></A> 
+in the <a href="main_menus.html#view-menu"><i>View</i> menu</a>.
+
+<DT><img src="images/redball.png" align=bottom alt="-">
+<I>Justification</I>
+
+<DD>
+Specify if the figure should be <I>Flush Left</I> or <I>Centered</I> on the
+paper of the size selected by <I>Paper Size</I>. This is effective only if
+<I>PostScript</I> is selected at <a href="#language"><I>Language</I></a>.
+
+<DT><img src="images/redball.png" align=bottom alt="-">
+<I>Pages</I>
+
+<DD>
+If <I>Multiple</I> is selected, the figure will be split into multiple
+pages if the figure is larger than <I>Paper Size</I>. If <I>Single</I>
+is selected, this facility will not used. This is effective only if
+<I>PostScript</I> is selected at <a href="#language"><I>Language</I></a>.
+
+<DT><img src="images/redball.png" align=bottom alt="-">
+<I>Offset</I>
+
+<DD>
+When exporting figure, the figure will be shifted to the right or down by the
+amount specified here. 
+Use negative numbers to shift it left and/or up. 
+The unit of the amounts may be selected from
+<I>Inches</I>, <I>Centimeters</I>, and <I>Fig Units</I>(1/1200 inch in version 3.x).
+
+</DL>
+
+<p>
+<DT><img src="images/redball.png" align=bottom alt="-">
+Bitmap Options - These options will appear below the Grid options 
+when any bitmap format is selected as the export language.
+<p>
+<DT><img src="images/export-panel-gif.png" align=bottom alt="-">
+
+<DL>
+
+<P>
+<DT><img src="images/redball.png" align=bottom alt="-">
+<a name="smooth"><i>Smoothing</i></a>
+<dd>
+This will smooth the image by calling <b>fig2dev</b>
+with either the `<tt>-S 2</tt>' (<i>Some smoothing</i>) or <tt>-S 4</tt> (<i>More smoothing</i>) 
+option to tell GhostScript to render at
+2x magnification which improves font rendering,
+then passes through <tt>pnmscale</tt> to reduce to original size,
+which also smooths the image by averaging colors of adjacent pixels.
+<br>The default is <i>No smoothing</i>.
+
+
+<DT><img src="images/redball.png" align=bottom alt="-">
+<I>Transparent Color</I>
+<dd>
+For GIF export, it is possible to specify one of the colors as &quot;transparent&quot;.
+When displaying the figure with GIF viewers that support Transparent GIF
+(such as <A HREF="http://www.netscape.com/">Netscape Navigator</A>, for
+example), the color will not appear but the background of the viewer will show
+through in place of the color.  
+<BR>The default is <I>None</I>.
+<DT><img src="images/export-panel-gif.png" align=bottom alt="-">
+
+<DT><img src="images/redball.png" align=bottom alt="-">
+<I>JPEG Image quality</I>
+<dd>
+If the export <a href="#language">language</a> is <B>JPEG</B>,
+an entry to select the &quot;quality factor&quot; appears.
+<BR>The default is <I>75</I>.
+<DT><img src="images/export-panel-jpeg.png" align=bottom alt="-">
+
+</DL>
+
+<P>
+<DT><img src="images/redball.png" align=bottom alt="-">
+<I>Default File</I>
+
+<DD>
+Output will be written to this file if <I>Output File</I> is empty.
+
+<P>This file name is the figure name plus an extension that reflects the output
+format at the default, and it will be changed to the specified file name if
+export has been performed by specifying a file name in <I>Output File</I>.
+<P>
+
+<DT><img src="images/redball.png" align=bottom alt="-">
+<I>Output File</I>
+
+<DD>
+Specify the file name the output should be written to. If this field is
+empty, the file name in the <I>Default File</I> field will be used.
+
+
+<P>The file name in the <I>Output File</I> field may be changed by selecting
+a file name in the <I>Fig Files</I> list, or typing the file name from
+keyboard directly. If <I>Return</I> is typed after file name is entered,
+export to the file will be performed as if the <I>Export</I> button was clicked.
+<P>
+
+<DT><img src="images/redball.png" align=bottom alt="-">
+<I>Alternatives</I>
+
+<DD>
+The list of files in the current directory (only files matching the pattern specified
+by <I>Filename Mask</I>) are displayed, and users may select a file for output
+from the list.
+
+<P>Clicking a file name in this list with mouse button 1 will copy the file name
+to the <I>Output File</I> field. Double-clicking a file name in this list
+with mouse button 1 will cause exporting to the file as if <I>Export</I>
+button was clicked. Note that exporting to the existing file will over-write
+the old contents of the file.
+<P>
+
+<DT><img src="images/redball.png" align=bottom alt="-">
+<I>Filename Mask</I>
+
+<DD>
+Only the files matching this pattern will be put in the <I>File
+Alternatives</I> list. The pattern is similar to the one used
+by the UNIX shell, and it is possible to use meta-characters like &quot;<TT>*</TT>&quot;
+or &quot;<TT>?</TT>&quot;.
+
+
+<P>Typing <I>Return</I> in this field will cause rescan of the current directory
+as if <I>Rescan</I> button was clicked.
+This string will be changed according to the language
+selected with the <a href="#language"><i>Language</i> menu</a>.
+<P>
+
+<DT><img src="images/redball.png" align=bottom alt="-">
+<I>Current Dir</I>
+
+<DD>
+This shows the current directory, and files in the directory will be displayed
+in the <I>Alternatives</I> list.
+
+
+<P>The directory name in the <I>Current Dir</I> field may be changed
+by clicking a directory name in <I>Directories</I> list, or by
+typing the directory name from keyboard directly. If <I>Return</I> is typed
+after directory name is entered, the directory will scanned as if <I>Rescan</I>
+button was clicked and the contents of <I>Alternatives</I> list will be updated.
+<P>
+
+<DT><img src="images/redball.png" align=bottom alt="-">
+<I>Directories</I>
+
+<DD>
+The list of directories in the current directory is displayed here, and clicking
+any item in this list with mouse button 1 will cause a move to the directory.
+Normally, <I>hidden directories</I> are not displayed here, but this may be
+toggled by <I>Show Hidden</I> button.
+
+
+<P>&quot;<TT>..</TT>&quot; indicates the parent directory. Moving to the parent directory
+may also be performed by clicking mouse button 3 on the <I>Alternatives</I>
+list or the <I>Directories</I> list.
+<P>
+
+<DT><img src="images/redball.png" align=bottom alt="-">
+<I>Home</I>
+
+<DD>
+Clicking this button will move to the home directory of the user.
+
+<P>
+
+<DT><img src="images/redball.png" align=bottom alt="-">
+<I>Show Hidden</I>
+
+<DD>
+This button controls if hidden directories (directories whose names start
+with &quot;<TT>.</TT>&quot;) should be displayed or not. Clicking this button will
+toggle the state. Normally, hidden directories are not displayed.
+<P>
+
+<DT><img src="images/redball.png" align=bottom alt="-">
+<I>Rescan</I>
+
+<DD>
+Clicking this button will scan files in the current directory
+and update the <I>Alternatives</I> list. The accelerator <TT>Meta-R</TT>
+will also perform this function.
+<P>
+
+<DT><img src="images/redball.png" align=bottom alt="-">
+<I>Cancel</I>
+
+<DD>
+Clicking this button will close the Export panel. The accelerator <TT>Meta-C</TT>
+will also perform this function.
+<P>
+
+<DT><img src="images/redball.png" align=bottom alt="-">
+<I>Export</I>
+
+<DD>
+Clicking this button will export to the file specified by <I>Output
+File</I> field if any, or the file in <I>Default File</I>.
+The accelerator <TT>Meta-X</TT> will also perform this function.
+
+
+<P>When trying to export to an existing file other than <I>Default File</I>,
+popup panel will appear and the user will asked to confirm the export operation.
+If the figure is exported to a file other than <I>Default File</I>,
+then <I>Default File</I> will be set to the actual export file name.</DL>
+
+
+<hr>
+
+<h2><a name="imagemap">Generating an HTML Image Map</a></h2>
+
+It is possible to generate image map (clickable map) of HTML 3.2 
+by selecting <i>HTML Image Map</i> as 
+<a href="#language"><i>Language</i></a> 
+on the <a href="#export">Export panel</a>.
+<p>
+To use this facility,
+using <i>Comments</i> on the <a href="editing.html#edit-panel">Edit panel</a>,
+comment like:
+<p>
+<blockquote>
+  <tt>HREF="<i>url</i>" ALT="<i>string</i>"</tt>
+</blockquote>
+<p>
+must be set for objects you want to make it clickable.
+Here, <tt><i>url</i></tt> is URL of the target of the link,
+<tt><i>string</i></tt> is alternative string for browsers
+which will not display images
+(<tt>ALT</tt> attribute is required in HTML 3.2).
+<tt><i>string</i></tt> will be used as label of alternative text links
+<b>xfig</b> will generate with the image map, too.
+<p>
+TEXT objects can't be used for links.
+CIRCLE, ELLIPSE, SPLINE and ARC will be approximated with polygons.
+Open objects such as POLYLINE or OPEN SPLINE will be
+treated as if it is closed.
+ARC-BOX will treated as if is is a BOX.
+
+<HR>
+
+[ <a href="contents.html">Contents</a> |
+ <a href="introduction.html">Introduction</a> |
+ <a href="authors.html">Credits</a> ]
+
+</BODY>
+</HTML>

@@ -1,0 +1,42 @@
+Author: Vladislav Zavjalov <slazav@altlinux.org>
+Date:   Sat Feb 19 04:05:26 2011 +0300
+Origin: http://git.altlinux.org/people/slazav/packages/?p=xfig.git;a=patch;h=a77bcaf2598f77b5806b48da1f631a733ab0b596
+Subject: fix depth handling in undo_join_split()
+ Steps to reproduce bug:
+ 1. draw two polylines with different depths
+ 2. join lines
+ 3. undo join
+ Error: one of depths will not restore
+
+--- a/u_undo.c
++++ b/u_undo.c
+@@ -176,8 +176,12 @@
+ 	bcopy((char*)&swp_l, (char*)new_l, sizeof(F_line));
+ 	/* this assumes that the object are at the end of the objects list */
+ 	/* correct the depth counts if necessary */
+-	if (!new_l->next && old_l->next) add_depth(O_POLYLINE, old_l->depth);
+-	else if (new_l->next && !old_l->next) remove_depth(O_POLYLINE, old_l->depth);
++	if (!new_l->next && old_l->next){ /* join undo */
++          add_depth(O_POLYLINE, old_l->next->depth);
++        }
++	else if (new_l->next && !old_l->next){ /* split undo */
++          remove_depth(O_POLYLINE, new_l->next->depth);
++        }
+ 	set_action_object(F_JOIN, O_POLYLINE);
+ 	redisplay_lines(new_l, old_l);
+     } else {
+@@ -189,8 +193,12 @@
+ 	bcopy((char*)&swp_s, (char*)new_s, sizeof(F_spline));
+ 	/* this assumes that the object are at the end of the objects list */
+ 	/* correct the depth counts if necessary */
+-	if (!new_s->next && old_s->next) add_depth(O_SPLINE, old_s->depth);
+-	else if (new_s->next && !old_s->next) remove_depth(O_SPLINE, old_s->depth);
++	if (!new_s->next && old_s->next){ /* join undo */
++          add_depth(O_SPLINE, old_s->next->depth);
++        }
++	else if (new_s->next && !old_s->next){ /* split undo */
++          remove_depth(O_SPLINE, new_s->next->depth);
++        }
+ 	set_action_object(F_JOIN, O_SPLINE);
+ 	redisplay_splines(new_s, old_s);
+     }

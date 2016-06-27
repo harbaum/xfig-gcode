@@ -1,0 +1,235 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<html>
+<head>
+<title>New Features</title>
+</head>
+
+<body>
+<a href="contents.html"><img src="images/xfig-title.png"
+  alt="XFIG Users Manual" border=0></a>
+
+<hr>
+<h1>New Features</h1> 
+
+<h2>Current release:</h2>
+N.B. There were no new features in <i>xfig 3.2.5b</i>, only bug fixes.
+<br>
+<img src="images/blueballdot.png"><a href="#newfeatures.3.2.5a">New Features in <i>xfig 3.2.5a</i></a> 
+<br>
+<img src="images/blueballdot.png"><a href="#newlibraries">New Libraries and Examples</a> 
+<h3>Older releases of xfig:</h3>
+<img src="images/blueballdot.png"><a href="#newfeatures.3.2.5">New Features in <i>xfig 3.2.5</i></a> 
+<br>
+<img src="images/blueballdot.png"><a href="#newfeatures.3.2.5-alphas">New Features in <i>xfig 3.2.5-alphas</i></a> 
+<br>
+<br> <img src="images/blueramp.png" alt="-">
+
+<h2><a name="newfeatures.3.2.5a">New Features in <i>xfig 3.2.5a</i></a></h2> 
+	<img src="images/blueballdot.png"> Fig-color merged into Fig app-defaults file because almost no one knows about
+	  the "*customization: -color" option to make X programs read the color def file.
+	<br><img src="images/blueballdot.png"> 22 new arrowhead types
+	<br><img src="images/blueballdot.png"> changed default browser to firefox and default pdf viewer to xpdf
+	<br><img src="images/blueballdot.png"> HTML MAP export (fig2dev) produces reference to .png file instead of .gif now
+	<br><img src="images/blueballdot.png"> A note added to i18n.html that says if you run fig2dev standalone, you must
+	  pass the -j option to it
+	<br><img src="images/blueballdot.png"> No need to have the C99 complex functions in the math library.
+	<br><img src="images/blueballdot.png"> New computers from Andre Esser (Libraries/Computers)
+	<br><img src="images/blueballdot.png"> Some network icons colored and/or combined by Roland Rosenfeld.
+	<br><img src="images/blueballdot.png"> When exporting only active layers have choice of bounding area of whole
+	  figure or only the active layers
+	<br><img src="images/blueballdot.png"> Two new library figures - piano_keyboard.fig, top view of a piano keyboard
+	  by Reinaert Albrecht, and piano_keyboard_perspect.fig, a perspective
+	  view of a piano keyboard by Brian Smith, both in the Libraries/Music
+	  directory.
+	<br><img src="images/blueballdot.png"> New library figure - scissors.fig in Libraries/OfficeEquip from Kasie
+	  Breezer Talbot
+	 <br><img src="images/blueballdot.png"> Search tolerance increased from 4 pixels to 10 for zoom &lt 20
+	<br><img src="images/blueballdot.png"> Isometric grids to ease making isometric drawings
+	  From Jasper Wesselingh
+	<br><img src="images/blueballdot.png"> New 37-pin D connector and 50-pin ribbon connector in Libraries/Electronic/Physical
+
+<hr>
+<h2><a name="newfeatures.3.2.5">New Features in <i>xfig 3.2.5</i></a></h2> 
+	<img src="images/blueballdot.png">  Shift-U accelerator added to popup units panel
+	<br><img src="images/blueballdot.png">  The library menu button sizes with the library panel, to show longer
+	  path names if the user wants.
+	<br><img src="images/blueballdot.png">  The cursor for drawing lines, splines, etc. is a crosshair now instead
+	  of an arrow.
+	<br><img src="images/blueballdot.png">  Snap features to allow snapping points to endpoints, midpoints and
+	  intersections of other objects.
+	  From Chris Moller.
+	<br><img src="images/blueballdot.png">  Keyboard input of object coordinates for precise positioning.
+	  From Chris Moller.
+	<br><img src="images/blueballdot.png">  Can grab arc anywhere along the curve instead of just at grab points
+	  From Chris Moller.
+	<br><img src="images/blueballdot.png">  Added -noflipvisualhints for cases where, due to "different" pointer
+	  devices, they aren't really flipped, but the mapping indicates they are.
+	<br><img src="images/blueballdot.png">  Export to all of PS, PDF and LaTeX in one operation
+	  From Alistair Ramsey
+	<br><img src="images/blueballdot.png">  Reorganized Networks library and new devices: ASX-200, 1000, and 4000
+	  by Bill Chimiak
+	<br><img src="images/blueballdot.png">  New figures "betty.fig" (Betty Boop) and "nikke.fig" (German detective
+	  Nick Knatter) in Libraries/Examples drawn by Markku Reunanen
+	<br><img src="images/blueballdot.png">  Can finish text input by pressing Escape.  This removes the cancellation
+	  of a compose sequence (e.g. a-umlaut)
+	<br><img src="images/blueballdot.png">  Actually a bug fix, import of PDF files is now possible.  The code was
+	  there since version 3.2.3, but the user interface was not.
+	<br><img src="images/blueballdot.png">  Nearly-full ANSI protoization of code by Harald Koenig
+	<br><img src="images/blueballdot.png">  Installation of Libraries and doc files faster with tar instead of shell loop
+	<br><img src="images/blueballdot.png">  New Gregorian chant music symbols from Bill Chimiak.  Also, Music library
+	  divided into "chant" and "modern"
+	<br><img src="images/blueballdot.png">  Popup edit panel slightly more compact vertically
+	<br><img src="images/blueballdot.png">  New library "Fasteners" containing various bolts and screws
+	  From Jim Yuzwalk
+	<br><img src="images/blueballdot.png">  Increased size of numeric entry fields in indicator panels
+	<br><img src="images/blueballdot.png">  N-channel IGBT in Electronic/Schematics Library from Art Blair
+	<br><img src="images/blueballdot.png">  starting values for arrow type, width, length, thickness may be specified
+	  on command-line or in X resources:
+	  -startarrowtype, -startarrowwidth, -startarrowlength, -startarrowthick
+
+<hr>
+<h2><a name="newfeatures.3.2.5-alphas">New Features in <i>xfig 3.2.5-alphas</i></a></h2> 
+	<img src="images/blueballdot.png"> Added note to README and FAQ html file:
+	  If the Xaw or Xaw3d Athena widget sets are compiled with the
+	  ARROW_SCROLLBAR style of scrollbars, there is no StartScroll action
+	  and you won't be able to scroll using the wheel on the mouse.  
+	  If you want to be able to scroll using the wheel, you must recompile
+	  the Xaw library from sources, disabling the ARROW_SCROLLBAR option.
+	<br><img src="images/blueballdot.png"> Astrological symbols for planets in Miscellaneous/Astrology by Andrew Collier
+	<br><img src="images/blueballdot.png"> Added key bindings to text dialogs to be more like modern systems (the
+	  Athena Widget Set that xfig uses is very old):
+	    Home:  beginning-of-line
+	    End:   end-of-line
+	    Del:   delete-character-right
+	<br><img src="images/blueballdot.png"> Added *.jpeg* to picture browse options
+	<br><img src="images/blueballdot.png">
+		<a href="main_menus.html#snap-menu">Snap mode</a>
+		to snap the point to selected features of selected objects.
+	<br><img src="images/blueballdot.png">
+		<a href="miscellaneous.html#keyboard-entry">Keyboard entry</a>
+		capability to allow users to specify drawing or editing 
+		points from the keyboard.
+	<br><img src="images/blueballdot.png">
+		<a href="editing.html#chop">Chop editing</a> operation to slice objects into pieces.
+
+
+<hr>
+<h2><a name="newfeatures.3.2.5-alpha4"><i>xfig 3.2.5-alpha4</i></a></h2> 
+Note:	There is a minor change to the copyright/permission notice for xfig.
+	Basically, I have restored the part that allows one to sell xfig
+	regardless of whether it is bundled as part of a package or not.
+	This is identical to the original copyright/permission notice for
+	xfig, which was based on the MIT (then later, the X Consortium) 
+	copyright notice.
+	Here is the new notice (different files have different author 
+	copyrights at the top):
+
+<pre>
+	> FIG : Facility for Interactive Generation of figures
+	> Copyright (c) 1985-1988 by Supoj Sutanthavibul
+	> Parts Copyright (c) 1989-2012 by Brian V. Smith
+	> Parts Copyright (c) 1991 by Paul King
+
+	> Any party obtaining a copy of these files is granted, free of charge, a
+	> full and unrestricted irrevocable, world-wide, paid up, royalty-free,
+	> nonexclusive right and license to deal in this software and documentation 
+	> files (the "Software"), including without limitation the rights to use, 
+	> copy, modify, merge, publish distribute, sublicense and/or sell copies of
+	> the Software, and to permit persons who receive copies from any such 
+	> party to do so, with the only requirement being that the above copyright 
+	> and this permission notice remain intact.
+</pre>
+
+<br><img src="images/blueballdot.png">
+	Introduction.html and installation.html updated to include Macintosh
+	  port of xfig
+<br><img src="images/blueballdot.png">
+	Button to collapse depths of a compound object (make all same depth)
+	  in popup object editor
+<br><img src="images/blueballdot.png">
+	Grid changed from dotted line to light red solid line
+<br><img src="images/blueballdot.png">
+	Candle in Libraries/Miscellaneous by Dr. Lyman Hazelton
+<br><img src="images/blueballdot.png">
+	Right-click on depth checkbox sets current depth in indicator panel
+	  to that depth
+<br><img src="images/blueballdot.png">
+	Library of symbols used when diagramming folding instructions to make
+	  origami models and example contributed by Marc Vigo
+<br><img src="images/blueballdot.png">
+	Can adjust width and height directly in popup editor for picture
+	  objects
+<br><img src="images/blueballdot.png">
+	Support for David Hawkey's Xaw3D version 1.5E
+	  (ftp://ftp.visi.com/users/hawkeyd/X/Xaw3d-1.5E.tar.gz)
+
+<hr>
+<h2><a name="newfeatures.3.2.5-alpha3"><i>xfig 3.2.5-alpha3</i></a></h2> 
+
+<img src="images/blueballdot.png"> 
+	introduction.html and installation.html updated to include Macintosh
+	  port of xfig
+<br><img src="images/blueballdot.png"> 
+	Button to collapse depths of a compound object (make all same depth)
+	  in popup object editor
+<br><img src="images/blueballdot.png"> 
+	Grid changed from dotted line to light red solid line
+<br><img src="images/blueballdot.png"> 
+	Candle in Libraries/Miscellaneous by Dr. Lyman Hazelton
+<br><img src="images/blueballdot.png"> 
+	Right-click on depth checkbox sets current depth in indicator panel
+	  to that depth
+<br><img src="images/blueballdot.png"> <tt>-autorefresh</tt> command-line option 
+	(resource: <tt>Fig.autorefresh)</tt> which
+	  will make xfig look at the timestamp on the .fig file and
+	  automatically load it and display it everytime it changes.
+<br><img src="images/blueballdot.png"> 
+	Removed requirement to compile with WHEELMOUSE when using wheelmouse
+<br><img src="images/blueballdot.png"> 
+	When placing library objects, the name and comments are displayed in
+	  message window
+<br><img src="images/blueballdot.png"> Mouse wheel can be used to scroll through filename lists in File and
+	  Export panels and icons or object lists in Library panel
+<br><img src="images/blueballdot.png"> Thickness of ticks in dimension lines are user-adjustable now
+<br><img src="images/blueballdot.png"> For attribute popup dialogs with only one text entry, keyboard now
+	  focuses on the entry as long as the pointer is anywhere in the dialog
+<br><img src="images/blueballdot.png"> When using the "Open compound, keep rest visible", the other objects
+	  are drawn in shades of gray similar to the inactive layers feature.
+<br><img src="images/blueballdot.png"> Zooming in or out with the Z or z key respectively will keep the canvas
+	  centered on the mouse pointer
+<br><img src="images/blueballdot.png"> Full version and patchlevel is included in Fig file header for
+	  diagnostics
+<br><img src="images/blueballdot.png"> Can explicitly set the rotation of imported pictures in edit panel
+	  after importing
+<br><img src="images/blueballdot.png"> Export option to produce both EPS and PDF (in two files) in one step.
+	  Useful for those who both use LaTeX and PDFLaTeX
+<br><img src="images/blueballdot.png"> "Epoch" added to rpm spec
+<br><img src="images/blueballdot.png"> New HP/GL2 (fig2dev) driver from Glenn Burkhardt with paper size selection,
+	  offset, centering and orientation options
+
+<br> <img src="images/blueramp.png" alt="-">
+
+<h2><a name="newlibraries">New Libraries and Examples</i></a></h2> 
+
+<img src="images/blueballdot.png"> New electronics symbols from Fabio González in
+	  Libraries/Electronics/Schematic/More 
+<br><img src="images/blueballdot.png"> Tower computers (Libraries/Computers/AOpenKF45E.fig and
+	  AOpenKF45E.fig from Dirko van Schalkwyk)
+<br><img src="images/blueballdot.png"> 10/100 8port hub (Libraries/Networks/3Com3C16750.fig also from
+	  Dirko van Schalkwyk)
+<br><img src="images/blueballdot.png"> New flags (Libraries/Flags): Africa/Eritrea, Africa/Zimbabwe,
+	  Asia/Myanmar, Asia/Tajikstan, Asia/Kyrgystan, Europe/Croatia
+<br><img src="images/blueballdot.png"> Non-polar capacitor added to Libraries/Electronic/Schematic
+<br><img src="images/blueballdot.png"> Adder, multiplier, sine-source and voltage-source
+	  in Electronic/Schematic by Hubert Lam
+<br><img src="images/blueballdot.png"> "Atom" in Libraries/Miscellaneous is the classic
+	  drawing of an atom with electrons circling
+	  from Andrew B. Collier
+<hr>
+
+[ <a href="contents.html">Contents</a> |
+ <a href="introduction.html">Introduction</a> |
+ <a href="authors.html">Credits</a> ]
+
+</body>
+</html>

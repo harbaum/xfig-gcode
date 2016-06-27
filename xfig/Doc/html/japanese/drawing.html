@@ -1,0 +1,1186 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<html>
+<head>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=EUC-JP">
+<title>Drawing Objects</title>
+<link rev="made" href="mailto:VEF00200@nifty.ne.jp">
+</head>
+
+<body>
+<a href="contents.html"><img src="../images/xfig-title.png"
+  alt="XFIG Users Manual" border=0></a>
+
+<h1>オブジェクトの描画</h1>
+
+描画モード・パネルには新たなオブジェクトの入力のためのボタンが置かれており、
+いずれかの描画モードを選択した後にキャンバス上で操作を行なうことによって
+オブジェクトを入力することができます。
+<p>
+描画モードには以下のものがあります。
+<p>
+<dl>
+<dt><a href="#circle"><img src="../images/ellipse-rad-button.png"
+    align="middle" alt="[Ellipse by rad]">
+<img src="../images/ellipse-diam-button.png" align="middle" alt="[Ellipse by diam]">
+  Circles and Ellipses (円、及び楕円)</a>
+
+<dt><a href="#closed-approx-spline"><img src="../images/closed-approx-spline-button.png"
+    align="middle" alt="[Closed Approx Spline]"></a>
+<a href="#approx-spline"><img src="../images/open-approx-spline-button.png"
+    align="middle" alt="[Open Approx Spline]"></a>
+<a href="#closed-interp-spline"><img src="../images/closed-interp-spline-button.png"
+    align="middle" alt="[Closed Interp Spline]"></a>
+<a href="#interp-spline"><img src="../images/open-interp-spline-button.png"
+    align="middle" alt="[Open Approx Spline]"></a>
+  <a href="#spline">Spline Curves (スプライン曲線)</a>
+
+<dt><a href="#polyline"><img src="../images/polyline-button.png"
+    align="middle" alt="[Polyline]">
+  Polylines (折れ線、及び寸法線)</a>
+
+<dt><a href="#polygon"><img src="../images/polygon-button.png"
+    align="middle" alt="[Polygon]">
+  Polygons (多角形)</a>
+
+<dt><a href="#regular-polygon"><img src="../images/regular-polygon-button.png"
+    align="middle" alt="[Regular Polygon]">
+  Regular Polygons (正多角形)</a>
+
+<dt><a href="#box"><img src="../images/box-button.png"
+    align="middle" alt="[Box]">
+  Boxes (長方形)</a>
+
+<dt><a href="#arc-box"><img src="../images/arc-box-button.png"
+    align="middle" alt="[Arc Box]">
+  Arc Boxes (角を丸めた長方形)</a>
+
+<dt><a href="#arc"><img src="../images/arc-button.png"
+    align="middle" alt="[Arc]">
+  Arcs (円弧)</a>
+
+<dt><a href="#picture"><img src="../images/pict-button.png"
+    align="middle" alt="[Picture]">
+  Picture Objects (イメージの取り込み)</a>
+
+<dt><a href="#text"><img src="../images/text-button.png"
+    align="middle" alt="[Text]">
+  Texts (文字列)</a>
+
+<dt><a href="#library"><img src="../images/library-button.png"
+    align="middle" alt="[Libraries]">
+  Libraries (ライブラリ)</a>
+</dl>
+<p>
+描画モードの選択は対応するボタンをクリックすることによって行ないます。
+選択された描画モードのボタンは反転して表示されます。
+新たに生成されたオブジェクトの属性は
+<a href="attributes.html">属性パネル</a>
+で設定されているものとなりますので、
+オブジェクトの入力に先立って属性の設定を行なっておくべきです。
+<p>
+オブジェクトの属性は、オブジェクトを入力した後で 
+<a href="editing.html#edit">EDIT</a> や 
+<a href="editing.html#update">UPDATE</a> によって
+変更することも可能です。
+<p>
+マウスボタンの機能は
+選択されている描画モードやその時の状況に応じて変わりますが、
+<a href="miscellaneous.html#mouse-indicator">マウス機能インジケーター</a> 
+には常に各マウスボタンの機能が表示されています。
+オブジェクトの入力は主にマウスボタン1を用いて行ないますが、
+しばしばマウスボタン2も使用します。
+多くの状況では、マウスボタン3 (`cancel') は
+操作を取り消すために用いることができます。
+<p>
+デフォルトでは、描画するオブジェクトの点をグリッド上に限定する
+位置決め用のグリッドが設けられています。
+このグリッドは、解除し、あるいは違うサイズにすることができます。
+<a href="attributes.html#point-position">POINT POSITION</a> も参照して下さい。
+
+<p>
+<hr>
+
+<dl>
+<dt><img src="../images/ellipse-rad-button.png" alt="">
+  <img src="../images/ellipse-diam-button.png" alt="">
+  <a name="circle">(CIRCLE AND ELLIPSE)</a>
+<dd>円、あるいは楕円を入力します。
+円の入力のためにはマウスボタン 1を使用します。
+楕円の入力のためにはマウスボタン 2を使用します。
+<p>
+<dl>
+<dt>円
+<dd>
+円の中心と半径を指定する方法と、円の直径を指定する方法とがあります。
+<p>
+前者では、まず円の中心でマウスボタン1 (`Circle center') をクリックし、
+次に円周上の任意の点で再びマウスボタン1 (`set radius') をクリックします。
+<p>
+後者では、まず円周上の任意の点でマウスボタン1 (`Circle diameter) をクリックし、
+次に円周上の反対側の点で再びマウスボタン1 (`set radius') をクリックします。
+<p>
+<blockquote>
+  <img src="../images/circle-example.png" alt="[Circle Example]">
+</blockquote>
+<p>
+<a href="attributes.html#fill-style">FILL STYLE</a> で
+塗りつぶしが指定されている場合には、
+円の内部はその指定に従って塗りつぶされます。
+ごく小さな塗りつぶされた円を入力したい場合には、
+<a href="#polyline">POLYLINE</a> を用いることもできます。
+<p>
+入力に際して、
+<a href="introduction.html#message-panel">メッセージ・パネル</a> には
+円の大きさ (半径、もしくは直径) が逐次表示されます。
+
+<p>
+<dl>
+<dt><b>Related Attributes:</b>
+<dd><a href="attributes.html#depth">depth</a>,
+<a href="attributes.html#pen-color">pen color</a>,
+<a href="attributes.html#fill-color">fill color</a>,
+<a href="attributes.html#fill-style">fill style</a>,
+<a href="attributes.html#line-width">line width</a>,
+<a href="attributes.html#line-style">line style</a>
+</dl>
+
+<p>
+<dt>楕円
+<dd><a href="#circle">CIRCLE</a> と同様、
+楕円の中心と半径を指定する方法と楕円の直径を指定する方法とがありますが、
+縦と横の2つの寸法を指定する必要があることから
+操作方法は CIRCLE とは若干異なっています。
+<p>
+前者では、まず楕円の中心でマウスボタン2 (`Ellipse center') をクリックし、
+次に楕円を囲む (外接する) 仮想的な矩形の任意の角の点で
+再びマウスボタン1 (`corner point') をクリックします。
+<p>
+後者では、楕円を囲む仮想的な矩形の任意の角の点で
+マウスボタン1 (`Ellipse corner') をクリックし、
+次にその対角の点で再びマウスボタン1 (`final corner') をクリックします。
+<p>
+<blockquote>
+  <img src="../images/ellipse-example.png" alt="[Ellipse Example]">
+</blockquote>
+<p>
+<a href="attributes.html#text-angle">TEXT/ELLIPSE ANGLE</a> で 
+0 以外の角度が設定されている場合には、楕円はその角度だけ 
+(角度が正であれば反時計方向へ) 回転します。
+
+<p>
+<dl>
+<dt><b>Related Attributes:</b>
+<dd><a href="attributes.html#depth">depth</a>,
+<a href="attributes.html#pen-color">pen color</a>,
+<a href="attributes.html#fill-color">fill color</a>,
+<a href="attributes.html#fill-style">fill style</a>,
+<a href="attributes.html#line-width">line width</a>,
+<a href="attributes.html#line-style">line style</a>,
+<a href="attributes.html#text-angle">text/ellipse angle</a>
+</dl>
+</dl>
+
+<p>
+<dt><img src="../images/closed-approx-spline-button.png" alt="">
+  <a name="closed-approx-spline">(CLOSED APPROXIMATED SPLINE)</a>
+<dd>閉じた近似スプライン曲線 
+(指定された点を近似するなめらかな閉曲線) を入力します。
+操作手順は <a href="#polygon">POLYGON</a> や 
+<a href="#closed-interp-spline">CLOSED INTERPORATED SPLINE</a> と同様です。
+<p>
+SPLINE、<a href="#polygon">POLYGON</a>、
+及び <a href="#polyline">POLYLINE</a> でフリーハンドでの入力を行なうためには、
+最初の点でマウスボタン2 (`freehand') をクリックし、
+マウスをドラグすることによって線を入力します。
+マウスを動かすと、線に点が追加されていきます。
+最後に、入力を終えるためにマウスボタン2 (`final point') を
+もう一度クリックします。
+<p>
+<a href="#spline">スプライン曲線について</a> も参照して下さい。
+
+<p>
+<dl>
+<dt><b>Related Attributes:</b>
+<dd><a href="attributes.html#depth">depth</a>,
+<a href="attributes.html#pen-color">pen color</a>,
+<a href="attributes.html#fill-color">fill color</a>,
+<a href="attributes.html#fill-style">fill style</a>,
+<a href="attributes.html#line-width">line width</a>,
+<a href="attributes.html#line-style">line style</a>
+</dl>
+
+<p>
+<dt><img src="../images/open-approx-spline-button.png" alt="">
+  <a name="approx-spline">(APPROXIMATED SPLINE)</a>
+<dd>開いた近似スプライン曲線 
+(2つの端点を通り、他の点を近似するなめらかな曲線) を入力します。
+操作手順は <a href="#polyline">POLYLINE</a> や 
+<a href="#interp-spline">INTERPORATED SPLINE</a> と同様です。
+<p>
+<a href="#spline">スプライン曲線について</a> も参照して下さい。
+
+<p>
+<dl>
+<dt><b>Related Attributes:</b>
+<dd><a href="attributes.html#depth">depth</a>,
+<a href="attributes.html#pen-color">pen color</a>,
+<a href="attributes.html#fill-color">fill color</a>,
+<a href="attributes.html#fill-style">fill style</a>,
+<a href="attributes.html#line-width">line width</a>,
+<a href="attributes.html#line-style">line style</a>,
+<a href="attributes.html#cap-style">cap style</a>,
+<a href="attributes.html#arrow-mode">arrow mode</a>,
+<a href="attributes.html#arrow-type">arrow type</a>,
+<a href="attributes.html#arrow-size">arrow size</a>
+</dl>
+
+<p>
+<dt><img src="../images/closed-interp-spline-button.png" alt="">
+  <a name="closed-interp-spline">(CLOSED INTERPOLATED SPLINE)</a>
+<dd>閉じた補間スプライン曲線 
+(指定された点を通過するなめらかな閉曲線) を入力します。
+操作手順は <a href="#polygon">POLYGON</a> や 
+<a href="#closed-approx-spline">CLOSED APPROXIMATED SPLINE</a> と同様です。
+<p>
+<a href="#spline">スプライン曲線について</a> も参照して下さい。
+
+<p>
+<dl>
+<dt><b>Related Attributes:</b>
+<dd><a href="attributes.html#depth">depth</a>,
+<a href="attributes.html#pen-color">pen color</a>,
+<a href="attributes.html#fill-color">fill color</a>,
+<a href="attributes.html#fill-style">fill style</a>,
+<a href="attributes.html#line-width">line width</a>,
+<a href="attributes.html#line-style">line style</a>
+</dl>
+
+<p>
+<dt><img src="../images/open-interp-spline-button.png" alt="">
+  <a name="interp-spline">(INTERPOLATED SPLINE)</a>
+<dd>開いた補間スプライン曲線 
+(指定された点を通過するなめらかな曲線) を入力します。
+操作手順は <a href="#polyline">POLYLINE</a> や
+<a href="#approx-spline">APPROXIMATED SPLINE</a> と同様です。
+<p>
+<a href="#spline">スプライン曲線について</a> も参照して下さい。
+
+<p>
+<dl>
+<dt><b>Related Attributes:</b>
+<dd><a href="attributes.html#depth">depth</a>,
+<a href="attributes.html#pen-color">pen color</a>,
+<a href="attributes.html#fill-color">fill color</a>,
+<a href="attributes.html#fill-style">fill style</a>,
+<a href="attributes.html#line-width">line width</a>,
+<a href="attributes.html#line-style">line style</a>,
+<a href="attributes.html#cap-style">cap style</a>,
+<a href="attributes.html#arrow-mode">arrow mode</a>,
+<a href="attributes.html#arrow-type">arrow type</a>,
+<a href="attributes.html#arrow-size">arrow size</a>
+</dl>
+
+<p>
+<dt><img src="../images/polyline-button.png" alt="">
+  <a name="polyline">(POLYLINES and Dimension Lines)</a>
+<dd>
+折れ線、または寸法線を入力します。
+<p>
+<dl>
+<dt>折れ線
+<dd>折れ線 (一連の点をつないだ線分の列) を入力します。
+単純な直線や点も、これを用いて入力することができます。
+<p>
+折れ線や直線を入力する場合には、
+最初の点でマウスボタン1 (`first point') をクリックし、
+次に途中の点をマウスボタン1 (`next point') のクリックを
+繰り返すことによって指定していきます。
+最後に、マウスボタン2 (`final point') で最後の点を指定します。
+この操作は、<a href="#polygon">POLYGON</a> や 
+<a href="#closed-approx-spline">SPLINE</a> でも同様です。
+<p>
+POLYLINE、<a href="#polygon">POLYGON</a>、
+あるいは <a href="#closed-approx-spline">SPLINE</a> で
+フリーハンドの線を入力する場合には、
+最初の点でマウスボタン2 (`freehand') をクリックし、
+マウスをドラグすることによって線を入力します。
+マウスを動かすと、線に点が追加されていきます。
+最後に、入力を終えるためにマウスボタン2 (`final point') を
+もう一度クリックします。
+<p>
+単一の点を入力する場合には、
+マウスボタン3 (`single point') をクリックします。
+入力される点の形状は、
+<a href="attributes.html#cap-style">CAP STYLE</a> で 
+<i>ROUND</i> が選択されている場合には塗りつぶされた円に、
+それ以外の場合には塗りつぶされた正方形になります。
+いずれの場合でも、点の大きさは
+<a href="attributes.html#line-width">線の太さ</a>と同一となります。
+<p>
+<a href="attributes.html#fill-style">FILL STYLE</a> で
+塗りつぶしが指定されている場合には、
+その折れ線で囲まれた領域 (最初の点と最後の点は結ばれているものと考える) は
+その指定に従って塗りつぶされます。
+複雑な領域を塗りつぶす際には、
+塗りつぶすべき部分を「奇遇規則」によって決定します。
+<p>
+<blockquote>
+  <img src="../images/polyline-example.png" alt="[Polyline Example]">
+</blockquote>
+
+<p>
+<img src="../images/pict-info.png" alt="">
+どのオブジェクトの入力に際しても、
+入力の途中でマウスボタン3 (`cancel') をクリックすることによって
+すべての入力を取り消すことができます。
+3つ以上の点を持つオブジェクトにおいては、
+SHIFT キーを押した状態で
+マウスボタン1 (`del point') をクリックすることによって、
+入力された点を1つづつ取り消すこともできます。
+
+<p>
+<img src="../images/pict-info.png" alt="">
+折れ線、スプライン、及び多角形の入力に際して、
+<a href="introduction.html#message-panel">メッセージ・パネル</a> には
+入力された点の数と
+直前の点からの距離（length、dx、及び dy) が逐次表示されます。
+
+<p>
+<img src="../images/pict-info.png" alt="">
+端の開いたオブジェクトについては、
+<a href="attributes.html#arrow-mode">ARROW MODE</a> が 
+<i>None</i> 以外に設定されている場合には
+線の片端、もしくは両端に矢印が付けられます。
+
+<p>
+<img src="../images/pict-info.png" alt="">
+<i>Show line lengths</i> が ON に設定されている場合 
+(<a href="global_settings.html">Global Settings パネル</a> や 
+<a href="main_menus.html#view-menu">View メニュー</a> を参照) 
+には、入力中の線の長さについてより多くの情報が表示されます。
+他の大半のオブジェクトの入力についても同様です。
+
+<p>
+<dl>
+<dt><b>Related Attributes:</b>
+<dd><a href="attributes.html#depth">depth</a>,
+<a href="attributes.html#pen-color">pen color</a>,
+<a href="attributes.html#fill-color">fill color</a>,
+<a href="attributes.html#fill-style">fill style</a>,
+<a href="attributes.html#line-width">line width</a>,
+<a href="attributes.html#line-style">line style</a>,
+<a href="attributes.html#join-style">join style</a>,
+<a href="attributes.html#cap-style">cap style</a>,
+<a href="attributes.html#arrow-mode">arrow mode</a>,
+<a href="attributes.html#arrow-type">arrow type</a>,
+<a href="attributes.html#arrow-size">arrow size</a>
+</dl>
+
+<p>
+<dt>寸法線 <img src="../images/pict-new.png" alt="New">
+<dd>
+<img src="../images/dimension-lines.png" alt="" align="right">
+寸法線とは、長さを示す、以下のいずれか１つ以上を含む線です：
+<ul>
+<li>線の長さを示す、枠で囲まれた文字列
+<li>その線の端の、その線と直角の短い線 (ticks)
+<li>その線の片端、あるいは両端の矢印
+</ul>
+寸法線を入力するためには、
+Shift キーを押した状態でその線の最初の端点でマウスボタン 1をクリックし、
+もう一方の端でもう一度クリックします。
+<b>xfig</b> はその線の長さを自動的に算出し、
+<b>ルーラーのために現在選択されている単位</b>で表示します。
+<p>
+デフォルトでは、線の端の短い線、矢印、及び文字列を囲む枠が
+寸法線に自動的に含められますが、
+それらは以下に示す属性によって制御することができます。
+ここで、寸法線のいくつかの例を示します：
+<p>
+<dl>
+<dt><b>Related Attributes:</b>
+<dd><a href="attributes.html#dimension-lines">dimension line settings</a>
+</dl>
+</dl>
+
+<p>
+<dt><img src="../images/polygon-button.png" alt="">
+  <a name="polygon">(POLYGON)</a>
+<dd>多角形を入力します。
+これは、最初と最後の点のあいだに線が引かれることを除いては 
+<a href="#polyline">POLYLINE</a> と同様です。
+
+<p>
+<dl>
+<dt><b>Related Attributes:</b>
+<dd><a href="attributes.html#depth">depth</a>,
+<a href="attributes.html#pen-color">pen color</a>,
+<a href="attributes.html#fill-color">fill color</a>,
+<a href="attributes.html#fill-style">fill style</a>,
+<a href="attributes.html#line-width">line width</a>,
+<a href="attributes.html#line-style">line style</a>,
+<a href="attributes.html#join-style">join style</a>
+</dl>
+
+<p>
+<dt><img src="../images/regular-polygon-button.png" alt="">
+  <a name="regular-polygon">(REGULAR POLYGON)</a>
+<dd>正多角形を入力します。
+<p>
+まず正多角形の中心でマウスボタン1 (`center point') をクリックし、
+次に頂点の1つで再びマウスボタン1 (`final point') をクリックします。
+辺の数は、あらかじめ 
+<a href="attributes.html#num-sides">NUM SIDES</a> で
+設定しておく必要があります。
+<p>
+実際に入力されたオブジェクトは
+単なる <a href="#polygon">POLYGON</a> オブジェクトであり、
+入力した後では個々の頂点を独立に
+<a href="editing.html#move-point">移動</a>させられる 
+(そしてその編集の結果は一般には正多角形とはならない) ようになります。
+
+<p>
+<dl>
+<dt><b>Related Attributes:</b>
+<dd><a href="attributes.html#depth">depth</a>,
+<a href="attributes.html#pen-color">pen color</a>,
+<a href="attributes.html#fill-color">fill color</a>,
+<a href="attributes.html#fill-style">fill style</a>,
+<a href="attributes.html#line-width">line width</a>,
+<a href="attributes.html#line-style">line style</a>,
+<a href="attributes.html#join-style">join style</a>,
+<a href="attributes.html#num-sides">num sides</a>
+</dl>
+
+<p>
+<dt><img src="../images/box-button.png" alt="">
+  <a name="box">(BOX)</a>
+<dd>長方形を入力します。
+<p>
+まず長方形の任意の角でマウスボタン1 (`corner point') をクリックし、
+次にその対角で再びマウスボタン1 (`final point') をクリックします。
+<p>
+<a href="attributes.html#fill-style">FILL STYLE</a> で
+塗りつぶしが指定されている場合には、
+長方形の内部はその指定に従って塗りつぶされます。
+<p>
+この機能で入力した長方形を
+<a href="editing.html#rotate">回転</a>させられる角度は
+90度の倍数に制限されており、
+それ以外の角度で回転させることはできません。
+傾斜した、もしくは任意の角度で回転させることのできる長方形を入力したい場合には、
+<a href="#polygon">POLYGON</a> によって入力する 
+(多分、傾斜していない長方形を入力してから 
+<a href="editing.html#rotate">ROTATE</a> で回転させるのが楽) 
+必要があります。
+傾斜した正方形は、
+<a href="#regular-polygon">REGULAR POLYGON</a> で入力することもできます。
+
+<p>
+<dl>
+<dt><b>Related Attributes:</b>
+<dd><a href="attributes.html#depth">depth</a>,
+<a href="attributes.html#pen-color">pen color</a>,
+<a href="attributes.html#fill-color">fill color</a>,
+<a href="attributes.html#fill-style">fill style</a>,
+<a href="attributes.html#line-width">line width</a>,
+<a href="attributes.html#line-style">line style</a>,
+<a href="attributes.html#join-style">join style</a>
+</dl>
+
+<p>
+<dt><img src="../images/arc-box-button.png" alt="">
+  <a name="arc-box">(ARC-BOX)</a>
+<dd>丸めた角を持つ長方形を入力します。
+これは、長方形の角が 
+<a href="attributes.html#box-curve">BOX CURVE</a> で設定された
+半径の円弧となることを除いては <a href="#box">BOX</a> と同様です。
+<p>
+<a href="editing.html#spline-line">BOX &lt;-&gt; ARC-BOX</a> 
+を用いて、
+<a href="#box">BOX</a> と <a href="#arc-box">ARC-BOX</a> とを
+切り替えることも可能です。
+
+<p>
+<dl>
+<dt><b>Related Attributes:</b>
+<dd><a href="attributes.html#depth">depth</a>,
+<a href="attributes.html#pen-color">pen color</a>,
+<a href="attributes.html#fill-color">fill color</a>,
+<a href="attributes.html#fill-style">fill style</a>,
+<a href="attributes.html#line-width">line width</a>,
+<a href="attributes.html#line-style">line style</a>,
+<a href="attributes.html#join-style">join style</a>,
+<a href="attributes.html#box-curve">box curve</a>
+</dl>
+
+<p>
+<dt><img src="../images/arc-button.png" alt="">
+  <a name="arc">(ARC)</a>
+<dd>円弧を入力します。
+<p>
+入力の方法は2つあります。
+<p>
+<ul>
+<li>旧来の方法
+<ol>
+<li>円弧の始点でマウスボタン1 (`first point') をクリックします
+<li>円弧の途中の任意の点で再びマウスボタン1 (`mid point') をクリックします
+<li>円弧の終点で再びマウスボタン1 (`final point') をクリックします
+</ol>
+
+<p>
+<li>新しい方法
+<ol>
+<li>円弧の中心で
+  マウスボタン2 (`center point') をクリックします
+<li>円弧の一方の端点を指定するために
+  マウスボタン1 (`first point') をクリックします
+<li>円弧の方向を指定するために
+  マウスボタン1 (`mid angle') をクリックします
+<li>最後に、円弧の終点の<b>角度</b>を指定するために
+  マウスボタン1 (`final angle') をクリックします
+</ol>
+</ul>
+
+<p>
+円弧には open arc と pie-wedge とがあり、
+そのいずれを生成するかは 
+<a href="attributes.html#arc-type">ARC TYPE</a> 
+で設定することができます。
+<p>
+<blockquote>
+  <img src="../images/arc-examples.png" alt="[Arc Example]">
+</blockquote>
+
+<p>
+<dl>
+<dt><b>Related Attributes:</b>
+<dd><a href="attributes.html#depth">depth</a>,
+<a href="attributes.html#pen-color">pen color</a>,
+<a href="attributes.html#fill-color">fill color</a>,
+<a href="attributes.html#fill-style">fill style</a>,
+<a href="attributes.html#line-width">line width</a>,
+<a href="attributes.html#line-style">line style</a>,
+<a href="attributes.html#cap-style">cap style</a>*,
+<a href="attributes.html#arrow-mode">arrow mode</a>*,
+<a href="attributes.html#arrow-type">arrow type</a>*,
+<a href="attributes.html#arrow-size">arrow size</a>*,
+<a href="attributes.html#arc-type">arc type</a>*
+<br>
+(* これらの属性は OPEN ARC に対してのみ効果を持ちます)
+</dl>
+
+<p>
+<dt><img src="../images/pict-button.png" alt="">
+  <a name="picture">(IMPORTING PICTURE OBJECTS)</a>
+<dd>イメージ・ファイルを取り込み、PICTURE オブジェクトを生成します。
+<p>
+まず、イメージを張り付けたい領域の1つの角で
+マウスボタン1 (`corner point') をクリックし、
+次にその対角で再びマウスボタン1 (`final corner') をクリックします。
+取り込まれたイメージは、角の入力の順序に応じて自動的に回転させられます。
+例えば、先に右下の角を、次に左上の角を指定した場合には、
+そのイメージは 180度回転させられます。
+同様に、先に左下を、次に右上を指定した場合には、
+そのイメージは逆時計方向に 90度回転させられます。
+イメージの大きさや縦横比などは後で修正することができますので、
+ここで正確な大きさを指定する必要はありません。
+この後、<a href="editing.html#edit-pict-panel">Edit パネル</a> 
+が開かれますので、
+そのパネルの上でイメージの格納されているファイルの指定などを行ないます。
+また、Edit パネルの 
+<a href="editing.html#screen-capture"><i>Screen Capture</i> ボタン</a>
+を用いて、画面上に表示されているイメージを取り込むことも可能です。
+<p>
+以下のフォーマットのイメージ・ファイルを読み込むことが可能です。
+<ul>
+<li><a href="http://www.adobe.com/prodindex/postscript/overview.html#whatpostscript">EPSF (Encapsulated PostScript)</a>
+<li><a href="http://www.dcs.ed.ac.uk/%7Emxr/gfx/2d-hi.html">GIF</a>
+  (透明色も含む)
+  ―― <a href="authors.html#gif-patent">GIF についての注意事項</a>も参照
+<li><a href="http://www.dcs.ed.ac.uk/%7Emxr/gfx/2d-hi.html">JPEG</a>
+  (JFIF)
+<li><a href="http://www.dcs.ed.ac.uk/%7Emxr/gfx/2d-hi.html">PCX</a>
+  (PC Paintbrush)
+<li><a href="http://www.dcs.ed.ac.uk/%7Emxr/gfx/2d-hi.html">PNG</a>
+  (Portable Network Graphics)
+  <img src="../images/pict-new.png" alt="New">
+  <br>
+  透明色は xfig の背景色とアルファ・ブレンディングされる
+<li><a href="http://www.dcs.ed.ac.uk/%7Emxr/gfx/2d-hi.html">PPM</a>
+  (Portable Pixmap)
+<li><a href="http://www.dcs.ed.ac.uk/%7Emxr/gfx/2d-hi.html">TIFF</a>
+  (Tagged Image File Format)
+<li><a href="http://www.dcs.ed.ac.uk/%7Emxr/gfx/2d-hi.html">XBM</a>
+  (X11 bitmap)
+<li><a href="http://www.dcs.ed.ac.uk/%7Emxr/gfx/2d-hi.html">XPM</a>
+  (X11 pixmap)
+</ul>
+<p>
+この機能を用いて読み込んだイメージを
+<a href="editing.html#move">移動</a>、
+<a href="editing.html#scale">スケーリング</a>、
+あるいは<a href="editing.html#rotate">回転</a>させることはできますが、
+その内容そのものを編集することはできません。
+イメージを編集したい場合には、
+<a href="installation.html#xpaint"><b>xpaint</b></a> や 
+<a href="installation.html#gimp"><b>GIMP</b></a> 
+などのアプリケーションを使用して下さい。
+<a href="editing.html#edit-pict-panel">Edit パネル</a> の
+<a href="editing.html#edit-image"><i>Edit Image</i> ボタン</a> は
+外部のイメージ・エディタ (デフォルトは <tt>xv</tt>) を起動しますが、これは
+<a href="options.html#resources"><tt>Fig.image_editor</tt> リソース</a>を変更する、
+あるいは <b>xfig</b> の起動に際して 
+<tt>-image_editor</tt> オプションの後にイメージ・エディタの名前を付けることにより、
+好みのイメージ・エディタ (例えば <tt>xpaint</tt>) に変更することが可能です。
+<p>
+PostScript や HP-GL などで書かれた図を
+通常の図と同様に <b>xfig</b> 上で編集したい場合には、
+まず <a href="installation.html#pstoedit"><b>pstoedit</b></a> や 
+<a href="installation.html#hp2xx"><b>hp2xx</b></a> を用いて
+それらの図を Fig ファイルに変換して、その出力を 
+<a href="main_menus.html#file-menu">Load や Merge</a> してみて下さい。
+<p>
+EPSF ファイルに対しては、
+<b>xfig</b> はイメージを描画するために 
+<a href="installation.html#ghostscript"><b>Ghostscript</b></a> 
+を呼び出します。
+<b>Ghostscript</b> には、``pcx256''、及び ``pbmraw'' ドライバが
+組み込まれている必要があります。
+``pcx256'' ドライバはカラーのイメージを生成するために、
+``pbmraw'' ドライバはモノクロームのイメージを生成するため 
+(<b>xfig</b> がモノクロームの X サーバー上で動作しているか、
+もしくは <tt>-mono</tt> オプションを付けて起動された場合) 
+に用いられます。
+<p>
+JPEG や XPM のサポートは、
+<a href="installation.html"><b>xfig</b> のコンパイルの際の指定</a>
+に従って組み込まれ、あるいは取り除かれます。
+<p>
+<b>xfig</b> は <b>compress</b> (サフィックス <tt>*.Z</tt>)、
+もしくは <a href="installation.html#gzip"><b>gzip</b></a> 
+(サフィックス <tt>*.gz</tt>、もしくは <tt>*.z</tt>) によって
+圧縮されたファイルも読み込むことができますが、
+このためには <b>uncompress</b>、及び 
+<a href="installation.html#gzip"><b>gunzip</b></a> コマンドが
+使用可能である必要があります。
+<p>
+PICTURE オブジェクトの取り扱いの方法については、
+<a href="editing.html#edit-pict-panel">Edit パネル</a> 
+も参照して下さい。
+
+<p>
+<dl>
+<dt><b>Related Attributes:</b>
+<dd><a href="attributes.html#depth">depth</a>,
+<a href="attributes.html#pen-color">pen color</a> (only for XBM image)
+</dl>
+
+<p>
+<dt><img src="../images/text-button.png" alt="">
+  <a name="text">(TEXT)</a>
+<dd>テキストを入力します。
+<p>
+キャンバス上の任意の点で
+マウスボタン1 (`posn cursor') をクリックすることによって
+テキストを入力する位置を指定した後に、
+キーボードからテキストを入力するか、
+もしくは他のアプリケーションで選択された (PRIMARY カット・バッファ)
+テキストを挿入するために、
+Shift キーとマウスボタン 2を押すか、
+<tt>F18</tt> (Sun Workstations では `Paste' キー) か 
+<tt>F20</tt> を押します。
+PRIMARY カット・バッファからのテキストの挿入は、
+<a href="main_menus.html#edit-menu"><i>Edit</i> メニュー</a> の 
+<i>Paste Text</i> によって行なうこともできます。
+<p>
+既に存在しているテキストの任意の箇所を
+マウスボタン1 (`posn cursor') でクリックすることにより、
+新しいテキストを入力する代わりにそのテキストの編集を行なうこともできます。
+<p>
+<a href="attributes.html#text-angle">TEXT/ELLIPSE ANGLE</a> で 
+0 以外の角度が設定されている場合には、
+テキストはその角度だけ (角度が正であれば反時計方向に) 傾斜します。
+<p>
+``<img src="../images/a-umlaut.png" alt="a umlaut">'' や 
+``<img src="../images/c-cedilla.png" alt="c cedilla">'' などの
+Latin-1 キャラクタ (Compose キャラクタ) を、
+COMPOSE (META) キーを用いて入力することができます。
+これについては、
+<a href="#compose-char">Latin-1 キャラクタ</a> を参照して下さい。
+<p>
+<img src="../images/pict-i18n.png" alt="[I18N]"> 
+<a href="i18n.html">国際化 xfig</a> では、この機能を用いて
+<a href="i18n.html#input-japanese">日本語の入力</a>などを行なうことも可能です。
+<p>
+単純な添字入力機能も用意されています。
+テキストの入力中に <tt>Control-^</tt> が押されると、
+上付き添字となる小さい文字列の入力が
+現在の文字列のベースラインよりも上で開始されます。
+また、<tt>Control-_</tt> が押されたならば、
+下付き添字となる小さい文字列の入力が
+現在の文字列のベースラインよりも下で開始されます。
+これらは、4段階までの添字を作成するために入れ子にすることもできます。
+<p>
+次にこの例を示します：
+<blockquote>
+<img src="../images/super_subscript.png" alt="super/subscript example">
+</blockquote>
+いくつかの注意点があります:
+<ul>
+<li>添字の入力が始められる度に独立した文字列が作成されるので、
+それらを一緒に動かしたい場合には、
+まずそれらの文字列全てを1つの
+<a href="editing.html#glue-compound">複合オブジェクト</a>にまとめる必要があります。
+<li>編集された文字列に文字が追加や削除された際に、
+他の文字列は動かされないため、
+それらの文字列のいずれかの編集は問題を生じ勝ちです。
+<li>これは、right-justified、あるいは centered された
+テキストに対しては使用できません。
+</ul>
+
+<p>
+テキストに対しては、以下の編集機能が使用可能です:
+<dl>
+<dt><dd>
+<dl>
+<dt><tt>Control-H</tt> (<tt>Backspace</tt>)
+<dd>カーソルの左側の文字を1文字削除します。
+<dt><tt>Control-D</tt> (<tt>Delete</tt>)
+<dd>カーソルの右側の文字を1文字削除します。
+<dt><tt>Control-X</tt>
+<dd>カーソルの左側の文字すべてを削除します。
+<dt><tt>Control-K</tt>
+<dd>カーソルの右側の文字すべてを削除します。
+<dt><tt>Control-A</tt> (<tt>Home</tt>)
+<dd>カーソルを文字列の先頭に移動します。
+<dt><tt>Control-E</tt> (<tt>End</tt>)
+<dd>カーソルを文字列の最後に移動します。
+<dt><tt>Control-B</tt> (←)
+<dd>カーソルを左へ1文字移動します。
+<dt><tt>Control-F</tt> (→)
+<dd>カーソルを右へ1文字移動します。
+<dt><tt>Control-M</tt> (<tt>Return</tt>)
+<dd>現在入力中のテキストを終了させ、次の行の入力を開始します。
+<a href="attributes.html#text-step">TEXT STEP</a> も参照して下さい。
+<dt><tt>F18</tt> or <tt>F20</tt> (<tt>Paste</tt>)
+<dd>PRIMARY カット・バッファ (<b>xterm</b> の cut/paste バッファ) の
+文字列を挿入します。
+<a href="main_menus.html#edit-menu"><i>Edit</i> メニュー</a>の 
+<i>Paste Text</i> も、
+Shift + マウスボタン 2 と同様に、これらと同じ意味を持ちます。
+<dt><tt>Compose</tt> (<tt>Alt</tt> or <tt>Meta</tt>)
+<dd>これを用いて、``<img src="../images/a-umlaut.png" alt="a umlaut">'' や 
+``<img src="../images/c-cedilla.png" alt="c cedilla">'' などの
+Latin-1 キャラクタを入力することができます。
+これについては、
+<a href="#compose-char">Latin-1 キャラクタ</a> を参照して下さい。
+</dl>
+</dl>
+<p>
+テキストに対して、
+<a href="miscellaneous.html#search-replace">検索や置換</a>、
+あるいは<a href="miscellaneous.html#spell-check">スペルチェック</a> 
+を行なうこともできます。
+
+<p>
+<dl>
+<dt><b>Related Attributes:</b>
+<dd><a href="attributes.html#depth">depth</a>,
+<a href="attributes.html#pen-color">pen color</a>,
+<a href="attributes.html#text-font">text font</a>,
+<a href="attributes.html#text-size">text size</a>,
+<a href="attributes.html#text-step">text step</a>,
+<a href="attributes.html#text-flags">text flags</a>,
+<a href="attributes.html#text-angle">text/ellipse angle</a>,
+<a href="attributes.html#text-justification">text justification</a>
+</dl>
+
+<p>
+<dt><img src="../images/library-button.png" alt="">
+  <a name="library">(LIBRARIES)</a>
+<dd>ライブラリからオブジェクトを選択し、キャンバスに入力します。
+<p>
+このボタンをクリックすると、
+オブジェクトのライブラリを選択するためのパネルが開かれます。
+それらのライブラリの中からオブジェクトを選択して
+キャンバス上のそれを置きたい位置でクリックすることにより、
+そのオブジェクトのコピーをキャンバスに入力することができます。
+<p>
+<blockquote>
+  <img src="../images/library-icon-view.png" alt="[Library Panel]">
+</blockquote>
+<p>
+このパネルには<a href="#availablelibraries">使用可能なライブラリ</a>
+のリストを示す <i>Library</i> メニューが置かれています。
+その中からいずれかのライブラリを選択するとそのライブラリがロードされ、
+いくつのオブジェクトが含まれているかがステータス・ウィンドウに、
+またライブラリに含まれているオブジェクトのアイコンが
+表示ボックスに表示されます。
+いずれかのアイコンをダブル・クリックするか、
+あるいはクリックした後に <i>Select Object</i> ボタンを押すと、
+そのオブジェクトが選択されてパネルが閉じられます。
+<p>
+オブジェクトを選択すると、
+選択したオブジェクトがカーソルの位置に追従して表示されるようになりますので、
+キャンバス上の任意の位置でマウスボタン1 (`place object') をクリックして
+その位置にそのオブジェクトを入力します。
+これは、同一のオブジェクトに対して繰り返して行なうことができます。
+<p>
+オブジェクトのアイコンの大きさは、プルダウン・メニューによって
+40、60、80、100、及び 120ピクセルの中から選択することができます。
+<p>
+ライブラリ・オブジェクトのリスト表示も可能であり、
+これは <i>View:</i> ラベルの次のプルダウン・メニューから 
+<i>List View</i> を選択することによって選ぶことができます。
+<p>
+<blockquote>
+  <img src="../images/library-list-view.png" alt="[Library Panel]">
+</blockquote>
+<p>
+このモードでは、リスト領域にオブジェクトの名前が表示されます。
+オブジェクトの名前を１回クリックすると右側の小さいキャンバスに
+プレビューが表示されます。
+入力したいオブジェクトを選択した後に <i>Select Object</i> ボタンを押すと、
+パネルが閉じられます。
+あるいは、オブジェクトの名前をダブル・クリックすることにより、
+これを１回の操作で行なうこともできます。
+<p>
+SHIFT キーを押した状態でマウスボタン1 (`place and edit') を
+クリックした場合には、オブジェクトに付けられたコメントを編集できるように 
+<a href="editing.html#edit-panel">Edit パネル</a>が開かれます。
+<p>
+オブジェクトは、キャンバス上に配置する前に、
+回転させ、反転させ、あるいはスケーリングさせることもできます。
+左に回転させるためには <tt>l</tt> を、
+右に回転させるためには <tt>r</tt> を、
+左右を反転させるためには <tt>h</tt> を、
+上下を反転させるためには <tt>v</tt> を、
+0.9倍に縮小させるためには <tt>s</tt> を、
+また 1.1倍に拡大させるためには <tt>S</tt> を押して下さい。
+<p>
+ライブラリから他のオブジェクトを選択するためには、
+マウスボタン2 (`new object') をクリックするか、
+もしくは描画モード・パネルの <i>Library</i> ボタンをもう一度クリックします。
+<p>
+表示が遅い場合や複雑なライブラリ・オブジェクトがある場合などには、
+オブジェクトを配置する前にマウスを動かした際に
+そのオブジェクトの大きさを示す矩形のみを表示するようにすることもできます。
+このモードを切り替えるためには、
+SHIFT キーを押した状態でマウスボタン2 (`change draw mode') を
+クリックして下さい。
+<p>
+オブジェクト入力モードから抜けるためには、
+マウスボタン3 (`cancel library') をクリックするか、
+もしくは他の描画モードや編集モードに切り替えて下さい。
+</dl>
+
+<p>
+<hr>
+
+<h2><a name="availablelibraries">使用可能な Fig オブジェクト・ライブラリ</a></h2>
+
+<b>xfig</b> は、いくつかの fig オブジェクトのライブラリと共に配布されています:
+<dl>
+<dd><img src="../images/redballdot.png" alt="-">
+Various 3D arrows
+<br>
+<dd><img src="../images/redballdot.png" alt="-">
+Audiovisual components
+<br>
+<dd><img src="../images/redballdot.png" alt="-">
+Some buildings
+<br>
+<dd><img src="../images/redballdot.png" alt="-">
+Some charts (polar, log-log)
+<br>
+<dd><img src="../images/redballdot.png" alt="-">
+Various computers
+<br>
+<dd><img src="../images/redballdot.png" alt="-">
+DSP (Digital Signal Processor) components
+<br>
+<dd><img src="../images/redballdot.png" alt="-">
+Electrical - electrical objects, e.g. connectors
+<br>
+<dd><img src="../images/redballdot.png" alt="-">
+Electronic Physical - symbols for creating electronic wiring diagrams or layouts
+<br>
+<dd><img src="../images/redballdot.png" alt="-">
+Electronic Schematic - symbols for creating electronic schematics
+<br>
+<dd><img src="../images/redballdot.png" alt="-">
+ERD (Chen's model of Entity Relations)
+<br>
+<dd><img src="../images/redballdot.png" alt="-">
+Examples - various examples of xfig drawings contributed by users
+<br>
+<dd><img src="../images/redballdot.png" alt="-">
+Flags of various countries and some U.S. states
+<br>
+<dd><img src="../images/redballdot.png" alt="-">
+Flowchart symbols
+<br>
+<dd><img src="../images/redballdot.png" alt="-">
+GUI widgets (buttons, sliders, etc.)
+<br>
+<dd><img src="../images/redballdot.png" alt="-">
+Hospital equipment
+<br>
+<dd><img src="../images/redballdot.png" alt="-">
+Knitting symbols
+<br>
+<dd><img src="../images/redballdot.png" alt="-">
+Various printer labels (CD, Avery address labels)
+<br>
+<dd><img src="../images/redballdot.png" alt="-">
+Logic symbols
+<br>
+<dd><img src="../images/redballdot.png" alt="-">
+Maps - outline maps of countries, U.S. states and Canadian provinces
+<br>
+<dd><img src="../images/redballdot.png" alt="-">
+DIN Mechanical symbols
+<br>
+<dd><img src="../images/redballdot.png" alt="-">
+Miscellaneous - various fun items here
+<br>
+<dd><img src="../images/redballdot.png" alt="-">
+Music symbols
+<br>
+<dd><img src="../images/redballdot.png" alt="-">
+Networking devices
+<br>
+<dd><img src="../images/redballdot.png" alt="-">
+Office equipment - filing cabinet, telephone, overhead projector
+<br>
+<dd><img src="../images/redballdot.png" alt="-">
+Optics symbols
+<br>
+<dd><img src="../images/redballdot.png" alt="-">
+Process Flowsheet - chemical process flow symbols
+<br>
+<dd><img src="../images/redballdot.png" alt="-">
+Structural Analysis symbols
+<br>
+<dd><img src="../images/redballdot.png" alt="-">
+Unified Modelling Language (UML) symbols
+<br>
+<dd><img src="../images/redballdot.png" alt="-">
+Welding - common welding patterns and errors
+</dl>
+
+<p>
+<img src="../images/exclaim.png" alt="">
+全ての <b>xfig</b> ユーザーの利益のため、
+ユーザーの方々が Fig オブジェクトをライブラリへコントリビュートし、
+それを拡張していくことが期待されます。
+何らかの Fig オブジェクトを既存の、あるいは新しいライブラリへ
+コントリビュートしようと思われる方は、それを 
+<a href="mailto:bvsmith@lbl.gov">bvsmith@lbl.gov</a>
+へ送って下さい。
+もし必要であればその用途を制限しても構いませんが、
+そのコピーや公表されるレポートでの使用などを含めた自由な使用が許されれば、
+全ての人にとっての利益となるでしょう。
+
+<h2><a name="makelibrary">個人用の Fig オブジェクト・ライブラリの作成</a></h2>
+
+<b>xfig</b> で自分のライブラリを作る方法には、
+単に全てのライブラリを特定のディレクトリの下に格納する方法と、
+ライブラリのパスを列挙したファイルを用いる方法とがあります。
+
+<h3>方法 1</h3>
+
+最初の方法では、全てのライブラリ (Fig ファイルを含むディレクトリ) を
+適当なディレクトリの下に置くようにします。
+他のディレクトリにあるライブラリ (例えば他の人のライブラリ) 
+を使用したい場合には、単にそのディレクトリの下に
+それらのディレクトリへのシンボリック・リンクを作成します。
+<p>
+その後、<tt>-library_dir</tt> オプション、
+もしくは <tt>Fig.library_dir</tt> リソースで
+そのトップ・レベルのディレクトリを指定して <b>xfig</b> を起動すると、
+そのディレクトリの下に置かれた全てのライブラリが使用できるようになります。
+<p>
+<tt>library_dir</tt> のデフォルトは ``<tt>$XFIGLIBDIR/Libraries</tt>'' であり、
+ここには <b>xfig</b> と共に配布されたライブラリが
+<a href="installation.html"><b>xfig</b> のインストール</a> に際して
+自動的にインストールされます。
+ですから、<b>xfig</b> と共に配布されたライブラリを使用する際には、
+<tt>library_dir</tt> の指定は不要となります。
+<p>
+この方法では単にトップ・レベルのディレクトリの下 
+(あるいはそのサブ・ディレクトリの下) に新たなディレクトリを作成するだけで
+新しいライブラリを作成することができ、
+ライブラリのリストを含んだファイルを編集する必要もありませんので、
+2番目の方法よりも簡単でしょう。
+<p>
+この方法を使った場合には、
+ライブラリ名はそのディレクトリ名と同一となります。
+例えば、リソース ``<tt>Fig.library_dir: /xfig/Libraries</tt>'' が
+定義されている場合には、
+<tt>/xfig/Libraries/Flowchart</tt> ディレクトリに対応する
+ライブラリ名は ``Flowchart''、
+<tt>/xfig/Libraries/Electrical/Physical</tt> ディレクトリに対応する
+ライブラリ名は ``Electrical - Physical'' となります。
+
+<h3>方法 2</h3>
+
+2番目の方法では、
+ライブラリ (Fig ファイルを含むディレクトリ) の絶対パスの後に
+そのライブラリの名前 (空白を含んでも良い) を空白を挟んで書いたものを書き並べた
+テキスト・ファイルを作成します。
+<p>
+その後、<tt>-library_dir</tt>、
+もしくは <tt>Fig.library_dir</tt> リソースでそのファイルを指定して、
+<b>xfig</b> を起動します。
+<p>
+このファイルは、例えば次のようなものとなります:
+<p>
+<pre>
+  /xfig/Libraries/Electrical/Logic    Electrical Parts (Logic)
+  /xfig/Libraries/Electrical/Analog   Electrical Parts (Analog)
+  /home/tim/lib/Flowchart             Tim's Flowchart Elements
+  /home/chim/xfig/Buildings           Computer Clipart
+</pre>
+<p>
+この方法の利点は柔軟性です:
+異なったディレクトリの下にあるライブラリを
+ライブラリのリストに含めることが容易であり、
+またそれぞれのライブラリに
+そのディレクトリ名とは無関係に任意の名前を付けることができます。
+<p>
+<b>補足:</b>
+いずれの方法を用いた場合でも、
+<tt>*.fig</tt> ファイルを含む全てのサブ・ディレクトリが
+リストに含められます。
+
+<h3>制限</h3>
+
+ライブラリに関しては次のような制限があります。
+この制限は、上記のいずれの方法を用いて
+ライブラリを作成したかとは無関係です。
+<p>
+<ul>
+<li>ライブラリの個数: 100個以下
+<li>ライブラリ名の長さ: 40文字以下
+<li>ライブラリ中のオブジェクトの個数: 400個以下 (各ライブラリについて)
+<li>オブジェクト名 (Fig ファイルのファイル名) の長さ: 40文字以下
+</ul>
+
+<p>
+<hr>
+
+<h2><img src="../images/pict-info.png" alt=""><a name="spline">スプライン曲線について</a></h2>
+
+スプライン曲線は、
+指定された点によって制御されるなめらかな曲線です。
+<p>
+<b>xfig</b> の<a href="drawing.html">描画モード・パネル</a>では、
+次の4種類のスプライン曲線を選択することができます。
+また、スプライン曲線を入力した後で、
+<a href="editing.html#spline-line">SPLINE &lt;-&gt; LINE</a> 機能
+を用いてスプライン曲線の種類を変更することや、
+それぞれの点の ``<a href="#xspline">shape factor</a>'' を調整して
+曲線の形状を制御することもできます。
+<p>
+<ul>
+<li><a href="#closed-approx-spline">CLOSED APPROXIMATED SPLINE</a><br>
+閉じた近似スプライン曲線 (指定された点を近似するなめらかな閉曲線)
+<li><a href="#approx-spline">OPEN APPROXIMATED SPLINE</a><br>
+開いた近似スプライン曲線 (指定された点を近似するなめらかな曲線)
+<li><a href="#closed-interp-spline">CLOSED INTERPORATED SPLINE</a><br>
+閉じた補間スプライン曲線 (指定された点を通るなめらかな閉曲線)
+<li><a href="#interp-spline">OPEN INTERPORATED SPLINE</a><br>
+開いた補間スプライン曲線 (指定された点を通るなめらかな曲線)
+</ul>
+<p>
+<blockquote>
+  <img src="../images/spline-curves.png" alt="[Spline Curves]">
+</blockquote>
+
+<p>
+スプラインを用いると、次のような曲線を容易に描画することができます。
+<p>
+<blockquote>
+  <img src="../images/spline-examples.png" alt="[Spline Example]">
+</blockquote>
+
+<h3><img src="../images/pict-info.png" alt=""><a name="xspline">X-Spline について</a></h3>
+
+<b>xfig</b> の新しい <a href="authors.html#xspline">X-Spline</a> は、
+より柔軟なものです。
+スプライン曲線のそれぞれの点 (制御点) は ``shape factor'' を持っており、
+shape factor の値がその点の近傍でのスプライン曲線の挙動を制御します。
+shape factor の値は
+<a href="editing.html#edit-point">EDIT POINT</a> 機能を用いて
+個々の制御点ごとに独立して変更することが可能であり、
+1つの曲線の中で近似スプライン、補間スプライン、
+及び折れ線を混在させることもできます。
+<p>
+<blockquote>
+  <img src="../images/spline-sf-example.png" alt="[Spline - Shape Factor]">
+</blockquote>
+<p>
+<b>注意:</b> 以前のスプラインのモデル 
+(quadratic B-splines、及び Bezier with hidden points) 
+はもはやサポートされていないため、
+<b>xfig</b> version 3.1 以前のファイルに含まれているスプライン曲線は
+自動的に X-spline に変換されます。
+この変換は近似に過ぎませんので、
+変換された曲線は元のものと完全に同一ではありません。
+通常はそれらは充分に似ているものとなりますが、
+微妙なケースにおいては手での調整が必要となるかも知れません。
+
+<p>
+<hr>
+
+<h2><img src="../images/pict-info.png" alt=""><a name="compose-char">Latin-1 キャラクタ、及び Symbol (Compose キャラクタ)</a></h2>
+
+<a href="#text">TEXT</a> 入力モードにおいて、
+以下の Latin-1 キャラクタを COMPOSE (META) キーを用いて入力することができます。
+例えば、``<img src="../images/a-umlaut.png" alt="a umlaut">'' を入力するためには、
+COMPOSE キー (もしくは META キー、または ALT キー) を押して離し、
+文字 ``<tt>a</tt>'' を、次に文字 ``<tt>"</tt>'' (二重引用符) を入力します。
+``<img src="../images/c-cedilla.png" alt="c cedilla">'' を入力するためには、
+同様に COMPOSE、``<tt>c</tt>''、及び ``<tt>,</tt>'' を入力します。
+<p>
+<blockquote>
+  <img src="../images/latin1-chars.png" alt="[Latin-1 Characters]"><p>
+  <i>Note</i>: それらが X11 のフォント群に含まれていないために、
+  文字 OE、及び oe は画面には表示されませんが、
+  PostScript、EPS、PDF、及びビットマップ・フォーマットでの
+  エクスポートや印刷は行なわれます。
+</blockquote>
+<p>
+Symbol フォントの以下の文字も、同様の方法で入力できます。
+<blockquote>
+  <img src="../images/symbol-chars-upper.png" alt="[Upper Symbol Charactors]"><br>
+<br>Lower set:
+<p>
+  <img src="../images/symbol-chars-lower.png" alt="[Lower Symbol Charactors]"><br>
+</blockquote>
+<p>
+全てのシステムにおいて、COMPOSE、META、及び ALT キーの全てを
+このために使用できるわけではありません。
+また、Sun Workstations などのいくつかのシステムにおいては、META キーは 
+<img src="../images/sun-meta-key.png" alt="Diamond Mark"> 
+のように示されているかも知れません。
+<p>
+<img src="../images/pict-i18n.png" alt="[I18N]"> 
+<a href="i18n.html">国際化 xfig</a> を Latin-1 以外の文字セットを
+用いる環境 (日本語や韓国語など) で使用している場合、
+<a href="attributes.html#text-font">TEXT FONT</a> で 
+``Times-Roman'' や ``Times-Bold'' が選択されている場合には、
+これらの Latin-1 キャラクタを使用することはできません。
+
+<p>
+<hr>
+
+[ <a href="contents.html">Contents</a> |
+ <a href="introduction.html">Introduction</a> |
+ <a href="authors.html">Credits</a> ]
+
+</body>
+</html>

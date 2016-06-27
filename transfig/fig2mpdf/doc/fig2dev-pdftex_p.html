@@ -1,0 +1,120 @@
+<HTML LANG="de">
+  <HEAD>
+   <META HTTP-EQUIV="CONTENT-TYPE" CONTENT="TEXT/HTML; CHARSET=ISO-8859-15">
+   <META name="AUTHOR" LANG="en" CONTENT="Pfeiffer">
+   <META NAME="Keywords" CONTENT="pdf,xfig,eps,latex,pdflatex,overlaid text,fig2dev,fig2mpdf">
+   <META NAME="Language" CONTENT="en">
+   <META NAME="GENERATOR" CONTENT="byHand">
+   <link rel="stylesheet" type="text/css" HREF="fig2mpdf.css">
+   <TITLE>latex/pdflatex driver for <B>fig2dev</B> for solving the overlaid
+text problem
+    </TITLE>
+  </HEAD>
+  <BODY BGCOLOR="#FFFFFF" TEXT="#000000" LINK="#484848" VLINK="#484848">
+
+<H1>latex/pdflatex driver for <B>fig2dev</B> for solving the overlaid
+text problem</H1>
+
+<p>As mentioned in the <a href="fig2mpdf.html">fig2mpdf page</a> there
+are many pro's for using LaTeX for typesetting figures who are included
+in LaTeX documents. Everything is working fine by using the pstex and
+pstex_t driver family of <b>fig2dev</b> as shown in figure&nbsp;1 except the
+case that there are overlaid texts in the figure.
+  </p>
+
+<P><CENTER><TABLE BORDER=0>
+<TR VALIGN=middle><TD>&nbsp;</TD>
+                  <TD COLSPAN=2><IMG SRC="XFig-LaTeX.jpg"></TD>
+                  <TD ALIGN=RIGHT COLSPAN=2><BR><IMG SRC="XFig-LaTeX-together.jpg"></TD>
+                  <TD>&nbsp;</TD></TR>
+              <TR><TD>&nbsp;</TD>
+                  <TD ALIGN=RIGHT><FONT SIZE=-2>Fig. 1:</FONT></TD>
+                  <TD COLSPAN=2><FONT SIZE=-2>Normal procedure using <B>fig2dev</B> languages <B>pstex</B> and <B>pstex_t</B> to let <B>latex</B> set all texts in the figure. On the left you can see the two layers who result into the image on the right side, where the text layer was put on top of the remaining stuff.</FONT></TD>
+                  <TD>&nbsp;</TD>
+                  <TD>&nbsp;</TD></TR>
+              <TR><TD></TD>
+                  <TD WIDTH=40></TD>
+                  <TD WIDTH=270></TD>
+                  <TD WIDTH=113></TD>
+                  <TD WIDTH=40></TD>
+                  <TD></TD></TR>
+</TABLE></CENTER></P>
+
+
+<H2>Overlaid text problem</H2>
+
+<P>If you want to have some text masked by
+other elements of the figure e.g. to intimate some spatial relations you
+can use different depths to get the desired result. But if you use the
+pstex, pstex_t combination you will get bad results. Figure 1 depicts the
+problem. All text of the figure is collected and processed by latex.
+latex's result is put on top of all other elements of the figure
+regardless it's original depth.</P>
+
+<P><CENTER><TABLE BORDER="0">
+              <TR VALIGN="middle"><TD>&nbsp;</TD>
+                  <TD style="text-align: center;" COLSPAN="4"><IMG SRC="overlaying.gif" style="display: inline;"></TD>
+                  <TD>&nbsp;</TD></TR>
+              <TR><TD>&nbsp;</TD>
+                  <TD ALIGN=RIGHT><FONT SIZE=-2>Fig. 2:</FONT></TD>
+                  <TD COLSPAN=2><FONT SIZE=-2>Example: Part of a created PDF. To get this,
+the figure is to split in at least three subfigures containing figure
+elements and text. In each subfigure the text is to put on top.
+</FONT></TD>
+                  <TD>&nbsp;</TD>
+                  <TD>&nbsp;</TD></TR>
+              <TR><TD></TD>
+                  <TD WIDTH=40></TD>
+                  <TD WIDTH=124></TD>
+                  <TD WIDTH=118></TD>
+                  <TD WIDTH=40></TD>
+                  <TD></TD></TR>
+</TABLE></CENTER></P>
+
+<P>To get a correct result the figure has to be split into several
+pieces concerning the occurance of text in the different layers of the
+figure. Figure 2 presents a simple example. The at least three
+different levels of text are  splitting the figure in at least three
+subfigures which are to produce and to overlay. Therefore all these
+subfigures have to have the same size because there would be no way to
+get the offsets of the subfigures. I have created two new so called
+graphics languages for <B>fig2dev</B>. To integrate the functionality into
+<B>fig2dev</B> is the most effective way because <B>fig2dev</B> has all necessary
+information for processing everything. In contrast to the <B>pstex</B>/<B>pstex_t</B>
+solution we have to create more than two files containing the different
+figure elements. </P>
+
+<P>My filters <B>pdftex_p</B> and <B>pstex_p</B> are producing just two
+files. The first one is the LaTeX file which contains all texts
+separated in blocks concerning the used depths. The second one is a
+shell script with which you can create all necessary graphics and size
+files who are required for the subsequent <B>latex</B> run. The
+separated graphics files are containing the figure elements under,
+between and on top of texts. Because of the number of graphics files
+isn't constant the names of these files is given as a filename
+prefix.</P>
+
+<H3>Known problems creating PDFs</H3>
+
+<p>In contrast to the latex/dvips combination the size of the target
+document has to be set in the latex file explicitly i.e. before the
+pdflatex run is performed. Thatfore the <b>pdftex_p</b> driver
+calculates the bounding box of all figure elements including the
+special texts set by pdflatex. Here is the problem of the procedure.
+<b>fig2dev</b> can not determine the right dimensions of the special
+text included in the figure (imagine a formular can be much higher than
+the height one normal text line). Normally this isn't a problem.
+But if the resulting text is bigger than expected so that the text
+crosses the calculated figure boundaries this becomes a promblem.
+  </p>
+
+<p>In that case you have to increase the size of the figure by
+inserting one or some invisible figure elements. This can be done with
+a rectangle which sourounds the entire figure for example. To get the
+rectangle invisible you have to set the line width to zero. With this
+trick the object is invisible even if you change the background color.
+  </p>
+
+  </BODY>
+</HTML>
+

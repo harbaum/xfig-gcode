@@ -1,0 +1,170 @@
+Author: Vladislav Zavjalov <slazav@altlinux.org>
+Date:   Sun Oct 14 18:50:00 2012 +0400
+Origin: http://git.altlinux.org/people/slazav/packages/?p=xfig.git;a=patch;h=feabe278b4d800c0102087d487f93b3ac061230e
+Subject: fix some warnings in w_indpanel.c
+    expected 'struct _WidgetRec **' but argument is of type 'struct _WidgetRec *'
+    expected 'XtCallbackProc' but argument is of type 'void (*)(void)'
+    expected 'XtEventHandler' but argument is of type 'void (*)(void)'
+
+--- a/w_indpanel.c
++++ b/w_indpanel.c
+@@ -166,10 +166,11 @@
+ static	void	show_tangnormlen(ind_sw_info *sw), inc_tangnormlen(ind_sw_info *sw), dec_tangnormlen(ind_sw_info *sw);
+ static	void	show_dimline(ind_sw_info *sw), inc_dimline(ind_sw_info *sw), dec_dimline(ind_sw_info *sw);
+ static	void	dimline_style_select(Widget w, XtPointer new_style, XtPointer call_data);
+-
+ static	void	popup_fonts(ind_sw_info *sw);
+ static	void	note_state(Widget w, XtPointer closure, XtPointer call_data);
+-static	void	set_all_update(void), clr_all_update(void), tog_all_update(void);
++static void set_all_update(Widget w, XtPointer data, XEvent *event, Boolean *cont);
++static void clr_all_update(Widget w, XtPointer data, XEvent *event, Boolean *cont);
++static void tog_all_update(Widget w, XtPointer data, XEvent *event, Boolean *cont);
+ 
+ static	void	zoom_to_fit(Widget w, XtPointer closure, XtPointer call_data);
+ 
+@@ -790,7 +791,7 @@
+ 
+ /* toggle the update buttons in all the widgets */
+ static void
+-tog_all_update(void)
++tog_all_update(Widget w, XtPointer data, XEvent *event, Boolean *cont)
+ {
+     int i;
+ 
+@@ -807,7 +808,7 @@
+ 
+ /* turn on the update buttons in all the widgets */
+ static void
+-set_all_update(void)
++set_all_update(Widget w, XtPointer data, XEvent *event, Boolean *cont)
+ {
+     int i;
+ 
+@@ -824,7 +825,7 @@
+ 
+ /* turn off the update buttons in all the widgets */
+ static void
+-clr_all_update(void)
++clr_all_update(Widget w, XtPointer data, XEvent *event, Boolean *cont)
+ {
+     int i;
+ 
+@@ -2379,11 +2380,12 @@
+ 
+ static void	left_arrow_type_select(Widget w, XtPointer new_type, XtPointer call_data);
+ static void	right_arrow_type_select(Widget w, XtPointer new_type, XtPointer call_data);
+-static void	dimline_font_popup(void);
++static void	dimline_font_popup(Widget w, XtPointer user_data, XtPointer call_data);
+ static void	dimline_set_font_image(Widget widget);
+ static void	set_fixed_text(Widget w, XtPointer fixed, XtPointer dum);
+ static void	set_actual_text(Widget w, XtPointer actual, XtPointer dum);
+-static void	dimline_panel_preview(void);
++static void     dimline_panel_preview(Widget w, XtPointer user_data, XtPointer call_data);
++
+ 
+ static void	line_color_select(Widget w, XtPointer new_color, XtPointer call_data);
+ static Widget	line_color_button, line_color_panel;
+@@ -2692,7 +2694,7 @@
+     /* "Ticks" checkbutton */
+     below = CreateCheckbutton("Show ticks", "ticks", tickform, below, (Widget) NULL,
+ 				MANAGE, LARGE_CHK, &dimline_ticks,
+-				dimline_panel_preview, (Widget) NULL);
++				dimline_panel_preview, (Widget *) NULL);
+ 
+     /* Tick Thickness label */
+     FirstArg(XtNlabel, "Thickness");
+@@ -2869,7 +2871,7 @@
+     color_select(line_color_button, dimline_color);
+     if (line_color_panel) {
+ 	XtPopdown(line_color_panel);
+-	dimline_panel_preview();
++	dimline_panel_preview(NULL,NULL,NULL);
+     }
+ }
+ 
+@@ -2880,7 +2882,7 @@
+     color_select(box_color_button, dimline_boxcolor);
+     if (box_color_panel) {
+ 	XtPopdown(box_color_panel);
+-	dimline_panel_preview();
++	dimline_panel_preview(NULL,NULL,NULL);
+     }
+ }
+ 
+@@ -2891,7 +2893,7 @@
+     color_select(text_color_button, dimline_textcolor);
+     if (text_color_panel) {
+ 	XtPopdown(text_color_panel);
+-	dimline_panel_preview();
++	dimline_panel_preview(NULL,NULL,NULL);
+     }
+ }
+ 
+@@ -2907,7 +2909,7 @@
+     XtSetSensitive(actual_chk, True);
+     /* toggle other checkbox now */
+     toggle_checkbutton(actual_chk, (XtPointer) &dimline_actual, (XtPointer) 0);
+-    dimline_panel_preview();
++    dimline_panel_preview(NULL,NULL,NULL);
+ }
+ 
+ static void
+@@ -2922,7 +2924,7 @@
+     XtSetSensitive(fixed_chk, True);
+     /* toggle other checkbox now */
+     toggle_checkbutton(fixed_chk, (XtPointer) &dimline_fixed, (XtPointer) 0);
+-    dimline_panel_preview();
++    dimline_panel_preview(NULL,NULL,NULL);
+ }
+ 
+ void draw_cur_dimline(void)
+@@ -3000,7 +3002,7 @@
+     SetValues(dimline_style_panel);
+ 
+     dimline_style = choice->value;
+-    dimline_panel_preview();
++    dimline_panel_preview(NULL,NULL,NULL);
+ }
+ 
+ static void
+@@ -3012,7 +3014,7 @@
+     SetValues(left_arrow_type_panel);
+ 
+     dimline_leftarrow = choice->value;
+-    dimline_panel_preview();
++    dimline_panel_preview(NULL,NULL,NULL);
+ }
+ 
+ static void
+@@ -3024,13 +3026,13 @@
+     SetValues(right_arrow_type_panel);
+ 
+     dimline_rightarrow = choice->value;
+-    dimline_panel_preview();
++    dimline_panel_preview(NULL,NULL,NULL);
+ }
+ 
+ /* come here when user presses font menu button */
+ 
+ static void
+-dimline_font_popup(void)
++dimline_font_popup(Widget w, XtPointer user_data, XtPointer call_data)
+ {
+     fontpane_popup(&dim_ps_font, &dim_latex_font, &dimline_psflag,
+ 		   dimline_set_font_image, font_button);
+@@ -3044,13 +3046,13 @@
+ 	     psfont_menu_bitmaps[dimline_font + 1] :
+ 	     latexfont_menu_bitmaps[dimline_font]);
+     SetValues(widget);
+-    dimline_panel_preview();
++    dimline_panel_preview(NULL,NULL,NULL);
+ }
+ 
+ /* Dimension line preview */
+ 
+ static void
+-dimline_panel_preview(void)
++dimline_panel_preview(Widget w, XtPointer new_type, XtPointer call_data)
+ {
+     /* save current global settings */
+     savecur_dimline_thick = cur_dimline_thick;

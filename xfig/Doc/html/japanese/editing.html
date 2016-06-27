@@ -1,0 +1,1133 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<html>
+<head>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=EUC-JP">
+<title>Editing Objects</title>
+<link rev="made" href="mailto:VEF00200@nifty.ne.jp">
+</head>
+
+<body>
+<a href="contents.html"><img src="../images/xfig-title.png"
+  alt="XFIG Users Manual" border=0></a>
+
+<h1>オブジェクトの編集</h1>
+
+編集モード・パネルは
+既に存在しているオブジェクトに対する編集操作を行なう際に用いるものであり、
+いずれかの編集モードを選択した後にキャンバス上で操作を行なうことにより、
+オブジェクトに対する編集操作を行なうことができます。
+オブジェクトの選択の方法については、
+<a href="#select-object">オブジェクトの選択</a> も参照して下さい。
+<p>
+編集モードには以下のものがあります。
+<p>
+<dl>
+<dt><a href="#glue-compound"><img src="../images/glue-compound-button.png"
+    align="middle" alt="">
+  Glue COMPOUND (複合オブジェクトの作成)</a>
+
+<dt><a href="#break-compound"><img src="../images/break-compound-button.png"
+    align="middle" alt="">
+  Break COMPOUND (複合オブジェクトの分解)</a>
+
+<dt><a href="#open-compound"><img src="../images/open-compound-button.png"
+    align="middle" alt="">
+  Open COMPOUND (複合オブジェクトの一時的な分解)</a>
+
+<dt><a href="#join"><img src="../images/join-button.png"
+    align="middle" alt="">
+  Join or Split Lines/Splines (POLYLINE や SPLINE などの結合や分割)</a>
+
+<dt><a href="#scale"><img src="../images/scale-button.png"
+    align="middle" alt="">
+  Scale Object (オブジェクトのスケーリング)</a>
+
+<dt><a href="#align"><img src="../images/align-button.png"
+    align="middle" alt="">
+  Align Objects (オブジェクトの整列)</a>
+
+<dt><a href="#move-point"><img src="../images/move-point-button.png"
+    align="middle" alt="">
+  Move Point (点の移動)</a>
+
+<dt><a href="#add-point"><img src="../images/add-point-button.png"
+    align="middle" alt="">
+  Add Point (点の追加)</a>
+
+<dt><a href="#delete-point"><img src="../images/delete-point-button.png"
+    align="middle" alt="">
+  Delete Point (点の削除)</a>
+
+<dt><a href="#move"><img src="../images/move-button.png"
+    align="middle" alt="">
+  Move Object (オブジェクトの移動)</a>
+
+<dt><a href="#copy"><img src="../images/copy-button.png"
+    align="middle" alt="">
+  Copy Object (オブジェクトのコピー)</a>
+
+<dt><a href="#delete"><img src="../images/delete-button.png"
+    align="middle" alt="">
+  Delete Object (オブジェクトの削除)</a>
+
+<dt><a href="#update"><img src="../images/update-button.png"
+    align="middle" alt="">
+  Update Attributes of Object (オブジェクトの属性の更新)</a>
+
+<dt><a href="#edit"><img src="../images/edit-button.png"
+    align="middle" alt="">
+  Edit Attributes of Object (オブジェクトの属性の編集)</a>
+
+<dt><a href="#flip"><img src="../images/flip-vert-button.png"
+    align="middle" alt="">
+<img src="../images/flip-horiz-button.png" align="middle" alt="">
+  Flip Object Vertically or Horizontally (オブジェクトの反転)</a>
+
+<dt><a href="#rotate"><img src="../images/rotate-cw-button.png"
+    align="middle" alt="">
+<img src="../images/rotate-ccw-button.png" align="middle" alt="">
+  Rotate Object (オブジェクトの回転)</a>
+
+<dt><a href="#spline-line"><img src="../images/spline-line-button.png"
+    align="middle" alt="">
+  SPLINE &lt;-&gt; LINE / BOX &lt;-&gt; ARC-BOX (オブジェクトの種類の変換)</a>
+
+<dt><a href="#add-arrow"><img src="../images/add-arrow-button.png"
+    align="middle" alt="">
+  Add/Delete Arrows (矢印の追加/削除)</a>
+
+<dt><a href="#add-tangent"><img src="../images/add-tangent-button.png"
+    align="middle" alt="">
+  Add Tangent or Normal to Curve (曲線への接線や法線の追加)</a>
+<img src="../images/pict-new.png" alt="New">
+
+<dt><a href="#measure-angle"><img src="../images/measure-angle-button.png"
+    align="middle" alt="">
+  Measure Angle (角度の測定)</a>
+<img src="../images/pict-new.png" alt="New">
+
+<dt><a href="#measure-length"><img src="../images/measure-length-button.png"
+    align="middle" alt="">
+  Measure Length (線や円弧の長さ、円や楕円の円周の測定)</a>
+<img src="../images/pict-new.png" alt="New">
+
+<dt><a href="#measure-area"><img src="../images/measure-area-button.png"
+    align="middle" alt="">
+  Measure Area (多角形や楕円の面積の測定)</a>
+<img src="../images/pict-new.png" alt="New">
+</dl>
+<p>
+編集モードの選択は対応するボタンをクリックすることによって行ないます。
+選択された編集モードのボタンは反転して表示されます。
+
+<p>
+<hr>
+
+<dl>
+<dt><img src="../images/glue-compound-button.png" alt="">
+  <a name="glue-compound">(glue compound)</a>
+<dd>選択された複数のオブジェクトをまとめ、1つの複合オブジェクトにします。
+これは、複数のオブジェクトをまとめて
+<a href="#move">移動</a>や<a href="#copy">コピー</a>したい場合などに有用です。
+また、図の一部を複合オブジェクトとしてまとめた後で
+それを<a href="#scale">スケーリング</a>することによって
+図の一部を拡大/縮小することもできます。
+<p>
+オブジェクトをマウスボタン1 (`tag object') でクリックすると、
+そのオブジェクトにタグが付けられます。
+また、矩形領域の角でマウスボタン2 (`tag region') をクリックし、
+次にその対角で再びマウスボタン2 (`final corner') をクリックすることにより、
+その領域の内側にあるすべてのオブジェクトにタグを付けることもできます。
+これを必要なだけ繰り返して
+複合オブジェクトとしてまとめたいすべてのオブジェクトにタグを付けた後に
+マウスボタン3 (`compound tagged') をクリックすると、
+タグを付けられたオブジェクトが1つの複合オブジェクトにまとめられます。
+<p>
+マウスボタン1、もしくはマウスボタン2により、
+すでにタグが付けられているオブジェクトが選択された場合には、
+そのオブジェクトのタグは解除されます。
+すべてのタグを解除したい場合には、
+一時的に他のモード (BREAK COMPOUND は除く) に切り替えて下さい。
+<p>
+これによって作成された複合オブジェクトは、
+<a href="#break-compound">BREAK COMPOUND</a> によって分解することが可能です。
+
+<p>
+<dt><img src="../images/break-compound-button.png" alt="">
+  <a name="break-compound">(break compound)</a>
+<dd>複合オブジェクトを個々のオブジェクトに分解します。
+<p>
+複合オブジェクトをマウスボタン1 (`break compound') でクリックすると、
+その複合オブジェクトが個々のオブジェクトに分解されます。
+マウスボタン2 (`break and tag') も同様の効果を持ちますが、
+<a href="#glue-compound">GLUE COMPOUND</a> で再びまとめられるように、
+個々のオブジェクトにタグが付けられた状態とされます。
+<p>
+複合オブジェクトを分解せずにその内側のオブジェクトの編集を行ないたい場合には、
+<a href="#open-compound">OPEN COMPOUND</a> を用いて
+一時的に複合オブジェクトを開くこともできます。
+
+<p>
+<dt><img src="../images/open-compound-button.png" alt="">
+  <a name="open-compound">(open compound)</a>
+<dd>個々のオブジェクトを編集するために、
+一時的に複合オブジェクトを開きます。
+<p>
+複合オブジェクトをマウスボタン1 (`open compound') でクリックすると、
+その複合オブジェクトは開かれ、その複合オブジェクトに含まれていた
+個々のオブジェクトを編集できる状態となります。
+複合オブジェクトが開かれているあいだ、
+その複合オブジェクトに含まれていたもの以外のすべてのオブジェクトは
+一時的に表示されなくなりますが、
+これはすべての複合オブジェクトが閉じられた後に元の状態に戻されます。
+<p>
+複合オブジェクトが開かれている時には
+その複合オブジェクトを再び閉じるための2つのボタン 
+(<i>Close This Compound</i>、及び <i>Close All Compound</i>) を含む
+ポップアップ・パネルが開かれていますので、
+これを用いて複合オブジェクトを閉じることができます。
+<i>Close This Compound</i> ボタンをクリックすると
+最後に開かれた複合オブジェクトのみが、
+<i>Close All Compound</i> ボタンをクリックすると
+開かれているすべての複合オブジェクトが閉じられます。
+<p>
+複合オブジェクトを個々のオブジェクトに分解したい場合には、
+<a href="#break-compound">BREAK COMPOUND</a> を用いることができます。
+<p>
+複合オブジェクトを開いた状態で<a href="main_menus.html#file-panels">セーブ</a>
+を行なおうとした場合には、<b>xfig</b> は、
+開かれている複合オブジェクトのみをセーブする (<i>Save Part</i>) のか、
+もしくは図全体をセーブする (<i>Save All</i>) のかを問い合わせます。
+<p>
+<img src="../images/pict-info.png" alt="">
+<i>Note</i>:
+複合オブジェクトを開き、
+その内側のオブジェクトを<a href="#delete">削除</a>し、
+複合オブジェクトを閉じ、
+その後に <a href="main_menus.html#undo">Undo</a> を実行した場合、
+削除されたオブジェクトの復元は行なわれますが、
+そのオブジェクトは複合オブジェクトの一部ではなくなります。
+逆に、キャンバスからオブジェクトを削除し、
+複合オブジェクトを開き、
+その後に Undo を実行して削除を取り消した場合には、
+そのオブジェクトは複合オブジェクトの一部となります。
+この方法によって、指定したオブジェクトを複合オブジェクトから削除したり、
+逆に追加したりすることができます。
+
+<p>
+<dt><img src="../images/join-button.png" alt="">
+  <a name="join">(join or split lines/splines)</a>
+<dd>POLYLINE や SPLINE の結合、あるいは分割を行ないます。
+<p>
+この機能を用いると、複数の POLYLINE や SPLINE を1個に結合することや、
+1つの POLYLINE や SPLINE を2つのオブジェクトに分割することができます。
+また、開いた POLYLINE や SPLINE を閉じる 
+(POLYGON や CLOSED SPLINE に変換する) こと、
+また BOX、POLYGON、あるいは CLOSED SPLINE を開くこともできます。
+<p>
+2つの POLYLINE や SPLINE を結合するためには、
+マウスボタン1 (`Join lines/splines') をクリックして最初の端点を選択し、
+もう一度マウスボタン1 (`Choose next point') をクリックして
+それと結合する端点を選択します。
+もしそれらの端点が同一の POLYLINE や SPLINE のものであれば、
+その線は閉じられます。
+<p>
+POLYLINE や OPEN SPLINE を2つの独立したオブジェクトに分割し、
+あるいは BOX、POLYGON、あるいは CLOSE SPLINE を開くためには、
+その線の2つの点のあいだでマウスボタン2 (`Spline line/spline') をクリックします。
+
+<p>
+<dt><img src="../images/scale-button.png" alt="">
+  <a name="scale">(scale object)</a>
+<dd>オブジェクトをスケーリングします。
+<p>
+<a href="drawing.html#box">BOX</a> オブジェクト、
+<a href="drawing.html#arc-box">ARC-BOX</a> オブジェクト、
+もしくは 
+<a href="editing.html#glue-compound">複合オブジェクト</a>の
+<b>角</b>をマウスボタン1 (`scale box') でクリックすると、
+オブジェクトはその縦横比を保ったままスケーリングされます。
+また、それらのオブジェクトの
+<b>辺</b>をマウスボタン1 (`scale box') でクリックすると、
+オブジェクトはその方向にのみスケーリングされます。
+スケーリングは、マウスボタン1 (`new position') を
+再びクリックすることによって完了します。
+<p>
+オブジェクト (BOX など以外のものを含む) を
+マウスボタン2 (`scale about center') でクリックすると、
+オブジェクトはその縦横比と中心の位置を保ったままスケーリングされます。
+スケーリングは、マウスボタン2 (`new position') を
+再びクリックすることによって完了します。
+<p>
+いずれの場合でも、マウスボタン3 (`cancel') をクリックすることによって
+スケーリングを中止することが可能です。
+<p>
+この機能を用いて 
+<a href="drawing.html#text">TEXT</a> オブジェクトを
+直接スケーリングすることはできません。
+通常、TEXT オブジェクトをスケーリングしたい場合には、
+<a href="#edit">EDIT OBJECT</a>、もしくは <a href="#update">UPDATE</a> を用いて
+文字の大きさ (<a href="attributes.html#text-size">TEXT SIZE</a> を参照) 
+を変更します。
+ただし、TEXT オブジェクトを含む
+<a href="#glue-compound">複合オブジェクト</a>がスケーリングされた場合には、
+その TEXT オブジェクトの 
+<a href="attributes.html#text-flags">Rigid フラグ</a> が 
+<i>ON</i> となっていない限り、その TEXT オブジェクトもスケーリングされます。
+<p>
+BOX オブジェクトなどを縦横比を保存せずにスケーリングしたい場合には、
+代わりに <a href="#move-point">MOVE POINT</a> を用いることができます。
+
+<p>
+<dt><img src="../images/align-button.png" alt="">
+  <a name="align">(align)</a>
+<dd>オブジェクトを整列します。
+整列の方法は、
+<a href="attributes.html#vertical-align">VERTICAL ALIGN</a>、
+及び <a href="attributes.html#horiz-align">HORIZONTAL ALIGN</a> 
+で設定します。
+<p>
+<a href="#glue-compound">複合オブジェクト</a>を
+マウスボタン1 (`align compound') で選択すると、
+その複合オブジェクト内のオブジェクトの整列が行なわれます。
+また、キャンバス上の任意の点で
+マウスボタン2 (`align canvas') をクリックすることにより、
+キャンバス内のすべてのオブジェクトの整列を行なうこともできます。
+
+<p>
+<dt><img src="../images/move-point-button.png" alt="">
+  <a name="move-point">(move point)</a>
+<dd>オブジェクトの頂点の位置を移動します。
+<p>
+マウスボタン1 (`move point') でクリックすることによって
+移動させたい頂点を選択し、次にカーソルを新しい位置に移動した後に
+再びマウスボタン1 (`new position') をクリックして移動を完了します。
+移動を水平/垂直方向のみに制限したい場合には、
+マウスボタン1の代わりにマウスボタン2 (`horiz/vert move') を使用します。
+いずれの場合でも、マウスボタン3 (`cancel') をクリックすることによって
+移動を中止することが可能です。
+<p>
+これは、
+<a href="drawing.html#text">TEXT</a> オブジェクト
+に対しては機能しません。
+また、<a href="drawing.html#box">BOX</a> オブジェクト、
+<a href="drawing.html#arc-box">ARC-BOX</a> オブジェクト、
+及び
+<a href="editing.html#glue-compound">複合オブジェクト</a>
+に対しては、選択された頂点のみではなく、その頂点に接した辺の移動が行なわれます。
+<a href="drawing.html#regular-polygon">REGULAR POLYGON</a> 
+によって生成されたオブジェクトは通常の 
+<a href="drawing.html#polygon">POLYGON</a> オブジェクトであり、
+その点のみが移動させられます。
+<p>
+点は、<a href="#add-point">追加</a>したり、
+<a href="#delete-point">削除</a>したりすることもできます。
+オブジェクト全体を移動させたい場合には、
+<a href="#move">MOVE</a> を用いて下さい。
+
+<p>
+<dt><img src="../images/add-point-button.png" alt="">
+  <a name="add-point">(add points)</a>
+<dd><a href="drawing.html#polyline">POLYLINE</a> オブジェクト、
+<a href="drawing.html#polygon">POLYGON</a> オブジェクト、
+もしくは 
+<a href="drawing.html#spline">SPLINE</a> オブジェクト
+に点を追加します。
+<p>
+オブジェクトの点の間 (線の上) で
+マウスボタン1 (`break/add here') をクリックするとその位置に点が追加され、
+カーソルに追従して動くようになります。
+点の追加は、カーソルを適切な位置に移動した後に
+再びマウスボタン1 (`place new point') をクリックすることによって完了します。
+<p>
+<a href="drawing.html#box">BOX</a> オブジェクトや 
+<a href="drawing.html#arc-box">ARC-BOX</a> オブジェクト
+に点を追加することはできません。
+<a href="drawing.html#regular-polygon">REGULAR POLYGON</a> 
+によって生成されたオブジェクトは通常の 
+<a href="drawing.html#polygon">POLYGON</a> オブジェクトであり、
+任意の位置に点を追加することが可能です。
+<p>
+点は、<a href="#move-point">移動</a>したり、
+<a href="#delete-point">削除</a>したりすることもできます。
+
+<p>
+<dt><img src="../images/delete-point-button.png" alt="">
+  <a name="delete-point">(delete points)</a>
+<dd><a href="drawing.html#polyline">POLYLINE</a> オブジェクト、
+<a href="drawing.html#polygon">POLYGON</a> オブジェクト、
+もしくは 
+<a href="drawing.html#spline">SPLINE</a> オブジェクト
+から点を削除します。
+<p>
+削除したい点をマウスボタン1 (`delete point') でクリックすると
+その点が削除され、その前後の点が直接結ばれた状態となります。
+<p>
+<a href="drawing.html#box">BOX</a> オブジェクトや 
+<a href="drawing.html#arc-box">ARC-BOX</a> オブジェクト
+の点を削除することはできません。
+<a href="drawing.html#regular-polygon">REGULAR POLYGON</a> 
+によって生成されたオブジェクトは通常の 
+<a href="drawing.html#polygon">POLYGON</a> オブジェクトであり、
+任意の点を削除することが可能です。
+<p>
+点は、<a href="#add-point">追加</a>したり、
+<a href="#move-point">移動</a>したりすることもできます。
+
+<p>
+<dt><img src="../images/move-button.png" alt="">
+  <a name="move">(move)</a>
+<dd>オブジェクトを移動します。
+<p>
+マウスボタン1 (`move object') でクリックすることによって
+そのオブジェクトを選択し、次にカーソルを新しい位置に移動した後に
+再びマウスボタン1 (`place object') をクリックして移動を完了します。
+移動を水平/垂直方向のみに制限したい場合には、
+マウスボタン1の代わりにマウスボタン2 (`horiz/vert move') を使用します。
+いずれの場合でも、マウスボタン3 (`cancel') をクリックすることによって
+移動を中止することが可能です。
+<p>
+複数のオブジェクトをまとめて移動したい場合には、
+あらかじめ <a href="#glue-compound">GLUE COMPOUND</a> を用いて
+それらのオブジェクトを1つの複合オブジェクトにまとめておく必要があります。
+<p>
+<a href="attributes.html#smart-link">SMART-LINKS MODE</a> 
+を設定することにより、
+そのオブジェクトに接している線を同時に移動させることもできます。
+これは、端点が BOX や ARC-BOX に接している、
+あるいは端点が複合オブジェクトの内側にある POLYLINE (SPLINE は含まない) 
+に対してのみ機能します。
+<p>
+オブジェクトは、<a href="#copy">コピー</a>したり
+<a href="#delete">削除</a>したりすることもできます。
+オブジェクトの点を移動させたい場合には、
+<a href="#move-point">MOVE POINT</a> を用いて下さい。
+
+<p>
+<dt><img src="../images/copy-button.png" alt="">
+  <a name="copy">(copy)</a>
+<dd>オブジェクトをコピーします。
+<p>
+マウスボタン1 (`copy object') でクリックすることによって
+そのオブジェクトを選択し、
+次にカーソルをオブジェクトをコピーしたい位置に移動した後に
+再びマウスボタン1 (`place object') をクリックしてコピーを完了します。
+コピーを水平/垂直方向のみに制限したい場合には、
+マウスボタン1の代わりにマウスボタン2 (`horiz/vert copy') を使用します。
+いずれの場合でも、マウスボタン3 (`cancel') をクリックすることによって
+コピーを中止することが可能です。
+<p>
+複数のオブジェクトをまとめてコピーしたい場合には、
+あらかじめ <a href="#glue-compound">GLUE COMPOUND</a> を用いて
+それらのオブジェクトを1つの複合オブジェクトにまとめておく必要があります。
+<p>
+<a href="attributes.html#smart-link">SMART-LINKS MODE</a> 
+を設定することにより、
+そのオブジェクトに接している線を同時にコピーすることもできます。
+これは、端点が BOX や ARC-BOX に接している POLYLINE (SPLINE は含まない) 
+に対してのみ機能します。
+<p>
+このモードの <i>ARRAY PLACEMENT</i> 機能を用いて、
+一度に多数のコピーを作成することも可能です。
+このためには、
+コピーしたいオブジェクトをマウスボタン1 (`copy object') でクリックし、
+次にカーソルを移動させてマウスボタン2 (`array placement') を
+クリックすることによってコピーを配置する方向と間隔を指定します。
+この場合には、あらかじめ 
+<a href="attributes.html#num-x-copies">NUMER OF X COPIES</a>、
+及び <a href="attributes.html#num-y-copies">NUMER OF Y COPIES</a> 
+によってコピーの個数を設定しておく必要があります。
+通常は、コピー元のオブジェクトを含めて 
+NUMER OF X COPIES、及び NUMER OF Y COPIES で指定された数の
+格子状に配置されます。
+NUMER OF X COPIES と NUMER OF Y COPIES のいずれか一方を 
+0 に設定した場合には指定された個数のコピーが生成されますが、
+この場合にはオブジェクトを斜めに配置することもできます。
+<p>
+オブジェクトをマウスボタン3 (`copy to cut buf') でクリックすると、
+そのオブジェクトがカット・バッファにコピーされます。
+カット・バッファにコピーされたオブジェクトは、
+後で <a href="main_menus.html#paste-object">PASTE</a> を用いて
+キャンバス上の図に挿入することができますので、
+この機能を用いて図の一部を他の図の中にコピーすることが可能となります。
+オブジェクトを新たにカット・バッファにコピーすると
+以前のカット・バッファの内容は捨てられます。
+複数のオブジェクトをカット・バッファにコピーしたい場合には、
+あらかじめ <a href="#glue-compound">GLUE COMPOUND</a> を用いて
+それらのオブジェクトを1つの複合オブジェクトにまとめておく必要があります。
+<p>
+オブジェクトは、<a href="#move">移動</a>したり
+<a href="#delete">削除</a>したりすることもできます。
+
+<p>
+<dt><img src="../images/delete-button.png" alt="">
+  <a name="delete">(delete)</a>
+<dd>オブジェクトを削除します。
+<p>
+オブジェクトをマウスボタン1 (`delete object') でクリックすると、
+そのオブジェクトが削除されます。
+削除したいオブジェクトを含む矩形領域の角で
+マウスボタン2 (`delete region') をクリックし、
+次にその対角で再びマウスボタン2 (`final corner') をクリックすることにより、
+その領域の内側にあるすべてのオブジェクトを一度に削除することもできます。
+<p>
+オブジェクトをマウスボタン3 (`del to cut buf') でクリックすると、
+そのオブジェクトは削除され、カット・バッファに移動されます。
+カット・バッファに移動されたオブジェクトは、
+後で <a href="main_menus.html#paste-object">PASTE</a> を用いて
+キャンバス上の図に挿入することができます。
+<a href="#copy">COPY</a> も参照して下さい。
+<p>
+新しい図の作成のために、
+キャンバスからすべてのオブジェクトを削除したい場合には、
+<a href="main_menus.html#new">New</a> を用いることができます。
+
+<p>
+<dt><img src="../images/update-button.png" alt="">
+  <a name="update">(update)</a>
+<dd><a href="attributes.html">属性パネル</a>の現在の設定に応じて、
+オブジェクトの属性 (線の太さや色など) を更新します。
+逆に、オブジェクトの属性を属性パネルにコピーすることも可能です。
+<p>
+オブジェクトをマウスボタン1 (`update object') でクリックすると、
+属性ボタンの中で UPDATE のために選択されたものの現在の設定が、
+そのオブジェクトに対して適用されます。
+<a href="editing.html#glue-compound">複合オブジェクト</a>
+をマウスボタン1 (`update object') でクリックした場合には、
+その複合オブジェクトに含まれるすべてのオブジェクトの属性が更新されます。
+<p>
+複合オブジェクト以外のオブジェクトを
+マウスボタン2 (`update settings') でクリックすると、
+そのオブジェクトの属性が属性ボタン 
+(UPDATE のために選択されているもののみ) にコピーされます。
+これを用いて、選択した属性を
+あるオブジェクトから他のオブジェクトにコピーすることも可能です。
+<p>
+<a name="update-control">UPDATE モード</a>においては、
+それぞれの<a href="attributes.html">属性ボタン</a>の右上には 
+UPDATE に際してその設定を適用するかどうかを指定するための
+小さいトグル・ボタンが付けられており、
+そのトグル・ボタンが <i>ON</i> となっている属性ボタンの
+設定のみが UPDATE の対象となります。
+属性ボタンの右上のトグル・ボタンをクリックすると、
+その <i>ON/OFF</i> が切り替えられます。
+あるいは、属性パネルの左側の <i>Update Control</i> ボタンによって、
+すべての属性ボタンを選択したり、選択を解除したり、
+選択/非選択を反転させたりすることもできます。
+<p>
+<blockquote>
+  <img src="../images/update-control.png" alt="[Update Control Buttons]">
+</blockquote>
+<p>
+オブジェクトの属性は 
+<a href="#edit">EDIT OBJECT</a> を用いて変更することもできます。
+EDIT OBJECT を用いれば変更することができるが、
+UPDATE では変更することのできない属性もあります。
+
+<p>
+<dt><img src="../images/edit-button.png" alt="">
+  <a name="edit">(edit object)</a>
+<dd>オブジェクトの種々の属性 (線の太さや色など) を編集します。
+<p>
+オブジェクトをマウスボタン1 (`edit object') でクリックすると、
+オブジェクトの属性の編集を行なうための 
+<a href="#edit-panel">Edit パネル</a> が開かれます。
+このポップアップ・パネルの内容は、
+オブジェクトの種類などによって異なったものとなります。
+これについては、<a href="#edit-panel">Edit パネル</a>を参照して下さい。
+<p>
+<a href="drawing.html#spline">SPLINE</a> オブジェクト
+の制御点をマウスボタン3 (`edit point') でクリックすると、
+スプライン曲線の <i>shape factor</i> の変更を行なうための 
+<a href="#edit-point">EDIT POINT パネル</a> が開かれます。
+<p>
+オブジェクトの属性は 
+<a href="#update">UPDATE</a> を用いて変更することもできますが、
+UPDATE では変更することができない属性もあります。
+<p>
+<a name="edit-comments">このモードで</a>
+キャンバス上でマウスボタン2 (`edit Fig comments') がクリックされた場合、
+図全体に対するコメントを変更するための編集パネルが開かれます：<br>
+<img src="../images/edit-figure-comments.png" alt="[Edit Figure Comments]">
+<p>
+<a name="display-comments">このモードで</a> SHIFT キーを押した状態で
+オブジェクトをマウスボタン2 (`show comments') でクリックした場合、
+マウスボタンが離されるまで
+そのオブジェクトに付けられたコメントがポップアップに表示されます：<br>
+<img src="../images/show-comments.png" alt="[Show Comments]">
+
+<p>
+<dt><img src="../images/flip-vert-button.png" alt="">
+  <img src="../images/flip-horiz-button.png" alt="">
+  <a name="flip">(flip vertically/horizontally)</a>
+<dd>オブジェクトの上下、もしくは左右を反転します。
+上下、もしくは左右を反転したコピーを生成することも可能です。
+<p>
+オブジェクトをマウスボタン1 (`flip') でクリックすると、
+オブジェクトはその点を基準として上下、もしくは左右が反転させられます。
+オブジェクトをマウスボタン2 (`copy &amp; flip') でクリックすると、
+元のオブジェクトはそのまま残され、
+上下、もしくは左右を反転した新しいオブジェクトが生成されます。
+<p>
+反転に先立ってキャンバス上の任意の位置で
+マウスボタン3 (`set anchor') をクリックすることにより、
+反転の基準とする anchor point を明示的に指定することも可能です。
+Anchor point が設定されている場合、その位置に `＋' が表示されます。
+設定された anchor point は、
+マウスボタン3 (`set anchor') をもう一度クリックすることによって
+解除することができます。
+<p>
+オブジェクトを回転させたい場合には 
+<a href="#rotate">ROTATE</a> を用いて下さい。
+
+<p>
+<dt><img src="../images/rotate-cw-button.png" alt="">
+  <img src="../images/rotate-ccw-button.png" alt="">
+  <a name="rotate">(rotate)</a>
+<dd>オブジェクトを指定された角度だけ回転します。
+<p>
+オブジェクトをマウスボタン1 (`rotate object') でクリックすると、
+オブジェクトはその点を中心として、
+<a href="attributes.html#rotation-angle">ROTATION ANGLE</a> 
+で設定された角度だけ、
+時計方向に、あるいは反時計方向に回転させられます。
+<p>
+このモードの <i>COPY &amp; ROTATE</i> 機能を用いて、
+一度に多数のコピーを作成することも可能です。
+オブジェクトをマウスボタン2 (`copy &amp; rotate') でクリックすると、
+<a href="attributes.html#rotation-angle">ROTATION ANGLE</a> 
+で設定された角度ごとに回転させられた、
+<a href="attributes.html#num-copies">NUMBER OF COPIES</a> 
+で設定された個数のコピーが生成されます。
+<p>
+<a href="#flip">FLIP VERTICALLY/HORIZONTALLY</a> と同様、
+マウスボタン3 (`set anchor') を用いて
+回転の中心とする anchor point を明示的に指定することも可能です。
+<p>
+<a href="drawing.html#box">BOX</a> オブジェクト、
+<a href="drawing.html#arc-box">ARC-BOX</a> オブジェクト、
+<a href="drawing.html#picture">PICTURE</a> オブジェクト、
+及びそれらのいずれかを含んだ
+<a href="editing.html#glue-compound">複合オブジェクト</a>は、
+90度単位でのみ回転させることができます。
+オブジェクトの上下、もしくは左右を反転したい場合には、
+<a href="#flip">FLIP VERTICALLY/HORIZONTALLY</a> を用いて下さい。
+
+<p>
+<dt><img src="../images/spline-line-button.png" alt="">
+  <a name="spline-line">(spline &lt;-&gt; line / box &lt;-&gt; arc-box)</a>
+<dd>オブジェクトの種類を変換します。
+<p>
+オブジェクトをマウスボタン1 (`spline &lt;-&gt; line') でクリックすると、
+次のような変換が行なわれます。
+<ul>
+<li>polyline --&gt; open approximated spline --&gt;
+ open interpolated spline --&gt; polyline
+<li>polygon --&gt; closed approximated spline --&gt;
+ closed interpolated spline --&gt; polygon
+<li>box --&gt; arc-box --&gt; box
+</ul>
+<p>
+また、オブジェクトをマウスボタン3 (`open &lt;-&gt; close') でクリックすると、
+次のような変換が行なわれます。
+<ul>
+<li>polyline &lt;-&gt; polygon
+<li>open approximated spline &lt;-&gt; closed approximated spline
+<li>open interpolated spline &lt;-&gt; closed interpolated spline
+</ul>
+<p>
+スプライン曲線については、より細かい制御を行なうことも可能です。
+これについては、
+<a href="#edit-point">EDIT POINT</a> や 
+<a href="drawing.html#spline">スプライン曲線について</a> 
+などを参照して下さい。
+
+<p>
+<dt><img src="../images/add-arrow-button.png" alt="">
+  <a name="add-arrow">(add/delete arrows)</a>
+<dd><a href="drawing.html#polyline">POLYLINE</a>、
+<a href="drawing.html#spline">OPEN SPLINE</a>、
+もしくは <a href="drawing.html#arc">OPEN ARC</a> に対する
+矢印の追加、もしくは削除を行ないます。
+<p>
+オブジェクトの端点をマウスボタン1 (`add arrow') でクリックすると、
+その点に矢印が追加されます。
+また、矢印の先端をマウスボタン2 (`delete arrow') でクリックすると、
+その矢印が削除されます。
+<p>
+矢印の形状は <a href="attributes.html#arrow-type">ARROW TYPE</a> によって、
+また矢印の大きさは <a href="attributes.html#arrow-size">ARROW SIZE</a> によって
+設定することができます。
+<a href="attributes.html#arrow-mode">ARROW MODE</a> 
+を設定しておくことにより、
+新しいオブジェクトの入力に際して自動的に矢印を付けるようにすることも可能です。
+
+<p>
+<dt><img src="../images/add-tangent-button.png" alt="">
+  <a name="add-tangent">(add tangent or normal to curve)</a>
+<img src="../images/pict-new.png" alt="New">
+<dd>曲線に、接線、あるいは法線を追加します。
+<p>
+円弧やスプラインの曲線の近くでマウスボタン1をクリックすると、
+その線の接線となる 2cm の線が、
+現在の線の属性 (太さ、色など) で作成されます。
+その線は3つの点を持ち、中間の点は元の曲線に接します。
+<p>
+曲線の近くでマウスボタン2をクリックすると、
+その線の法線となる 2cm の線が作成されます。
+
+<p>
+<dt><img src="../images/measure-angle-button.png" alt="">
+  <a name="measure-angle">(measure angle)</a>
+<img src="../images/pict-new.png" alt="New">
+<dd>角度を測定します。
+<p>
+POLYLINE や POLYGON の頂点で
+マウスボタン3 (`select object') をクリックすると、
+その頂点で合する2本の線の角度が
+メイン・メニューの下のメッセージ・ウィンドウ内に報告されます。
+<p>
+キャンバス上の任意の3点でマウスボタン1 (`first point', `angle tip', `final point')
+をクリックすると、
+その3点で形成される2本の線の間の角度が報告されます。
+<p>
+POLYLINE や POLYGON の頂点でマウスボタン2 (`select &amp; save') をクリックすると、
+その頂点で合する2本の線の角度が報告され、また
+<a href="attributes.html">属性パネル</a>の
+<a href="attributes.html#rotation-angle">ROTATION ANGLE</a>
+がその角度に設定されます。
+
+<p>
+<dt><img src="../images/measure-length-button.png" alt="">
+  <a name="measure-length">(measure length)</a>
+<img src="../images/pict-new.png" alt="New">
+<dd>(線や円弧の長さ、あるいは円や楕円の円周を測定します。
+<p>
+POLYLINE、POLYGON、BOX、ARC、あるいは CIRCLE/ELLIPSE の上の任意の点で
+マウスボタン1 (`select object') をクリックすると、
+そのオブジェクトを形成する線の長さ、
+あるいは円や楕円の円周が、
+メイン・メニューの下のメッセージ・ウィンドウ内に報告されます。
+<p>
+そのようなオブジェクトの上で
+マウスボタン2 (`select &amp; add') をクリックすると、
+その長さを積算中の合計値に加算し、
+それ単独の、及び積算された長さを報告します。
+<p>
+マウスボタン3 (`reset to 0') をクリックすると、
+積算された長さを 0 にリセットします。
+
+<p>
+<dt><img src="../images/measure-area-button.png" alt="">
+  <a name="measure-area">(measure area of polygons and ellipses)</a>
+<img src="../images/pict-new.png" alt="New">
+<dd>
+多角形や楕円の面積を測定します。
+<p>
+任意の POLYLINE、POLYGON、BOX、あるいは CIRCLE/ELLIPSE の上で
+マウスボタン1 (`select object') をクリックすると、
+そのオブジェクトの面積が
+メイン・メニューの下のメッセージ・ウィンドウ内に報告されます。
+<p>
+そのようなオブジェクトの上で
+マウスボタン2 (`select &amp; add') をクリックすると、
+その面積を積算中の合計値に加算し、
+それ単独の、及び積算された面積を報告します。
+<p>
+マウスボタン3 (`reset to 0') をクリックすると、
+積算された面積を 0 にリセットします。
+<p>
+<img src="../images/pict-info.png" alt="">
+重なり合った部分のある多角形は正しく計算されません。
+<br>
+<img src="../images/measure-area-goodpoly.png" align="middle"
+  alt="重なりのない多角形">
+は正しく扱われますが、
+<img src="../images/measure-area-badpoly.png" align="middle"
+  alt="重なりのある多角形">
+は正しく扱われません。
+</dl>
+
+<p>
+<hr>
+
+<h2><img src="../images/pict-info.png" alt=""><a name="select-object">オブジェクトの選択</a></h2>
+
+オブジェクトの選択は、
+オブジェクトの<b>コーナー・マーカー</b> (<b>ハンドル</b>) を
+クリックすることによって行なうことができます。
+コーナー・マーカーは小さな正方形のマークであり、
+そのモードにおいて選択することのできる
+オブジェクトの角などに表示されます。
+<p>
+ほとんどのオブジェクトでは、
+コーナー・マーカーを結ぶ直線の上でクリックすることによって
+そのオブジェクトを選択することもできますが、
+これは編集モードによっては
+コーナー・マーカーをクリックした場合と異なった意味を持つことがあります。
+例えば、<a href="#scale">SCALE OBJECT</a> では、
+オブジェクトのコーナー・マーカーをクリックした場合には
+そのオブジェクトは形状を保ったままスケーリングされますが、
+コーナー・マーカーを結ぶ直線 (矩形の辺) をクリックした場合には
+その方向のみのスケーリングが行なわれます。
+<p>
+<a href="attributes.html#point-position">POINT POSITION</a> が 
+<i>Any</i> 以外に設定されている場合には、
+それによって指定される仮想的なグリッドの上に置かれていない
+オブジェクトを選択することはできません。
+<p>
+複数のオブジェクトが接するように置かれている場合、
+選択したいオブジェクトのコーナー・マーカーをクリックしても
+そのオブジェクトが選択されず、
+その近くの他のオブジェクトが選択されてしまうことがあります。
+そのような場合には、次の操作を行なうことによって、
+所望のオブジェクトを選択することができます。
+<ol>
+<li>Shift キーを押したままの状態で、
+選択したいオブジェクトをクリックします。
+<li>選択したいオブジェクト以外の
+コーナー・マーカーがハイライトした場合には、
+Shift キーを離さずに、クリックを繰り返します。
+<li>選択したいオブジェクトの
+コーナー・マーカーがハイライトしたならば、
+Shift キーを離して、もう一度クリックします。
+</ol>
+なお、この操作の間は、マウスを動かさないようにすることが必要です。
+
+
+<p>
+<hr>
+
+<h2><a name="edit-panel">EDIT パネル</a></h2>
+
+Edit パネルは <a href="#edit">EDIT OBJECT</a> モードで
+オブジェクトを選択した時に開かれるものであり、
+そのオブジェクトのほとんどすべての属性が含まれています。
+例えば、このパネルで座標を直接入力することによって
+オブジェクトの位置を変更することも可能です。
+Edit パネルの内容はオブジェクトによって異なります。
+ここではそのうちのいくつかを示します。
+
+<h3>一般</h3>
+
+<blockquote>
+  <img src="../images/edit-panel-polyline.png" alt="[Edit Panel - Polyline]">
+</blockquote>
+
+<p>
+<dl>
+<dt><i>Comments</i>
+<dd>それぞれのオブジェクトは、
+それに関連付けられたコメントを情報として持つことができます。
+これは最大200文字/行で、50行までを保持することができます。
+<p>
+図全体もコメントを持つことができます。
+これを編集するためには、<a href="#edit">Edit モード</a> を選択した状態で
+マウスボタン2 (`edit Fig comments') をクリックします。
+
+<p>
+<dt><i>Width</i>
+<dd>線の太さを示します。
+(<a href="attributes.html#line-width">LINE WIDTH</a> を参照)
+
+<p>
+<dt><i>Pen Color</i>
+<dd>外周の線の色を示します。
+(<a href="attributes.html#pen-color">PEN COLOR</a> を参照)
+
+<p>
+<dt><i>Fill Color</i>
+<dd>内部の塗りつぶしの色を示します。
+(<a href="attributes.html#fill-color">FILL COLOR</a> を参照)
+
+<p>
+<dt><i>Depth</i>
+<dd>オブジェクトの ``深さ'' を示します。
+(<a href="attributes.html#depth">DEPTH</a> を参照)
+
+<p>
+<dt><i>Fill Style</i>
+<dd>塗りつぶしの方法を示します。
+<i>Fill Style</i> で <i>Filled</i> が選択されている場合には <i>Fill Intensity</i> が、
+<i>Pattern</i> が選択されている場合には <i>Fill Pattern</i> が有効となります。
+<i>Fill Intensity</i> は 0〜200 の範囲の数値で、
+0 が黒、100 が 純粋な <i>Fill Color</i>、200 が白を示します。
+<i>Fill Pattern</i> は 0〜21 の範囲の数値です。
+(<a href="attributes.html#fill-style">FILL STYLE</a> を参照)
+
+<p>
+<dt><i>Line Style</i>
+<dd>線の形状を示します。
+(<a href="attributes.html#line-style">LINE STYLE</a> を参照)
+
+<p>
+<dt><i>Cap Style</i>
+<dd>線の末端の形状を示します。
+(<a href="attributes.html#cap-style">CAP STYLE</a> を参照)
+
+<p>
+<dt><i>Join Style</i>
+<dd>線の結合部 (角) の形状を示します。
+(<a href="attributes.html#join-style">JOIN STYLE</a> を参照)
+
+<p>
+<dt><i>Arrows</i>
+<dd>矢印を付けるかどうか、またその形状を示します。
+矢印の大きさは、ここで変更することができます。
+(<a href="attributes.html#arrow-type">ARROW TYPE</a>、
+<a href="attributes.html#arrow-size">ARROW SIZE</a> を参照)
+
+<p>
+<dt><i>Corner Radius</i>
+<dd>ARC-BOX の角の丸みの半径を示します。
+(<a href="attributes.html#box-curve">BOX CURVE</a> を参照)
+
+<p>
+<dt><i>Center, Radius, Point, etc.</i>
+<dd>これらは、オブジェクトの位置や大きさ、
+個々の点の座標などを、Fig unit (1/1200inch) 単位で示します。
+<br>
+<img src="../images/pict-info.png" alt="">
+これらの値の入力に際しては、
+数値の後に ``c'' を付けることによって cm 単位、
+``i'' を付けることによって inch 単位で入力することができます。
+</dl>
+
+
+<h3><a name="edit-text-panel">TEXT オブジェクト</a></h3>
+
+<blockquote>
+  <img src="../images/edit-panel-text.png" alt="[Edit Panel - Text]">
+</blockquote>
+
+<p>
+<dl>
+<dt><i>Size</i>
+<dd>文字のポイント単位での大きさを示します。
+(<a href="attributes.html#text-size">TEXT SIZE</a> を参照)
+
+<p>
+<dt><i>Pen Color</i>
+<dd>文字の色を示します。
+(<a href="attributes.html#pen-color">PEN COLOR</a> を参照)
+
+<p>
+<dt><i>Depth</i>
+<dd>オブジェクトの ``深さ'' を示します。
+(<a href="attributes.html#depth">DEPTH</a> を参照)
+
+<p>
+<dt><i>Angle</i>
+<dd>テキストの角度を示します。
+正の値は半時計方向の回転を示します。
+(<a href="attributes.html#text-angle">TEXT/ELLIPSE ANGLE</a> を参照)
+
+<p>
+<dt><i>Justification</i>
+<dd>指定された位置にテキストのどの部分を置くようにするかを示します。
+(<a href="attributes.html#text-justification">TEXT JUSTIFICATION</a> を参照)
+
+<p>
+<dt><i>Hidden Flag、Rigid Flag、及び Special Flag</i>
+<dd>それらのフラグの状態を示します。
+(<a href="attributes.html#text-flags">TEXT FLAGS</a> を参照)
+
+<p>
+<dt><i>Origin</i>
+<dd>テキストの位置を示します。
+
+<p>
+<dt><i>Font</i>
+<dd>テキストの描画に用いるフォントを示します。
+フォントの大きさは <i>Size</i> フィールドに表示されています。
+(<a href="attributes.html#text-font">TEXT FONT</a> を参照)
+
+<p>
+<dt><i>Text</i>
+<dd>このフィールドにはテキストの内容そのものが含まれており、
+ここでテキストを編集することもできます。
+テキストの編集は、Edit パネルを開かずに行なうこともできます;
+<a href="drawing.html#text">TEXT</a> モードで、
+編集したいテキストの任意の点を単にクリックして下さい。
+</dl>
+
+
+<h3><a name="edit-pict-panel">PICTURE オブジェクト</a></h3>
+
+<blockquote>
+  <img src="../images/edit-panel-picture.png" alt="[Edit Panel - Picture]">
+</blockquote>
+
+<p>
+<dl>
+<dt><a name="screen-capture"><i>Screen Capture</i></a>
+<dd>これは、画面に表示されているイメージを取り込むために用います。
+<i>Screen Capture</i> ボタンをクリックした後に、
+以下のいずれかの操作を行なうことができます。
+<p>
+<ul>
+<li>マウスボタン1で任意のウィンドウをクリックすることによって
+そのウィンドウ全体のイメージを取り込む
+<p>
+<li>マウスボタン1でルート・ウィンドウ (画面の背景) をクリックすることによって
+画面全体のイメージを取り込む
+<p>
+<li>画面上の矩形領域の角でマウスボタン2をクリックし、
+さらにその対角で再びマウスボタン2をクリックすることによって、
+指定した領域のイメージを取り込む
+<p>
+<li>マウスボタン3をクリックすることによって
+イメージの取り込みを中止する
+</ul>
+<p>
+この操作を行なっているあいだ、<b>xfig</b> のウィンドウは画面から消されます。
+取り込みの操作を完了すると <b>xfig</b> のウィンドウが再び表示され、
+取り込まれたイメージがキャンバス上に表示されます。
+取り込まれたイメージは、<tt>figure1-828065129.pcx</tt> のような、
+編集中の fig ファイル名と
+1970年1月1日 0時0分0秒からの秒数とを含んだ名前のファイルに格納されます。
+ファイルのフォーマットは PCX フォーマットとなり、
+これは <i>Type</i> の部分に示されます。
+<p>
+ディスプレイのビジュアルが TrueColor であるか、
+あるいは 8ビットよりも深いものである場合には、
+この機能を使用することはできません。
+
+<p>
+<dt><a name="edit-image"><i>Edit Image</i></a>
+<dd>これをクリックするとイメージの編集のためのプログラム 
+(デフォルトでは <a href="installation.html#xv"><b>xv</b></a>) 
+が起動されますので、その上でイメージを編集してセーブすることができます。
+<p>
+これによって起動されるプログラムは 
+<a href="global_settings.html">Global Settings パネル</a>
+で確認することができます。
+デフォルトでは <i>Edit Image</i> ボタンは 
+<b>xv</b> を起動するようになっていますが、
+<tt>Fig.image_editor</tt> リソース、もしくは <tt>-image_editor</tt> オプション
+を用いて指定することによって、好みのイメージ・エディタ 
+(例えば <a href="installation.html#related-software"><b>xpaint</b></a>
+や <a href="installation.html#gimp"><b>GIMP</b></a>) 
+を起動するように変更することもできます。
+
+<p>
+<dt><i>Pen Color</i>
+<dd>これはイメージ・ファイルが XBM フォーマットである場合にのみ有効となり、
+これがイメージのフォアグランドの色となります。
+
+<p>
+<dt><i>Depth</i>
+<dd>オブジェクトの ``深さ'' を示します。
+(<a href="attributes.html#depth">DEPTH</a> を参照)
+
+<p>
+<dt><i>Picture Filename</i>
+<dd>イメージ・ファイルのファイル名を指定します。
+
+<p>
+<dt><i>Type、Size、及び Number of colors</i>
+<dd>イメージ・ファイルのフォーマットや大きさなどが示されます。
+これを変更することはできません。
+
+<p>
+<dt><i>Reread</i>
+<dd>これをクリックすると、イメージ・ファイルの内容が読み直されます。
+これは、イメージ・ファイルを一度読み込んだ後で
+そのファイルの内容が変更された場合などに必要となります。
+
+<p>
+<dt><a name="browse-panel"><i>Browse</i></a>
+<dd>これをクリックすると、
+取り込むべきイメージ・ファイルを選択するための 
+<a name="browse-panel">Browse パネル</a>が開かれます。
+イメージ・ファイルをクリックして <i>Apply</i> を選択して
+それをプレビューするか、あるいはそれを選択するためにダブル・クリックし、
+Browse パネルを閉じます。
+<a href="main_menus.html#file-panels">File パネル</a>と同様の方法で
+ディレクトリを変更することもできます。
+デフォルトの <i>Filename Mask</i> は、
+<b>xfig</b> が取り込むことのできる全てのイメージ・タイプを示しています。
+<p>
+<img src="../images/image_browse.png" alt="[Browse Panel]">
+
+<p>
+<dt><i>First Corner、及び Opposite Corner</i>
+<dd>イメージが貼り付けられている矩形領域の2つの角の位置を示します。
+
+<p>
+<dt><i>Orientation</i>
+<dd>ここで <i>Flipped about diag</i> を選択すると、
+イメージの x 軸と y 軸とが入れ換えられます。
+
+<p>
+<dt><i>Rotation</i>
+<dd>イメージの回転角を示します。
+ここでこれを変更することはできません。
+(<a href="#rotate">ROTATE</a> を参照)
+
+<p>
+<dt><i>Cur H/W Ratio、及び Orig H/W Ratio</i>
+<dd>イメージの現在の縦横比、及び元の縦横比を示します。
+
+<p>
+<dt><i>Change H/W Ratio</i>
+<dd>これらのボタンを用いてイメージの縦横比を調整することができます。
+<p>
+<dl>
+<dt><i>Shrink to orig</i>
+<dd>イメージを拡大することなく縦横比が元のイメージと一致させます
+<dt><i>Expand to orig</i>
+<dd>イメージを縮小することなく縦横比が元のイメージと一致させます
+<dt><i>Use original size</i>
+<dd>イメージの大きさを元の大きさに設定します
+<dt><i>Scale by %</i>
+<dd>イメージの元の大きさを基準とし、指定した割合にスケーリングします
+</dl>
+</dl>
+
+<p>
+<hr>
+
+<h2><a name="edit-point">EDIT POINT</a></h2>
+
+Edit Point パネルは
+<a href="drawing.html#spline">スプライン曲線</a> の
+制御点の shape factor を変更するためのものであり、
+<a href="#edit">EDIT OBJECT</a> モードにおいて、スプライン曲線の制御点を
+マウスボタン3 (`edit point') でクリックすることによって開かれます。
+Shape factor は曲線の形状を制御します。
+<p>
+<blockquote>
+  <img src="../images/edit-point-panel.png" alt="[Edit Point Panel]">
+</blockquote>
+<p>
+<i>Approximated</i>、<i>Angular</i>、及び <i>Interpolated</i> の
+いずれかのボタンをクリックすると、
+shape factor をプリセットされた値のいずれかに設定することができます。
+パネルの左側のスライダを用いて、
+その制御点の shape factor を任意の値に設定することもできます。
+いずれの場合でも、変更されたスプライン曲線は即座に表示されます。
+<p>
+<blockquote>
+  <img src="../images/spline-sf-example.png" alt="[Spline - Shape Factor]">
+</blockquote>
+<p>
+制御点の shape factor は、
+任意の編集モードにおいて SHIFT キーと CONTROL キーの双方を押した状態で
+制御点をクリックすることによって、
+Edit Point パネルを開かずに変更することもできます。
+制御点をマウスボタン1 (`More approx') でクリックすると shape factor が減少し、
+マウスボタン3 (`More interp') でクリックすると増加します。
+制御点をマウスボタン2 (`Cycle shape') でクリックすると、
+3つのプリセットされた値 (Approximated、Angular、及び Interpolated) が
+順に切り替えられます。
+
+<p>
+<hr>
+
+[ <a href="contents.html">Contents</a> |
+ <a href="introduction.html">Introduction</a> |
+ <a href="authors.html">Credits</a> ]
+
+</body>
+</html>

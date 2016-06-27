@@ -1,0 +1,7 @@
+# See uscan(1) for format
+
+# Compulsory line, this is a version 3 file
+version=3
+
+opts="dversionmangle=s/-rel$//,uversionmangle=s/([a-z])$/.$1/" \
+http://www.xfig.org/art17.html .*/xfig\.(\d.*)\.full\.(?:tgz|tar\.(?:gz|bz2|xz)).*

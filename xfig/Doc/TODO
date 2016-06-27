@@ -1,0 +1,126 @@
+This file contains some possible things to do in future versions of xfig.
+
+------------------
+FORMAT 4.0 example
+------------------
+
+#FIG 4.0
+Res	1200/500	(use 1200 for inches, 500 for metric)
+Bounds	300 500 3045 9302 (optional bounding box from figure compound)
+Orient	Landscape
+Units	Metric
+Uscale	3cm=1ft		(screen ruler scale)
+Pjust	Center		(page justification)
+Psize	A4
+Pmag	.9		(print/export magnification)
+Pages	Multiple
+Smag	.4		(screen magnification [zoom])
+Backg	ivory		(canvas background color which is used by fig2dev too)
+GIFTransp None		(GIF transparent color)
+JPGQual	75		(JPEG quality)
+Margin	15		(number of pixels for margin for bitmap export)
+
+UCol 35 #440033		(User colors)
+
+Line ...		(PolyLine separate from Box and Polygon)
+Box			(three subtypes)
+  Box-Arcbox ...	
+  Box-Normal ...
+  Box-Picture ...
+Poly ...
+Spline ...
+Arc			(three subtypes)
+   Arc-Open ...
+   Arc-Pie-Wedge ...
+   Arc-Elliptical ...
+Text ...
+Ellipse ...
+
+Layer FirstFloor 10	(number is drawing order or depth)
+....
+ENDLayer FirstFloor
+
+Compound ...
+...
+ENDCompound
+
+********* NOTES about FORMAT 4.0 *********
+
+Change line thickness to float for finer precision
+Separate dash/dot length from the gap
+Enhance pattern fill allow "transparent" fill so that only the pattern lines
+	fill the shape, not the background color.
+Enhance all objects to have cap_style type for dotted lines
+Allow selecting linecap type for dotted lines for closed splines, boxes
+	and ellipses
+Rotatable boxes - store width, height, upper-left corner and angle only
+Background color for text (or "None") to allow background (ala XDrawImageString)
+	Note: need to add flag/call to text rotation code to do this
+Honor fractional text sizes (float).  Currently, xfig reads the size as float
+	but converts to integer internally.
+No need for duplicating first point at end for polygon in file itself
+Use PIX_PER_CM = 500 instead of 450 (w_setup.h)
+	Need to rescale older (3.2.0 and older) metric figures by difference
+Add canvas background color to Fig file
+	add option to specify default color in fig2dev
+Add elliptical arcs
+Importing of Fig files as pictures
+Add new font choices done by Ian Cameron Smith (clint@hermit.org http://www.hermit.org/)
+Some kind of color pallette which is global (remains around between drawings)
+   o Also library of color pallettes? 
+
+*** END OF V4.0 IDEAS ***
+
+----------------------------------------------------------
+The following DON'T require a change to the file protocol:
+----------------------------------------------------------
+
+Have "static objects" which aren't erased when new figure is loaded.  This way
+	you can have a template into which figures may be merged.
+Option for grid to be constant screen-size (independent of zooming)
+Allow picking of points that aren't on the positioning grid
+Recursively uncompound objects with one click
+Re-render imported EPS files (using gs) at new resolution when zooming LARGER
+Moving object when point_posn mode is on should first move object to closest
+	positioning grid position then allow movement from there.
+Look in ../AppPlusS/XCC.c for code to allocate colors using any
+	valid visual/depth/colormap.
+Mode to rotate objects using only the mouse (requires new mode button)
+Create resource for "print" command (e.g. lp, lpr, whatever) which uses meta-
+	notation to place filename (e.g.  print_command: "lpr -P%p %f" where %p
+	is the printer string and %f is the filename)
+Allow option of vertically centering text either using the ascenders/descenders
+	(the current method) or not
+Allow vertically-aligned text
+  "top" would mean the insertion point specifies the line over the top of the
+        text
+  "middle" would mean that it specifies the midline of the text (I'm not
+        sure how this is defined, perhaps the average of top and base
+        or top and bottom.
+  "base" would mean the line under all letters which do not hang down.
+        For example, g and j extend below the baseline.
+  "bottom" would mean the time under the bottom of the text including
+        descenders.
+Change eps_bitmaps so that background is transparent; i.e. stipple
+Extend smart links to work for SCALE, MOVEPT and perhaps EDIT, UPDATE.
+	Could also extend them to work for arc-type links and for
+	ellipse/circle objects and objects inside compound objects.
+	Also, at the moment smart-links
+	only work for one end of a link if both ends of the link
+	happen to touch the object being operated on.  To fix this would
+	require changing the F_linkinfo structure to have left_endpt,
+	left_prevpt, right_endpt, right_prevpt fields instead of the current
+	endpt, prevpt and two_pts fields.
+Generalize align mode (like glue mode) to allow arbitrary tagged objects to be
+	aligned rather than just compounds.
+Make a raise/lower depth feature
+A 'gravity' mode whereby points placed by aiming and clicking are brought not
+	to the closest fiducial point of a figure, but to the closest continuous
+	point on the figure (applies only to circles, arcs and straight lines),
+	taking into account constraints of angle (like manhattan constraint).
+	Example 1:  I click near the circumference of a circle.  The point is
+	placed exactly on the circumference, closest to where I clicked.
+	This is very useful for getting lines to touch circles exactly in points
+	other than the E, W, S, or N extreme.  Example 2:  I am in manhattan
+	constraint, and I click near a random-slope line.  The point is placed
+	on the line in the one place consistent with the manhattan constraint.

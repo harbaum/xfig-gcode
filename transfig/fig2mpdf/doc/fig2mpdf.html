@@ -1,0 +1,238 @@
+<HTML LANG="en">
+  <HEAD>
+   <META HTTP-EQUIV="CONTENT-TYPE" CONTENT="TEXT/HTML; CHARSET=ISO-8859-15">
+   <META name="AUTHOR" LANG="en" CONTENT="Pfeiffer">
+   <META NAME="Keywords" CONTENT="multilayer,pdf,xfig,eps,beamer,presentation,multiinclude,latex,overlay figures,fig2dev">
+   <META NAME="Language" CONTENT="en">
+   <META NAME="GENERATOR" CONTENT="byHand">
+   <link rel="stylesheet" type="text/css" HREF="fig2mpdf.css">
+   <TITLE>Creating multiple PDF or EPS figures for overlaying
+    </TITLE>
+  </HEAD>
+  <BODY BGCOLOR="#FFFFFF" TEXT="#000000" LINK="#484848" VLINK="#484848">
+
+ <H1>Creating multiple PDF or EPS figures for overlaying</H1>
+
+ <p><b>fig2mpdf</b> is an universal tool for creating figures to
+include either in PDF or in PostScript documents. Regardless the output
+type which is selectable by just one switch, the resulting document has
+exactly the size of the figure designed by <b>xfig</b>. In contrast to
+other tools <b>fig2mpdf</b> uses <b>pdflatex</b> in PDF mode for typesetting
+special texts of the figure so that the resulting documents never looks
+like the one shown in figure 1. But the most important feature of this tool is the
+capability to create multiple figures of one Fig file which might be
+overlayed in a presentation e.g created by the powerful beamer
+package.</p>
+
+
+<H2><A NAME="changes"></A>Main features</H2>
+ <ul>
+   <li>Creating multiple figures of one Fig file using depth ranges for
+splitting the figure</li>
+   <li>Selectable document format PDF or Encapsulated PostScript</li>
+   <li>Selectable mode for using LaTeX for typesetting special
+text of the figure</li>
+   <li>Uses pdflatex if PDF and LaTeX mode is selected to avoid font
+problems (see fig.&nbsp;1)</li>
+   <li>handles overlayed texts in latex mode correctly by using the pdftex_p resp.
+pstex_p driver of fig2dev</li>
+ </ul>
+
+
+<P><CENTER><TABLE BORDER=0>
+<TR VALIGN=middle><TD>&nbsp;</TD>
+                  <TD ALIGN=CENTER COLSPAN=2><IMG SRC="fig2ps-output.gif"></TD>
+                  <TD ALIGN=CENTER COLSPAN=2><IMG SRC="fig2mpdf-output.gif"></TD>
+                  <TD>&nbsp;</TD></TR>
+              <TR><TD>&nbsp;</TD>
+                  <TD ALIGN=RIGHT><FONT SIZE=-2>Fig. 1:</FONT></TD>
+                  <TD COLSPAN=2><FONT SIZE=-2>PDF results using
+<B>fig2ps --pdf </B> with <B>fontenc:T1</B> on the left side and using
+<B>fig2mpdf</B> on the right side.</FONT></TD>
+                  <TD>&nbsp;</TD>
+                  <TD>&nbsp;</TD></TR>
+              <TR><TD></TD>
+                  <TD WIDTH=40></TD>
+                  <TD WIDTH=124></TD>
+                  <TD WIDTH=118></TD>
+                  <TD WIDTH=40></TD>
+                  <TD></TD></TR>
+</TABLE></CENTER></P>
+ 
+
+<H2>Overlay techniques for presentations with xfig</H2>
+
+<P>As mentioned in the projects overview page in these PowerPoint days
+it's really common to do beamer presentations instead of using the good
+old foil hardware. In contrast to PowerPoint presentations you can run
+PDF presentations, probably created with the beamer package and
+pdflatex, on nearly every computer of the world. 
+ </p>
+
+<p>With beamer presentations you can insert effects for example
+to lead the attention to a specific part of an figure e.g. if you are
+presenting a system in your figure and you are just talking about a
+part of this system. 
+
+The <b>pdflatex</b>-<b>beamer</b> user has
+to produce a set of figures who are overlayed step by step by using
+the <b>\multiinclude</b> macro. Figure 2 shows a simple sample
+presentation.</p>
+
+<P><CENTER><TABLE BORDER="0">
+<TR VALIGN="middle"><TD>&nbsp;</TD>
+                  <TD style="text-align: center;" COLSPAN="4"><IMG SRC="anim-presentation.gif" style="display: inline;"></TD>
+                  <TD>&nbsp;</TD></TR>
+              <TR><TD>&nbsp;</TD>
+                  <TD ALIGN="RIGHT"><FONT SIZE="-2">Fig. 2:</FONT></TD>
+                  <TD COLSPAN=2><FONT SIZE="-2"><b>Sample:</b> Overlay technique
+created with <b>LaTeX beamer package</b> and <b>fig2mpdf</b></FONT></TD>
+                  <TD>&nbsp;</TD>
+                  <TD>&nbsp;</TD></TR>
+              <TR><TD></TD>
+                  <TD WIDTH=40></TD>
+                  <TD WIDTH=124></TD>
+                  <TD WIDTH=118></TD>
+                  <TD WIDTH=40></TD>
+                  <TD></TD></TR>
+</TABLE></CENTER></P>
+ 
+
+
+
+<P><A HREF="http://www.xfig.org">xfig</A> is one powerful tool for
+creating figures. You can bind images of all types into your figures
+and there are all export filters you may ever need. But it's a hard
+work to build all necessary figure documents separately because they
+all have to have the same size and all items who occur in more than
+one document have to be placed identically to avoid any unwanted
+movements of these items. Furthermore it's nearly a mission impossible
+to maintain all these figures e.g. if you want to change a position of
+one element which is present in more than one figure file.
+ </p>
+
+<p><b>fig2mpdf</b> can do this work for you! The overlay figures are
+split by the depths of their elements. Elements of consecutively used
+depths can be put into an own overlay document i.e. if there is a gap
+of at least one in the used depths this gap splits the figure (you can
+specify a maximum gap width which does not split the figure). Since
+xfig 3.2.4 you have the possibility to hide unwanted layers (depths)
+while editing the fig file. With this feature the production of overlay
+figures is really more comfortable. <B>fig2mpdf</B> examines the Fig
+file and gets a list of consecutive depths, I call ranges. If you want
+to define ranges by hand, you can do so. These ranges are atoms for the
+following operations.
+ </p>
+
+<p>There are two main types of how the contents of the document files
+are assembled. Figure 3 depicts these two types as an example of a
+figure with several ranges. Examine the Fig file and you will find the
+following depths used: 53, 52, 50, 49, 46, 45, 44, 41, 40, 38, 37. This
+usage result into the five ranges: (1)&nbsp;53,&nbsp;52&nbsp;&nbsp; (2)&nbsp;50,&nbsp;49&nbsp;&nbsp;
+(3)&nbsp;46,&nbsp;45,&nbsp;44&nbsp;&nbsp; (4)&nbsp;41,&nbsp;40
+ and (5)&nbsp;38,&nbsp;37.<br> The upper row shows the five resulting
+documents in default mode. Here each document contains the stuff of the
+concerning range. The presentation starts with the leftmost figure, the
+other documents are to put successively on top. The second row show the
+pyramid mode of <b>fig2mpdf</b> where the documents additionally
+contains the stuff of the ranges of higher depth. Here each document
+can stay alone.
+  </P>
+<P><CENTER><TABLE BORDER=0>
+<TR VALIGN=middle><TD>&nbsp;</TD>
+                  <TD ALIGN="CENTER" COLSPAN=4><A HREF="overlay-sample.lfig"><IMG SRC="overlay-sample.jpg"
+border="0" style="disply: inline;"></A></TD>
+                  <TD>&nbsp;</TD></TR>
+              <TR><TD>&nbsp;</TD>
+                  <TD ALIGN=RIGHT><FONT SIZE=-2>Fig. 3:</FONT></TD>
+                  <TD COLSPAN=2><FONT SIZE=-2>Example: The two modes of
+<B>fig2mpdf</B>. The upper row shows the figures generated in default
+mode where each figure contains all elements of the concerning range
+(the number(s) below each subimage represents the included ranges). In
+pyramid mode the figures are containing the elements of the higher
+depths ranges too (here: the contents left neighbor figure). Click the
+image for getting the <B>xfig</B> source of that figure.</FONT></TD>
+                  <TD>&nbsp;</TD>
+                  <TD>&nbsp;</TD></TR>
+              <TR><TD></TD>
+                  <TD WIDTH=40></TD>
+                  <TD WIDTH=124></TD>
+                  <TD WIDTH=118></TD>
+                  <TD WIDTH=40></TD>
+                  <TD></TD></TR>
+</TABLE></CENTER></P>
+
+<p>If the overlayed figure has a transparent background as shown in
+figure 3 you can add some new elements in the next displayed range. But
+if you want to change an already displayed part of the figure (like the
+red arrows in the example) you have to put a frameless opaque square or
+whatsoever onto the part and place some new elements on top of it if
+desired.
+ </p>
+
+<p>For further information about the capabilities of the tool I refer
+to the man page of <b>fig2mpdf</b> which is part of the package.</p>
+
+<H2>Using LaTeX for typesetting the figure texts</H2>
+
+<P>There are many reasons for using <B>LaTeX</B> for typesetting your
+articles or even books --- compatibility, reusability and complex
+formulas to mention just three of them. Once the decision is taken to
+use LaTeX you might or probably should want to have the same
+typesetting in your figures. This is for having exactly the same
+symbols in the text an the figures or you might want to have some
+formulas in your figures.</p>
+
+ <p>To achieve this you have to set the special flag of these texts
+LaTeX should typeset (normally all texts but keep in mind that this
+flag isn't set by default) and select the right output languages of
+<B>fig2dev</B>. Figure 4 shows how the procedure works. The first
+driver (pstex) creates an EPS file containing everything which can be
+done by the fig2dev itself e.g. rectangles, circles, etc. The second
+export with pstex_t creates a body of a LaTeX document which includes
+the just mentioned eps graphics file. This eps document is included in
+that way that <i>all</i> LaTeX texts are put on top of it. Because of this
+isn't always useful, i.e. if you have overlayed texts in the figure,
+I have created the two drivers
+ <a href="fig2dev-pdftex_p.html">pstex_p</a> and <a
+href="fig2dev-pdftex_p.html">pdftex_p</a> who are used by <b>fig2mpdf</b>.</p>
+
+<P><CENTER><TABLE BORDER=0>
+<TR VALIGN=middle><TD>&nbsp;</TD>
+                  <TD COLSPAN=2><IMG SRC="XFig-LaTeX.jpg"></TD>
+                  <TD ALIGN=RIGHT COLSPAN=2><BR><IMG SRC="XFig-LaTeX-together.jpg"></TD>
+                  <TD>&nbsp;</TD></TR>
+              <TR><TD>&nbsp;</TD>
+                  <TD ALIGN=RIGHT><FONT SIZE=-2>Fig. 4:</FONT></TD>
+                  <TD COLSPAN=2><FONT SIZE=-2>Normal procedure using <B>fig2dev</B> languages <B>pstex</B> and <B>pstex_t</B> to let <B>latex</B> set all texts in the figure. On the left you can see the two layers who result into the image on the right side, where the text layer was put on top of the remaining stuff.</FONT></TD>
+                  <TD>&nbsp;</TD>
+                  <TD>&nbsp;</TD></TR>
+              <TR><TD></TD>
+                  <TD WIDTH=40></TD>
+                  <TD WIDTH=270></TD>
+                  <TD WIDTH=113></TD>
+                  <TD WIDTH=40></TD>
+                  <TD></TD></TR>
+</TABLE></CENTER></P>
+
+
+<H2>Examples</H2>
+
+<CENTER><FONT SIZE="-1">
+<TABLE border="0">
+  <TR VALIGN="bottom">
+    <TD ALIGN="center" width="30%"><A HREF="sample-flat.pdf"><IMG
+SRC="sample-flat.jpg" border=1></a></TD>
+    <TD ALIGN="center" width="30%"><A HREF="sample-presentation.pdf"><IMG SRC="sample-presentation.gif" border=1></a></TD>
+    <TD ALIGN="center" width="30%">&nbsp;</TD>
+  </TR VALIGN="top">
+    <TD ALIGN="center">Just a figure</TD>
+    <TD ALIGN="center">Overlay sample with beamer package. <A HREF="sample-presentation.tex">Click for
+the LaTeX document</A></TD>
+  </TR>
+</TABLE>
+</FONT></CENTER>
+
+</BODY>
+</HTML>
+

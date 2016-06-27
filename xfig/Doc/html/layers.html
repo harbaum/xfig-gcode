@@ -1,0 +1,98 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<HTML>
+<HEAD>
+   <META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+   <META NAME="GENERATOR" CONTENT="Mozilla/4.04 [en] (X11; I; SunOS 4.1.3_U1 sun4m) [Netscape]">
+   <TITLE>Layers (Depths) </TITLE>
+<LINK rev="made" href="mailto:BVSmith@lbl.gov">
+</HEAD>
+<BODY>
+<a href="contents.html"><img src="images/xfig-title.png"
+  alt="XFIG Users Manual" border=0></a>
+
+<HR>
+<H1>Layers (Depths)</H1>
+
+<H2>Overview</H2>
+<b>Xfig</b> uses <a href="attributes.html#depth"><i>depths</i></a> 
+(a simple form of layers) to determine the drawing order of overlapping objects.
+The depth is one of the attributes of an object, just as color is.
+If you have two or more overlapping objects and the order in which they
+are drawn is important you must give each a different depth value.
+<p>
+Depth 0 is the top of the drawing order, with increasing depths 
+being underneath objects with smaller depth.  The maximum depth is 999.
+
+
+<H2><a name="depth_panel">Depth Panel</a></H2>
+
+<IMG SRC="images/depth-panel.png" ALT="[Depth panel]" align="right" >
+While the depth feature has been a part of
+<b>xfig</b> for a long time, there is now a panel to the right of the canvas
+which allows the user to enable or disable editing and displaying 
+depth levels.
+This panel may be hidden or shown by selecting <i>Show depth manager</i> 
+from the <a href="main_menus.html#view-menu">View menu</a>.
+
+<p>
+Clicking on the checkbox area of a depth indicator will turn on or off
+the display and editing of objects at that depth.  
+By clicking on one checkbox and holding down the mouse button while
+dragging the mouse up or down over other depth checkboxes, multiple
+depths may be enabled or disabled at one time.
+
+<p>
+If you click on a checkbox that is <b><i>ON</i></b> and drag the mouse over
+other checkboxes, they will be turned <b><i>OFF</i></b> regardless
+of their initial state.  Conversely, 
+if you click on a checkbox that is <b><i>OFF</i></b> and drag the mouse over
+other checkboxes, they will be turned <b><i>ON</i></b>.
+
+<p>
+<img src="images/pict-info.png" alt="">
+When exporting or printing your figure, you can tell xfig to export
+or print the whole figure or just the active layers.
+
+<h3>Controls</h3>
+
+<dl>
+<dt><img src="images/redball.png" align=bottom alt="-">
+All On
+<dd>
+Pressing this button will turn <b>on</b> all depths.
+
+<dt><img src="images/redball.png" align=bottom alt="-">
+All Off
+<dd>
+Pressing this button will turn <b>off</b> all depths.
+
+<dt><img src="images/redball.png" align=bottom alt="-">
+Toggle
+<dd>
+Pressing this button will toggle all depths, i.e. turn <b>on</b> all depths
+that are <b>off</b> and turn <b>off</b> all depths that are <b>on</b>.
+
+<dt>
+<img src="images/redball.png" align=bottom alt="-">
+Gray
+<dd>
+Turning on this checkbox will make <b>xfig</b> display layers that 
+that are <b>off</b> in gray.
+
+<dt>
+<img src="images/redball.png" align=bottom alt="-">
+Blank
+<dd>
+Turning on this checkbox will make <b>xfig</b> not display layers that 
+that are <b>off</b>.
+
+</dl>
+
+<HR>
+
+[ <a href="contents.html">Contents</a> |
+ <a href="introduction.html">Introduction</a> |
+ <a href="authors.html">Credits</a> ]
+
+</BODY>
+</HTML>

@@ -1,0 +1,12 @@
+From: Roland Rosenfeld <roland@debian.org>
+Subject: Fix spelling errors in binary.
+
+--- a/f_load.c
++++ b/f_load.c
+@@ -373,5 +373,5 @@
+ 	/* Format error; relevant error message is already delivered */
+ 	;
+     else
+-	file_msg("File \"%s\" is not accessable; %s.", file, strerror(err));
++	file_msg("File \"%s\" is not accessible; %s.", file, strerror(err));
+ }

@@ -1,0 +1,16 @@
+#!/bin/csh
+# This will the tar files of each of the Libraries
+# and one of all of the libraries together.
+
+foreach file ( * )
+   if (! -d $file ) continue
+   echo Making compressed tar file for $file
+   tar cf $file.tar $file
+   gzip $file.tar
+end
+
+echo Making compressed tar file all_libraries.tar 
+tar cf all_libraries.tar [A-Z]*
+gzip all_libraries.tar
+
+exit 0

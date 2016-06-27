@@ -1,0 +1,18 @@
+#FIG 3.2
+Portrait
+Center
+Metric
+Letter  
+100.00
+Single
+-2
+# Quilisma (A note that slightly lengthens the previous note
+# and is shortened by that amount
+# (best used with metric ruler units)
+# by W. Chimiak A.D. 2005
+1200 2
+6 227 213 315 315
+2 1 0 1 0 0 50 -1 20 0.000 2 0 -1 0 0 8
+	 227 309 241 213 251 310 266 220 274 315 290 218
+	 299 312 315 218
+-6

@@ -1,0 +1,35 @@
+/*
+ * FIG : Facility for Interactive Generation of figures
+ * Copyright (c) 1985 by Supoj Sutanthavibul
+ * Parts Copyright (c) 1994 by Brian V. Smith
+ * Parts Copyright (c) 1991 by Paul King
+ *
+ * The X Consortium, and any party obtaining a copy of these files from
+ * the X Consortium, directly or indirectly, is granted, free of charge, a
+ * full and unrestricted irrevocable, world-wide, paid up, royalty-free,
+ * nonexclusive right and license to deal in this software and
+ * documentation files (the "Software"), including without limitation the
+ * rights to use, copy, modify, merge, publish, distribute, sublicense,
+ * and/or sell copies of the Software, and to permit persons who receive
+ * copies from any such party to do so, with the only requirement being
+ * that this copyright notice remain intact.  This license includes without
+ * limitation a license to do the foregoing actions under any patents of
+ * the party supplying this software to the X Consortium.
+ */
+
+The only difference from version 3.0 to version 3.1 is that the position
+of the "magnet" has been shifted by 14 fig units.
+In the 2.1 and older versions of xfig the grid was in multiples of 5 fig
+units, but they were on intervals 4, 9, 14, 19, etc.
+When version 3.0 was created, coordinates were simply multiplied by the
+ratio of the resolutions (1200/80 = 15) so values like 4 became 60 instead
+of 74 ((4+1)*15 - 1).
+
+This means that figures converted from 2.1 and older files are offset by
+14 fig units but new objects entered with version 3.0 are correct.
+
+In version 3.1 the magnet grid is at intervals 0, 75, 150, etc instead of 
+-1, 74, 149, etc.
+Figures from 2.1 and older are correctly converted now and a warning is popped
+up when you read in a version 3.0 file that says you may have to offset the
+figure when you load it, using the x and y offsets in the file panel.

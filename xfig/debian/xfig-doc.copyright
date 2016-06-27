@@ -1,0 +1,43 @@
+This Debian package was maintained by many different Debian maintainers:
+joost witteveen  <joostje@debian.org>, D.J. Gregor <dgregor@gregor.com>,
+Enrique Zanardi <ezanardi@molec1.dfis.ull.es>, Edward Betts 
+<edward@debian.org> and actually by Roland Rosenfeld <roland@debian.org>.
+
+Upstream Maintainer:  Brian V. Smith <bvsmith@lbl.gov>
+
+The upstream source package is available at
+http://www.xfig.org/xfigdist/xfig.3.2.4.full.tar.gz
+ftp://epb.lbl.gov/xfig/alpha/xfig.3.2.5-alpha5.full.tar.gz
+
+Copyright:
+
+ FIG : Facility for Interactive Generation of figures
+ Copyright (c) 1985-1988 by Supoj Sutanthavibul
+ Parts Copyright (c) 1989-2002 by Brian V. Smith
+ Parts Copyright (c) 1991 by Paul King
+
+ Any party obtaining a copy of these files is granted, free of charge, a
+ full and unrestricted irrevocable, world-wide, paid up, royalty-free,
+ nonexclusive right and license to deal in this software and documentation 
+ files (the "Software"), including without limitation the rights to use, 
+ copy, modify, merge, publish distribute, sublicense and/or sell copies of
+ the Software, and to permit persons who receive copies from any such 
+ party to do so, with the only requirement being that the above copyright 
+ and this permission notice remain intact.
+
+
+The HTML documentation is under a different copyright:
+
+ Copyright (c) 1999-2002 by T.Sato and Brian V. Smith 
+
+ Permission to use, copy, and distribute this documentation for any
+ purpose and without fee is hereby granted. Modification of this
+ documentation is also granted as long as this copyright notice remain
+ intact and name of the person who made the modification is explicitly
+ written in the documentation. However, contact to T.Sato and/or Brian
+ V. Smith is strongly recommended if you want to distribute modified
+ version of this documentation.
+
+ You may also put these documentation files on your `public' WWW
+ server. In such case, please send its URL to Brian V. Smith or T.Sato
+ so that we can hold the list of such WWW servers.

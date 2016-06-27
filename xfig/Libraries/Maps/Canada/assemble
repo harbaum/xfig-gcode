@@ -1,0 +1,18 @@
+#!/bin/csh
+if ( -e _all.fig ) chmod 664 _all.fig
+# get the header from one of the provinces
+head -8 alberta.fig > _all.fig
+# a comment
+echo "# Canada" >> _all.fig
+# add the resolution
+echo 1200 2 >> _all.fig
+echo adding... 
+foreach file ( [a-z]*.fig )
+  if ( $file == "canada.fig" ) continue
+  echo -n " $file "
+  # get provinces name from main comment on line 9
+  tail +9 $file | head -1 >> _all.fig
+  # then the provinces Fig objects
+  tail +11 $file >> _all.fig
+end
+echo ""

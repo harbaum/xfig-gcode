@@ -1,0 +1,21 @@
+Author: Vladislav Zavjalov <slazav@altlinux.org>
+Date: Sun Nov 10 22:25:57 2013 +0200
+Origin: http://git.altlinux.org/people/slazav/packages/?p=xfig.git;a=patch;h=4d87e609d93da0a247e65b27026de1145308d89b
+Subject: fix error with filled objects
+ Fix default origin (100000,100000) -> (0,0) for filled objects (See
+ w_drawprim.c:1206).
+ New intel video driver shows filled objects wrongly if origin is
+ large.
+
+--- a/w_drawprim.c
++++ b/w_drawprim.c
+@@ -1205,6 +1205,9 @@
+ 		ymin = min2(ymin,points[i].y);
+ 	    }
+ 	}
++	else {
++		xmin = ymin = 0;
++	}
+ 	set_fill_gc(fill_style, op, pen_color, fill_color, xmin, ymin);
+ 	if (line_style == PANEL_LINE) {
+ 	    XFillPolygon(tool_d, w, fillgc, p, npoints,

@@ -1,0 +1,1197 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<html>
+<head>
+<title>Drawing Objects</title>
+</head>
+
+<body>
+<a href="contents.html"><img src="images/xfig-title.png"
+  alt="XFIG Users Manual" border=0></a>
+
+<hr>
+
+<h1>Drawing Objects</h1>
+
+Buttons to create new objects are in the drawing mode panel,
+and users can create new objects using operations on the canvas
+after selecting a drawing mode.
+<p>
+<dl>
+
+<dt><a href="#circle"><img src="images/ellipse-rad-button.png"
+    align="middle" alt="[Ellipse by rad]">
+<img src="images/ellipse-diam-button.png" align="middle" alt="[Ellipse by diam]">
+  Circles and Ellipses</a>
+
+<dt><a href="#closed-approx-spline"><img src="images/closed-approx-spline-button.png"
+    align="middle" alt="[Closed Approx Spline]"></a>
+<a href="#approx-spline"><img src="images/open-approx-spline-button.png"
+    align="middle" alt="[Open Approx Spline]"></a>
+<a href="#closed-interp-spline"><img src="images/closed-interp-spline-button.png"
+    align="middle" alt="[Closed Interp Spline]"></a>
+<a href="#interp-spline"><img src="images/open-interp-spline-button.png"
+    align="middle" alt="[Open Approx Spline]"></a>
+  <a href="#spline">Spline Curves</a>
+
+<dt><a href="#polyline"><img src="images/polyline-button.png"
+    align="middle" alt="[Polyline]">
+  Polylines and Dimension lines</a>
+
+<dt><a href="#polygon"><img src="images/polygon-button.png"
+    align="middle" alt="[Polygon]">
+  Polygons</a>
+
+<dt><a href="#regular-polygon"><img src="images/regular-polygon-button.png"
+    align="middle" alt="[Regular Polygon]">
+  Regular Polygons</a>
+
+<dt><a href="#box"><img src="images/box-button.png"
+    align="middle" alt="[Box]">
+  Rectangular Boxes</a>
+
+<dt><a href="#arc-box"><img src="images/arc-box-button.png"
+    align="middle" alt="[Arc Box]">
+  Arc Boxes (Rectangular Boxes with rounded corners)</a>
+
+<dt><a href="#arc"><img src="images/arc-button.png"
+    align="middle" alt="[Arc]">
+  Arcs</a>
+
+<dt><a href="#picture"><img src="images/pict-button.png"
+    align="middle" alt="[Picture]">
+  Picture Objects (Imported image files)</a>
+
+<dt><a href="#text"><img src="images/text-button.png"
+    align="middle" alt="[Text]">
+  Texts</a>
+
+<dt><a href="#library"><img src="images/library-button.png"
+    align="middle" alt="[Object Libraries]">
+  Object Libraries</a>
+</dl>
+
+<p>
+The drawing mode is selected by clicking on the corresponding button.
+The image on the button will turn negative, indicating that it is selected.
+Settings in the <a href="attributes.html">Attribute Panel</a> will
+be applied to newly created objects,
+so users should set those attributes before creating new objects.
+<p>
+<img src="images/pict-info.png" alt="">
+For overlapping objects, the depth attribute is important for <b>xfig</b> to 
+know the drawing order.  Please see <a href="layers.html">Layers (Depths)</a>
+for details.
+<p>
+Predefined styles may be created by the user by using the 
+<a href="main_menus.html#manage-styles">style manager</a>.
+<p>
+It is also possible to modify the attributes of an object
+using <a href="editing.html#edit">EDIT</a> or
+<a href="editing.html#update">UPDATE</a> 
+after the object has been created.
+<p>
+The function of each mouse button will change
+depending on the selected drawing mode or situation.
+This is displayed in the
+<a href="miscellaneous.html#mouse-indicator">Mouse Function Indicator</a>.
+Mouse button 1 is mainly used for creating objects,
+but mouse button 2 is also used in some cases.
+In most cases, mouse button 3 (`cancel') is used
+to cancel an operation.
+<p>
+By default, there is a point positioning grid (snap-to grid) which forces
+the points of the object you draw to a discrete grid.  This grid may be
+turned off or set to various sizes.  
+See <a href="attributes.html#point-position">POINT POSITION</a>
+
+<dl>
+
+<hr>
+
+<dt><img src="images/ellipse-rad-button.png" alt="">
+  <img src="images/ellipse-diam-button.png" alt="">
+  <a name="circle">(CIRCLE AND ELLIPSE)</a>
+<dd>Create circles and ellipses.
+To draw a circle, mouse button 1 is used. For an ellipse, mouse button 2 is used.
+
+<h2>Circles</h2>
+<a name="circle"></a>
+Users can specify the center point and either the radius
+or diameter of the circle.
+<p>
+In the former mode,
+users should click mouse button 1 (`Circle center')
+at the center point of the circle first,
+and then click mouse button 1 (`set radius') again
+at any point on the circle.
+<p>
+In the diameter mode,
+users should click mouse button 1 (`Circle diameter')
+at any point on the circle,
+and then click mouse button 1 (`set radius') again
+at the opposite point on the circle.
+<p>
+<blockquote>
+  <img src="images/circle-example.png" alt="[Circle Example]">
+</blockquote>
+<p>
+If area fill is specified by
+<a href="attributes.html#fill-style">FILL STYLE</a>,
+the inside of the circle will be filled according to the setting.
+If you want to create tiny filled circle,
+you can also use <a href="#polyline">POLYLINE</a>.
+<p>
+When creating a circle, the size (radius or diameter) of the circle
+is displayed on the
+<a href="introduction.html#message-panel">Message Panel</a> dynamically.
+
+<p>
+<dl>
+<dt><b>Related Attributes:</b>
+<dd><a href="attributes.html#depth">depth</a>,
+<a href="attributes.html#pen-color">pen color</a>,
+<a href="attributes.html#fill-color">fill color</a>,
+<a href="attributes.html#fill-style">fill style</a>,
+<a href="attributes.html#line-width">line width</a>,
+<a href="attributes.html#line-style">line style</a>
+</dl>
+
+<hr>
+
+<dt>
+<dd>
+<h2>Ellipses</h2>
+
+As in <a href="#circle">CIRCLE</a>,
+users can specify the center point and radius
+or diameter of the ellipse.
+But because it is necessary to specify vertical and horizontal length,
+the operation is somewhat different from CIRCLE.
+<p>
+In the former mode,
+users should click mouse button 2 (`Ellipse center')
+at the center point of the ellipse first,
+and then click mouse button 2 (`first corner') again
+at any corner point of the imaginary rectangle which encloses the ellipse.
+<p>
+In the diameter mode,
+users should click mouse button 2 (`Ellipse corner')
+at any corner point of the imaginary rectangle which encloses the ellipse,
+and then click mouse button 2 (`final corner') again
+at the opposite corner point of the rectangle.
+<p>
+<blockquote>
+  <img src="images/ellipse-example.png" alt="[Ellipse Example]">
+</blockquote>
+<p>
+If <a href="attributes.html#text-angle">TEXT/ELLIPSE ANGLE</a> 
+is set to non-zero, the ellipse will be rotated by the angle, positive
+being counter-clockwise.
+
+<p>
+<dl>
+<dt><b>Related Attributes:</b>
+<dd><a href="attributes.html#depth">depth</a>,
+<a href="attributes.html#pen-color">pen color</a>,
+<a href="attributes.html#fill-color">fill color</a>,
+<a href="attributes.html#fill-style">fill style</a>,
+<a href="attributes.html#line-width">line width</a>,
+<a href="attributes.html#line-style">line style</a>,
+<a href="attributes.html#text-angle">text/ellipse angle</a>
+</dl>
+
+<hr>
+
+<dt><img src="images/closed-approx-spline-button.png" alt="">
+  <a name="closed-approx-spline">(CLOSED APPROXIMATED SPLINE)</a>
+<dd>Create a closed approximated spline curve
+(smooth closed curve which approximates the specified points).
+The operation is similar to <a href="#polygon">POLYGON</a> 
+or <a href="#closed-interp-spline">CLOSED INTERPORATED SPLINE</a>.
+<p>
+To make a freehand line for any SPLINE, POLYGON, or POLYLINE,
+click mouse button 2 (`freehand') at the first point,
+then drag the mouse to make the line.
+As you move the mouse points will be added to the line.
+Click mouse button 2 (`final point') again to finish.
+<p>
+See also <a href="#spline">About Spline Curves</a>.
+
+<p>
+<dl>
+<dt><b>Related Attributes:</b>
+<dd><a href="attributes.html#depth">depth</a>,
+<a href="attributes.html#pen-color">pen color</a>,
+<a href="attributes.html#fill-color">fill color</a>,
+<a href="attributes.html#fill-style">fill style</a>,
+<a href="attributes.html#line-width">line width</a>,
+<a href="attributes.html#line-style">line style</a>
+</dl>
+
+<hr>
+<dt><img src="images/open-approx-spline-button.png" alt="">
+  <a name="approx-spline">(APPROXIMATED SPLINE)</a>
+<dd>Create an open approximated spline curve
+(smooth curve which passes through two end-points
+and approximates the specified points).
+The operation is similar to <a href="#polygon">POLYLINE</a> 
+or <a href="#interp-spline">INTERPORATED SPLINE</a>.
+<p>
+See also <a href="#spline">About Spline Curves</a>.
+
+<p>
+<dl>
+<dt><b>Related Attributes:</b>
+<dd><a href="attributes.html#depth">depth</a>,
+<a href="attributes.html#pen-color">pen color</a>,
+<a href="attributes.html#fill-color">fill color</a>,
+<a href="attributes.html#fill-style">fill style</a>,
+<a href="attributes.html#line-width">line width</a>,
+<a href="attributes.html#line-style">line style</a>,
+<a href="attributes.html#cap-style">cap style</a>,
+<a href="attributes.html#arrow-mode">arrow mode</a>,
+<a href="attributes.html#arrow-type">arrow type</a>
+</dl>
+
+<hr>
+<dt><img src="images/closed-interp-spline-button.png" alt="">
+  <a name="closed-interp-spline">(CLOSED INTERPOLATED SPLINE)</a>
+<dd>Create a closed interpolated spline curve
+(smooth closed curve which passes through the specified points).
+The operation is similar to <a href="#polygon">POLYGON</a> 
+or <a href="#closed-approx-spline">CLOSED APPROXIMATED SPLINE</a>.
+<p>
+See also <a href="#spline">About Spline Curves</a>.
+
+<p>
+<dl>
+<dt><b>Related Attributes:</b>
+<dd><a href="attributes.html#depth">depth</a>,
+<a href="attributes.html#pen-color">pen color</a>,
+<a href="attributes.html#fill-color">fill color</a>,
+<a href="attributes.html#fill-style">fill style</a>,
+<a href="attributes.html#line-width">line width</a>,
+<a href="attributes.html#line-style">line style</a>
+</dl>
+
+<hr>
+<dt><img src="images/open-interp-spline-button.png" alt="">
+  <a name="interp-spline">(INTERPOLATED SPLINE)</a>
+<dd>Create an open interpolated spline curve
+(smooth curve which passes through the specified points).
+The operation is similar to <a href="#polygon">POLYLINE</a> 
+or <a href="#approx-spline">APPROXIMATED SPLINE</a>.
+<p>
+See also <a href="#spline">About Spline Curves</a>.
+
+<p>
+<dl>
+<dt><b>Related Attributes:</b>
+<dd><a href="attributes.html#depth">depth</a>,
+<a href="attributes.html#pen-color">pen color</a>,
+<a href="attributes.html#fill-color">fill color</a>,
+<a href="attributes.html#fill-style">fill style</a>,
+<a href="attributes.html#line-width">line width</a>,
+<a href="attributes.html#line-style">line style</a>,
+<a href="attributes.html#cap-style">cap style</a>,
+<a href="attributes.html#arrow-mode">arrow mode</a>,
+<a href="attributes.html#arrow-type">arrow type</a>
+</dl>
+
+<hr>
+<dt><img src="images/polyline-button.png" alt="">
+  <a name="polyline">(POLYLINES and Dimension Lines)</a>
+<dd><h3>Polylines</h3>
+Create polylines (line segments connecting a sequence of points).
+A simple line segment or point may also be created with this function.
+<p>
+To create a polyline or line segment,
+specify the first point by clicking mouse button 1 (`first point') at the point,
+and then specify intermediate points
+by clicking mouse button 1 (`next point') repeatedly.
+Finally, click mouse button 2 (`final point') at the final point.
+<p>
+To make a freehand line for any SPLINE, POLYGON, or POLYLINE,
+click mouse button 2 (`freehand') at the first point,
+then drag the mouse to make the line.
+As you move the mouse points will be added to the line.
+Click mouse button 2 (`final point') again to finish.
+<p>
+To enter a single point click mouse button 3
+(`single point').
+The shape of the point will be a filled circle
+if <a href="attributes.html#cap-style">CAP STYLE</a> is <i>ROUND</i>,
+or a filled square otherwise.
+The size of the point will be equal to the 
+<a href="attributes.html#line-width">line width</a>.
+<p>
+If area fill is specified by
+<a href="attributes.html#fill-style">FILL STYLE</a>,
+the region enclosed by the polyline
+(first point and last point are considered connected)
+will be filled according to the setting.
+When filling a complex region, the
+`even-odd rule' will be used to decide the area to be filled.
+<p>
+<blockquote>
+  <img src="images/polyline-example.png" alt="[Polyline Example]">
+</blockquote>
+<p>
+<img src="images/pict-info.png" alt="">
+For all objects, clicking mouse button 3 (`cancel') will cancel all input.
+For objects that may have more than two points,
+clicking mouse button 1 while pressing the SHIFT key (`del point')
+will cancel entered points one by one.
+<p>
+<img src="images/pict-info.png" alt="">
+When entering lines, splines or polygons, the number of points entered and the
+distance from last point (length, dx and dy) 
+is displayed on the
+<a href="introduction.html#message-panel">Message Panel</a> dynamically.
+<p>
+<img src="images/pict-info.png" alt="">
+For open-ended objects,
+if <a href="attributes.html#arrow-mode">ARROW MODE</a> is not <i>None</i>,
+an arrow head will be added to one or both end-points.
+<p>
+<img src="images/pict-info.png" alt="">
+If <i>Show line lengths</i> is set ON 
+(see <a href="global_settings.html"><i>Global Settings</i> panel</a> 
+and <a href="main_menus.html#view-menu">View menu</a>),
+more information about the lengths of lines being drawn is shown.  This is true
+for most <b>Fig</b> objects being drawn.
+
+<p>
+<dl>
+<dt><b>Related Attributes:</b>
+<dd><a href="attributes.html#depth">depth</a>,
+<a href="attributes.html#pen-color">pen color</a>,
+<a href="attributes.html#fill-color">fill color</a>,
+<a href="attributes.html#fill-style">fill style</a>,
+<a href="attributes.html#line-width">line width</a>,
+<a href="attributes.html#line-style">line style</a>,
+<a href="attributes.html#join-style">join style</a>,
+<a href="attributes.html#cap-style">cap style</a>,
+<a href="attributes.html#arrow-mode">arrow mode</a>,
+<a href="attributes.html#arrow-type">arrow type</a>
+</dl>
+
+<dd><h3>Dimension Lines</h3>
+Dimension lines are lines that show length and have one or more of the following:
+<ul>
+<li>Text surrounded by a box showing the length of the line
+<li>End &quot;ticks&quot; perpendicular to the line
+<li>Arrowheads at either or both ends of the line
+</ul>
+To create a dimension line, hold down the <b>Shift</b> key and press
+mouse button 1 on the first endpoint of the line and again at the
+other endpoint.  <b>xfig</b> will automatically calculate the length
+of the line and label it <i>in the units currently selected for the rulers</i>.
+<p>
+By default, end &quot;ticks&quot;, arrowheads and a box around the text are 
+automatically included in the dimension line, but these are controlled
+in the attributes listed below.
+Here are several examples of dimension lines:
+<img src="images/dimension-lines.png" alt="">
+
+<dl>
+<dt><b>Related Attributes:</b>
+<dd><a href="attributes.html#dimension-lines">dimension line settings</a>
+</dl>
+
+<hr>
+<dt><img src="images/polygon-button.png" alt="">
+  <a name="polygon">(POLYGON)</a>
+<dd>Create polygons.
+This is identical to <a href="#polyline">POLYLINE</a> 
+except that a line is drawn between the first point and the last point.
+
+<p>
+<dl>
+<dt><b>Related Attributes:</b>
+<dd><a href="attributes.html#depth">depth</a>,
+<a href="attributes.html#pen-color">pen color</a>,
+<a href="attributes.html#fill-color">fill color</a>,
+<a href="attributes.html#fill-style">fill style</a>,
+<a href="attributes.html#line-width">line width</a>,
+<a href="attributes.html#line-style">line style</a>,
+<a href="attributes.html#join-style">join style</a>
+</dl>
+
+<hr>
+<dt><img src="images/regular-polygon-button.png" alt="">
+  <a name="regular-polygon">(REGULAR POLYGON)</a>
+<dd>Create regular polygons.
+<p>
+Click mouse button 1 (`center point') at the center of the polygon,
+and then click mouse button 1 (`final point') again
+at the any vertex of the regular polygon.
+The number of sides is specified by
+<a href="attributes.html#num-sides">NUM SIDES</a> in advance.
+<p>
+This will create a simple <a href="#polygon">POLYGON</a> object,
+and each point of the object may be
+<a href="editing.html#move-point">moved</a> 
+independently after it is created
+(and result of the edit will no longer be a regular polygon).
+
+<p>
+<dl>
+<dt><b>Related Attributes:</b>
+<dd><a href="attributes.html#depth">depth</a>,
+<a href="attributes.html#pen-color">pen color</a>,
+<a href="attributes.html#fill-color">fill color</a>,
+<a href="attributes.html#fill-style">fill style</a>,
+<a href="attributes.html#line-width">line width</a>,
+<a href="attributes.html#line-style">line style</a>,
+<a href="attributes.html#join-style">join style</a>,
+<a href="attributes.html#num-sides">num sides</a>
+</dl>
+
+<hr>
+<dt><img src="images/box-button.png" alt="">
+  <a name="box">(BOX)</a>
+<dd>Create rectangular boxes.
+<p>
+Click mouse button 1 (`corner point') at any corner of the rectangular box,
+and click mouse button 1 (`final point') again at the opposite corner.
+<p>
+If area fill is specified by
+<a href="attributes.html#fill-style">FILL STYLE</a>,
+the box will be filled according to the setting.
+<p>
+A box created with this function
+can't be rotated by an arbitrary angle, only by multiples of 90 degrees.
+To create an arbitrarily rotatable rectangular box,
+you should use <a href="#polygon">POLYGON</a> 
+(it may be easier to create non-rotated rectangle first
+and then rotate it by <a href="editing.html#rotate">ROTATE</a>).
+You may also use <a href="#regular-polygon">REGULAR POLYGON</a> 
+to create a rotated square.
+
+<p>
+<dl>
+<dt><b>Related Attributes:</b>
+<dd><a href="attributes.html#depth">depth</a>,
+<a href="attributes.html#pen-color">pen color</a>,
+<a href="attributes.html#fill-color">fill color</a>,
+<a href="attributes.html#fill-style">fill style</a>,
+<a href="attributes.html#line-width">line width</a>,
+<a href="attributes.html#line-style">line style</a>,
+<a href="attributes.html#join-style">join style</a>
+</dl>
+
+<hr>
+<dt><img src="images/arc-box-button.png" alt="">
+  <a name="arc-box">(ARC-BOX)</a>
+<dd>Create rectangular boxes with rounded corners.
+This is identical to <a href="#box">BOX</a> 
+except that the corners of the box will be arcs with the radius
+specified by <a href="attributes.html#box-curve">BOX CURVE</a>.
+<p>
+It is also possible to convert objects between
+<a href="#box">BOX</a> and <a href="#arc-box">ARC-BOX</a> 
+with <a href="editing.html#spline-line">BOX &lt;-&gt; ARC-BOX</a>.
+
+<p>
+<dl>
+<dt><b>Related Attributes:</b>
+<dd><a href="attributes.html#depth">depth</a>,
+<a href="attributes.html#pen-color">pen color</a>,
+<a href="attributes.html#fill-color">fill color</a>,
+<a href="attributes.html#fill-style">fill style</a>,
+<a href="attributes.html#line-width">line width</a>,
+<a href="attributes.html#line-style">line style</a>,
+<a href="attributes.html#join-style">join style</a>,
+<a href="attributes.html#box-curve">box curve</a>
+</dl>
+
+<hr>
+<dt><img src="images/arc-button.png" alt="">
+  <a name="arc">(ARC)</a>
+<dd>Create arcs.
+<p>
+There are two ways to draw arcs in <b>xfig</b>:
+<p>
+<dl>
+<dt><img src="images/redballdot.png" alt="-">The "Original" Way
+<dd>
+<ol>
+<li>Click mouse button 1 (`first point') at the one end-point of the arc
+<li>Click mouse button 1 (`mid point') at any intermediate point on the arc
+<li>Click mouse button 1 (`final point') again at the end-point
+</ol>
+<dt><img src="images/redballdot.png" alt="-">The "New and Improved" Way 
+<dd>
+<ol>
+<li>Click mouse button 2 (`center point') at the center of the arc radius
+<li>Click mouse button 1 (`first point') to define one end-point of the arc
+<li>Click mouse button 1 (`mid angle') again to define direction of the arc
+<li>Click mouse button 1 (`final angle') a final time to define the ending <b>angle</b> of the arc
+</ol>
+
+<dt>
+<p>
+There are two types of arcs, open-arc and pie-wedge,
+which may be selected by <a href="attributes.html#arc-type">ARC TYPE</a>.
+<p>
+  <img src="images/arc-examples.png" alt="[Arc Example]">
+</dl>
+
+<p>
+<dl>
+<dt><b>Related Attributes:</b>
+<dd><a href="attributes.html#depth">depth</a>,
+<a href="attributes.html#pen-color">pen color</a>,
+<a href="attributes.html#fill-color">fill color</a>,
+<a href="attributes.html#fill-style">fill style</a>,
+<a href="attributes.html#line-width">line width</a>,
+<a href="attributes.html#line-style">line style</a>,
+<a href="attributes.html#cap-style">cap style</a>*,
+<a href="attributes.html#arrow-mode">arrow mode</a>*,
+<a href="attributes.html#arrow-type">arrow type</a>*,
+<a href="attributes.html#arc-type">arc type</a>
+<br>
+(* These attributes are only effective for OPEN ARC)
+</dl>
+
+<hr>
+<dt><img src="images/pict-button.png" alt="">
+  <a name="picture">(IMPORTING PICTURE OBJECTS)</a>
+<dd>Import image files and create PICTURE objects.
+<p>
+Click mouse button 1 (`corner point') at the corner
+where the upper-left corner of the imported image should be placed,
+then click mouse button 1 (`final point') again at the opposite corner.
+The imported image will be rotated automatically according to the
+order of the corners entered, e.g. if you start with the 
+lower-right and end with the upper-left the image will be rotated 180 degrees.  
+Similarly, starting with the lower-left and ending with the 
+upper-right will rotate the image 90 degrees counter-clockwise,
+and starting with the upper-right and ending
+with the lower-left will rotate the image 90 degrees clockwise.
+It is not necessary to try to set the exact size here
+because it is possible to modify size or height/width ratio of the image later.
+<br>
+After this, the <a href="editing.html#edit-pict-panel">Edit Panel</a> 
+will open, where you enter the file name of the image file.
+It is also possible to capture an image from the screen using the
+<a href="editing.html#screen-capture"><i>Screen Capture</i> button</a>.
+<p>
+It is possible to read image files in the following image formats:
+<dl>
+<dd><img src="images/blueballdot.png" align=bottom alt="-">
+<A HREF="http://www.adobe.com/prodindex/postscript/overview.html#whatpostscript">EPSF (Encapsulated PostScript)</a>
+<br>
+<dd><img src="images/blueballdot.png" align=bottom alt="-">
+<A HREF="http://www.dcs.ed.ac.uk/%7Emxr/gfx/2d-hi.html">GIF</A>
+	with transparency
+	<br>
+	&nbsp;&nbsp;&nbsp;&nbsp; 
+	- See also <a href="authors.html#gif-patent">Important Note about GIF</a>
+<br>
+<dd><img src="images/blueballdot.png" align=bottom alt="-">
+<A HREF="http://www.dcs.ed.ac.uk/%7Emxr/gfx/2d-hi.html">JPEG</A> (JFIF)
+<br>
+<dd><img src="images/blueballdot.png" align=bottom alt="-">
+<A HREF="http://www.dcs.ed.ac.uk/%7Emxr/gfx/2d-hi.html">PCX</a> (PC Paintbrush)
+<br>
+<dd><img src="images/blueballdot.png" align=bottom alt="-">
+<A HREF="http://www.dcs.ed.ac.uk/%7Emxr/gfx/2d-hi.html">PNG</a> (Portable Network Graphics)
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp; with alpha transparency blended with xfig's background
+<br>
+<dd><img src="images/blueballdot.png" align=bottom alt="-">
+<A HREF="http://www.dcs.ed.ac.uk/%7Emxr/gfx/2d-hi.html">PPM</a> (Portable Pixmap)
+<br>
+<dd><img src="images/blueballdot.png" align=bottom alt="-">
+<A HREF="http://www.dcs.ed.ac.uk/%7Emxr/gfx/2d-hi.html">TIFF</a> (Tagged Image File Format)
+<br>
+<dd><img src="images/blueballdot.png" align=bottom alt="-">
+<A HREF="http://www.dcs.ed.ac.uk/%7Emxr/gfx/2d-hi.html">XBM</a> (X11 bitmap)
+<br>
+<dd><img src="images/blueballdot.png" align=bottom alt="-">
+<A HREF="http://www.dcs.ed.ac.uk/%7Emxr/gfx/2d-hi.html">XPM</a> (X11 pixmap)
+</dl>
+<p>
+Although it is possible to 
+<a href="editing.html#move">move</a>,
+<a href="editing.html#scale">scale</a> and
+<a href="editing.html#rotate">rotate</a> 
+an imported image,
+it is not possible to edit the image itself using <b>xfig</b>.
+To edit images, use another application such as 
+<a href="installation.html#xpaint"><b>xpaint</b></a> 
+or <a href="installation.html#gimp"><b>GIMP</b></a>.
+The
+<a href="editing.html#edit-image"><i>Edit Image</i> button</a> 
+on the <a href="editing.html#edit-pict-panel">Edit panel</a> 
+will start an external image editor (default is <tt>xv</tt>
+and it may be changed to your favorite image editor, e.g. <tt>xpaint</tt> by
+changing the <a href="options.html#resources"><tt>Fig.image_editor</tt> resource</a>
+or starting <b>xfig</b> with the <tt>-image_editor</tt> option followed
+by the name of your image editor).
+<p>
+If you want edit figures in formats such as PostScript or HP-GL using 
+<b>xfig</b>, try <a href="installation.html#pstoedit"><b>pstoedit</b></a> 
+or <a href="installation.html#hp2xx"><b>hp2xx</b></a> to first
+convert them to <b>Fig</b> files then 
+<a href="main_menus.html#file-menu">Load or Merge</a> them into <b>xfig</b>.
+<p>
+To import EPSF files, <b>xfig</b> invokes
+<a href="installation.html#ghostscript"><b>GhostScript</b></a> 
+to render the image.
+<b>GhostScript</b> must be compiled with `pcx256' and `pbmraw' drivers.
+The `pcx256' driver will used to generate color images,
+and `pbmraw' driver will used to generate monochrome images (used when
+<b>xfig</b> is running on a monochrome X server or with the <tt>-mono</tt> option).
+<p>
+JPEG and XPM support may be included or excluded
+depending on the configuration when 
+<a href="installation.html">compiling <b>xfig</b></a>.
+<p>
+<b>xfig</b> can also read files compressed with <b>compress</b> (<tt>.Z</tt> suffix)
+or <a href="installation.html#gzip"><b>gzip</b></a> (<tt>.z</tt> or <tt>.gz</tt> suffix).
+To do this, the <b>uncompress</b> and
+<a href="installation.html#gzip"><b>gunzip</b></a> command
+must be available for <b>xfig</b> to invoke them.
+<p>
+See also <a href="editing.html#edit-pict-panel">Edit Panel</a> 
+about PICTURE objects.
+
+<p>
+<dl>
+<dt><b>Related Attributes:</b>
+<dd><a href="attributes.html#depth">depth</a>,
+<a href="attributes.html#pen-color">pen color</a> (only for XBM images)
+</dl>
+
+<hr>
+<dt><img src="images/text-button.png" alt="">
+  <a name="text">(TEXT)</a>
+<dd>Create text strings.
+<p>
+Click mouse button 1 (`posn cursor') at the desired position on the canvas
+to specify the position where the text should be placed,
+then enter text from the keyboard, or to paste text already selected from
+another application (the <i>PRIMARY cut buffer</i>),
+press the shift key and mouse button 2, 
+or F18 (the `Paste' key on Sun Workstations), or F20.
+Selecting <i>Paste Text</i> from the 
+<a href="main_menus.html#edit-menu"><i>Edit</i> menu</a> 
+will also paste text from the <i>PRIMARY cut buffer</i>.
+
+<p>
+It is also possible to edit existing text by
+clicking mouse button 1 (`posn cursor') at any point on the existing text.
+See <a href="#text_editing">Character Editing</a> for editing facilities.
+<p>
+If <a href="attributes.html#text-angle">TEXT/ELLIPSE ANGLE</a> 
+is set to non-zero, the text will rotated by the angle, positive being 
+counter-clockwise.
+<p>
+It is possible to enter Latin-1 glyphs 
+such as `<img src="images/a-umlaut.png" alt="a umlaut">' or
+`<img src="images/c-cedilla.png" alt="c cedilla" align=top>' 
+(Compose characters) using the COMPOSE (META) key.
+See <a href="#compose-char">Latin-1 Characters</a> about this.  These tables
+also show the keyboard mapping for glyphs from the Symbol font.
+<p>
+<img src="images/pict-i18n.png" alt="[I18N]"> 
+In <a href="i18n.html">international-<b>xfig</b></a>, it is possible to 
+<a href="i18n.html#input-japanese">enter local text such as Japanese</a> 
+with this.
+<p>
+A simplistic superscript/subscript facility is provided.  While entering
+text, if <b>Ctrl-^</b> (control caret) is pressed, a new, smaller
+string is started above the baseline
+of the current string, which acts as a superscript.  
+Conversely, if <b>Ctrl-_</b>
+(control underscore) is typed, a new, smaller string is started below
+the baseline of the current string.  
+These may be nested to create super-superscripted or sub-subscripted text to
+four levels.
+<br>
+Here are some examples:
+<blockquote>
+<img src="images/super_subscript.png" alt="super/subscript example">
+</blockquote>
+There are several caveats:
+<dl>
+<dd><img src="images/blueballdot.png" align=bottom alt="-">
+Since separate strings are created each
+time a super- or sub-script is initiated,
+if you want to move them together,
+you must glue all the strings into a 
+<a href="editing.html#glue-compound">compound</a> first. 
+<dd><img src="images/blueballdot.png" align=bottom alt="-">
+Editing one of the
+strings may be problematic because the other strings will not move if
+characters are added or deleted to/from the string being edited.
+<dd><img src="images/blueballdot.png" align=bottom alt="-">
+This doesn't work for right justified or centered text.
+</dl>
+
+<p>
+<h3><a name="text_editing">Character Editing</a></h3>
+The following editing facilities are available:
+<br>
+<table >
+<tr><th><tt>&lt;Backspace&gt;</tt> or <tt>Control-H</tt><td>Delete a character to the
+left of the cursor.</tr>
+
+<tr><th><tt>&lt;DEL&gt;</tt> or <tt>Control-D</tt><td>Delete a character to the
+right of the cursor.</tr>
+
+<tr><th><tt>Control-X</tt><td>Delete all the characters to the left
+of the cursor.</tr>
+
+<tr><th><tt>Control-K</tt><td>Delete all the characters to the right
+of the cursor.</tr>
+
+<tr><th><tt>&lt;Home&gt;</tt> or <tt>Control-A</tt><td>Move cursor of the start of the
+text.</tr>
+
+<tr><th><tt>&lt;End&gt;</tt> or <tt>Control-E</tt><td>Move cursor of the end of the
+text.</tr>
+
+<tr><th><tt>&lt;Left&gt;</tt> or <tt>Control-B</tt><td>Move cursor left one
+character.</tr>
+
+<tr><th><tt>&lt;Right&gt;</tt> or <tt>Control-F</tt><td>Move cursor right one
+character.</tr>
+
+<tr><th><tt>&lt;Return&gt;</tt> or <tt>Control-M</tt><td>Finish entering the text and
+start entering text on the next line.<br>
+See also <a href="attributes.html#text-step">TEXT STEP</a>.</tr>
+
+<tr><th valign=top><tt>&lt;Paste&gt;</tt> or <tt>&lt;F18&gt;</tt><br>
+ or <tt>&lt;F20&gt;</tt><td>Paste text from the <i>PRIMARY cut
+ buffer</i> (cut/paste buffer of <b>xterm</b>).<br>
+ Selecting <i>Paste Text</i> from the 
+ <a href="main_menus.html#edit-menu"><i>Edit</i> menu</a> 
+ will also perform this function, as will <b>Shift+Mouse Button 2</b>.</tr>
+
+ <tr><th><tt>&lt;Compose&gt;</tt> or <tt>&lt;Alt&gt;</tt> or <tt>&lt;Meta&gt;</tt>
+ 		<td>This key is used to enter Latin-1 character
+	 such as `<img src="images/a-umlaut.png" alt="a umlaut">' or
+	 `<img src="images/c-cedilla.png" alt="c cedilla" align=top>'.<br>
+	 See also <a href="#compose-char">Latin-1 Characters</a>.</tr>
+ </table>
+
+<p>
+It is also possible to 
+<a href="miscellaneous.html#search-replace">search, replace</a>, 
+and <a href="miscellaneous.html#spell-check">spell-check</a> 
+all the text in the figure.
+
+<p>
+<dl>
+<dt><b>Related Attributes:</b>
+<dd><a href="attributes.html#depth">depth</a>,
+<a href="attributes.html#pen-color">pen color</a>,
+<a href="attributes.html#text-font">text font</a>,
+<a href="attributes.html#text-size">text size</a>,
+<a href="attributes.html#text-step">text step</a>,
+<a href="attributes.html#text-flags">text flags</a>,
+<a href="attributes.html#text-angle">text/ellipse angle</a>,
+<a href="attributes.html#text-justification">text justification</a>
+</dl>
+
+<hr>
+<dt>
+<img src="images/library-button.png" alt="">
+  <a name="library">(OBJECT LIBRARIES)</a>
+<dd>
+Pick objects from libraries to place on the canvas.
+<p>
+Clicking on this button will pop up a panel from which you may choose
+a library of <b>Fig</b> objects.  From there, you may select an object
+and place copies of it on the canvas by clicking
+on the canvas where you want it placed.
+<blockquote>
+  <img src="images/library-icon-view.png" alt="[Library Panel]">
+</blockquote>
+<p>
+In the panel there is a pull-down menu of the
+<a href="#availablelibraries">available libraries</a>.  
+Select one and the library will automatically be loaded.  The status window will show
+how many objects it contains after it loads the library,
+and the icons of the library objects will appear in a view box.
+Double clicking on an icon or single clicking and pressing the <b>Select Object</b>
+button will select that object and pop down the panel.
+<p>
+A diamond on the left side of the menu entry indicates that objects are at
+that level in addition to subdirectories:
+<img src="images/libpulldown.png" align=top>
+<br>
+The size of the icons may be chosen from a pulldown menu.
+The options are 40, 60, 80, 100 and 120 pixels.
+<p>
+As you move the mouse around the canvas you will see the object you
+chose from the library appear under the curser.  Simply click mouse
+button 1 (`place object') to place it anywhere on the canvas.
+This may be repeated for the same object.
+<p>
+If you wish to place the object at the position it was originally created, e.g. for 
+laser printer labels, hold down the <b>Shift</b> key and press mouse 
+button 3 (`place at orign posn') to place it.
+<p>
+There is an alternate list view of the library objects, which may be selected
+by choosing <b>List View</b> from the pulldown menu next the <b>View:</b> label.
+<blockquote>
+  <img src="images/library-list-view.png" alt="[Library Panel]">
+</blockquote>
+In this mode, you will see the object names in a list area.
+Single clicking on an object name will generate a preview in the 
+small canvas on the right.  After selecting the desired object, press
+`Select object' and the panel will pop down, or double-click on the 
+object name to perform the select and popdown in one step.
+<p>
+If the shift key is pressed when mouse button 1 (`place and edit')
+is clicked to place the object,
+the <a href="editing.html#edit-panel">Edit panel</a> is popped up
+so you may change any comments in the object.
+This allows customizing of comments in library objects.
+<p>
+The object may be rotated, flipped or scaled before placing it on the canvas
+by pressing <b>l</b> to rotate left, <b>r</b> to rotate right,
+<b>h</b> to flip horizonally, <b>v</b> to flip vertically, <b>s</b> to scale
+down by 0.9 and <b>S</b> to scale up by 1.1.
+<p>
+To choose another object from the library either click mouse button 2 (`new object') 
+or press the library button in the drawing mode panel again.
+<p>
+If you have a slow display or if the library object is complex, you may
+elect to have <b>xfig</b> show only the outline rectangle as you move the
+mouse around before placing the object.  To switch to this mode, press
+SHIFT and mouse button 2 (`change draw mode').
+You may toggle between drawing modes with this sequence.
+<p>
+To cancel the library placing mode, press mouse button 3 (`cancel library') 
+or any other drawing/editing mode button.
+</dl>
+
+<hr>
+
+<h2><a name="availablelibraries">Available Libraries of Fig Objects</a></h2>
+
+The <b>xfig</b> distribution comes with several libraries of <b>Fig</b> objects which
+you may use: 
+<dl>
+<dd><img src="images/redballdot.png" alt="-">
+Various 3D arrows
+<br>
+<dd><img src="images/redballdot.png" alt="-">
+Audiovisual components
+<br>
+<dd><img src="images/redballdot.png" alt="-">
+Some buildings
+<br>
+<dd><img src="images/redballdot.png" alt="-">
+Some charts (polar, log-log)
+<br>
+<dd><img src="images/redballdot.png" alt="-">
+Various computers
+<br>
+<dd><img src="images/redballdot.png" alt="-">
+DSP (Digital Signal Processor) components
+<br>
+<dd><img src="images/redballdot.png" alt="-">
+Electrical - electrical objects, e.g. connectors
+<br>
+<dd><img src="images/redballdot.png" alt="-">
+Electronic Physical - symbols for creating electronic wiring diagrams or layouts
+<br>
+<dd><img src="images/redballdot.png" alt="-">
+Electronic Schematic - symbols for creating electronic schematics
+<br>
+<dd><img src="images/redballdot.png" alt="-">
+ERD (Chen's model of Entity Relations)
+<br>
+<dd><img src="images/redballdot.png" alt="-">
+Examples - various examples of xfig drawings contributed by users
+<br>
+<dd><img src="images/redballdot.png" alt="-">
+Flags of various countries and some U.S. states
+<br>
+<dd><img src="images/redballdot.png" alt="-">
+Flowchart symbols
+<br>
+<dd><img src="images/redballdot.png" alt="-">
+GUI widgets (buttons, sliders, etc.)
+<br>
+<dd><img src="images/redballdot.png" alt="-">
+Hospital equipment
+<br>
+<dd><img src="images/redballdot.png" alt="-">
+Knitting symbols
+<br>
+<dd><img src="images/redballdot.png" alt="-">
+Various printer labels (CD, Avery address labels)
+<br>
+<dd><img src="images/redballdot.png" alt="-">
+Logic symbols
+<br>
+<dd><img src="images/redballdot.png" alt="-">
+Maps - outline maps of countries, U.S. states and Canadian provinces
+<br>
+<dd><img src="images/redballdot.png" alt="-">
+DIN Mechanical symbols
+<br>
+<dd><img src="images/redballdot.png" alt="-">
+Miscellaneous - various fun items here
+<br>
+<dd><img src="images/redballdot.png" alt="-">
+Music symbols
+<br>
+<dd><img src="images/redballdot.png" alt="-">
+Networking devices
+<br>
+<dd><img src="images/redballdot.png" alt="-">
+Office equipment - filing cabinet, telephone, overhead projector
+<br>
+<dd><img src="images/redballdot.png" alt="-">
+Optics symbols
+<br>
+<dd><img src="images/redballdot.png" alt="-">
+Process Flowsheet - chemical process flow symbols
+<br>
+<dd><img src="images/redballdot.png" alt="-">
+Structural Analysis symbols
+<br>
+<dd><img src="images/redballdot.png" alt="-">
+Unified Modelling Language (UML) symbols
+<br>
+<dd><img src="images/redballdot.png" alt="-">
+Welding - common welding patterns and errors
+</dl>
+
+<img src="images/exclaim.png" alt="">
+It is hoped that users will contribute Fig objects to the libraries to
+expand and enhance them for all <b>xfig</b> users.
+If you wish to contribute any Fig objects to existing or new libraries, please send
+them to me at <a href="mailto:bvsmith@lbl.gov">bvsmith@lbl.gov</a>.
+You may restrict their usage by users if you
+wish, but all will benefit if you allow free usage, i.e. copying, using them
+in published reports, etc.
+
+<h2><a name="makelibrary">Making Your Own Libraries of Fig Objects</a></h2>
+
+A library is simply a directory containing <b>Fig</b> files.
+There are two ways to create your own libraries in <b>xfig</b>;
+simply put all libraries in a directory,
+or use a text file which contains list of libraries.
+
+<h3>Method 1</h3>
+
+In the first method, you put all libraries
+(directories containing <b>Fig</b> files) in a directory.
+If you want use additional libraries in other directories
+(for example, libraries of somebody else),
+simply make a symbolic link to those directories
+in your library directory.
+<p>
+Then you can start <b>xfig</b> specifying
+your library directory with <tt>-library_dir</tt> option
+or <tt>Fig.library_dir</tt> resource.
+<b>xfig</b> scans the library directory
+and all libraries in the directory and any subdirectories will become available.
+<p>
+The default value of <tt>library_dir</tt> is
+&quot;<tt>$XFIGLIBDIR/Libraries</tt>&quot;, where libraries comes
+with <b>xfig</b> will be installed automatically
+when <a href="installation.html">installing <b>xfig</b></a>.
+So, you don't have to specify <tt>library_dir</tt> 
+if you want to use libraries comes with <b>xfig</b>.
+<p>
+This method is more versatile than the second method
+because you can add more directories in the top-level directory
+(or sub-directories) and there is no need to edit the file
+which contains list of libraries.
+<p>
+Using this method, the names of the libraries are
+simply the names of the directories;
+e.g.  if the resource &quot;<tt>Fig.library_dir: /xfig/Libraries</tt>&quot;
+is defined, the <tt>/xfig/Libraries/Flowchart</tt> directory
+will result in the library name &quot;Flowchart&quot;,
+and the <tt>/xfig/Libraries/Electrical/Physical</tt> directory
+will result in the library name &quot;Electrical - Physical&quot;.
+
+<h3>Method 2</h3>
+
+In the second method,
+you create a text file which contains list of libraries.
+Each line of the file contains the absolute path
+of the library (a directory containing <b>Fig</b> files)
+followed by the name of the library,
+which may be multiple words with whitespace.
+<p>
+And then you can start <b>xfig</b> specifying
+the file with <tt>-library_dir</tt> option
+or <tt>Fig.library_dir</tt> resource.
+<p>
+Here is an example of the file:
+<p>
+<pre>
+  /xfig/Libraries/Electrical/Logic    Electrical Parts (Logic)
+  /xfig/Libraries/Electrical/Analog   Electrical Parts (Analog)
+  /home/tim/lib/Flowchart             Tim's Flowchart Elements
+  /home/chim/xfig/Buildings           Computer Clipart
+</pre>
+<p>
+The advantage of this method is flexibility;
+you can easily put libraries in various directories
+into your list of libraries,
+and you can use any name for each library
+independent of the filenames.
+<p>
+N.B.: In both methods,
+any sub-directories (and their sub-directories) found with
+<tt>*.fig</tt> files in them will be included in the list.
+
+<h3>Limits</h3>
+
+There are some limits with the libraries.
+These limits are independent of the two methods used.
+<p>
+<dl>
+<dd><img src="images/redballdot.png" alt="-">
+Number of libraries:
+  at most 100
+<br>
+<dd><img src="images/redballdot.png" alt="-">
+Length of each library name:
+  at most 40 characters
+<br>
+<dd><img src="images/redballdot.png" alt="-">
+Number of objects in a library:
+  at most 400 (for each library)
+<br>
+<dd><img src="images/redballdot.png" alt="-">
+Length of each object name (filename of <b>Fig</b> files):
+  at most 40 characters
+</dl>
+
+<img src="images/blueramp.png" alt="-">
+
+<h2><FONT COLOR="#CC00AA"><img src="images/pict-info.png" alt="">
+<a name="spline">About Spline Curves</a></FONT></h2>
+
+A <i>Spline curve</i> is a smooth curve controlled by specified points.
+<p>
+Users may select from four types of spline curves on the
+<a href="drawing.html">Drawing Mode Panel</a> of <b>xfig</b>.
+It is also possible to change the type of spline curves using
+<a href="editing.html#spline-line">SPLINE &lt;-&gt; LINE</a>, 
+or adjust the shape of the curve by adjusting
+&quot;<a href="#xspline">shape factor</a>&quot; after curve has been created.
+<p>
+<dl>
+<dd><img src="images/blueballdot.png" align=bottom alt="-">
+<a href="#closed-approx-spline">CLOSED APPROXIMATED SPLINE</a><br>
+Smooth closed curve which approximates specified points.
+<br>
+<dd><img src="images/blueballdot.png" align=bottom alt="-">
+<a href="#approx-spline">OPEN APPROXIMATED SPLINE</a><br>
+Smooth curve which approximates specified points.
+<br>
+<dd><img src="images/blueballdot.png" align=bottom alt="-">
+<a href="#closed-interp-spline">CLOSED INTERPORATED SPLINE</a><br>
+Smooth closed curve which passes through specified points.
+<br>
+<dd><img src="images/blueballdot.png" align=bottom alt="-">
+<a href="#interp-spline">OPEN INTERPORATED SPLINE</a><br>
+Smooth curve which passes through specified points.
+</dl>
+
+<p>
+<blockquote>
+  <img src="images/spline-curves.png" alt="[Spline Curves]">
+</blockquote>
+
+<p>
+Using splines, curves such as the following may be easily drawn.
+<p>
+<blockquote>
+  <img src="images/spline-examples.png" alt="[Spline Example]">
+</blockquote>
+<p>
+
+<h2><a name="xspline"><img src="images/pict-info.png" alt="">About X-Splines</a></h2>
+
+<b>xfig</b>'s new
+<a href="authors.html#xspline">X-Spline</a>
+is bit more flexible.
+Each points (<i>control points</i>) of spline has `<i>shape factor</i>'
+and value of the <i>shape factor</i> controls
+behavior of the curve near the point.
+Value of <i>shape factor</i> can be changed independently
+using <a href="editing.html#edit-point">EDIT POINT</a>,
+and it is possible to mix approximated spline, interpolated spline
+and polyline in one continued curve.
+<p>
+<blockquote>
+  <img src="images/spline-sf-example.png" alt="[Spline - Shape Factor]">
+</blockquote>
+<p>
+Caveat: Because previous spline models (quadratic B-splines and Bezier
+with hidden points) are no longer supported per se, curves that are present
+in <b>xfig</b> version 3.1 and older files are automatically converted to X-splines.
+This translation is only an approximation process. It means that the
+converted curves may not be exactly the same as the original ones. Though
+they are usually very close, some hand-fitting may be needed in
+some pathological cases.
+
+<p>
+<img src="images/blueramp.png" alt="-">
+
+<h2><img src="images/pict-info.png" alt="">
+<a name="compose-char">Latin-1 and Symbol Characters (Compose Characters)</a></h2>
+
+In <a href="#text">TEXT</a> mode,
+the following Latin-1 glyphs may be entered using the COMPOSE (META) key.
+For example to enter `<img src="images/a-umlaut.png" alt="a umlaut">',
+press and release the COMPOSE key (or META or ALT key),
+enter the character `<tt>a</tt>',
+and then the character `<tt>&quot;</tt>' (double quote).
+To enter `<img src="images/c-cedilla.png" alt="c cedilla" align=top>',
+enter COMPOSE, `<tt>c</tt>' and `<tt>,</tt>'.
+<p>
+<blockquote>
+  <img src="images/latin1-chars.png" alt="[Latin-1 Charactors]"><br>
+  <i>Note</i>: glyphs <b>OE</b> and <b>oe</b> will not be displayed on the screen, because
+  they are not in the X11 font sets, but they will export and print to PostScript,
+  EPS, PDF and the bitmap formats.
+</blockquote>
+The following glyphs from the Symbol font may be entered in the same way:
+<blockquote>
+  <img src="images/symbol-chars-upper.png" alt="[Upper Symbol Charactors]"><br>
+</blockquote>
+<p>
+Here is the keyboard mapping for the lower set of glyphs from the Symbol font:
+<blockquote>
+  <img src="images/symbol-chars-lower.png" alt="[Lower Symbol Charactors]"><br>
+</blockquote>
+<p>
+Not all COMPOSE, META and ALT keys can be used on all systems.
+On some systems such as Sun Workstations, the META key may be labeled as
+<img src="images/sun-meta-key.png" alt="Diamond Mark">.
+<p>
+<img src="images/pict-i18n.png" alt="[I18N]"> 
+If <a href="i18n.html">international-<b>xfig</b></a> 
+is used in environments which use character set other than Latin-1 
+(Japanese or Korean, for example),
+it is not possible to use these Latin-1 glyphs
+when `<i>Times-Roman + Mincho</i>' or `<i>Times-Bold + Gothic</i>'
+is selected in <a href="attributes.html#text-font">TEXT FONT</a>.
+
+<p>
+<hr>
+
+[ <a href="contents.html">Contents</a> |
+ <a href="introduction.html">Introduction</a> |
+ <a href="authors.html">Credits</a> ]
+
+</body>
+</html>

@@ -1,0 +1,14 @@
+From: Roland Rosenfeld <roland@debian.org>
+Subject: Fix format string error with hardening.
+
+--- a/w_msgpanel.c
++++ b/w_msgpanel.c
+@@ -588,7 +588,7 @@
+ 
+     strcat(tmpstr,"\n");
+     if (update_figs) {
+-	fprintf(stderr,tmpstr);
++       fprintf(stderr, "%s", tmpstr);
+     } else {
+ 	/* append this message to the file message widget string */
+ 	block.firstPos = 0;

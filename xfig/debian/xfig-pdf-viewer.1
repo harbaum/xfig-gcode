@@ -1,0 +1,66 @@
+.\" Copyright (c) 1999-2014  Roland Rosenfeld <roland@spinnaker.de>
+.\"               
+.\" $Id: xfig-pdf-viewer.1,v 1.6 2014/05/13 16:04:34 roland Exp $
+.\"
+.\" This program is free software; you can redistribute it and/or modify
+.\" it under the terms of the GNU General Public License as published by
+.\" the Free Software Foundation; either version 2 of the License, or
+.\" (at your option) any later version.
+.\" 
+.\" This program is distributed in the hope that it will be useful,
+.\" but WITHOUT ANY WARRANTY; without even the implied warranty of
+.\" MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+.\" GNU General Public License for more details.
+.\" 
+.\" You should have received a copy of the GNU General Public License
+.\" along with this program; if not, write to the Free Software
+.\" Foundation, Inc., 675 Mass Ave, Cambridge, MA 02139, USA.
+.\"
+.TH XFIG-PDF-VIEWER 1 "MAY 2014" "Debian Project" "Debian Users Manual"
+.SH NAME
+xfig-pdf-viewer \- view a PDF document using a PDF browser under X11
+.SH SYNOPSIS
+.B xfig-pdf-viewer
+.I file.pdf
+.SH DESCRIPTION
+.B xfig-pdf-viewer
+is a little shell script, which tries to find out which PDF viewers
+you have installed on your system and then starts them.
+.B xfig-pdf-viewer
+tries the following PDF viewers with descending priority:
+.IP - 3
+.BR xpdf (1)
+.IP - 3
+.BR okular (1)
+.IP - 3
+.BR evince (1)
+.IP - 3
+.BR acroread (1)
+.IP - 3
+.BR ViewPDF (1)
+.IP - 3
+.BR gv (1)
+.IP - 3
+.BR zathura (1)
+.IP - 3
+.BR epdfviewer (1)
+.PP
+If the environment variable
+.B PDFVIEWER
+is set, this is used with highest priority.
+.PP
+.SH ENVIRONMENT
+.IP PDFVIEWER
+you can define your favorite browser with this variable, it overrides
+the priority of the above mentioned viewers.
+.SH AUTHOR
+Roland Rosenfeld <roland@spinnaker.de>
+.SH "SEE ALSO"
+.BR xpdf (1),
+.BR okular (1),
+.BR evince (1),
+.BR acroread (1),
+.BR ViewPDF (1),
+.BR gv (1),
+.BR zathura (1),
+.BR epdfviewerx (1)

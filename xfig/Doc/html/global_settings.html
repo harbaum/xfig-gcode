@@ -1,0 +1,220 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<html>
+<head>
+<title>Global Settings</title>
+</head>
+
+<body>
+<a href="contents.html"><img src="images/xfig-title.png"
+  alt="XFIG Users Manual" border=0></a>
+
+<hr>
+
+<h1><a name="global-settings">Global Settings</a></h1>
+
+<blockquote>
+  <img src="images/global-settings.png" alt="[Global Settings]">
+</blockquote>
+<p>
+This panel, which may be popped up with the <i>Global Settings</i> menu item 
+in the <a href="main_menus.html#edit-menu">Edit menu</a> 
+or the keyboard accelerator <TT>Meta-G</TT>,
+allows the user to change various settings in <b>xfig</b>. 
+
+<dl>
+
+<dt>
+<img src="images/blueballdot.png" align=bottom alt="-">
+Track mouse in rulers
+<dd>
+This option will cause <b>xfig</b> to show triangular pointers in the rulers
+which indicate where the mouse is pointing on the canvas.
+<br>
+The initial setting can be set by
+<a href="options.html#com-other">-track / -notrack</a> option
+or <a href="options.html#res-other">trackCursor</a> resource.
+
+<dt>
+<img src="images/blueballdot.png" align=bottom alt="-">
+Show depth manager
+<dd>
+Display or hide the depth manager panel on the right-side of the xfig window.
+See <a href="layers.html#depth_panel">Depth Panel</a> for details.
+
+<dt>
+<img src="images/blueballdot.png" align=bottom alt="-">
+Show page borders
+<dd>
+<b>Xfig</b> will draw a border on the canvas showing the size of the current page
+setting (see <A HREF="printing.html#export">Export</A>
+or <A HREF="printing.html#print">Print</A>) if this option is checked.
+<br>
+The initial setting can be set by
+<a href="options.html#com-other">-showpageborder / -dontshowpageborder</a> option
+or <a href="options.html#res-other">showpageborder</a> resource.
+
+<dt>
+<img src="images/blueballdot.png" align=bottom alt="-">
+Show info balloons. delay(ms)
+<dd>
+If this option is checked, <b>xfig</b> pops up a 
+<a href="miscellaneous.html#balloons">&quot;balloon&quot;</a> with information
+as the mouse passes over buttons or other areas of <b>xfig</b>. E.g.:
+<br>
+<img src="images/balloons-example.png" alt="[ Balloon message ]">
+<br>
+The delay tells <b>xfig</b> how long to wait (in milliseconds) after the mouse is positioned on
+an area before popping up the balloon.  The default is 500 ms.
+<br>
+The initial setting of <i>Show info balloon</i> can be set by
+<a href="options.html#res-other">showballoons</a> resource,
+and initial setting of <i>Delay (ms)</i> can be set by
+<a href="options.html#com-other">-balloons_delay</a> option
+or <a href="options.html#res-other">balloon_delay</a> resource.
+
+<dt>
+<img src="images/blueballdot.png" align=bottom alt="-">
+Show lengths on lines
+<dd>
+If this is checked, <b>xfig</b> will show the lengths of lines as
+they are being drawn, thus:
+<br>
+<img src="images/show-lengths.png" alt="[ Show length ]">
+<br>
+This option may also be turned on or off with the 
+<a href="options.html#showlengths">-showlength/-dontshowlength</a>
+command-line option or <a href="options.html#res-other">showlength</a> resource.
+
+<dt>
+<img src="images/blueballdot.png" align=bottom alt="-">
+Show vertex numbers
+<dd>
+If this is checked, <b>xfig</b> will show the number of each
+vertex of objects on the canvas thus:
+<br>
+<img src="images/show-vertex.png" alt="[ Show vertex ]">
+<br>
+For arcs, it also shows the center point.
+This is probably only useful for debugging of Fig files.
+This option may also be turned on or off with the 
+<a href="options.html#showvertex">-shownums/-dontshownums</a>
+command-line option or <a href="options.html#res-other">shownums</a> resource.
+
+<dt>
+<img src="images/blueballdot.png" align=bottom alt="-">
+Allow negative coords
+<dd>
+If checked (the default), <b>xfig</b> will allow panning to negative
+x and y coordinates.  This also turns off the query about shifting
+a figure with negative coordinates when loading a figure.
+<br>
+The initial setting can be set by
+<a href="options.html#com-modes">-allownegcoords / -dontallownegcoords</a>
+option or <a href="options.html#res-modes">allownegcoords</a> resouce.
+
+<dt>
+<img src="images/blueballdot.png" align=bottom alt="-">
+Draw axis lines
+<dd>
+If checked (the default), <b>xfig</b> will draw X and Y axis lines through
+0,0 on the canvas
+<br>
+The initial setting can be set by
+<a href="options.html#com-modes">-showaxislines / -dontshowaxislines</a> 
+option or <a href="options.html#res-modes">showaxislines</a> resource.
+
+<dt>
+<img src="images/blueballdot.png" align=bottom alt="-">
+Freehand drawing resolution
+<dd>
+When drawing either a polygon or polyline in freehand mode (middle mouse button),
+<b>xfig</b> uses this resolution to decide when the mouse has moved enough to be
+considered a new point in the polygon/line.
+The units are Fig units (1/1200 inch) and the default is 25 (roughly 0.02 inches or 0.53 mm).
+
+<dt>
+<img src="images/blueballdot.png" align=bottom alt="-">
+Recently used files
+<dd>
+This spinner entry lets the user set the number of recently used files that
+are kept in the <b>File</b> menu.  This is also updated in the user's <b>.xfigrc</b>
+file in the user's home directory, as are the file names themselves.
+
+<dt>
+<img src="images/blueballdot.png" align=bottom alt="-">
+Max image colors
+<dd>
+This sets the maximum number of colors <b>xfig</b> will attempt to use
+for <a href="drawing.html#picture">imported images</a>.
+<br>
+The default is <b>64</b> and may also be set with the
+<a href="options.html#max_image_colors">-max_image_colors</a>
+command-line option 
+or <a href="options.html#res-other">max_image_colors</a> resource.
+
+<dt>
+<img src="images/blueballdot.png" align=bottom alt="-">
+Image editor
+<dd>
+This is the external program used when the 
+<a href="editing.html#edit-pict-panel"><i>Edit Image</i> button</a> 
+is pressed in the import picture editor.  
+The default is <a href="http://www.trilon.com/xv/"><b>xv</b></a> .
+You may use this program to crop/rotate/change colors in etc. your 
+imported image.  When you exit from this program <b>xfig</b> will
+re-import the image.
+<br>
+The initial setting can be set by
+<a href="options.html#max_image_colors">-image_editor</a> option
+or <a href="options.html#res-other">image_editor</a> resource.
+
+<dt>
+<img src="images/blueballdot.png" align=bottom alt="-">
+Spelling checker
+<dd>
+This is the external spelling check program which will
+be called when you use the spell check feature in <b>xfig</b> 
+(<i>Spell Check...</i> in the <a href="main_menus.html#edit-menu">Edit menu</a>,
+or <tt>Meta-K</tt> accelerator).
+<br>
+The default is &quot;<tt>spell %f</tt>&quot;, 
+but it can be changed with 
+<a href="options.html#com-other">-spellcheckcommand</a> option
+or <a href="options.html#res-other">spellcheckcommand</a> resource.
+The <b>%f</b> is necessary to tell <b>xfig</b> to insert the
+filename into the spell command.
+
+<dt>
+<img src="images/blueballdot.png" align=bottom alt="-">
+HTML Browser
+<dd>
+This is the external web (HTML) browser that <b>xfig</b> will call to view help files.
+<br>
+The default is &quot;<tt>netscape -remote 'openFile(%f)' || netscape %f</tt>&quot;,
+it says to look for a running <b>Netscape</b> and open the pages in that.
+If none is running, a new one will start.
+The <b>%f</b> is necessary to tell <b>xfig</b> to insert the filename into the 
+browser command.
+This can be set by <a href="options.html#res-other">browser</a> resource.
+
+<dt>
+<img src="images/blueballdot.png" align=bottom alt="-">
+PDF Viewer
+<dd>
+This is the external PDF (Portable Document Format) viewer that <b>xfig</b> will 
+call to view the <b>xfig</b> tutorial.
+<br>
+The default is &quot;<tt>acroread %f</tt>&quot;,
+which will invoke <A HREF="http://www.adobe.com/"><b>Acrobat Reader</b></a>.
+The <b>%f</b> is necessary to tell <b>xfig</b> to insert the filename into the viewer command.
+This can be set by <a href="options.html#res-other">pdfviewer</a> resource.
+</dl>
+
+<hr>
+
+[ <a href="contents.html">Contents</a> |
+ <a href="introduction.html">Introduction</a> |
+ <a href="authors.html">Credits</a> ]
+
+</body>
+</html>

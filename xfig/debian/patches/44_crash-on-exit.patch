@@ -1,0 +1,17 @@
+From commit 56f0caaae3cc3fdbf6eaa21fc419c951c53a156d
+Author: Peter Volkov <peter.volkov@gmail.com>
+Date: Mon Jun 9 12:36:12 2014 +0400
+Origin: https://sources.gentoo.org/cgi-bin/viewvc.cgi/gentoo-x86/media-gfx/xfig/files/xfig-3.2.5c-crash-on-exit.patch?revision=1.1
+Subject: Fix crash on exit (regression of xfig.3.2.5c)
+
+--- a/u_free.c
++++ b/u_free.c
+@@ -270,8 +270,6 @@
+       XUnloadFont(tool_d, nf->fid);
+       if (nf->fstruct != NULL)
+ 	  XFreeFont(tool_d, nf->fstruct); 
+-      if (nf->fset != NULL)
+-	  XFreeFontSet(tool_d, nf->fset); 
+       nf = nf->next;
+     } 
+   }

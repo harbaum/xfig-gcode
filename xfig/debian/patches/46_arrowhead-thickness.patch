@@ -1,0 +1,18 @@
+Author: Hans de Goede <hdegoede@redhat.com>
+Date: Wed Jun 18 17:05:11 2014 +0200
+Subject: Fix crash when changing arrow size on x86_64 (rhbz#1046102)
+Origin: http://pkgs.fedoraproject.org/cgit/xfig.git/commit/xfig-3.2.5-rhbz1046102.patch?id=ba041598476a452115a89b7dedfc4ee3ee69ffc0
+Bug-Redhat: https://bugzilla.redhat.com/show_bug.cgi?id=1046102
+Bug-Debian: https://bugs.debian.org/774673
+
+--- a/w_indpanel.c
++++ b/w_indpanel.c
+@@ -1266,7 +1266,7 @@
+ set_arrow_size_state(Widget w, XtPointer closure, XtPointer call_data)
+ {
+     Boolean	    state;
+-    int		    which;
++    intptr_t	    which;
+     Pixel	    bg1, bg2, fg1, fg2;
+ 
+     /* check state of the toggle and set/remove checkmark */

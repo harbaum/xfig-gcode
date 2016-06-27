@@ -1,0 +1,14 @@
+From: Roland Rosenfeld <roland@debian.org>
+Subject: mention xfig-libs package, if no libraries are available.
+
+--- a/w_library.c
++++ b/w_library.c
+@@ -1365,7 +1365,7 @@
+     path = appres.library_dir;
+ 
+     if (stat(path, &st) != 0) {       /* no such file */
+-	file_msg("Can't find %s, no libraries available", path);
++	file_msg("Can't find %s, no libraries available, please install package xfig-libs", path);
+ 	return 0;
+     } else if (S_ISDIR(st.st_mode)) {
+ 	/* if it is directory, scan the sub-directories and search libraries */

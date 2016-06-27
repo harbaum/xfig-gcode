@@ -1,0 +1,269 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<html>
+<head>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=EUC-JP">
+<title>Panning, Zooming, Rulers and Units</title>
+<link rev="made" href="mailto:VEF00200@nifty.ne.jp">
+</head>
+
+<body>
+<a href="contents.html"><img src="../images/xfig-title.png"
+  alt="XFIG Users Manual" border=0></a>
+
+<h1>スクロール、ズーム、ルーラ、及び単位</h1>
+
+<ul>
+<li><a href="#scroll">キャンバスのスクロール</a>
+  <ul>
+  <li><a href="#rulers">ルーラー (目盛)</a>
+  <li><a href="#pan-by-key">キー操作によるスクロール</a>
+  <li><a href="#pan-to-origin">原点への移動</a>
+  <li><a href="#neg-coord">負の座標</a>
+  </ul>
+<li><a href="#zooming">ズーム</a>
+  <ul>
+  <li><a href="#zoom-fit">キャンバスに合わせたズーム</a>
+  <li><a href="#zoom-in">拡大 (Zoom in)</a>
+  <li><a href="#zoom-out">縮小 (Zoom out)</a>
+  <li><a href="#unzoom">ズームの解除 (Unzoom)</a>
+  </ul>
+<li><a href="#units">単位</a>
+  <ul>
+  <li><a href="#unit-box">UNIT ボックス</a>
+  <li><a href="#set-unit">寸法の単位の設定</a>
+  </ul>
+</ul>
+
+<p><hr>
+
+<h2><a name="scroll">キャンバスのスクロール</a></h2>
+
+<h3><a name="rulers">ルーラー (目盛)</a></h3>
+
+<blockquote>
+  <img src="../images/ruler.png" alt="[Ruler]">
+</blockquote>
+<p>
+ルーラーはキャンバスの上、及び右 
+(<a href="drawing.html">描画モード・パネル</a>が右側にある場合には左) 
+に置かれており、
+<a href="#unit-box">UNIT ボックス</a> で設定されている単位 
+(inch、もしくは cm) での目盛が付けられています。
+通常、この上にはカーソルの位置を示す三角形のマーカーも表示されます。
+ルーラーは、キャンバスの内容のスクロールなどのために用いることもできます。
+<p>
+キャンバスをスクロールするには、
+ルーラーの上でマウスボタン2 (`Drag') を押し、
+そのまま左右、もしくは上下にカーソルを移動させます。
+カーソルの動きに応じてルーラーが移動し、
+マウスボタンを離すとキャンバスの内容が移動させられます。
+この操作を SHIFT キーを押した状態で行なうと、
+カーソルを移動させた距離の5倍の距離のスクロールが行なわれます。
+<p>
+ルーラーをマウスボタン1 (`Pan Left'、もしくは `Pan Up')、
+もしくはマウスボタン3 (`Pan Right'、もしくは `Pan Down') でクリックすると、
+キャンバスの内容が指定された方向に 1/2 inch 
+(単位として cm が選択されている場合には 1cm) 
+づつスクロールします。
+それらの操作を SHIFT キーを押した状態で行なうと、
+スクロールの量が5倍になります。
+<p>
+<img src="../images/pict-new.png" alt="New">
+<b>xfig</b> が<a href="installation.html#wheelmouse">ホイール・マウス・サポート</a>
+を有効としてコンパイルされており、かつホイール・マウスを使っているならば、
+キャンバス上でホイールを回すことによってもキャンバスを上下にスクロールさせられます。
+
+<h3><a name="pan-by-key">キー操作によるスクロール</a></h3>
+
+キャンバスのスクロールは、
+マウス・カーソルがキャンバス上にある時に
+左、右、上、及び下の矢印キーを押すことによって行なうこともできます。
+これらの操作を SHIFT キーを押した状態で行なうと、
+スクロールの量が5倍になります。
+<p>
+これは、<a href="#rulers">ルーラー</a>をマウスボタン1、
+もしくは3でクリックすることによって行なうこともできます。
+
+<h3><a name="pan-to-origin">原点への移動</a></h3>
+
+<a href="#unit-box">UNIT ボックス</a> を
+マウスボタン1 (`Pan to Origin') でクリックするか、
+あるいは Control キーを押した状態で
+キャンバスの上でマウスボタン2 (`Pan to Origin') をクリックすると、
+キャンバスは原点に戻ります。
+<a href="main_menus.html#view-menu">View メニュー</a> から 
+<i>Pan to origin</i> を選択しても、同じ効果が得られます。
+
+<h3><a name="neg-coord">負の座標</a></h3>
+
+デフォルトでは、負の座標までスクロールできるようになっています。
+<p>
+これは、
+<a href="options.html#com-modes"><tt>-dont_allow_neg_coords</tt> オプション</a>、
+<a href="options.html#res-modes"><tt>allow_neg_coords</tt> リソース</a>、
+あるいは <a href="global_settings.html">Global Settings パネル</a> 
+の設定で禁止することができます。
+
+<p><hr>
+
+<h2><a name="zooming">ズーム</a></h2>
+
+<img src="../images/zoom-button.png" align="right" border=1 alt="">
+キャンバスの拡大/縮小は、<a href="attributes.html">属性パネル</a>の 
+<a href="attributes.html#zoom-scale">Zoom Scale</a> で
+拡大率を設定することによって行なうことができます。
+ここでは、拡大や縮小を素早く行なうためのいくつかの近道を説明します。
+
+<h3><a name="zoom-fit">キャンバスに合わせたズーム</a></h3>
+
+<ul>
+<li>図全体がキャンバスに表示されるようにズームするためには、
+<a href="main_menus.html#view-menu">View メニュー</a>から 
+<i>Zoom to Fit canvas</i> を選択するか、
+アクセラレータ <tt>Ctrl-Z</tt> を使用します。
+
+<p>
+<li><a href="attributes.html#zoom-scale">Zoom ダイアログ</a> の
+<i>Fit to canvas</i> ボタンも、これと同じ機能を持ちます。
+</ul>
+
+<h3><a name="zoom-in">拡大 (Zoom in)</a></h3>
+
+<ul>
+<li><a href="attributes.html">属性パネル</a>の 
+<a href="attributes.html#zoom-scale">Zoom Scale</a> を
+マウスボタン3 (`Inc/Next') でクリックする
+
+<p>
+<li><a href="main_menus.html#view-menu">View メニュー</a>から 
+<i>Zoom in</i> を選択するか、
+アクセラレータ <tt>Shift-Z</tt> を用いる
+
+<p>
+<li>キャンバス上で、
+CONTROL キーを押した状態でマウスボタン1 (`zoom area') をクリックすることによって
+拡大したい領域の1つの角を指定し、
+次にその対角でマウスボタン1 (`final point') を押すことにより、
+拡大したい領域を指定する
+
+<p>
+<li><img src="../images/pict-new.png" alt="New">
+<b>xfig</b> が<a href="installation.html#wheelmouse">ホイール・マウス・サポート</a>
+を有効としてコンパイルされており、かつホイール・マウスを使っているならば、
+キャンバス上の拡大したい点で CONTROL キーを押した状態でホイールを下に回す
+</ul>
+
+<h3><a name="zoom-out">縮小 (Zoom out)</a></h3>
+
+<ul>
+<li><a href="attributes.html">属性パネル</a>の 
+<a href="attributes.html#zoom-scale">Zoom Scale</a> を
+マウスボタン2 (`Dec/Prev') でクリックする
+
+<p>
+<li><a href="main_menus.html#view-menu">View メニュー</a>から 
+<i>Zoom out</i> を選択するか、
+アクセラレータ <tt>Z</tt> を用いる
+
+<p>
+<li><img src="../images/pict-new.png" alt="New">
+<b>xfig</b> が<a href="installation.html#wheelmouse">ホイール・マウス・サポート</a>
+を有効としてコンパイルされており、かつホイール・マウスを使っているならば、
+キャンバス上で CONTROL キーを押した状態でホイールを上に回す
+</ul>
+
+<h3><a name="unzoom">ズームの解除 (Unzoom)</a></h3>
+
+<ul>
+<li><a href="main_menus.html#view-menu">View メニュー</a>から 
+<i>Unzoom</i> を選択する
+
+<p>
+<li>キャンバス上で、
+CONTROL キーを押した状態でマウスボタン3 (`Unzoom') をクリックする
+</ul>
+
+<p><hr>
+
+<h2><a name="units">単位</a></h2>
+
+<h3><a name="unit-box">UNIT ボックス</a></h3>
+
+<blockquote>
+  <img src="../images/unit-box.png" alt="[Unit Box]">
+</blockquote>
+<p>
+UNIT ボックスは
+縦と横のルーラー (目盛) の交点にあるボックスです。
+ここには、ルーラーの単位 (<i>in</i>、もしくは <i>cm</i>)、
+及び描画のスケール (例えば 1cm=3km) が表示されています。
+
+<h3><a name="set-unit">寸法の単位の設定</a></h3>
+
+UNIT ボックスをマウスボタン3 (`Set Units/Scale')でクリックするか、
+<a href="main_menus.html#edit-menu">Edit メニュー</a> から 
+<i>Set unit...</i> を選択すると、
+単位の設定のためのポップアップ・パネルが開かれます。
+<p>
+<blockquote>
+  <img src="../images/unit-panel.png" alt="[Unit Panel]">
+</blockquote>
+
+<p>
+<dl>
+<dt><i>Ruler units</i>
+<dd><a href="#rulers">ルーラー</a>の目盛に用いる単位を、
+<i>Imperial (fraction)</i>、<i>Imperial (decimal)</i>、
+もしくは <i>Metric (cm)</i> のいずれかに設定します。
+<i>Imperial (fraction)</i> が選択されている場合、
+長さは ``3-5/8 in'' や ``3 ft 7-1/2 in'' のように分数で表示されます。
+他のものが選択されている場合には、
+``3.3242 cm'' のように小数の値が表示されます。
+
+<p>
+<dt><i>Figure units</i>
+<dd>オブジェクトの入力や編集に際しての寸法の表示に用いる単位を、
+<i>Ruler units</i>、及び <i>User defined</i> から選択します。
+ここで <i>User defined</i> を選択した場合には、
+<i>Unit Name</i> で設定された文字列が寸法の単位として表示されるようになります。
+
+<p>
+<dt><i>Unit name</i>
+<dd>単位の名称を設定します。
+これは、<i>Figure units</i> で <i>User defined</i> が
+選択されている場合に限って有効となります。
+
+<p>
+<dt><i>Figure scale</i>
+<dd>オブジェクトの入力や編集に際して寸法を表示する際に用いる倍率を、
+<i>Unity</i>、及び <i>User defined</i> から選択します。
+ここで <i>User defined</i> を選択した場合には、
+寸法の表示に際して <i>Scale factor</i> で設定された倍率が掛けられます。
+
+<p>
+<dt><i>Scale factor</i>
+<dd>寸法の表示に際して掛けるべき倍率を設定します。
+これは、<i>Figure scale</i> で <i>User defined</i> が
+選択されている場合に限って有効となります。
+</dl>
+<p>
+上のパネルの例では、<i>Ruler units</i> は <i>Imperial (fraction)</i>、
+<i>Figure units</i> は <i>User defined</i>、
+<i>Unit name</i> は ``<tt>ft</tt>'' (feet)、
+<i>Figure scale</i> は <i>User defined</i>、
+<i>Scale factor</i> は 2.0 であるので、
+描画に際しては 1 inch は 2 ft と、
+1-7/16 inch は 2 ft 10-1/2 in と報告されます。
+<p>
+これらの初期値は、<a href="options.html">コマンド行オプション</a>や
+<a href="options.html#resources">リソース</a>によって指定することができます。
+
+<p>
+<hr>
+
+[ <a href="contents.html">Contents</a> |
+ <a href="introduction.html">Introduction</a> |
+ <a href="authors.html">Credits</a> ]
+
+</body>
+</html>

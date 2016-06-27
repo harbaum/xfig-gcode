@@ -1,0 +1,878 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<html>
+<head>
+<title>FAQ</title>
+</head>
+
+<body>
+<a href="contents.html"><img src="images/xfig-title.png"
+  alt="XFIG Users Manual" border=0></a>
+
+<hr>
+
+<h1><font color="#dd0066">FAQ</font></h1>
+
+<!-- *********************************************** -->
+
+<h2><a name="faq-general">General Questions</a></h2>
+
+<ol>
+<li><a href="#get_xfig">Where can I get <b>xfig/TransFig</b>?</a>
+
+<p>
+<li><a href="#convert">Do I need to convert old <b>Fig</b> files to the new version?<br>
+(Also, can <b>xfig</b> and <b>fig2dev</b> read older <b>Fig</b> files?)</a>
+
+<p>
+<li><a href="#edit_eps">Can I edit PostScript files with <b>xfig</b>?</a>
+
+<p>
+<li><a href="#depth">I can't seem to control the drawing order of objects</a>
+
+<p>
+<li><a href="#splines">My splines are being changed somehow from version 3.1 of <b>xfig</b></a>
+
+<p>
+<li><a href="#install_pers">How can I install <b>xfig</b> in a personal directory?</a>
+
+<p>
+<li><a href="#mailing_list">Is there a mailing list or newsgroup specifically for <b>xfig</b>?</a>
+
+</ol>
+
+
+<!-- *********************************************** -->
+
+<h2><a name="faq-running">Problems when running <b>xfig</b> or <b>TransFig (fig2dev)</b></a></h2>
+
+<ol>
+<li><a href="#Xaw3Dlink">When I pull up a menu, <b>xfig</b> crashes</a>
+
+<p>
+<li><a href="#icons">Icons in the side and bottom panels appear then disappear</a>
+
+<p>
+<li><a href="#action">A warning about some action not found occurs,
+like &quot;Warning: Actions not found: ModeOpenCompound&quot;</a>
+
+<p>
+<li><a href="#xclip">An X error occurs with <tt>X_SetClipRectangles</tt> as the Request code,
+or thick line shows through arrowhead in certain orientations</a>
+
+<p>
+<li><a href="#latexfonts">When using LaTeX fonts in <b>xfig</b>
+I always end up with PostScript fonts</a>
+
+<p>
+<li><a href="#arc-boxes">Arc-boxes don't appear correctly
+when viewing an exported PostScript file with GhostScript</a>
+
+<p>
+<li><a href="#openw_icon">OpenWindows sometimes loses track of <b>xfig</b>'s icon</a>
+
+<p>
+<li><a href="#hp_cap">On HP machines, the capitalization of some letters
+in the edit text window are wrong</a>
+
+<p>
+<li><a href="#sol_opt">I get a ridiculous %%BoundingBox in my exported PostScript file</a>
+
+<p>
+<li><a href="#gs550_pattern_bug">Pattern fills are coming out all black when viewing
+the exported PostScript file with ghostscript 5.50</a>
+
+<p>
+<li><a href="#grafbase">I am exporting to the MetaFont format and the generated
+file refers to the &quot;grafbase.mf&quot; file which I don't have</a>
+
+<p>
+<li><a href="#pulldown">My pulldown menus don't work under CDE</a>
+
+<p>
+<li><a href="#mntext">I am getting get "mn" in my LaTeX text</a>
+
+<p>
+<li><a href="#gs700_pattern_bug">Pattern fills are going beyond the bounds of the polygons when I 
+export to EPS, GIF, etc., although they look fine on the screen</a>
+
+<p>
+<li><a href="#superclass">xfig says:
+	&quot;Warning: Representation size 4 must match superclass's to override underline&quot;</a>
+
+<p>
+<li><a href="#en_US">fig2dev says:
+	&quot;can't open file: /usr/X11R6/lib/X11/fig2dev/en_US.ps&quot; 
+	(or some other xx_xx.ps file)</a>
+<p>
+<li><a href="#XUSERFILESEARCHPATH">xfig won't find the app-defaults file in my personal directory
+even though I have set the <b>XAPPLRESDIR</b> environment variable</a>
+
+<p>
+<li><a href="#multi-key">I can't enter special characters such as a-umlaute in the popup
+		editor for text objects.</a>
+<p>
+<li><a href="#validator">When I enter values in the &quot;spinner&quot; widgets,
+the digits are entered in reverse order.</a>
+
+<p>
+<li><a href="#ogonek">LaTeX asks for missing macro \k <i><b>or</b></i> the ogonek diacritic mark
+isn't visible.</a>
+
+<p>
+<li><a href="#fonts">Text is positioned differently when exported than it is on the screen</a>
+
+<p>
+<li><a href="#fvwm">I cannot type anything into the popup dialogs in xfig when I use the fvwm window manager</a>
+
+<p>
+<li><a href="#arrow_scroll">When I start xfig I get the message: &quot;Warning: Actions not found: StartScroll&quot;</a>
+
+</ol>
+
+
+<!-- *********************************************** -->
+
+<h2><a name="faq-compile">Problems when compiling <b>xfig</b></a></h2>
+
+<ol>
+<li><a href="#alpha">On a DEC Alpha the compiler may complain about something 
+like &quot;.mask must have pcreg from .frame set if any bits are set in .mask or .fmask&quot;
+in the file <tt>u_bound.c</tt></a>
+
+<p>
+<li><a href="#xpointer"><tt>XPointer</tt> is undefined or unknown when 
+I compile <b>xfig</b></a>
+
+<p>
+<li><a href="#get_appl">On Sun machines the linker may give erroneous
+error messages about <tt>_get_applicationShellWidgetClass</tt> and 
+<tt>_get_wmShellWidgetClass</tt> are undefined</a>
+
+<p>
+<li><a href="#hp_bus">On some HP computers,
+the compiler dies with bus error in the file <tt>u_undo.c</tt></a>
+
+<p>
+<li><a href="#hp_opt">On some HP computers using native <tt>cc</tt> compiler
+there is a problem with +O3 optimization</a>
+
+<p>
+<li><a href="#jpeg_prob">I'm getting errors such as:</a>
+<blockquote>
+Unresolved:
+<br>
+jpeg_std_error
+<br>
+jpeg_create_decompress
+<br>
+jpeg_destroy_decompress
+<br>
+jpeg_stdio_src
+<br>
+and others.
+</blockquote>
+
+<p>
+<li><a href="#fontset">I am getting these errors when I am compiling <b>xfig</b>:</a>
+<blockquote>
+w_menuentry.c: In function `Redisplay':
+<br>
+w_menuentry.c:129: structure has no member named `fontset'
+<br>
+w_menuentry.c:143: structure has no member named `international'
+</blockquote>
+
+</ol>
+
+
+
+<img src="images/blueramp.png" alt="=========================">
+
+<!-- *********************************************** -->
+
+
+<h2><a name="faq-general">General Questions</a></h2>
+
+<ol>
+<li>
+<h3><a name="get_xfig">Where can I get <b>xfig/TransFig</b>?</a></h3>
+
+<b>xfig</b> and <b>TransFig</b> are <a href="authors.html#xfig">freeware</a>
+and you can get them from several sites.
+See <a href="installation.html#install-xfig">Installing <b>xfig</b></a> about this.
+<hr>
+
+<li>
+<h3><a name="convert">Do I need to convert old <b>Fig</b> files to the new version?</a></h3>
+
+No. Every version of <b>xfig</b> and <b>TransFig (fig2dev)</b> can read <b>Fig</b> files
+of any older version.  When you load one into <b>xfig</b> it converts
+it to the latest version.  When you save it again it is saved in
+that version.
+
+<hr>
+
+<li>
+<h3><a name="edit_eps">Can I edit PostScript files with <b>xfig</b>?</a></h3>
+
+No, but you can &quot;paint&quot; over them with <b>Fig</b> objects to add annotation or other objects.
+Or you can convert the PostScript file into the <b>Fig</b> format using
+<a href="installation.html#pstoedit"><b>pstoedit</b></a>
+and then edit the <b>Fig</b> file using <b>xfig</b> in the usual way.
+
+<hr>
+
+<li>
+<h3><a name="depth">I can't seem to control the drawing order of objects</a></h3>
+When you have two or more objects that overlap and the drawing order is
+important, you must set the <a href="attributes.html#depth"><i>depth</i></a>
+of each object to guarantee the drawing order.
+
+<hr>
+
+<li>
+<h3><a name="splines">My splines are being changed somehow from version 3.1 of
+ <b>xfig</b></a></h3>
+
+<b>xfig</b> 3.2 uses a new type of spline
+called an <a href="authors.html#xspline">X-Spline</a>.
+X-splines allow the user to mix interpolation and approximation
+points in the same curve. More precisely, it means that an X-spline curve
+is neither an interpolated spline nor an approximated one, it is BOTH
+(the behaviour of each point is controlled by one single parameter
+called &quot;shape factor&quot;).
+<p>
+<b>Caveat:</b> Because spline models of previous versions (quadratic B-splines
+and Bezier with hidden points) are no longer supported, curves that are
+present in version 3.1 and older files are automatically converted to
+X-splines. This translation is only an approximation process. It means
+that the converted curves are not exactly the same as the original ones.
+Though the translation usually provides almost identical curves, some
+hand-fitting may be needed in some pathological cases.
+
+<hr>
+
+<li>
+<h3><a name="install_pers">How can I install <b>xfig</b> in a personal 
+directory?</a></h3>
+
+There are several files that you need:
+<p>
+<dl>
+<dt><tt>xfig</tt>, <tt>fig2dev</tt>
+<dd>These files should be put in your command search path.
+
+<dt><tt>CompKeyDB</tt>
+<dd>Set the <tt>XFIGLIBDIR</tt> variable in the <tt>Imakefile</tt>
+to the directory you want this file to go into, or specify the file
+with resource &quot;<tt>Fig*keyFile: <i>your_lib_area</i>/CompKeyDB</tt>&quot;.
+
+<dt><tt>Doc/html</tt>
+<dd>You must copy this whole directory (and its sub-directory) to the directory
+where <tt>XFIGLIBDIR</tt> in the Imakefile points (use <tt>cp -r</tt>).
+
+<dt><tt>Doc/xfig-howto.pdf</tt> and <tt>Doc/xfig.pdf</tt>
+<dd>You must copy these two files to to the directory
+where <tt>XFIGLIBDIR</tt> in the Imakefile points.
+
+</dl>
+
+<hr>
+
+<li>
+<h3><a name="mailing_list">Is there a mailing list or newsgroup specifically for <b>xfig</b>?</a></h3>
+
+There are no mailing lists for <b>xfig</b>, but you may send email 
+to <a href="mailto:bvsmith@lbl.gov">bvsmith@lbl.gov</a>
+or post questions about it to 
+<a href="news:comp.windows.x">comp.windows.x</a>,
+<a href="news:comp.windows.x.apps">comp.windows.x.apps</a>,
+<a href="news:comp.os.linux.x">comp.os.linux.x</a>,
+<a href="news:comp.os.linux">comp.os.linux</a>,
+or
+<a href="news:comp.os.linux.misc">comp.os.linux.misc</a>.
+Questions about <b>TransFig</b> or <b>fig2dev</b> may also
+be posted to 
+<a href="news:comp.text.tex">comp.text.tex</a>.
+
+</ol>
+
+<img src="images/blueramp.png" alt="=========================">
+
+<!-- *********************************************** -->
+
+
+<h2><a name="faq-running">Problems when running <b>xfig</b> or
+<b>TransFig (fig2dev)</b></a></h2>
+
+<ol>
+
+<li>
+<h3><a name="Xaw3Dlink">When I pull up a menu, <b>xfig</b> crashes</a></h3>
+
+<dl>
+<dt>POSSIBLE CAUSE:
+<dd>Your version of the 3D Athena Widget Set may be incompatible
+
+<p>
+<dt>SOLUTION:
+<dd>If your vendor has installed the Xaw3D1.5E verison of the 3D Athena Widget set
+but has called it Xaw3D, then it is incompatible with <b>xfig</b>'s menu widget.
+Fix this by uncommenting the <b>#define XAW3D1_5E</b> line in the Imakefile (remove the "XCOMM")
+and recompiling <b>xfig</b>.  Be sure to do:
+<dl>
+<dd>xmkmf
+<dd>make clean
+<dd>make install
+</dl>
+</dl>
+
+<hr>
+
+<li>
+<h3><a name="icons">Icons in side and bottom panels appear then disappear</a></h3>
+
+<dl>
+<dt>POSSIBLE CAUSE:
+<dd>On Linux (2.0.29 at least), the libNextaw version of the Athena Widget
+set (libXaw) seem to cause this problem.
+
+<p>
+<dt>SOLUTION:
+<dd>Relink with vanilla libXaw or libXaw3d.
+</dl>
+
+<hr>
+
+<li>
+<h3><a name="action">A warning about some action not found occurs,
+like &quot;Warning: Actions not found: ModeOpenCompound&quot;</a></h3>
+
+<dl>
+<dt>POSSIBLE CAUSE:
+<dd>You didn't install the current app-defaults file.
+
+<p>
+<dt>SOLUTION:
+<dd>Install the app-default file (<tt>Fig.ad</tt>)
+which comes with the <b>xfig</b>.  
+<br>
+This is most easily done with &quot;<tt>make install</tt>&quot;.
+</dl>
+
+<hr>
+
+<li>
+<h3><a name="xclip">X error occurs with <tt>X_SetClipRectangles</tt> as the Request code,
+or thick line shows through arrowhead in certain orientations</a></h3>
+
+<dl>
+<dt>POSSIBLE CAUSE:
+<dd>In X11R5 Xlib, there was a bug in the clipping algorithm.
+
+<p>
+<dt>SOLUTION:
+<dd>Switch to X11R6 or apply the following patch to
+<tt>mit/lib/X/XPolyReg.c</tt> in the X11R5 library:
+
+<pre>
+*** XPolyReg.c.orig	Tue Dec 15 12:01:22 1992
+--- XPolyReg.c	Wed Nov 15 09:41:13 1995
+***************
+*** 402,408 ****
+  	    if (numRects &amp;&amp; pts-&gt;x == rects-&gt;x1 &amp;&amp; pts-&gt;y == rects-&gt;y2 &amp;&amp;
+  		pts[1].x == rects-&gt;x2 &amp;&amp;
+  		(numRects == 1 || rects[-1].y1 != rects-&gt;y1) &amp;&amp;
+! 		(!i || pts[2].y &gt; pts[1].y)) {
+  		rects-&gt;y2 = pts[1].y + 1;
+  		continue;
+  	    }
+--- 402,409 ----
+  	    if (numRects &amp;&amp; pts-&gt;x == rects-&gt;x1 &amp;&amp; pts-&gt;y == rects-&gt;y2 &amp;&amp;
+  		pts[1].x == rects-&gt;x2 &amp;&amp;
+  		(numRects == 1 || rects[-1].y1 != rects-&gt;y1) &amp;&amp;
+! 		/* Fixed version from X11 R6 */
+! 		(i &amp;&amp; pts[2].y &gt; pts[1].y)) {
+  		rects-&gt;y2 = pts[1].y + 1;
+  		continue;
+  	    }
+</pre>
+</dl>
+
+<hr>
+
+<li>
+<h3><a name="latexfonts">When using LaTeX fonts in <b>xfig</b>
+I always end up with PostScript fonts</a></h3>
+
+<dl>
+<dt>POSSIBLE CAUSE AND SOLUTION:
+<dd>To put fonts under the control of LaTeX when generating PostScript output,
+you must tag the text object as 
+&quot;<a href="attributes.html#text-flags">special</a>&quot; and then use
+<a href="printing.html#export">Combined PostScript/LaTeX</a> (pstex) 
+output mode.
+This mode forces special text objects to be passed through to LaTeX,
+allowing the use of Math mode and Computer Modern fonts among other things.
+</dl>
+
+<hr>
+
+<li>
+<h3><a name="arc-boxes">Arc-boxes don't appear correctly
+when viewing an exported PostScript file with GhostScript</a></h3>
+
+<dl>
+<dt>POSSIBLE CAUSE:
+<dd>Ghostscript version 4.01 has a bug with the <tt>arcto</tt> operators.
+
+<p>
+<dt>SOLUTION:
+<dd>Get <a href="installation.html#get_ghost">Ghostscript 4.03</a> or newer.
+</dl>
+
+<hr>
+
+<li>
+<h3><a name="openw_icon">OpenWindows sometimes loses track of <b>xfig</b>'s icon</a></h3>
+
+<dl>
+<dt>POSSIBLE CAUSE:
+<dd>Cause unknown.
+
+<p>
+<dt>SOLUTION:
+<dd>Here is a temporary kludge. Place the line:
+<p>
+<pre>
+  Fig*iconPixmap:  <i>your_lib_area</i>/fig.icon.X
+</pre>
+<p>
+in your <tt>.Xdefaults</tt> file and copy the file <tt>fig.icon.X</tt>
+into directory <tt><i>your_lib_area</i></tt>.
+</dl>
+
+<hr>
+
+<li>
+<h3><a name="hp_cap">On HP machines, the capitalization of some letters in the
+ edit text window are wrong</a></h3>
+
+<dl>
+<dt>POSSIBLE CAUSE AND SOLUTION:
+<dd>Make sure that the <tt>CompKeyDB</tt> file has the lowercase letter
+definitions <i>before</i> the uppercase definitions.
+This should be the case for the  <tt>CompKeyDB</tt> file
+shipped with <b>xfig</b> 2.1.5 and later.
+</dl>
+
+<hr>
+
+<li>
+<h3><a name="sol_opt">I get a ridiculous %%BoundingBox in my exported PostScript file</a></h3>
+<dl>
+<dt>POSSIBLE CAUSE AND SOLUTION:
+<dd>The Solaris cc compiler version 4.2 has a bug in the optimizer.  Recompile <b>fig2dev</b>
+with only <b>-O2</b> or <b>-O1</b> optimization.
+</dl>
+
+<hr>
+
+<li>
+<h3><a name="gs550_pattern_bug">Patterns are coming out all black when viewing
+the exported PostScript file with ghostscript 5.50</a></h3>
+<dl>
+<dt>POSSIBLE CAUSE AND SOLUTION:
+<dd>Ghostscript versions 5.10-5.50 have a bug which causes this to happen.
+<br>
+Get a newer version of Ghostscript.
+</dl>
+
+<hr>
+
+<li>
+<h3><a name="grafbase">I am exporting to the MetaFont format and the generated
+file refers to the &quot;grafbase.mf&quot; file which I don't have</a></h3>
+<dl>
+<dt>POSSIBLE CAUSE AND SOLUTION:
+<dd>The grafbase.mf file should be on your system if you have MetaFont, but if
+you don't have it you can get it from 
+<a href="ftp://ctan.tug.org/tex-archive/graphics/fig2mf/">
+ftp://ctan.tug.org/tex-archive/graphics/fig2mf/</a>
+</dl>
+
+<hr>
+
+<li>
+<h3><a name="pulldown">My pulldown menus don't work under CDE</a></h3>
+<dl>
+<dt>POSSIBLE CAUSE AND SOLUTION:
+<dd>Under CDE you must turn off the <b>Num Lock</b> and <b>Caps Lock</b> keys
+for the pulldown menus to work.
+</dl>
+
+<hr>
+
+<li>
+<h3><a name="mntext">I am getting get "mn" in my LaTeX text</a></h3>
+<dl>
+<dt>POSSIBLE CAUSE AND SOLUTION:
+<dd>
+The problem is in the \smash part of a command that was generated in
+the latex part of the export.  If the <tt>\mddefault</tt> and <tt>\updefault</tt> are
+not set up properly on your system you need to define them to do nothing.
+</dl>
+
+<hr>
+
+<li>
+<h3><a name="gs700_pattern_bug">Pattern fills are going beyond the bounds of the polygons when I 
+export to EPS, GIF, etc., although they look fine on the screen</a></h3>
+<dl>
+<dt>POSSIBLE CAUSE AND SOLUTION:
+<dd>Ghostscript versions 7.00 has a bug (#418928) which causes this to happen.
+<br>
+Get a newer version of Ghostscript.
+</dl>
+
+<hr>
+
+<li>
+<h3><a name="superclass">xfig says:
+	&quot;Warning: Representation size 4 must match superclass's to override underline&quot;</a>
+</h3>
+<dl>
+<dt>POSSIBLE CAUSE AND SOLUTION:
+<dd>The 3D menu widget (smeBSBObject) was used instead of the
+2D version or vice versa (check -DXAW3D in Imakefile/Makefile)
+<br>
+Don't mix the 2D and 3D widget libraries (Xaw and Xaw3d) and header files.
+</dl>
+
+<!-- ********************** -->
+<li>
+<h3><a name="en_US">fig2dev says:
+	&quot;can't open file: /usr/X11R6/lib/X11/fig2dev/en_US.ps&quot; 
+	(or some other xx_xx.ps file)</a>
+</h3>
+<dl>
+<dt>POSSIBLE CAUSE AND SOLUTION:
+<dd>This seems to happen only on RedHat systems.  I believe that they have
+enabled internationalization even when it shouldn't be, and it is looking
+for a non-existent font encoding file.
+<br>
+Download newer versions of xfig and transfig RPMs from RedHat.
+</dl>
+
+<!-- ********************** -->
+<li>
+<h3><a name="XUSERFILESEARCHPATH">
+	xfig won't find the app-defaults file in my personal directory
+	even though I have set the <b>XAPPLRESDIR</b> environment variable</a>
+</h3>
+<dl>
+<dt>POSSIBLE CAUSE AND SOLUTION:
+<dd>If you are using Sun's Openwindows X server you need to set a different 
+environment variable, <b>XUSERFILESEARCHPATH</b> to point to your personal
+app-defaults directory, and append a &quot;%N&quot; to the path, e.g. 
+<blockquote>
+<tt>setenv XUSERFILESEARCHPATH $HOME/app-defaults/<b>%N</b></tt>
+</blockquote>
+</dl>
+
+<!-- ********************** -->
+<li>
+<h3><a name="multi-key">I can't enter special characters such as a-umlaute in the popup
+		editor for text objects.</h3>
+<dl>
+<dt>POSSIBLE CAUSES AND SOLUTIONS:
+<dd>
+<ol>
+<li>
+The <b>CompKeyDB</b> file may not be installed.  This is the file that tells
+xfig how to handle the multi-key sequences to produce the Latin-1 characters
+such as 
+<IMG SRC="images/a-umlaut.png" ALT="a umlaut" >
+(a-umlaute), <IMG SRC="images/c-cedilla.png" ALT="c cedilla" align=top> 
+(c-cedilla), etc. You should do a <tt>make install</tt> to fully
+install xfig and its support files.
+<li>
+Your keyboard doesn't have a <b>&quot;Multi_key&quot;</b> key.  On some systems
+(e.g. Sun Sparcstations), there is a compose key or &quot;Multi_key&quot; which handles these sequences.
+If your keyboard doesn't have such a key you can remap another key (e.g. the &quot;Windows&quot;
+keys, known to the X server as <b>Super_L</b> and <b>Super_R</b> to the Multi_key using 
+the <b>xmodmap</b> program:
+<p>
+<tt>
+xmodmap -e &quot;keysym Super_L = Multi_key&quot;
+<br>
+xmodmap -e &quot;keysym Super_R = Multi_key&quot;
+</tt>
+</ol>
+</dl>
+
+<!-- ********************** -->
+<li>
+<h3><a name="validator">When I enter values in the &quot;spinner&quot; widgets,
+the digits are entered in reverse order.</h3>
+<dl>
+<dt>POSSIBLE CAUSE AND SOLUTION:
+<dd>
+There is a bug in the RedHat Xaw Athena widget set.  Any of the Xaw3d (3-D) Athena
+widget sets will work properly.
+Uncomment the  &quot;#define XAW3D&quot; line in the Imakefile and recompile xfig 
+according to the instructions in the <tt>README</tt> file.
+</dl>
+
+<!-- ********************** -->
+<li>
+<h3><a name="ogonek">LaTeX asks for missing macro \k <i><b>or</b></i> the ogonek diacritic mark
+isn't visible.</h3>
+<dl>
+<dt>POSSIBLE CAUSE AND SOLUTION:
+<dd>
+Define the macro <tt>\def\k#1{\c{#1}}</tt> before the <tt>\begin{document}</tt> directive
+in your LaTeX document.
+</dl>
+
+<!-- ********************** -->
+<li>
+<h3><a name="fonts">Text is positioned differently when exported than it is on the screen</h3>
+<dl>
+<dt>POSSIBLE CAUSE AND SOLUTION:
+<dd>
+Your X server (screen) fonts may not be the same as the PostScript fonts that fig2dev
+uses when exporting.  If you use the ghostscript fonts in your X server things will
+improve.  To do this, see 
+<a href="installation.html#install-ghostfonts">Installing Ghostscript's Type1 fonts under X.</a>
+</dl>
+
+<!-- ********************** -->
+<li>
+<h3><a name="fvwm">I cannot type anything into the popup dialogs in xfig when I use the fvwm window manager</h3>
+<dl>
+<dt>POSSIBLE CAUSE AND SOLUTION:
+<dd>
+There have been reports of this problem when using the fvwm window manager, possibly under Cygwin.
+Try mwm or twm or KDE.
+</dl>
+
+<!-- ********************** -->
+<li>
+<h3><a name="arrow_scroll">When I start xfig I get the message: &quot;Warning: Actions not found: StartScroll&quot;</h3>
+<dl>
+<dt>POSSIBLE CAUSE AND SOLUTION:
+<dd>
+When the Xaw or Xaw3d Athena widget sets are compiled with the <b><t>ARROW_SCROLLBAR</t></b> style of
+scrollbars there is no <t>StartScroll</t> action and you won't be able to scroll using the 
+wheel on the mouse.  
+If you want to be able to scroll using the wheel, you must recompile the Xaw library from 
+sources, disabling the <b><t>ARROW_SCROLLBAR</t></b> option.
+<br>
+From xfig version 3.2.5 on, it checks if this action exists and doesn't give the warning.
+</dl>
+
+</ol>
+
+<img src="images/blueramp.png" alt="=========================">
+
+<!-- *********************************************** -->
+
+
+<h2><a name="faq-compile">Problems when compiling <b>xfig</b></a></h2>
+
+<ol>
+
+<li>
+<h3><a name="alpha">On a DEC Alpha the compiler may complain about something 
+about something like &quot;.mask must have pcreg from .frame set if any 
+bits are set in .mask or .fmask&quot;
+in the file <tt>u_bound.c</tt></a></h3>
+
+<dl>
+<dt>POSSIBLE CAUSE AND SOLUTION:
+<dd>Set the optimization level to <tt>-O1</tt> at least for that file.
+</dl>
+
+<hr>
+
+<li>
+<h3><a name="xpointer"><tt>XPointer</tt> is undefined or unknown when 
+I compile <b>xfig</b></a></h3>
+
+<dl>
+<dt>POSSIBLE CAUSE:
+<dd>You are probably trying to compile <b>xfig</b> on an old OpenWindows
+system which doesn't have the <tt>XPointer</tt> typedef.
+
+<p>
+<dt>SOLUTION:
+<dd>You will have to either upgrade to a newer version of OpenWindows
+or switch to the public X server from the
+<a href="http://www.camb.opengroup.org/x/">Open Group</a>.
+</dl>
+
+<hr>
+
+<li>
+<h3><a name="get_appl">On Sun machines the linker may give erroneous 
+error messages about <tt>_get_applicationShellWidgetClass</tt> and 
+<tt>_get_wmShellWidgetClass</tt> are undefined</a></h3>
+
+<dl>
+<dt>POSSIBLE CAUSE:
+<dd>It is a problem with the Sun shared libraries
+and the way X11 builds the shared Xmu library.
+
+<p>
+<dt>SOLUTION:
+<dd>It doesn't affect the operation of <b>xfig</b> and you can ignore it.
+<p>
+Or you may compile with &quot;<tt>-Bstatic -lXmu -Bdynamic</tt>&quot;.
+<p>
+To really solve the problem if you are using OpenWindows 3.0
+(X11R4-based Xt), please contact your local Sun office and request the
+following patches:
+<p>
+<pre>
+     Patch i.d.      Description
+     100512-02       4.1.x OpenWindows 3.0 libXt Jumbo patch
+     100573-03       4.1.x OpenWindows 3.0 undefined symbols when using
+			     shared libXmu
+</pre>
+
+<p>
+A source patch for use with the MIT X11R4 libraries was developed by
+Conrad Kimball (cek@sdc.boeing.com); it retrofits into R4 some fixes
+made in R5 to get around this problem. The patch is on export in [1/93]
+<tt>contrib/X11R4_sunos4.1.2_patch_version3.Z</tt>.
+<p>
+The other option is to use X11R5 or X11R6.
+</dl>
+
+<hr>
+
+<li>
+<h3><a name="hp_bus">On some HP computers,
+the compiler dies with bus error in the file <tt>u_undo.c</tt></a></h3>
+
+<dl>
+<dt>POSSIBLE CAUSE:
+<dd>There is a bug in the HP compiler.
+This problem may occur on some HP computers,
+including HP 750 running HP-UX 8.05.
+
+<p>
+<dt>SOLUTION:
+<dd>Workaround the problem by adding
+an extra statement between two statements in <tt>u_undo.c</tt>:
+<p>
+<dl>
+<dt><font color="#dd0066">Original:</font>
+<dd>
+<pre>
+undo_glue()
+{
+    list_delete_compound(&amp;objects.compounds, saved_objects.compounds);
+    tail(&amp;objects, &amp;object_tails);
+
+</pre>
+
+<p>
+<dt><font color="#dd0066">New:</font>
+<dd>
+<pre>
+undo_glue()
+{
+    list_delete_compound(&amp;objects.compounds, saved_objects.compounds);
+&gt;&gt;&gt;	    /* HP-UX 8.05 compiler bug fix -- don't ask */
+&gt;&gt;&gt;	    last_action = last_action;
+    tail(&amp;objects, &amp;object_tails);
+</pre>
+</dl>
+</dl>
+
+<hr>
+
+<li>
+<h3><a name="hp_opt">On some HP computers using native <tt>cc</tt> compiler
+there is a problem with +O3 optimization</a></h3>
+
+<dl>
+<dt>SOLUTION:
+<dd>Use <tt>+O2</tt> instead of <tt>+O3</tt> or get patch from HP for the compiler;
+connect to http://support.mayfield.hp.com/ and choose
+<b>Patch Browsing and Downloading</b>.
+</dl>
+
+<hr>
+
+<li>
+<h3><a name="jpeg_prob">I'm getting errors such as</a></h3>
+<br>
+Unresolved:
+<br>
+jpeg_std_error
+<br>
+jpeg_create_decompress
+<br>
+jpeg_destroy_decompress
+<br>
+jpeg_stdio_src
+<br>
+and others.
+
+
+<dl>
+<dt>POSSIBLE CAUSE:
+<dd>On most Linux machines, there is an old version of the JPEG library
+already installed, and is incompatible with <b>xfig</b>.
+<b>xfig</b> can't use a JPEG library older than Version 5b.
+
+<p>
+<dt>SOLUTION:
+<dd>Delete its library files (usually <tt>/usr/local/lib/libjpeg.so</tt>
+and <tt>/usr/local/lib/libjpeg.a</tt>)
+and the header file (usually <tt>/usr/local/include/jpegdata.h</tt>).
+</dl>
+
+<hr>
+
+<li>
+<h3><a name="fontset">I am getting these errors when I am compiling <b>xfig</b>:</a></h3>
+<blockquote>
+w_menuentry.c: In function `Redisplay':
+<br>
+w_menuentry.c:129: structure has no member named `fontset'
+<br>
+w_menuentry.c:143: structure has no member named `international'
+</blockquote>
+
+<dl>
+<dt>POSSIBLE CAUSE:
+<dd>You probably have an old version of the 3D Athena Widget set (Xaw3d)
+which doesn't have the <tt>fontset</tt> and <tt>international</tt> components,
+but your Intrinsics library <b>does</b> have those components.
+
+<p>
+<dt>SOLUTION:
+<dd>Either get a newer version of the Xaw3d widgets from 
+<a href="ftp://ftp.x.org/contrib/widgets/Xaw3d">ftp://ftp.x.org/contrib/widgets/Xaw3d</a>
+or use your system's 2D Athena widgets (Xaw).
+The latter is acheived by:
+<br>
+1. commenting out the &quot;XAWLIB = -lXaw3d&quot; line in the Imakefile,
+<br>
+2. doing a &quot;rm w_menuentry.o&quot;,
+<br>
+3. &quot;make Makefile&quot; 
+<br>
+4. &quot;make&quot;
+<hr>
+
+[ <a href="contents.html">Contents</a> |
+ <a href="introduction.html">Introduction</a> |
+ <a href="authors.html">Credits</a> ]
+
+</body>
+</html>

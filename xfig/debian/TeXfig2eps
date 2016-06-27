@@ -1,0 +1,25 @@
+# With Xfig, it's possible to let TeX do the formatting of text in
+# the figure. To switch this on, select "Special flag = ON" in the
+# "Text Flags" section down in the middle when in "text-insert-mode"
+# (Or specify this flag in the "Edit" window), and then, to turn the
+# .fig file into an .eps file, you can use this file TeXfig2eps:
+#
+# make -f fig2eps myfile.eps
+#
+
+%.eps: %.fig
+	fig2dev -L pstex $< $*.pstex
+	fig2dev -L pstex_t -p $*.pstex $< $*.pstex_t
+	(echo '\documentclass{article}\pagestyle{empty} ';\
+	 echo '\usepackage{graphics,color}\begin{document} ';\
+	 cat $*.pstex_t;\
+	 echo ' \end{document}')>$*.tex
+	latex $*.tex
+	dvips -E -o $@ $*.dvi 
+	#
+	#Now I use a simple programme that tries to get the
+	#bounding box right, as dvips ajusts it to the TeX text only.
+	#(see dvips(1)). the bbtest below simply takes the "bb.ps"
+	#file available elsewhere, and feeds it through gs.
+	#bbtest $@
+

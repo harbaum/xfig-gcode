@@ -1,0 +1,863 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<HTML>
+<HEAD>
+<TITLE>Main Menus</TITLE>
+</HEAD>
+<BODY>
+<a href="contents.html"><img src="images/xfig-title.png"
+  alt="XFIG Users Manual" border=0></a>
+
+<HR>
+
+<H1>Main Menus</H1>
+
+The following menus are at the top of the <b>xfig</b> window.
+<P>
+<dl>
+<dt><img src="images/redball.png" align=bottom alt="-">
+<A HREF="#file-menu">File</A>: File menu
+
+<dt><img src="images/redball.png" align=bottom alt="-">
+<A HREF="#edit-menu">Edit</A>: Edit menu
+
+<dt><img src="images/redball.png" align=bottom alt="-">
+<A HREF="#view-menu">View</A>: View menu
+
+<dt><img src="images/redball.png" align=bottom alt="-">
+<A HREF="#snap-menu">Snap</A>: Snap menu
+
+<dt><img src="images/redball.png" align=bottom alt="-">
+<A HREF="#help-menu">Help</A>: Help menu
+
+</dl>
+
+<hr>
+<img src="images/file-accel.png" align=right alt="[ File menu ]">
+<H2><font color="blue"><A NAME="file-menu">File menu</A></font>
+</H2>
+
+<DL>
+<DT><img src="images/blueballdot.png" alt="-">
+<a name="new"><b>New</b></a>
+<DD>
+Delete all objects from the canvas and erase the current file name to make
+a new figure. The accelerator <TT>Meta-N</TT> will also perform this function.
+This operation may be undone by <A HREF="#undo">Undo</A>.
+
+<DT><img src="images/blueballdot.png" alt="-">
+<b>Open...</b>
+<dd>
+Popup panel to open a Fig file.
+See <A HREF="#file-panels">File Panels</A> for details.
+
+<DT><img src="images/blueballdot.png" alt="-">
+<b>Merge...</b>
+<dd>
+Popup panel to merge one or more Fig files with the current figure.
+See <A HREF="#file-panels">File Panels</A> for details.
+
+<DT><img src="images/blueballdot.png" alt="-">
+<b>Save</b>
+<dd>
+Save current figure in current filename.
+
+<DT><img src="images/blueballdot.png" alt="-">
+<b>Save As...</b>
+<dd>
+Popup panel to save current figure in new filename.
+See <A HREF="#file-panels">File Panels</A> for details.
+
+<DT><img src="images/blueballdot.png" alt="-">
+<b>Export...</b>
+<dd>
+Popup panel to export current figure to various formats such as 
+PostScript, GIF, etc.
+See <A HREF="printing.html#export">Exporting</A> for details.
+
+<DT><img src="images/blueballdot.png" alt="-">
+<b>Print...</b>
+<dd>
+Popup panel to print current figure to PostScript printer.
+See <A HREF="printing.html#print">Printing</A> for details.
+
+<DT><img src="images/blueballdot.png" alt="-">
+<a name="exit"><b>Exit</b></a>
+<dd>
+Exit from <B>xfig</B>. The accelerator <TT>Meta-Q</TT> will also perform
+this function. 
+
+<br>If the figure has been modified and not saved, a
+popup panel will appear to ask the user if he wants to save the figure
+first and then quit, quit without saving, or cancel the quit altogether.
+
+<br>If <B>xfig</B> is terminated with signals such as <I>HUP</I> or <I>INT</I>
+(for example, by the <TT>kill</TT> command or an internal error of <B>xfig</B>),
+<B>xfig</B> will try to save the figure in the <b>SAVE.fig</b> file.
+
+
+<DT><img src="images/blueballdot.png" alt="-">
+Recent file list (<b>1 2 3 4</b>)
+<dd>
+Below the <b>Exit</b> menu entry is a list of recently loaded
+<b>Fig</b> files.  The number of files in this list may be set in 
+the <b>.xfigrc</b> file in the user's login directory, or from the 
+<a href="global_settings.html">Global Settings</a> panel.
+The maximum number of file names saved is 9.
+</DL>
+
+<hr>
+<img src="images/edit-accel.png" align=right alt="[ Edit menu ]">
+<H2><font color="blue"><A NAME="edit-menu">Edit Menu</A></font>
+</H2>
+
+<DL>
+
+
+<DT><img src="images/blueballdot.png" alt="-">
+<a name="undo"><b>Undo</b></a>
+<dd>
+Undo the last operation such as object creation, deletion or modification.
+The accelerator <TT>Meta-U</TT> will also perform this function.
+
+<br>Multi-level undo is not supported. If <I>Undo</I> is clicked twice, it
+will revert the state before the first <I>undo</I>.
+
+
+<DT><img src="images/blueballdot.png" alt="-">
+<a name="paste"><b>Paste Objects</b></a>
+<dd>
+Paste the <b>Fig</b> object previously copied into the <b>xfig</b>
+<I>cut buffer</I> (see also <A HREF="editing.html#copy">COPY</A> 
+and <A HREF="editing.html#delete">DELETE</A>)
+into the current figure. The accelerator <TT>Meta-T</TT> will also perform
+this function.
+<br>
+The object will appear on the canvas under or near the mouse where
+it may then be moved and placed by pressing mouse button 1 (`place object').
+If you want to place it where it originally came from press
+mouse button 2 (`place at orig posn').
+
+<br>This function can be used to copy part of another figure into the figure
+being edited. The <I>cut buffer</I> can be shared between <B>xfig</B>s if a user
+runs two or more <B>xfig</B> programs at the same time, and it is possible
+to copy objects between those <B>xfig</B> programs. If you want to copy an
+entire figure from another file, you can <A HREF="#merge">merge</A> the file
+using <A HREF="#file-panels">File panel</A>.
+
+<br>Normally, the &quot;<TT>.xfig</TT>&quot; file in user's home directory is used
+as the <I>cut buffer</I>.
+
+<DT><img src="images/blueballdot.png" alt="-">
+<b>Paste Text</b>
+<dd>
+Paste text from the <b>X11</b> cut buffer onto the canvas where a text object
+has been started.  Note that you must already have started a text object
+by clicking the <a href="drawing.html#text">Text</a> mode and clicking on
+the canvas where you want the text pasted.
+The accelerators <TT>F18</TT> and <TT>F20</TT> will also perform this function.
+
+<DT><img src="images/blueballdot.png" alt="-">
+<b>Search/Replace...</b>
+<dd>
+Popup panel to search and/or replace strings in Fig text objects.
+The accelerator <TT>Meta-I</TT> will also perform this function.
+See <A HREF="miscellaneous.html#search-replace">Search and Replace Text</A> for details.
+
+<DT><img src="images/blueballdot.png" alt="-">
+<b>Spell Check...</b>
+<dd>
+Popup panel to check Fig text objects for spelling errors.
+The accelerator <TT>Meta-K</TT> will also perform this function.
+See <A HREF="miscellaneous.html#spell-check">Spell Check</A> for details.
+
+<DT><img src="images/blueballdot.png" alt="-">
+<b>Delete all</b>
+<dd>
+Delete all objects on the canvas.  Can be undone with <tt>Meta-U</tt> (Undo).
+
+<DT><img src="images/blueballdot.png" alt="-">
+<b>Global settings...</b>
+<dd>
+Popup panel showing global settings such as the HTML browser, spelling
+checker, mouse tracking in rulers, etc. 
+The accelerator <TT>Meta-G</TT> will also perform this function.
+See <A HREF="global_settings.html">Global Settings</A> for details.
+
+<DT><img src="images/blueballdot.png" alt="-">
+<b>Set units...</b>
+<dd>
+Popup the <a href="panning.html#units">unit panel</a>
+to change drawing/scaling units.  Right-clicking
+on the <b>unit</b> box in the upper-right corner of <b>xfig</b>
+will also perform this operation.
+
+</DL>
+
+<hr>
+<img src="images/view-accel.png" align=right alt="[ View menu ]">
+<H2><font color="blue"><A NAME="view-menu">View Menu</A></font>
+</H2>
+
+<DL>
+
+
+<DT><img src="images/blueballdot.png" alt="-">
+<b>Manage Styles...</b>
+<dd>
+Popup the Style Manager.  These are user-defined settings which can
+be named and saved.  For example you may have a group of settings called
+&quot;special lines&quot; which have predefined line styles and colors from which
+you can choose.
+See <a href="#manage-styles">Manage Styles...</a> for details.
+
+
+<DT><img src="images/blueballdot.png" alt="-">
+<b>Redraw</b>
+<dd>
+Redraw the canvas. The accelerators <TT>Meta-R</TT> and <TT>Ctrl-L</TT>
+will also perform this function.
+
+<DT><img src="images/blueballdot.png" alt="-">
+<a name="port-land"><b>Portrait/Landscape</b></a>
+<dd>
+Change the orientation of the <B>xfig</B> canvas between portrait and landscape.
+The orientation will also be used as the default orientation when 
+<A HREF="printing.html#export">Exporting</A>
+or <A HREF="printing.html#print">Printing</A> a figure.
+
+<br>The default orientation may be specified by <A HREF="options.html">command
+line options</A>. The orientation is automatically changed when <A HREF="#file">loading</A>
+a fig file to correspond to the setting in the file.
+
+<DT><img src="images/blueballdot.png" alt="-">
+<b>Zoom in</b>
+<dd>
+Zoom in on the canvas by a factor of two.  
+<TT>Shift-Z</TT> will also perform this function.
+See also <a href="panning.html#zooming">Zooming</a>.
+
+<DT><img src="images/blueballdot.png" alt="-">
+<b>Zoom out</b>
+<dd>
+Zoom in on the canvas by a factor of two.  
+A lowercase <TT>z</TT> will also perform this function.
+See also <a href="panning.html#zooming">Zooming</a>.
+
+<DT><img src="images/blueballdot.png" alt="-">
+<b>Zoom to Fit canvas</b>
+<dd>
+Zoom the figure so that it just fits in the canvas.
+<TT>Ctrl-Z</TT> will also perform this function.
+See also <a href="panning.html#zooming">Zooming</a>.
+
+<DT><img src="images/blueballdot.png" alt="-">
+<b>Pan to origin</b>
+<dd>
+Pan the canvas to the origin (0,0).
+See also <a href="panning.html#scroll">Panning the Canvas</a>.
+
+</dl>
+For the following, an asterisk (<b>*</b>) in the menu indicates 
+that the setting is turned on.
+
+<dl>
+
+<DT><img src="images/blueballdot.png" alt="-">
+<b>Show page borders</b>
+<dd>
+Turn on or off the drawing of the page borders on the canvas.
+If on, <b>xfig</b> draws a lightblue line (default) on the canvas where the page boundaries
+are and the name of the page size, for the currently selected page size
+The accelerator <TT>Meta-B</TT> will also perform this function.
+(see <A HREF="printing.html#export">Exporting</A> or
+<A HREF="printing.html#print">Printing</A> for page sizes supported).
+
+<DT><img src="images/blueballdot.png" alt="-">
+<b>Show depth manager</b>
+<dd>
+Show or hide the <a href="layers.html#depth-panel">depth manager panel</a> 
+to the right of the side ruler.
+See <A HREF="layers.html">Layers (Depths)</A> for details.
+
+<DT><img src="images/blueballdot.png" alt="-">
+<b>Show info balloons</b>
+<dd>
+Turn on or off displaying of 
+<a href="miscellaneous.html#balloons">information balloons</a>.
+These balloons popup after a small delay when the mouse is moved over
+a button or other areas of <b>xfig</b> with information about that item.
+The accelerator <TT>Meta-Y</TT> will also perform this function.
+<br>
+The popup delay may be set in the <A HREF="global_settings.html">Global Settings</A> panel.
+
+<DT><img src="images/blueballdot.png" alt="-">
+<b>Show line lengths</b>
+<dd>
+Turn on or off the display of line lengths as lines/circles/etc. are drawn.
+If on, <b>xfig</b> shows the lengths of lines as they are being drawn in red,
+near the lines themselves.
+The accelerator <TT>Meta-L</TT> will also perform this function.
+
+<DT><img src="images/blueballdot.png" alt="-">
+<b>Show vertex numbers</b>
+<dd>
+Turn on or off labelling of vertices of Fig objects.
+If on, <b>xfig</b> will label each vertex of objects on the canvas with their
+drawing order.  This is only useful for diagnostic purposes.
+
+</DL>
+
+<hr>
+
+<img src="images/snap-accel.png" align=right alt="[ Snap menu ]">
+<H2><font color="blue"><A NAME="snap-menu">Snap Menu</A></font>
+</H2>
+
+The Snap operations are used to snap the next point clicked by the user to some
+location on a selected object.  For example, after invoking the Endpoint snap
+mode, the next point clicked by the user will be used to identify the nearest
+object and then, if that object has some feature that can be reasonably
+interpreted as an "endpoint" the input point will be translated to that
+endpoint.  If the selected object has more than one endpoint, the one closest
+the initial point will be used.
+<p>
+Snaps can be used either in drawing mode, as described above, or in edit mode.
+You could, for example, move an ellipse such that one of its foci coincides
+wiith the midpoint of a polyline segment:
+<ol>
+<li>Select "Move"
+<li>Select "Focus" from the Snap pulldown.
+<li>Select the ellipse at some point on it near the focus.
+<li>Select "Midpoint" from the Snap pulldown.
+<li>Select the polyline segment.
+</ol>
+<p>
+The following is a list of the available snap modes.
+
+<DL>
+
+<DT><img src="images/blueballdot.png" alt="-">
+<b>Hold</b>
+<dd>
+Usually, the selected snap operation is automatically deselected immediiately
+after the the next point is clicked.  This button suppresses that behaviour,
+keeping the selected snap operation in effect until it is manually released
+with the Release button, q.v.  The Hold capability allows, e.g., the connection
+of a series of polyline vertices by another polyline.
+
+<DT><img src="images/blueballdot.png" alt="-">
+<b>Release</b>
+<dd>
+Releases a locked snap mode being retained by the Hold button, or cancels a
+snap operation after it's been selected.
+
+<DT><img src="images/blueballdot.png" alt="-">
+<b>Endpoint</b>
+<dd>Endpoint snap mode snaps the input point to some feature
+of the selected object that may be interpreted as an endpoint.  The feature
+selected depends on the type of object selected:
+
+<p>
+<dl>
+<DT><img src="images/blueballdot.png" alt="-">
+Polylines (including boxes and polygons):
+<dd>Snaps to the nearest vertex.
+
+<DT><img src="images/blueballdot.png" alt="-">
+Ellipses (not including circles):
+<dd>Snaps to the nearest endpoint.of any of the semi-axes.  (This is not
+relevant to circles.)
+
+<DT><img src="images/blueballdot.png" alt="-">
+Text
+<dd>Snaps to the nearest vertex of the bounding box.
+
+<DT><img src="images/blueballdot.png" alt="-">
+Arcs
+<dd>Snaps to the nearest of the three arc definition points.
+
+</dl>
+
+<DT><img src="images/blueballdot.png" alt="-">
+<b>Midpoint</b>
+<dd>Midpoint snap mode snaps the input point to some feature
+of the selected object that may be interpreted as a midpoint.  The feature
+selected depends on the type of object selected:
+
+<p>
+<dl>
+<DT><img src="images/blueballdot.png" alt="-">
+Polylines (including boxes and polygons):
+<dd>Snaps to the midpoint of the nearest polyline segment.
+
+<DT><img src="images/blueballdot.png" alt="-">
+Ellipses (including circles):
+<dd>Snaps to the centerpoint.
+
+<DT><img src="images/blueballdot.png" alt="-">
+Text
+<dd>Snaps to the midpoint of the nearest side of the bounding box.
+
+<DT><img src="images/blueballdot.png" alt="-">
+Arcs
+<dd>Snaps to the arc centerpoint.
+
+</dl>
+
+<DT><img src="images/blueballdot.png" alt="-">
+<b>Nearest</b>
+<dd>While a polyline is being drawn, this operation simply snaps to the nearest
+point on the nearest object.  This works for target polyline, circle/ellipse,
+text (the bounding box), and arc objects.
+
+<DT><img src="images/blueballdot.png" alt="-">
+<b>Focus</b>
+<dd>Focus snap mode snaps the input point to some feature
+of the selected object that may be interpreted as a focus.  The feature
+selected depends on the type of object selected:
+
+<p>
+<dl>
+<DT><img src="images/blueballdot.png" alt="-">
+Polylines (including boxes and polygons):
+<dd>Snaps to the unweighted centroid of the vertices.
+
+<DT><img src="images/blueballdot.png" alt="-">
+Ellipses (including circles):
+<dd>Snaps to the nearest ellipse focus, or to the centerpoint of circles. 
+
+<DT><img src="images/blueballdot.png" alt="-">
+Text
+<dd>Snaps to the centroid of the bounding box.
+
+<DT><img src="images/blueballdot.png" alt="-">
+Arcs
+<dd>Snaps to the arc centerpoint.
+
+</dl>
+
+<DT><img src="images/blueballdot.png" alt="-">
+<b>Diameter</b> <dd>While a polyline is being drawn, this operation snaps to a
+point such that the midpoint of the segment specified by that point and the
+"current" point is at the centerpoint of the selected object.  This works for
+all objects except splines.
+
+<DT><img src="images/blueballdot.png" alt="-">
+<b>Normal</b>
+<dd>While a polyline is being drawn, this operation snaps to a point on the
+selected object such that the segment from the "current" point to the object is
+perpendicular to the object.  If there are multiple possible normal points
+(like to the near and far sides of a circle), the snap is to the one closest to
+where the user clicked.  This works for target polyline, circle/ellipse, text
+(the bounding box), and arc objects.
+
+<DT><img src="images/blueballdot.png" alt="-">
+<b>Tangent</b>
+<dd>While a polyline is being drawn, this operation snaps to a point on the
+selected object such that the segment from the "current" point to the object is
+tangent to the object.  If there are multiple possible tangent points
+(like to the sides of a circle), the snap is to the one closest to
+where the user clicked.  This works for target circle/ellipse  and arc objects.
+
+<DT><img src="images/blueballdot.png" alt="-">
+<b>Intersection</b>
+<dd>Lets the user select a second object and snaps to the nearest intersection
+of the two objects.  Works between all combinations of circles, ellipses,
+polylines, and arcs except (yet) the case of two ellipses at different angles
+
+</dl>
+
+
+<hr>
+
+<img src="images/help-accel.png" align=right alt="[ Help menu ]">
+<H2><font color="blue"><A NAME="help-menu">Help Menu</A></font>
+</H2>
+
+<DL>
+
+
+<DT><img src="images/blueballdot.png" alt="-">
+<b>Xfig Reference (HTML)...</b>
+<dd>
+This starts up your web browser (resource <TT>Fig.browser</TT>, 
+default <i>netscape</i>) to view the main <b>xfig</b> reference manual.
+<DT><img src="images/blueballdot.png" alt="-">
+<b>Xfig Reference (PDF)...</b>
+<dd>
+These start up your PDF viewer (resource <TT>Fig.pdfviewer</TT>, 
+to view the PDF version of the reference manual.
+
+<DT><img src="images/blueballdot.png" alt="-">
+<b>How-To Guide (PDF)...</b>
+<dd>
+This starts up your PDF viewer (resource <TT>Fig.pdfviewer</TT>, 
+default <i>acroread</i>) to view the <b>xfig</b> tutorial, written by 
+Peter Hiscocks.
+
+<DT><img src="images/blueballdot.png" alt="-">
+<b>Man pages (PDF)...</b>
+<dd>
+This starts up your PDF viewer (resource <TT>Fig.pdfviewer</TT>, 
+default <i>acroread</i>) to view the <b>xfig</b> man pages.
+
+<DT><img src="images/blueballdot.png" alt="-">
+<b>About Xfig...</b>
+<dd>
+This pops up a window with the version and copyright information about <b>xfig</b>.
+<p><img src="images/xfighelp.png" align=bottom alt="[ About Xfig ]">
+</dl>
+
+
+<img src="images/blueramp.png" width=550 alt="-------------------------">
+
+<H2><font color="blue"><A NAME="file-panels">File Panels</A></font></H2>
+
+The file panels provide the facility to Load, SaveAs, or Merge Fig files.
+Use <A HREF="printing.html#export">Exporting</A>
+if you want to output figure with a format other than a <b>Fig</b> file, and use 
+<A HREF="drawing.html#picture">IMPORTING PICTURE OBJECTS</A> 
+if you want to insert image files into the figure.
+
+<dl compact>
+<DT><img src="images/redballdot.png" align=bottom alt="-">
+<dd>
+Choosing <I>Open...</I> from the <a href="#file-menu"><i>File</i> menu</a> 
+will pop up up the <b>Open Figure</b> panel.
+The accelerator <TT>Meta-O</TT> will also perform this function.
+
+<DT><img src="images/redballdot.png" align=bottom alt="-">
+<dd>
+Choosing <I>Merge...</I> from the <a href="#file-menu"><i>File</i> menu</a> 
+will pop up up the <b>Merge Figure</b> panel.
+The accelerator <TT>Meta-M</TT> will also perform this function.
+
+<DT><img src="images/redballdot.png" align=bottom alt="-">
+<dd>
+Choosing <I>Save As...</I> from the <a href="#file-menu"><i>File</i> menu</a> 
+will pop up up the <b>SaveAs</b> panel.
+The accelerator <TT>Meta-A</TT> will also perform this
+function.
+
+</dl>
+
+The panels look almost the same except for the bottom row
+of buttons, which reflect the operations like &quot;Open&quot;, &quot;Merge&quot; and &quot;Save&quot;:
+
+<BLOCKQUOTE><IMG SRC="images/file-panel.png" ALT="[File Panel]" >
+</BLOCKQUOTE>
+
+<DL>
+
+<DT><img src="images/redball.png" align=bottom alt="-">
+<I>File Status</I>
+
+<DD>
+This shows whether the current figure has been modified or not.
+
+
+<DT><img src="images/redball.png" align=bottom alt="-">
+<I># of Objects</I>
+
+<DD>
+This shows the number of Fig objects in the drawing.  A compound object with
+several objects inside is considered one object.
+
+
+<DT><img src="images/redball.png" align=bottom alt="-">
+<I>Figure Offset</I>
+
+<DD>
+Specify amounts of offset the figure should be shifted when loaded or merged.
+The figure will be shifted to right or down by the amounts specified here.
+It is also possible to shift figure to left or up by specifying negative
+values here. Unit of the amounts may be <I>Inches</I>, <I>Centimeters</I>,
+or <I>Fig Units (1/1200 inch in version 3.x)</I>.
+
+
+<DT><img src="images/redball.png" align=bottom alt="-">
+<a name="current-file"><I>Current File</I></a>
+
+<DD>
+The name of the current file is displayed here.
+This is updated if a different filename is entered in the <i>Filename</i> field,
+and that file is either loaded or saved.
+
+
+<DT><img src="images/redball.png" align=bottom alt="-">
+<I>Filename</I>
+
+<DD>
+Specify the name of file to be loaded or saved. If this field is empty,
+the file indicated at <I>Current File</I> will be accessed.
+<br>
+The file name in the <I>Filename</I> field may be changed by clicking
+a file name in <I>Fig Files</I> list, or by typing the file name
+on the keyboard . If <I>Return</I> is typed after the file name is entered,
+the file will be opened for the <I>Open</I> panel,
+or saved for the <I>SaveAs</I> panel, or merged for the <I>Merge</I> panel.
+
+
+<DT><img src="images/redball.png" align=bottom alt="-">
+<I>Fig Files</I>
+
+<DD>
+The files in the current directory matching the pattern specified by <I>Filename
+Mask</I> are displayed here, and users may select a file name from the list.
+<br>
+Clicking a file name in this list with mouse button 1 will copy the
+file name to <I>Filename</I> field. Double-clicking a file name in this list
+with mouse button 1 will open the file for the <I>Open</I> panel, or
+or save the file for the <I>SaveAs</I> panel, or merge the file
+for the <I>Merge</I> panel.
+
+
+<DT><img src="images/redball.png" align=bottom alt="-">
+<I>Filename Mask</I>
+
+<DD>
+Only the files which match this pattern will be listed in the <I>Fig Files</I>
+list. The pattern is similar to the one which is used in the UNIX shell,
+so it is possible to use meta-characters like &quot;<TT>*</TT>&quot; or &quot;<TT>?</TT>&quot;.
+In addition, multiple patterns separated by a space are allowed.
+<br>
+Typing <I>Return</I> in this field will cause a rescan of the current
+directory as if the <I>Rescan</I> button was clicked. The initial value
+of this string is &quot;<TT>*.fig *.fig.gz *.fig.[Zz]</TT>&quot;
+, which will show all <b>Fig</b> files
+including compressed files and backups,
+but it may be changed by the <TT>Fig*file_panel*mask*string</TT>
+resource if necessary.
+
+<DT><img src="images/redball.png" align=bottom alt="-">
+<I>Current Dir</I>
+
+<DD>
+This shows the current directory, and files in the directory will be displayed
+in the <I>Fig files</I> list.
+<br>
+The directory name in the <I>Current Dir</I> field may be changed
+by clicking a directory name in <I>Directories</I> list, or
+by typing the directory name on the keyboard. If <I>Return</I> is typed
+after the directory name is entered, the directory will scanned as if the
+<I>Rescan</I> button was clicked and the contents of <I>Fig Files</I>
+list will be updated.
+
+<DT><img src="images/redball.png" align=bottom alt="-">
+<I>Directories</I>
+
+<DD>
+List of directories in the current directory is displayed here, and clicking
+any item in this list with mouse button 1 will cause a move to the directory.
+Normally, <I>hidden directories</I> are not displayed here, but that may
+be toggled with the <I>Show Hidden</I> button.
+<br>
+&quot;<TT>..</TT>&quot; indicates the parent directory. Moving to the parent
+directory may also be performed by clicking mouse button 3 on the <I>File
+Alternatives</I> list or the <I>Directories</I> list.
+
+<DT><img src="images/redball.png" align=bottom alt="-">
+<I>Home</I>
+
+<DD>
+Clicking this button will move to the home directory of the user.
+
+<DT><img src="images/redball.png" align=bottom alt="-">
+<I>Show Hidden</I>
+
+<DD>
+This button controls whether <I>hidden directories</I> (directories whose
+name starts with &quot;<TT>.</TT>&quot;) are displayed or not. Clicking this button
+will toggle the state. By default, hidden directories are not displayed.
+
+<DT><img src="images/redball.png" align=bottom alt="-">
+<I>Rescan</I>
+
+<DD>
+Clicking this button will scan the files in the current directory and update
+the <I>Fig Files</I> list with those files whose names match the
+<I>Filename Mask</I>. The accelerator <TT>Meta-R</TT> will also perform
+this function.
+
+<DT><img src="images/redball.png" align=bottom alt="-">
+<I>Cancel</I>
+
+<DD>
+Clicking this button will close the File panel. The accelerator <TT>Meta-C</TT>
+or the <TT>Escape</TT> key will also perform this function.
+
+</dl>
+
+<font color = "blue">
+Only one of the following three buttons will appear, depending on the
+operation (Open, Merge, or Save): </font>
+
+<dl>
+
+<DT><img src="images/redball.png" align=bottom alt="-">
+<I>Open</I>
+
+<DD>
+Clicking this button will open the file specified by the <I>Filename</I> field.
+<br>
+Before opening the file, the figure on the canvas is cleared. If the
+figure on the canvas has been modified and not saved, a popup panel will
+appear and the user will be asked to save the current figure, discard it
+and open the new file or cancel the open of the new file altogether.
+<br>
+The figure will be shifted by the amounts specified by <I>Figure Offset</I>.
+<br>
+<B>xfig</B> can also read files compressed by <B>compress</B> 
+or <B><A HREF="installation.html#gzip">gzip</A></B>
+(files which have suffix <TT>.Z</TT>, <TT>.z</TT>, or <TT>.gz</TT>). Before
+opening a compressed file, the file will be uncompressed by <B>uncompress</B>
+or <B><A HREF="installation.html#gzip">gunzip</A></B>.
+<br>
+A newer version of <B>xfig</B> can always open <I>Fig</I> files created
+by older version of <B>xfig</B>, but the reverse is not true. When opening
+files of older format, <B>xfig</B> will notify the user in a popup message
+panel and will convert the file to the current version. There is no way
+to save a <b>Fig</b> file in an older version format.
+<br>
+<a name="new-xfig-process">In addition to the <b>Open</b> button</a>,
+a button labeled <b>New xfig...</b>
+allows the user to start another copy of <b>xfig</b> running on any file selected.
+This is a completely separate Unix process, but the two programs may communicate
+through the cut/paste feature.
+
+<p>
+<DT><img src="images/redball.png" align=bottom alt="-">
+<A NAME="merge"><I>Merge</I></A>
+
+<DD>
+Clicking this button will read the figure from the file specified by the
+<I>Filename</I> field and merge it with the figure on the canvas. 
+<br>
+As in <I>Open</I>, the figure will be shifted at the amounts specified
+by <I>Figure Offset</I>.
+
+<p>
+<DT><img src="images/redball.png" align=bottom alt="-">
+<I>Save</I>
+
+<DD>
+Clicking this button will save the figure to the file specified in the
+<I>Filename</I> field if any, or the file name in <I>Current File</I>
+otherwise.
+<br>
+When trying to save to an existing file other than <I>Current File</I>,
+a popup panel will appear and the user will be asked if he wants to save
+over that file.
+<br>
+Also, <I>Current File</I> is updated to reflect
+the new file name.
+<br>
+Before saving the file, the original file (if any) will be automatically
+renamed to the same name but with the suffix &quot;<TT>.bak</TT>&quot; to leave it as a
+backup file.
+
+</DL>
+
+<img src="images/blueramp.png" width=550 alt="-------------------------">
+
+<H2><font color="blue"><A NAME="manage-styles">Manage Styles...</A></font></H2>
+
+<img src="images/manage-styles.png" align=right alt="[Manage Styles]">
+<p>
+The style manager lets you save and load groups of  
+<a href="attributes.html">attributes</a> (e.g. line color, thickness,
+font size etc.) by name.  For example you may want a
+thick, dashed, red line style often, so using the style manager
+you could choose those attributes and
+save and recall them in a style called &quot;thickred&quot;.
+<p>
+When adding styles, only the attributes which are
+<a href="editing.html#update-control">selected for UPDATE</a>
+will be saved.
+<p>
+Also, you may have &quot;families&quot; of styles.  For example a family called &quot;lines&quot; may have 
+a collection of named styles for lines (e.g. color, thickness etc.) and a family called &quot;fonts&quot; may
+have a collection of named styles for fonts (e.g. font, size, color, etc.)
+<p>
+To use styles, when you popup the style manager (View/Manage Styles... or <tt>Control-Y</tt>),
+<b>xfig</b> automatically goes into update mode.  
+For styles already defined, choose the style family in the upper list
+and the style in that family from the lower list.  The update buttons will
+automatically be turned on for those attributes affected by the style
+and off for those not affected.  At this point, if you click on objects
+on the canvas they will be updated with those attributes.  Creating new
+objects will use those attribtes and the others shown in the attribute panel.
+<p>
+To create a new family, enter the name in the <b>Choice</b>
+entry under <b>Family</b> and press the <b>Add</b> button.
+<p>
+Now select the attributes that you want to be
+affected by your style (e.g. line color, thickness etc.) by turning on or off
+the red buttons in the upper-right corner of the attribute buttons
+(see <a href="editing.html#update">Update</a>), and setting the
+value of the attribute.
+Finally, enter the name of the style you want to create in the 
+<b>Choice</b> entry under <b>Style</b> and press the <b>Add</b> button.
+<p>
+There is a limit of 16 families and 30 styles in each.
+
+<dl>
+<DT><img src="images/redballdot.png" alt="-">
+<b>Family</b>
+<dd>Choose style family from this list.  A style family may have one 
+or more styles (described below).
+<dl>
+<DT><img src="images/redballdot.png" alt="-">
+<b>Choice</b>
+<dd>This shows the current family selection, or the user may enter a
+family name here and press enter to load it.
+<DT><img src="images/redballdot.png" alt="-">
+<b>Add</b>
+<dd>After entering a name in the <b>Choice</b> field above, press this button
+to add it to the list of style families.
+<DT><img src="images/redballdot.png" alt="-">
+<b>Delete</b>
+<dd>Delete the selected style family.
+</dl>
+
+<DT><img src="images/redballdot.png" alt="-">
+<b>Style</b>
+<dd>This shows the styles available in the above-chosen family. Click on a style entry
+to select it.
+<dl>
+<DT><img src="images/redballdot.png" alt="-">
+<b>Choice</b>
+<dd>This shows the current style selection, or the user may enter a
+style name here and press enter to load it.
+<DT><img src="images/redballdot.png" alt="-">
+<b>Add</b>
+<dd>After entering a name in the <b>Choice</b> field above, press this button
+to add it to the list of styles.
+<DT><img src="images/redballdot.png" alt="-">
+<b>Delete</b>
+<dd>Delete the selected style.
+</dl>
+
+<DT><img src="images/redballdot.png" alt="-">
+<b>Save settings</b>
+<dd>Save all the families and styles currently defined.
+To change an existing named style, first select it and delete it, then enter the
+name again, make the changes to the attribute panel and press &quot;Save settings&quot;.
+<DT><img src="images/redballdot.png" alt="-">
+<b>Reload settings</b>
+<dd>Reload the families and their styles, discarding any changes to the current listts.
+<DT><img src="images/redballdot.png" alt="-">
+<b>Close</b>
+<dd>Close the Style Manager panel.
+
+</dl>
+
+
+<HR>
+
+[ <a href="contents.html">Contents</a> |
+ <a href="introduction.html">Introduction</a> |
+ <a href="authors.html">Credits</a> ]
+
+</BODY>
+</HTML>

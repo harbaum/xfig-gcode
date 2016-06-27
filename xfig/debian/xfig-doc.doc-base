@@ -1,0 +1,12 @@
+Document: xfig-doc
+Title: XFIG Users Manual
+Author: T.Sato and Brian V. Smith 
+Abstract: This manual explains the interactive drawing tool xfig,
+ which runs under the X Window System. It explains how to start and
+ use xfig, helps you with some examples and informs you about the
+ technical issues of this program.
+Section: Graphics
+
+Format: html
+Index: /usr/share/doc/xfig/html/index.html
+Files: /usr/share/doc/xfig/html/*.html

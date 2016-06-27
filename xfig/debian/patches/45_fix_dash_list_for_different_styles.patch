@@ -1,0 +1,43 @@
+Author: Michal Srb <msrb@redhat.com>
+Date: Fri Jan 3 09:58:37 2014 +0100
+Subject: Fix crash when creating lines with linestyle 3
+ Resolves: rhbz#1023744 (Thanks to Maurizio Paolini and David Kaufmann)
+Origin: http://pkgs.fedoraproject.org/cgit/xfig.git/commit/40_fix_dash_list_for_different_styles.patch?id=0dee41b56424f903d39d68f860684ad19712ff85
+Bug-Redhat: https://bugzilla.redhat.com/show_bug.cgi?id=1023744
+Bug-Debian: https://bugs.debian.org/755492
+Bug-Ubuntu: https://bugs.launchpad.net/ubuntu/+source/xfig/+bug/1317825
+
+--- a/w_drawprim.c
++++ b/w_drawprim.c
+@@ -1292,14 +1292,23 @@
+ }
+ 
+ 
+-static unsigned char dash_list[16][2] = {{255, 255}, {255, 255},
+-					{255, 255}, {255, 255},
+-					{255, 255}, {255, 255},
+-					{255, 255}, {255, 255},
+-					{255, 255}, {255, 255},
+-					{255, 255}, {255, 255},
+-					{255, 255}, {255, 255},
+-					{255, 255}, {255, 255}};
++static unsigned char dash_list[16][8] = {
++		    {255, 255, 255, 255, 255, 255, 255, 255},
++		    {255, 255, 255, 255, 255, 255, 255, 255},
++		    {255, 255, 255, 255, 255, 255, 255, 255},
++		    {255, 255, 255, 255, 255, 255, 255, 255},
++		    {255, 255, 255, 255, 255, 255, 255, 255},
++		    {255, 255, 255, 255, 255, 255, 255, 255},
++		    {255, 255, 255, 255, 255, 255, 255, 255},
++		    {255, 255, 255, 255, 255, 255, 255, 255},
++		    {255, 255, 255, 255, 255, 255, 255, 255},
++		    {255, 255, 255, 255, 255, 255, 255, 255},
++		    {255, 255, 255, 255, 255, 255, 255, 255},
++		    {255, 255, 255, 255, 255, 255, 255, 255},
++		    {255, 255, 255, 255, 255, 255, 255, 255},
++		    {255, 255, 255, 255, 255, 255, 255, 255},
++		    {255, 255, 255, 255, 255, 255, 255, 255},
++		    {255, 255, 255, 255, 255, 255, 255, 255}};
+ 
+ static int join_styles[3] = { JoinMiter, JoinRound, JoinBevel };
+ static int cap_styles[3] = { CapButt, CapRound, CapProjecting };

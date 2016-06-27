@@ -1,0 +1,1 @@
+application/x-xfig; xfig %s; test=test -n "$DISPLAY"

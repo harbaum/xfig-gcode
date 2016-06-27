@@ -1,0 +1,174 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<HTML>
+<HEAD>
+<TITLE>Credits</TITLE>
+</HEAD>
+<BODY>
+<a href="contents.html"><img src="images/xfig-title.png"
+  alt="XFIG Users Manual" border=0></a>
+
+<HR>
+
+<H1><FONT color="#aa00aa">Credits</font></H1>
+
+<b>Xfig</b> was originally written by Supoj Sutanthavibul at the
+University of Texas at Austin in 1985 for SunView.
+Later, Ken Yap, at Rochester, New York, did the first port of <b>xfig</b> to X11.
+In 1989, Brian V. Smith picked it up and added features such as multiple
+fonts, line thickness, area fill etc.  Around 1991, Paul King
+at the University of Queensland, Australia added many features and
+overhauled the look
+and feel of <b>xfig</b> for version 2.0, to produce essentially what you see today.
+In 1992, Brian Boyter added the ability to import EPS files, and later it
+was expanded to import several other bitmap formats as well.
+Mr. Tom Sato from Japan added the 
+<a href="i18n.html">Japanese text support</a> 
+and the spell checker and search/replace feature in 1997.  He has added several
+other features mentioned in the 
+<a href="new_features.html">New Features</a> section
+and fixed several
+<a href="bugs_fixed.html">Bugs</a>.
+<p>
+<a href="http://epb.lbl.gov/BVSmith" target=_top>Brian V. Smith</a> 
+is the main contact for <b>xfig</b> and its incorporation of new
+features written either by himself or others.
+<p>
+There have been dozens of people who have contributed to the success 
+(and code) of <b>xfig</b>,
+and they are too numerous to mention here.  The man pages list some of those
+people.  See below for the major copyrights.
+
+<H2><FONT color="#aa00aa"><a name="copyright">Copyright/Permission Notices</a></font></H2>
+
+<H3><FONT color="#aa00aa"><A NAME="manual">This Documentation</A></font></H3>
+
+Copyright (c) 1998-2012 by <A HREF="mailto:VEF00200@nifty.ne.jp">Tom Sato</A>
+and <A HREF="http://epb.lbl.gov/BVSmith" target=_top>Brian V. Smith</A>
+
+<P>This documentation was first written in 
+<a href="japanese/introduction.html">Japanese</a>
+by Tom Sato, based on
+the manual pages distributed with <B>xfig</B>. It was then translated into
+English with the help of some kind people.
+Later, it was updated to conform to the latest version by Brian Smith.
+
+<p>Permission to use, copy and distribute this documentation for any purpose
+and without fee is hereby granted.
+Modification of this documentation is also granted as long as
+this copyright/permission notice remain intact and name of the person
+who made the modification is explicitly written in the documentation.
+However, contact with Tom Sato and/or Brian V. Smith is strongly recommended
+if you want to distribute modified version of this documentation.
+
+<p>You may also put these documentation files on your `public' WWW server.
+In such case, please send its URL to 
+<a href="mailto:bvsmith@lbl.gov">Brian V. Smith</a> or
+<a href="mailto:VEF00200@nifty.ne.jp">Tom Sato</a> 
+so that we can maintain a list of such WWW servers.
+
+<H3><FONT color="#aa00aa"><A NAME="xfig">Xfig</A></font></H3>
+
+<UL>
+<LI>Original Copyright (c) 1985 by <A HREF="mailto:supoj@nwg.nectec.or.th">
+Supoj Sutanthavibul</a>
+<BR>Parts Copyright (c) 1989-2012 by <A HREF="http://epb.lbl.gov/BVSmith">
+Brian V. Smith</A>
+<BR>Parts Copyright (c) 1991 by 
+<a href="http://www.dstc.edu.au/BDU/staff/paul-king.html">Paul King</a>
+<BR>Other Copyrights may be found in various files
+
+<p>
+<font size=3><b>Main Xfig copyright notice:</b></font>
+<p>
+Any party obtaining a copy of these files is granted, free of charge, a
+full and unrestricted irrevocable, world-wide, paid up, royalty-free,
+nonexclusive right and license to deal in this software and
+documentation files (the &quot;Software&quot;), including without limitation the
+rights to use, copy, modify, merge, publish and/or distribute copies of
+the Software, and to permit persons who receive copies from any such 
+party to do so, with the only requirement being that this copyright 
+notice remain intact.
+
+<P>No representations are made about the suitability of this software for any
+purpose. It is provided &quot;as is&quot; without express or implied warranty.
+
+<P>
+<LI>Parts Copyright (C) 1993 by Alan Richardson (mppa3@uk.ac.sussex.syma)
+<BR>
+The text rotation code in w_rottext.c was written by Alan Richardson.  The above
+copyright notice holds for this work as well.
+
+<P>
+<LI>Parts Copyright (c) 1994 by Anthony Dekker
+<BR>
+<A href="http://members.ozemail.com.au/~dekker/NEUQUANT.HTML">The Kohonen neural network</a>
+code for color optimization was written by Anthony Dekker.
+
+<P>
+<LI>Parts Copyright (c) 1995 by C. Blanc and C. Schlick
+<BR>
+<A name="xspline">The X-Spline</a> code was written 
+Carole Blanc (blanc@labri.u-bordeaux.fr)
+and Christophe Schlick (schlick@labri.u-bordeaux.fr) starting from an initial
+implementation done by C. Feuille, S. Grosbois, L. Maziere and L. Minihot as
+a student practice (Universite Bordeaux, France).
+For additional information about X-splines, see:
+<br>
+  &quot;X-Splines: A Spline Model Designed for the End User&quot;
+  by C. Blanc and C. Schlick, Proceedings of SIGGRAPH'95
+<a href="http://dept-info.labri.u-bordeaux.fr/~schlick/DOC/sig1.html">http://dept-info.labri.u-bordeaux.fr/~schlick/DOC/sig1.html</a>
+</UL>
+
+<H4><FONT COLOR="#AA00AA"><A NAME="gif-patent">About GIF Support</A></FONT></H4>
+<I>
+Because Unisys has stated that they WILL charge royalties for the
+use of the LZW compression algorithm even in FREE programs, I have
+removed all traces of the GIF LZW compression/decompression code from
+<b>xfig</b>.  <b>Xfig</b> now calls giftopnm and ppmtopcx to import GIF files.
+Screen capture writes a PNG file.
+Exporting is handled by calling the ppmtogif program from fig2dev.
+</I>
+
+
+<H2><A NAME="contact">Contact</A></H2>
+Please send any questions, bug fixes, contributions and any comments to
+following destinations.
+When reporting a bug, please first check if the problem is mentioned in
+the FAQ section of the HTML files (xfig Help menu).  
+<P>
+If it is not mentioned there, be sure to report the operating system you
+are using (e.g. SunOS 4.1.3), type of X server and version (OpenWindows 3, X11R6.4,
+XFree86 3.2.2, etc) and color depth (e.g. 8bpp, 16bpp), and most
+importantly the version of <b>xfig</b> or <b>fig2dev</b> that is having the problem.
+<P>
+It is also VERY useful to me if you can provide a stack trace from a debugger
+such as gdb, dbx, ups, etc.
+<P>
+<DL>
+<DT><img src="images/redball.png" align=bottom alt="-">
+About this manual or
+<B>xfig</B> and <B>TransFig</B> themselves (<I>except Japanese support facility</I>)
+<DD>
+--- <I><A HREF="mailto:bvsmith@lbl.gov">bvsmith@lbl.gov</A></I>
+(Brian V. Smith)
+
+<P>
+<DT><img src="images/redball.png" align=bottom alt="-">
+About <A HREF="i18n.html">Japanese support facility</A>
+<DD>
+--- <I><A HREF="mailto:VEF00200@nifty.ne.jp">VEF00200@nifty.ne.jp</A></I>
+(Tom Sato)
+</DL>
+<P>
+Japanese users can also send questions about <B>xfig</B> or <B>TransFig</B>
+to <I><A HREF="mailto:VEF00200@nifty.ne.jp">VEF00200@nifty.ne.jp</A></I>.
+
+<P>
+<HR>
+
+[ <a href="contents.html">Contents</a> |
+ <a href="introduction.html">Introduction</a> |
+ Credits ]
+
+</BODY>
+</HTML>
