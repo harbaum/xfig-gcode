@@ -208,7 +208,6 @@ int parse_cmd(int line, char *cmd) {
       
     case 21: // mm system
       system_scale = PPI/25.4/1.05;  // what is this 1.05?
-      print
       break;
 
     }
