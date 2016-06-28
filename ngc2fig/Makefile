@@ -5,7 +5,7 @@ APP = ngc2fig
 all: $(APP)
 
 $(APP): $(APP).c
-	gcc -Wall -o $@ $<
+	gcc -Wall -o $@ $< -lm
 
 install:
 	install $(APP) $(DESTDIR)/usr/bin

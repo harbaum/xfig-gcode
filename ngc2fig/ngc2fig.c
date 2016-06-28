@@ -85,19 +85,19 @@ void output_chain(void) {
       thickness = 1;
 
     printf("2 1 0 %d %d 7 %d -1 -1 0.000 1 1 -1 0 0 %d\n\t", thickness, color,
-	   50-((int)((chain.z*100.0*system_scale/PPI)+0.5)), chain.len+1);
+	   50-(int)roundf((chain.z*254.0*system_scale/PPI)), chain.len+1);
 
      /* output first point */
     printf(" %d %d", 
-	   (int) (0.5 + chain.first.x * system_scale), 
-	   (int) (0.5 + chain.first.y * system_scale));
+	   (int) roundf(chain.first.x * system_scale), 
+	   (int) roundf(chain.first.y * system_scale));
     
     /* output chain */
     pos = chain.pos; 
     while(pos) {
       printf(" %d %d", 
-	     (int) (0.5 + pos->x * system_scale), 
-	     (int) (0.5 + pos->y * system_scale));
+	     (int) roundf(pos->x * system_scale), 
+	     (int) roundf(pos->y * system_scale));
       
       pos = pos->next;
     }
@@ -174,15 +174,15 @@ int parse_cmd(int line, char *cmd) {
 
       printf("1 3 0 0 0 %d %d -1 20 0.000 1 0.0000 "
 	     "%d %d %d %d %d %d %d %d\n", color,
-	     50-((int)((z_pos*100.0*system_scale/PPI)+0.5)),
-	     (int) (0.5 + x_pos *  system_scale), 
-	     (int) (0.5 + y_pos * system_scale),
-	     (int) (0.5 + radius * -system_scale),
-	     (int) (0.5 + radius * -system_scale),
-	     (int) (0.5 + x_pos *  system_scale), 
-	     (int) (0.5 + y_pos * system_scale),
-	     (int) (0.5 + (x_pos + radius) *  system_scale), 
-	     (int) (0.5 + y_pos * system_scale)
+	     50-(int)roundf(z_pos*100.0*system_scale/PPI),
+	     (int) roundf(x_pos *  system_scale), 
+	     (int) roundf(y_pos * system_scale),
+	     (int) roundf(radius * -system_scale),
+	     (int) roundf(radius * -system_scale),
+	     (int) roundf(x_pos *  system_scale), 
+	     (int) roundf(y_pos * system_scale),
+	     (int) roundf((x_pos + radius) *  system_scale), 
+	     (int) roundf(y_pos * system_scale)
 	     );
       break;
 
@@ -382,7 +382,6 @@ int main(int argc, char **argv) {
 
   printf("Landscape\n");
   printf("Center\n");
-  // printf("Inches\n");
   printf("Metric\n");
   printf("Letter\n");
   printf("100.00\n");
