@@ -39,8 +39,7 @@ typedef struct {
 } chain_t;
 
 /* default is inch scale */
-// float system_scale = PPI/1000.0;
-float system_scale = PPI/1200.0;
+float system_scale = PPI/1000.0;
 
 #define MAX_TOOL 99
 float eagle_tool[MAX_TOOL+1];
