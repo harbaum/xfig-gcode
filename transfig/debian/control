@@ -12,7 +12,7 @@ Homepage: http://xfig.org/
 
 Package: transfig
 Architecture: any
-Depends: ${shlibs:Depends}, ${misc:Depends}, x11-common, gawk
+Depends: ${shlibs:Depends}, ${misc:Depends}, x11-common, gawk, libfreetype6-dev
 Recommends: netpbm (>= 2:10.0-4), ghostscript
 Suggests: xfig
 Multi-Arch: foreign
@@ -21,7 +21,7 @@ Description: Utilities for converting XFig figure files
  (Facility for Interactive Generation of figures) files.
  .
  It can convert them to box, cgm, epic, eepic, eepicemu, emf, eps,
- gif, ibmgl, jpeg, latex, map (HTML image map), mf (MetaFont), mp
+ gif, gcode, ibmgl, jpeg, latex, map (HTML image map), mf (MetaFont), mp
  (MetaPost), mmp (Multi-Meta-Post), pcx, pdf, pdftex, pdftex_t, pic,
  pictex, png, ppm, ps, pstex, pstex_t, ptk (Perl/tk), sld (AutoCad
  slide format), textyl, tiff, tk (Tcl/Tk), tpic, xbm and xpm.
