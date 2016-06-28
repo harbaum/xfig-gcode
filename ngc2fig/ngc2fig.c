@@ -39,7 +39,8 @@ typedef struct {
 } chain_t;
 
 /* default is inch scale */
-float system_scale = PPI/1000.0;
+// float system_scale = PPI/1000.0;
+float system_scale = PPI/1200.0;
 
 #define MAX_TOOL 99
 float eagle_tool[MAX_TOOL+1];
@@ -207,7 +208,8 @@ int parse_cmd(int line, char *cmd) {
       break;
       
     case 21: // mm system
-      system_scale = PPI/25.4;
+      system_scale = PPI/25.4/1.05;  // what is this 1.05?
+      print
       break;
 
     }
@@ -383,7 +385,7 @@ int main(int argc, char **argv) {
   printf("Landscape\n");
   printf("Center\n");
   printf("Metric\n");
-  printf("Letter\n");
+  printf("A4\n");
   printf("100.00\n");
   printf("Single\n");
   printf("-2\n");

@@ -758,8 +758,8 @@ void text_add_pos(ft_state_t *state, double x, double y) {
   /* ... scale, ... */
   /* TODO: try to actually calculate factor */
   /* 0.224 / pixel_size, take ppi+mag into account??? */
-  x *= state->t->size * 0.0035;  /* * (pxl size = 64) = 0.224 in xfig units */
-  y *= state->t->size * 0.0035;
+  x *= state->t->size / 248;  /* * (pxl size = 64) = 0.224 in xfig units */
+  y *= state->t->size / 248;
 
   /* ... shift, ... */
   if(state->t->type == T_CENTER_JUSTIFIED)
