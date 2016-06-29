@@ -85,7 +85,7 @@ void output_chain(void) {
       thickness = 1;
 
     printf("2 1 0 %d %d 7 %d -1 -1 0.000 1 1 -1 0 0 %d\n\t", thickness, color,
-	   50-(int)roundf((chain.z*254.0*system_scale/PPI)), chain.len+1);
+	   50-(int)roundf((chain.z*25.4*system_scale/PPI)), chain.len+1);
 
      /* output first point */
     printf(" %d %d", 
